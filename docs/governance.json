@@ -65,9 +65,19 @@
     },
     "docs/DESIGN.md": {
       "required_headings": [
-        "# CuriousNext design guidance",
-        "## Experience principles",
-        "## Accessibility and language"
+        "# CuriousNext design system",
+        "## Status and reference provenance",
+        "## Design intent",
+        "## Colour tokens",
+        "## Typography",
+        "## Layout and spacing",
+        "## Navigation and screen composition",
+        "## Component vocabulary",
+        "## Editorial brand treatments",
+        "## Illustration and visual teaching",
+        "## Language and accessible presentation",
+        "## Motion, states and copy",
+        "## Implementation and design validation"
       ]
     },
     "docs/FRONTEND.md": {
