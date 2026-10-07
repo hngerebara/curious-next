@@ -6,6 +6,7 @@
 |---|---|---|
 | M0 | completed | Governance documents, local checker and regression tests. Validation commands recorded below. |
 | M1 | pending | No stack selected, reference and rubric review pending. |
+| M1.5 | pending | Design system and screen behavior specified, actual wireframes/mockups not created or reviewed. |
 | M2 | pending | No application screens or learner journeys implemented. |
 | M3 | pending | Logical contracts only, no runtime persistence or model integration. |
 | M4 | pending | Misconception/recall/transfer specifications only. |
@@ -36,7 +37,7 @@ Origin is configured as https://github.com/hngerebara/curious-next.git. Remote i
 
 ## Design specification slice
 
-2026-10-07: expanded docs/DESIGN.md with focused workspace layout concepts, proposed CuriousNext tokens, screen/component guidance and accessible multilingual presentation. The supplied Curious Tech Girl skill package was subsequently read and its visual example inspected. Brand paper/ink/lime/lavender tokens replace the provisional provisional palette. App adaptations remain explicit, with no copied portraits or artwork. No rendered UI validation is claimed. Repository checks and regression tests are required for this slice.
+2026-10-07: expanded docs/DESIGN.md with focused workspace layout concepts, proposed CuriousNext tokens, screen/component guidance and accessible multilingual presentation. The supplied Curious Tech Girl skill package was subsequently read and its visual example inspected. Brand paper/ink/lime/lavender tokens replace the provisional palette. App adaptations remain explicit, with no copied portraits or artwork. No rendered UI validation is claimed. Repository checks and regression tests are required for this slice.
 
 ## Foundation specification slice
 
@@ -45,3 +46,7 @@ Origin is configured as https://github.com/hngerebara/curious-next.git. Remote i
 ## PR quality workflow
 
 2026-10-07: adopted five-section PR descriptions, 50-character title limit, and content/readability/faithfulness review criteria. Added metadata validation and tests. Existing PR descriptions updated to the same structure. No merge is authorised.
+
+## Screen design milestone
+
+2026-10-07: added M1.5 between architecture and screen implementation. Desktop/mobile flows, detailed reference-task screens, alternate/error states, accessible representations and design review are required before M2. No mockups or completed design review are claimed.

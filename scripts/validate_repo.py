@@ -93,8 +93,8 @@ def validate(root, refresh=False, base=None):
                     errors.append(f'{name}: missing anchor {link}')
     plan = (root / 'Plans.md').read_text()
     status = (root / 'Documentation.md').read_text()
-    plan_ids = set(re.findall(r'^\| (M\d+) \|', plan, re.M))
-    status_rows = re.findall(r'^\| (M\d+) \| (pending|in_progress|completed|blocked) \| (.+) \|$', status, re.M)
+    plan_ids = set(re.findall(r'^\| (M\d+(?:\.\d+)?) \|', plan, re.M))
+    status_rows = re.findall(r'^\| (M\d+(?:\.\d+)?) \| (pending|in_progress|completed|blocked) \| (.+) \|$', status, re.M)
     if plan_ids != {row[0] for row in status_rows} or len(status_rows) != len(plan_ids):
         errors.append('milestone status rows must match plan IDs exactly')
     for milestone, state, evidence in status_rows:
