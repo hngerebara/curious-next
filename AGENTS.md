@@ -17,3 +17,5 @@ Run `python3 scripts/validate_repo.py` and `python3 -m unittest discover -s test
 - Document ownership: [authoritative homes](docs/design-docs/document-ownership.md)
 
 After each slice: test, review and fix, create/update and attach a PR. Leave it open. Never merge or enable auto-merge. See engineering.md for the full workflow.
+
+Entry: [README](README.md). Detailed journeys: [user flows](docs/product-specs/user-flows.md). Trust and learning boundaries: [security](docs/design-docs/security.md), [domain](docs/design-docs/domain-model.md).

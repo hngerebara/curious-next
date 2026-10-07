@@ -11,3 +11,6 @@
 [Product specs](../product-specs/index.md), [execution plans](../exec-plans/index.md).
 
 - [Document ownership](document-ownership.md)
+
+- [Domain model](domain-model.md)
+- [Security](security.md)

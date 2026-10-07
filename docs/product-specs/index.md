@@ -8,3 +8,5 @@
 [Design documents](../design-docs/index.md), [execution plans](../exec-plans/index.md).
 
 Learning content: [curriculum index](../curriculum/index.md).
+
+- [Complete user flows](user-flows.md)
