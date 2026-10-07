@@ -34,7 +34,8 @@
         "## Slice PR publication",
         "## Design specification slice",
         "## Foundation specification slice",
-        "## PR quality workflow"
+        "## PR quality workflow",
+        "## Screen design milestone"
       ]
     },
     "Implement.md": {
@@ -317,6 +318,14 @@
         "# Reference index",
         "## Current references",
         "## Future reference snapshots"
+      ]
+    },
+    "docs/exec-plans/active/screen-design.md": {
+      "required_headings": [
+        "# CN-DESIGN-001: Screen design",
+        "## Plan lifecycle",
+        "## Deliverables",
+        "## Review and validation"
       ]
     }
   },
