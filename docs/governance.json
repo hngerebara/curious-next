@@ -342,9 +342,9 @@
     },
     "docs/design-docs/decisions/002-neon-pilot-stack.md": {
       "required_headings": [
-        "# ADR-002: Neon pilot stack proposal",
+        "# ADR-002: Accepted Neon pilot stack",
         "## Status",
-        "## Decision proposal",
+        "## Decision",
         "## Authentication adoption conditions",
         "## Architecture and implementation gate",
         "## Consequences and acceptance",

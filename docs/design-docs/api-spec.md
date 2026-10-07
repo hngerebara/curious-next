@@ -2,7 +2,7 @@
 
 ## Status and authority
 
-Draft M1 contract, no endpoints implemented. [Stack proposal](decisions/002-neon-pilot-stack.md), [security](security.md), [domain](domain-model.md), [data model](data-model.md) own their respective policies. Routes below are CuriousNext interfaces, not a promise to expose every vendor endpoint. Owner: engineering.
+Draft M1 contract, no endpoints implemented. [Accepted stack](decisions/002-neon-pilot-stack.md), [security](security.md), [domain](domain-model.md), [data model](data-model.md) own their respective policies. Routes below are CuriousNext interfaces, not a promise to expose every vendor endpoint. Owner: engineering.
 
 ## Shared conventions
 

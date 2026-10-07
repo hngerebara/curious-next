@@ -5,7 +5,7 @@
 | ID | Status | Evidence |
 |---|---|---|
 | M0 | completed | Governance documents, local checker and regression tests. Validation commands recorded below. |
-| M1 | in_progress | Neon selected. [Stack proposal](docs/design-docs/decisions/002-neon-pilot-stack.md), API and deployment drafts prepared. Remaining providers, integration tests, reference and rubric review pending. |
+| M1 | in_progress | Next.js, Neon, Drizzle, Better Auth, Resend and Vercel accepted. [Stack decision](docs/design-docs/decisions/002-neon-pilot-stack.md), API and deployment drafts prepared. Integration tests, operational choices, reference and rubric review pending. |
 | M1.5 | in_progress | Stitch desktop/mobile mockups and [design handoff](docs/design-docs/screen-handoff.md). Locally corrected static previews prepared. User review pending. Runtime accessibility remains untested. |
 | M2 | pending | No application screens or learner journeys implemented. |
 | M3 | pending | Logical contracts only, no runtime persistence or model integration. |
@@ -70,3 +70,5 @@ The initial remote inspection returned no refs on 2026-10-07. Subsequent plannin
 2026-10-08: THE-12 tracks CN-FOUNDATION-001. Neon is the selected database. Added a proposed Next.js/Drizzle/Better Auth/Resend/Vercel stack, draft authentication/course-entry API and deployment runbook. No services provisioned or runtime tests executed. Provider acceptance, budget, retention, authentication spike and curriculum review remain open. Entry review found and corrected an inert mobile homepage login control in the local static artifact. Required repository, checker and artifact commands provide reproducible validation for this slice.
 
 Validation: mobile homepage header login navigated to the blank magic-link form at 320px. Updated homepage captures at 320px and 1440px showed no horizontal overflow. Course lists now match syllabus modules. Footer legal links and auth state controls remain static placeholders, not implemented behavior.
+
+2026-10-08: user confirmed the complete proposed application stack. ADR-002 is accepted and planning references updated. This does not approve spending, select regions/retention, validate authentication or complete M1. Next work is the authentication integration proof of concept and framework bridge enforcement. Repository validation and all 16 checker tests passed for this documentation update.

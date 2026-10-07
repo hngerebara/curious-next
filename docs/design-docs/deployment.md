@@ -2,7 +2,7 @@
 
 ## Status
 
-Draft M1 runbook, no environment provisioned or application deployed. [ADR-002](decisions/002-neon-pilot-stack.md) proposes providers. Owner: engineering. Provider acceptance, billing, region, retention and recovery targets remain open. [Security](security.md) owns privacy controls.
+Draft M1 runbook, no environment provisioned or application deployed. [ADR-002](decisions/002-neon-pilot-stack.md) records the accepted stack. Owner: engineering. Billing, region, retention and recovery targets remain open. [Security](security.md) owns privacy controls.
 
 ## Environments and secrets
 
@@ -26,7 +26,7 @@ Use durable assessment jobs before M3. Bound provider timeouts, retries and spen
 
 ## Acceptance checklist
 
-- Provider choices, budget, regions and retention approved.
+- Stack accepted. Budget, regions and retention require approval.
 - Sender domain verified, email authentication configured and delivery tested.
 - Secrets scoped, rotation documented and session revocation tested.
 - Transaction, migration and restore tests passed.

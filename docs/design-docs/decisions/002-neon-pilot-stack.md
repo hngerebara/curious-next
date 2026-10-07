@@ -1,15 +1,15 @@
-# ADR-002: Neon pilot stack proposal
+# ADR-002: Accepted Neon pilot stack
 
 ## Status
 
-2026-10-08. Neon PostgreSQL and email magic-link-only access are user decisions. The remaining stack is a recommendation awaiting acceptance and integration validation. No accounts, paid resources or runtime application have been created. Owner: engineering. Execution: [CN-FOUNDATION-001](../../exec-plans/active/foundation.md).
+2026-10-08. Accepted by the user: Next.js, TypeScript, Neon PostgreSQL, Drizzle, Better Auth, Resend and Vercel. Email magic links remain the only access method. Acceptance selects the stack, not a paid plan or deployment configuration. Integration validation remains required. No accounts, paid resources or runtime application have been created. Owner: engineering. Execution: [CN-FOUNDATION-001](../../exec-plans/active/foundation.md).
 
-## Decision proposal
+## Decision
 
-| Responsibility | Recommendation | Reason |
+| Responsibility | Selected technology | Reason |
 |---|---|---|
 | Web application | Next.js, TypeScript, Node server runtime | Accessible React screens and server endpoints in one deployment. |
-| Database | Neon PostgreSQL, accepted | Durable relational records and transactions for learner evidence. |
+| Database | Neon PostgreSQL | Durable relational records and transactions for learner evidence. |
 | Persistence adapter | Drizzle with PostgreSQL driver | Reviewed SQL migrations and typed queries behind application ports. |
 | Authentication | Better Auth magic-link plugin in the server | Shared sign-up/login with control over confirmation and token handling. This is an application library, not managed authentication. |
 | Email | Resend | Transactional link delivery through a server adapter. |
@@ -17,7 +17,7 @@
 
 Use PostgreSQL transactions for frozen submissions and evidence updates. Start with text artifacts in the database. Uploads and object storage remain deferred. AI provider/model selection requires reference-task evaluation, cost and privacy review before M3. Do not choose a model solely from familiarity.
 
-Managed infrastructure reduces infrastructure work, but authentication policy, authorization, migrations, recovery and application monitoring remain our responsibility. Neon-managed authentication is an alternative to evaluate if it exposes the required confirmation and token controls. Do not assume those controls without testing. A separate managed identity provider adds another service and identity synchronization boundary. A Node host other than Vercel remains possible if budget or regional requirements warrant it.
+Managed infrastructure reduces infrastructure work, but authentication policy, authorization, migrations, recovery and application monitoring remain our responsibility. Neon-managed authentication is an alternative to evaluate if it exposes the required confirmation and token controls. Do not assume those controls without testing. A separate managed identity provider adds another service and identity synchronization boundary. Changing the accepted providers requires a new recorded decision if budget or regional requirements warrant it.
 
 ## Authentication adoption conditions
 
@@ -33,7 +33,7 @@ Keep vendor SDKs in adapters, domain rules pure, and composition in bootstrap. N
 
 ## Consequences and acceptance
 
-Accept the remaining provider choices, budget ceiling, deployment/database regions and retention policy before provisioning. Verify live pricing and limits at that point. Vercel Hobby is restricted to personal noncommercial use, so do not assume a commercial pilot qualifies. Confirm a sending domain, email authentication and delivery before onboarding learners. Source/rubric review and screen approval still block completion of M1/M1.5.
+Choose the budget ceiling, deployment/database regions and retention policy before provisioning. Verify live pricing and limits at that point. Vercel Hobby is restricted to personal noncommercial use, so do not assume a commercial pilot qualifies. Confirm a sending domain, email authentication and delivery before onboarding learners. Source/rubric review and screen approval still block completion of M1/M1.5.
 
 ## References
 

@@ -6,10 +6,10 @@ Active preparation for M1 and M1.5 entry-flow review. Owner: engineering. Create
 
 ## Deliverables
 
-Prepare the [Neon stack proposal](../../design-docs/decisions/002-neon-pilot-stack.md), [API draft](../../design-docs/api-spec.md) and [deployment draft](../../design-docs/deployment.md). Preserve magic-link-only access. Correct static homepage login navigation and record the reviewed scope in the [handoff](../../design-docs/screen-handoff.md). No provisioning or application code in this slice.
+Prepare the [accepted Neon stack decision](../../design-docs/decisions/002-neon-pilot-stack.md), [API draft](../../design-docs/api-spec.md) and [deployment draft](../../design-docs/deployment.md). Preserve magic-link-only access. Correct static homepage login navigation and record the reviewed scope in the [handoff](../../design-docs/screen-handoff.md). No provisioning or application code in this slice.
 
 ## Validation and remaining decisions
 
 Run repository validation, checker tests, artifact checks and full diff self-review. Publish a ticket-linked PR and leave it open. Static preview checks do not test live authentication.
 
-Before M1 completion: accept remaining providers and budget, choose regions/retention/recovery targets, validate the authentication adapter, implement framework bridge enforcement, review curriculum sources and calibrate both reference rubrics. Before M2: complete remaining alternate-state designs and user design review. This preparation slice does not close either milestone.
+Before M1 completion: approve budget, choose regions/retention/recovery targets, validate the authentication adapter, implement framework bridge enforcement, review curriculum sources and calibrate both reference rubrics. Before M2: complete remaining alternate-state designs and user design review. This preparation slice does not close either milestone.
