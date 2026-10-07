@@ -5,7 +5,7 @@
 | ID | Milestone | Completion and validation |
 |---|---|---|
 | M0 | Repository governance | Document links, freshness, architecture and taste checks pass, structural checker tests pass. |
-| M1 | Architecture and source review | Record stack/auth/storage/provider decisions, approve reference mappings and calibrate both reference rubrics. No learner release before approval. |
+| M1 | Architecture and source review | Record stack/auth/storage/provider decisions, define the concrete API and deployment specifications, approve reference mappings and calibrate both reference rubrics. No learner release before approval. |
 | M2 | Accessible course entry | Goal/preferences, two course suggestions, enrollment, optional diagnostic and skip. Validate V1/V2/V9, keyboard and screen-reader journeys. |
 | M3 | Durable attempt loop | Practice AI, separate assistant, frozen submission, validated assessment, evidence and recommendation transaction. Validate V3/V6/V7/V8/V12. |
 | M4 | Adaptive cybersecurity and retention | CY-2 simulation, misconceptions, fresh correction, recall and transfer. Validate V4/V5 and reviewed alternative answers. |

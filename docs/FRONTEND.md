@@ -9,3 +9,29 @@ UI imports application and contracts, never provider/storage adapters. Bootstrap
 Support keyboard/screen-reader journeys, mobile reflow, accessible authentication and status announcements. Preserve draft save status and errors. Show pending/uncertain assessments honestly. Separate practice AI and learning assistance. Escape submitted text and make simulated links inert. Announce completed messages rather than every streamed token.
 
 Validate rendered journeys and accessibility alongside behavior tests. [Architecture](../Architecture.md), [design](DESIGN.md), [pilot](product-specs/pilot-design.md).
+
+## Screen behavior specification
+
+| Screen | Required inputs and actions | Empty/loading/error behavior |
+|---|---|---|
+| Goal and preferences | Goal, language, explanation level, time, Next/Back. | Preserve draft, inline labelled errors, explicit unavailable-language options. |
+| Course suggestions | Outcomes, relevance, prerequisites, select course. | Unsupported-goal boundary, loading status, retry without duplicate enrollment. |
+| Course overview and placement | Optional diagnostic, start from beginning, module choice. | No fabricated completed prerequisites, saved answers on interruption. |
+| Next action | Primary task, reason, estimate, time choices, alternatives. | Explain missing evidence, refresh after outcomes, disclose no fitting task. |
+| Lesson | Objective, saved variant, example, alternative explanation, practice. | Preserve variant on failure, explicit language switch, text alternative to diagrams. |
+| Practice | Brief, workspace, practice AI where relevant, separate instructional help. | Save-state indicator, retained input on generation failure, retry using request identity. |
+| Independent task | Permitted tools, practical artifact, teach-back, submit. | Assistance status visible, immutable submitted view, prevent duplicate submit and preserve retry identity. |
+| Feedback | Assessment state, criterion results/evidence, next action, optional review. | Pending/uncertain/failed are explicit, no invented grade, learning remains accessible. |
+| Evidence and final work | History, criteria, dates, retention/transfer, export. | Honest missing-evidence state, authorised export retry and final-task draft recovery. |
+
+## Interaction and continuity
+
+Browser state cannot award capabilities or decide ownership. Fetch validated results through application interfaces. Submitted content is immutable. Concurrent draft revisions expose a conflict and permit recovery instead of silently overwriting newer work. Session expiry retains recoverable confirmed work and returns through accessible authentication.
+
+Focus moves to the new screen heading after intentional navigation, to actionable errors on failed submit when appropriate, and back to the initiating control after dialogs. Announce save/generation/assessment status without stealing focus or reading every token. Maintain visible labels and error relationships.
+
+Language switches preserve drafts and original-language evidence. Unavailable variants show an explicit choice. Do not change the learner's default preference silently. Accessibility support remains non-substantive assistance. Review the [user flows](product-specs/user-flows.md), [security boundaries](design-docs/security.md) and [design system](DESIGN.md).
+
+## Acceptance and interfaces
+
+Validate V1-V12 and accessible keyboard/screen-reader navigation on actual rendered screens. Use reviewed language examples for long labels, accents and code-switching. Current logical operations live in the [data model](design-docs/data-model.md). M1 produces transport-specific API schemas and errors before frontend/backend integration. No real API or frontend stack exists yet.

@@ -13,6 +13,12 @@
 | Commands, PR workflow, cleanup cadence | [Engineering](engineering.md) |
 | Learner flow and shared adaptation behavior | [Pilot design](../product-specs/pilot-design.md) |
 | Learning objectives, lessons and rubrics | [Curriculum](../curriculum/index.md) |
+| End-to-end learner journeys | [User flows](../product-specs/user-flows.md) |
+| Security threats and controls | [Security](security.md) |
+| Learning concepts and invariants | [Domain model](domain-model.md) |
+| Project entry and setup | [README](../../README.md) |
+| Screen behavior and interaction states | [Frontend](../FRONTEND.md) |
+| Visual appearance and components | [Design](../DESIGN.md) |
 | Persistence and logical interfaces | [Data model](data-model.md) |
 | Source provenance and approvals | [Reference register](../references/curriculum-sources.md) |
 | Active work details and completed-plan history | [Execution plans](../exec-plans/index.md) |

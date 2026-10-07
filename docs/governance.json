@@ -1,6 +1,13 @@
 {
   "version": 1,
   "documents": {
+    ".github/pull_request_template.md": {
+      "required_headings": [
+        "## Plan and slice",
+        "## Behavior and changes",
+        "## Validation and review"
+      ]
+    },
     "AGENTS.md": {
       "required_headings": [
         "# CuriousNext repository map"
@@ -21,7 +28,10 @@
         "## Validation evidence",
         "## Limitations and next work",
         "## Repository organisation",
-        "## Documentation simplification"
+        "## Documentation simplification",
+        "## Slice PR publication",
+        "## Design specification slice",
+        "## Foundation specification slice"
       ]
     },
     "Implement.md": {
@@ -29,7 +39,8 @@
         "# CuriousNext implementation prompt",
         "## Requested execution configuration",
         "## Implementation instructions",
-        "## Repository inspection and implementation sequence"
+        "## Repository inspection and implementation sequence",
+        "## Slice completion requirement"
       ]
     },
     "Plans.md": {
@@ -63,6 +74,16 @@
         "## 18. Supporting specifications"
       ]
     },
+    "README.md": {
+      "required_headings": [
+        "# CuriousNext",
+        "## Current state",
+        "## Start here",
+        "## Run repository checks",
+        "## Product boundaries",
+        "## Application setup and deployment"
+      ]
+    },
     "docs/DESIGN.md": {
       "required_headings": [
         "# CuriousNext design system",
@@ -84,7 +105,10 @@
       "required_headings": [
         "# CuriousNext frontend guidance",
         "## Boundaries",
-        "## Required behavior"
+        "## Required behavior",
+        "## Screen behavior specification",
+        "## Interaction and continuity",
+        "## Acceptance and interfaces"
       ]
     },
     "docs/PRODUCT_SENSE.md": {
@@ -179,17 +203,38 @@
         "## Maintenance"
       ]
     },
+    "docs/design-docs/domain-model.md": {
+      "required_headings": [
+        "# CuriousNext domain model",
+        "## Purpose and authority",
+        "## Core concepts",
+        "## Invariants",
+        "## State interpretation",
+        "## Domain operations and validation"
+      ]
+    },
     "docs/design-docs/engineering.md": {
       "required_headings": [
         "# Repository enforcement and PR workflow",
         "## Commands and documentation freshness",
         "## Small PRs and minimal blocking gates",
-        "## Cleanup and changes to enforcement"
+        "## Cleanup and changes to enforcement",
+        "## Per-slice PR workflow"
       ]
     },
     "docs/design-docs/index.md": {
       "required_headings": [
         "# Design document index"
+      ]
+    },
+    "docs/design-docs/security.md": {
+      "required_headings": [
+        "# CuriousNext security specification",
+        "## Status and scope",
+        "## Assets and trust boundaries",
+        "## Threats and required controls",
+        "## Privacy and operational requirements",
+        "## Release validation"
       ]
     },
     "docs/exec-plans/active/pilot.md": {
@@ -245,6 +290,19 @@
         "## 9. Accessibility and language release"
       ]
     },
+    "docs/product-specs/user-flows.md": {
+      "required_headings": [
+        "# CuriousNext user flows",
+        "## Ownership and entry conditions",
+        "## UF1: Set a goal and choose a course",
+        "## UF2: Learn and practise with support",
+        "## UF3: Demonstrate ability and receive feedback",
+        "## UF4: Correct a misconception",
+        "## UF5: Return for recall and transfer",
+        "## UF6: Finish and inspect portable evidence",
+        "## UF7: Access and preference continuity"
+      ]
+    },
     "docs/references/curriculum-sources.md": {
       "required_headings": [
         "# Curriculum reference register"
@@ -255,13 +313,6 @@
         "# Reference index",
         "## Current references",
         "## Future reference snapshots"
-      ]
-    },
-    ".github/pull_request_template.md": {
-      "required_headings": [
-        "## Plan and slice",
-        "## Behavior and changes",
-        "## Validation and review"
       ]
     }
   },
