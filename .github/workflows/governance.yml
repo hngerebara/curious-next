@@ -1,6 +1,7 @@
 name: Repository governance
 on:
   pull_request:
+    types: [opened, synchronize, reopened, edited]
   push:
 permissions:
   contents: read
@@ -21,5 +22,8 @@ jobs:
         env:
           PR_BASE: ${{ github.event.pull_request.base.sha }}
         run: python3 scripts/validate_repo.py --base "$PR_BASE"
+      - name: Validate PR description
+        if: github.event_name == 'pull_request'
+        run: python3 scripts/validate_pr.py --event "$GITHUB_EVENT_PATH"
       - name: Test governance enforcement
         run: python3 -m unittest discover -s tests -v

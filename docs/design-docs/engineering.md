@@ -27,3 +27,11 @@ After each slice, use a short-lived codex/ branch, update milestone evidence, ru
 [Slice workflow](../../.github/workflows/slice-pr.yml) supports manual dispatch with branch, title and plan ID. It tests an existing branch before creating/reusing a PR and posts a validation comment. This is not a semantic AI review. GitHub settings must allow Actions to create PRs. PRs created using GITHUB_TOKEN do not trigger ordinary PR workflows, so the dispatch job runs required tests itself. Dispatch again after fixes to validate the latest head. Run this workflow from trusted reviewed code only, never from forks with elevated permissions.
 
 [PR template](../../.github/pull_request_template.md) records the review checklist. Application tests must be added to both CI workflows as implementation proceeds. Initial publication uses an empty main commit as the base, with all substantive work in a reviewable PR.
+
+## PR description and review standard
+
+Titles contain at most 50 characters. Descriptions use the five sections in the PR template: What does this PR do?, Related tickets, Screenshots, How to test, Additional notes. Explain the problem and why the change matters, group related edits, orient unfamiliar readers, and keep prose concise. State screenshots are not applicable for nonvisual changes. Additional notes content is optional.
+
+Review descriptions and code together for Content (problem, reasoning and proportionate detail), Readability (natural scannable prose without filler), and Faithfulness (claims supported by requirements, diff or tests). Cite specific evidence for actionable findings. Avoid bare edit inventories, misleading guarantees and boilerplate. Review findings identify severity, concrete trigger, impact and location. Report unresolved uncertainty honestly.
+
+`python3 scripts/validate_pr.py` checks title length and section structure. It cannot establish semantic quality or claim accuracy. CI checks edited PR metadata as well as code changes. Manual slice dispatch now requires a complete description, so it does not invent the purpose from a branch name.
