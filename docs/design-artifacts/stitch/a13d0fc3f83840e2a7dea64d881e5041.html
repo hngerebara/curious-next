@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+
+<html class="h-full" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Course Overview: Cybersecurity Essentials - CuriousNext</title>
+<!-- Material Symbols Outlined font -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Google Fonts: Inter -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS with Forms and Container Queries -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "on-surface-variant": "#454935",
+            "primary-fixed-dim": "#afd52a",
+            "on-secondary-fixed": "#260c46",
+            "learning-surface": "#F0E8FA",
+            "secondary-container": "#d7bafd",
+            "tertiary-fixed": "#d5e3ff",
+            "success-surface": "#EAF5EE",
+            "on-primary": "#ffffff",
+            "inverse-on-surface": "#f5f0e5",
+            "primary-container": "#c8ef45",
+            "error": "#ba1a1a",
+            "surface-container-lowest": "#ffffff",
+            "on-secondary-fixed-variant": "#533b74",
+            "surface-tint": "#516600",
+            "ink": "#171717",
+            "ink-muted": "#59564F",
+            "outline-variant": "#c5c9af",
+            "surface-container-low": "#f8f3e8",
+            "action": "#C8EF45",
+            "surface-dim": "#dedacf",
+            "surface-bright": "#fef9ee",
+            "review-surface": "#FFF4D6",
+            "on-secondary": "#ffffff",
+            "surface-container": "#f2ede2",
+            "canvas": "#F5F0E5",
+            "outline": "#757963",
+            "inverse-surface": "#323029",
+            "tertiary-fixed-dim": "#b7c7e4",
+            "error-surface": "#FCEEEF",
+            "tertiary": "#505f78",
+            "success-ink": "#226347",
+            "on-secondary-container": "#5f4781",
+            "error-ink": "#A52A32",
+            "on-error": "#ffffff",
+            "primary": "#516600",
+            "background": "#fef9ee",
+            "action-hover": "#B5DB32",
+            "on-primary-fixed": "#171e00",
+            "on-tertiary-fixed-variant": "#384760",
+            "review-ink": "#81530B",
+            "secondary": "#6c538e",
+            "on-tertiary-fixed": "#0b1c32",
+            "border-control": "#71828D",
+            "on-primary-fixed-variant": "#3d4d00",
+            "error-container": "#ffdad6",
+            "tertiary-container": "#d1e1ff",
+            "on-tertiary-container": "#54647d",
+            "on-background": "#1d1c15",
+            "surface": "#FFFFFF",
+            "highlight": "#C9ACEE",
+            "link": "#285F85",
+            "secondary-fixed-dim": "#d7bafd",
+            "secondary-fixed": "#eddcff",
+            "inverse-primary": "#afd52a",
+            "surface-container-high": "#ede8dd",
+            "on-surface": "#1d1c15",
+            "primary-fixed": "#caf247",
+            "border-subtle": "#D6DFE3",
+            "on-error-container": "#93000a",
+            "surface-container-highest": "#e7e2d7",
+            "on-tertiary": "#ffffff",
+            "on-primary-container": "#556b00",
+            "surface-variant": "#e7e2d7"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.125rem",
+            "lg": "0.25rem",
+            "xl": "0.5rem",
+            "full": "0.75rem"
+          },
+          "spacing": {
+            "space-xs": "0.25rem",
+            "space-xl": "3rem",
+            "space-sm": "0.5rem",
+            "space-2xl": "4rem",
+            "margin": "1.5rem",
+            "space-md": "0.75rem",
+            "space-lg": "1.5rem",
+            "gutter": "1rem"
+          },
+          "fontFamily": {
+            "section-heading": ["Inter"],
+            "page-title": ["Inter"],
+            "section-heading-mobile": ["Inter"],
+            "page-title-mobile": ["Inter"],
+            "metadata": ["Inter"],
+            "lesson-body": ["Inter"],
+            "ui-body": ["Inter"],
+            "card-heading": ["Inter"]
+          },
+          "fontSize": {
+            "section-heading": [
+              "24px",
+              {
+                "lineHeight": "1.3",
+                "fontWeight": "650"
+              }
+            ],
+            "page-title": [
+              "36px",
+              {
+                "lineHeight": "1.2",
+                "fontWeight": "700"
+              }
+            ],
+            "section-heading-mobile": [
+              "22px",
+              {
+                "lineHeight": "1.3",
+                "fontWeight": "650"
+              }
+            ],
+            "page-title-mobile": [
+              "28px",
+              {
+                "lineHeight": "1.2",
+                "fontWeight": "700"
+              }
+            ],
+            "metadata": [
+              "14px",
+              {
+                "lineHeight": "1.5",
+                "fontWeight": "500"
+              }
+            ],
+            "lesson-body": [
+              "18px",
+              {
+                "lineHeight": "1.65",
+                "fontWeight": "400"
+              }
+            ],
+            "ui-body": [
+              "16px",
+              {
+                "lineHeight": "1.5",
+                "fontWeight": "400"
+              }
+            ],
+            "card-heading": [
+              "20px",
+              {
+                "lineHeight": "1.35",
+                "fontWeight": "650"
+              }
+            ]
+          }
+        },
+      },
+    }
+  </script>
+</head>
+<body class="bg-canvas text-ink font-ui-body text-ui-body min-h-screen antialiased flex selection:bg-highlight selection:text-ink"><div style="padding:10px 16px;background:#FFF4D6;color:#171717;font:14px/1.5 Inter,system-ui,sans-serif">Design preview · Fictional sample data · Draft curriculum</div>
+<!-- Desktop Sidebar Navigation (From Shared Components JSON) -->
+<aside class="fixed top-0 left-0 h-screen w-[240px] flex flex-col justify-between bg-canvas border-r border-border-subtle z-40 select-none">
+<div class="w-[240px] p-gutter flex flex-col">
+<!-- Sidebar Header / Brand -->
+<div class="flex items-center gap-space-sm pb-space-lg pt-space-xs border-b border-border-subtle">
+<div class="w-9 h-9 rounded-xl bg-learning-surface border border-border-control flex items-center justify-center text-ink flex-shrink-0">
+<span class="material-symbols-outlined text-[20px]" data-icon="menu_book">menu_book</span>
+</div>
+<div>
+<span class="font-card-heading text-card-heading text-ink font-bold tracking-tight block leading-tight">CuriousNext</span>
+<span class="font-metadata text-metadata text-ink-muted text-xs block">Adult learning workspace</span>
+</div>
+</div>
+<!-- Navigation Tabs -->
+<nav aria-label="Main Navigation" class="mt-space-lg flex flex-col gap-space-xs">
+<!-- Learn (Inactive) -->
+<a class="flex items-center gap-space-sm px-gutter py-space-sm rounded-xl font-metadata text-metadata text-ink-muted min-h-[44px] transition-colors duration-150 cursor-pointer hover:bg-surface-container hover:text-ink" href="#learn">
+<span class="material-symbols-outlined text-[20px]" data-icon="menu_book">menu_book</span>
+<span>Learn</span>
+</a>
+<!-- My courses (Active state logic executed strictly as per JSON) -->
+<a aria-current="page" class="flex items-center gap-space-sm px-gutter py-space-sm bg-surface border border-border-control rounded-xl font-metadata text-metadata text-ink font-semibold min-h-[44px] transition-colors duration-150 cursor-pointer" href="#my-courses">
+<span class="material-symbols-outlined text-[20px] text-primary" data-icon="school">school</span>
+<span>My courses</span>
+</a>
+<!-- Evidence (Inactive) -->
+<a class="flex items-center gap-space-sm px-gutter py-space-sm rounded-xl font-metadata text-metadata text-ink-muted min-h-[44px] transition-colors duration-150 cursor-pointer hover:bg-surface-container hover:text-ink" href="#evidence">
+<span class="material-symbols-outlined text-[20px]" data-icon="verified">verified</span>
+<span>Evidence</span>
+</a>
+</nav>
+<!-- Sidebar Resume Learning CTA Block -->
+<div class="mt-space-xl p-space-md bg-learning-surface border border-border-subtle rounded-xl flex flex-col gap-space-xs">
+<span class="font-metadata text-metadata text-ink-muted text-xs font-semibold">Active Session</span>
+<p class="font-metadata text-metadata text-ink font-medium leading-snug">Cybersecurity Essentials</p>
+<button class="mt-space-xs w-full py-space-xs px-space-sm bg-surface border border-border-control rounded-xl text-ink font-metadata text-metadata font-semibold hover:bg-surface-container transition-colors min-h-[36px] flex items-center justify-center gap-space-xs text-left">
+<span>Resume Learning</span>
+<span class="material-symbols-outlined text-[16px]" data-icon="arrow_forward">arrow_forward</span>
+</button>
+</div>
+</div>
+<!-- Sidebar Footer -->
+<div class="p-gutter border-t border-border-subtle flex flex-col gap-space-xs">
+<a class="flex items-center gap-space-sm px-gutter py-space-sm rounded-xl font-metadata text-metadata text-ink-muted min-h-[44px] transition-colors duration-150 cursor-pointer hover:bg-surface-container hover:text-ink" href="#settings">
+<span class="material-symbols-outlined text-[20px]" data-icon="settings">settings</span>
+<span>Settings</span>
+</a>
+<a class="flex items-center gap-space-sm px-gutter py-space-sm rounded-xl font-metadata text-metadata text-ink-muted min-h-[44px] transition-colors duration-150 cursor-pointer hover:bg-surface-container hover:text-ink" href="#help">
+<span class="material-symbols-outlined text-[20px]" data-icon="help">help</span>
+<span>Help</span>
+</a>
+</div>
+</aside>
+<!-- Desktop Top Header (From Shared Components JSON) -->
+<header class="fixed top-0 left-[240px] right-0 h-16 bg-canvas border-b border-border-subtle z-30 flex items-center px-space-lg">
+<div class="w-full max-w-[1120px] flex items-center justify-between mx-auto">
+<!-- Breadcrumb Link Anchor -->
+<div class="flex items-center gap-space-xs">
+<a class="font-metadata text-metadata text-ink-muted hover:text-ink transition-colors" href="#curriculum">Curriculum</a>
+<span class="text-ink-muted text-xs select-none">/</span>
+<span class="font-metadata text-metadata text-ink font-semibold flex items-center gap-space-xs">Cybersecurity Essentials</span>
+</div>
+<!-- Trailing Navigation Actions -->
+<div class="flex items-center gap-space-md">
+<!-- Language Selector -->
+<button class="min-h-[44px] px-space-md inline-flex items-center gap-space-xs rounded-xl border border-border-subtle bg-surface text-ink font-metadata text-metadata hover:bg-surface-container transition-colors duration-150 cursor-pointer">
+<span class="material-symbols-outlined text-[18px] text-ink-muted" data-icon="translate">translate</span>
+<span>Language: English</span>
+</button>
+<!-- Account Action -->
+<button class="min-h-[44px] px-space-md inline-flex items-center gap-space-xs rounded-xl border border-border-control bg-surface text-ink font-metadata text-metadata font-semibold hover:bg-surface-container transition-colors duration-150 cursor-pointer">
+<span class="material-symbols-outlined text-[20px] text-ink" data-icon="account_circle">account_circle</span>
+<span>Account</span>
+</button>
+</div>
+</div>
+</header>
+<!-- Main Canvas Area -->
+<main class="ml-[240px] mt-16 flex-1 px-space-lg py-space-xl flex justify-center">
+<div class="w-full max-w-[1120px] flex flex-col gap-space-xl pb-space-2xl">
+<!-- Section: Course Header & Meta Info -->
+<section class="flex flex-col gap-space-sm border-b border-border-subtle pb-space-lg">
+<!-- Pilot Status Tag / Capability State Badge -->
+<div class="flex flex-wrap items-center gap-space-sm">
+<span class="inline-flex items-center gap-1.5 px-space-md py-1 bg-surface border border-border-control rounded-full font-metadata text-metadata text-ink font-medium">
+<span class="w-2 h-2 rounded-full bg-border-control inline-block"></span>
+            Draft pilot curriculum
+          </span>
+<span class="text-border-control select-none">·</span>
+<!-- Capability Badge: Not assessed -->
+<span class="inline-flex items-center gap-1.5 px-space-md py-1 bg-surface-container-high border border-border-subtle rounded-full font-metadata text-metadata text-ink-muted font-medium">
+<span class="material-symbols-outlined text-[16px] text-ink-muted" data-icon="radio_button_unchecked">radio_button_unchecked</span>
+            Capabilities: Not assessed
+          </span>
+</div>
+<!-- Course Title & Subtitle -->
+<div class="max-w-[760px] mt-space-xs flex flex-col gap-space-xs">
+<h1 class="font-page-title text-page-title text-ink font-bold tracking-tight">Cybersecurity Essentials</h1>
+<p class="font-lesson-body text-lesson-body text-ink-muted leading-relaxed">
+            Safe everyday digital decisions, recognising suspicious communications, handling personal study data safely, and checking trusted sources.
+          </p>
+</div>
+</section>
+<!-- Section: Entry Path Container ("How would you like to start?") -->
+<section class="flex flex-col gap-space-md">
+<div class="flex items-center justify-between">
+<div>
+<h2 class="font-card-heading text-card-heading text-ink font-bold">How would you like to start?</h2>
+<p class="font-metadata text-metadata text-ink-muted">Choose the entry path that matches your current familiarity with online safety.</p>
+</div>
+<span class="font-metadata text-metadata text-ink-muted text-xs bg-surface px-space-sm py-0.5 rounded border border-border-subtle">
+            Both paths yield identical capabilities
+          </span>
+</div>
+<!-- Bento Grid with Equal Prominence Cards -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-space-lg">
+<!-- Card A: Diagnostic Assessment -->
+<div class="bg-learning-surface border border-border-control rounded-xl p-space-lg flex flex-col justify-between relative overflow-hidden transition-all duration-150 hover:border-ink">
+<div class="flex flex-col gap-space-sm">
+<div class="flex items-center justify-between">
+<span class="inline-flex items-center gap-1 font-metadata text-metadata text-secondary font-semibold text-xs tracking-wide">
+<span class="material-symbols-outlined text-[16px]" data-icon="fact_check">fact_check</span>
+                  OPTION A · OPTIONAL DIAGNOSTIC
+                </span>
+<span class="font-metadata text-metadata text-ink-muted text-xs font-semibold bg-surface/70 px-2 py-0.5 rounded-full border border-border-subtle">
+                  ~5 min
+                </span>
+</div>
+<h3 class="font-card-heading text-card-heading text-ink font-bold">Diagnostic Assessment</h3>
+<p class="font-ui-body text-ui-body text-ink-muted">
+                Takes ~5 minutes. Answering 3 quick scenario questions helps suggest the best module to begin with. You can skip anytime.
+              </p>
+<!-- Annotation box inside paper canvas -->
+<div class="bg-surface/80 rounded-lg p-space-sm border border-border-subtle text-xs text-ink-muted flex items-start gap-space-xs mt-space-xs">
+<span class="material-symbols-outlined text-[16px] text-ink flex-shrink-0 mt-0.5" data-icon="info">info</span>
+<span>Placement recommendations do not grant verified capability evidence directly; you can confirm any module afterwards.</span>
+</div>
+</div>
+<div class="mt-space-lg pt-space-md border-t border-border-subtle/80 flex items-center justify-between">
+<button class="w-full min-h-[44px] px-space-md bg-action hover:bg-action-hover text-ink font-metadata text-metadata font-semibold rounded-xl flex items-center justify-center gap-space-xs transition-colors shadow-sm">
+<span>Check my starting point (Optional diagnostic)</span>
+<span class="material-symbols-outlined text-[18px]" data-icon="arrow_forward">arrow_forward</span>
+</button>
+</div>
+</div>
+<!-- Card B: Foundational Track -->
+<div class="bg-surface border border-border-control rounded-xl p-space-lg flex flex-col justify-between relative overflow-hidden transition-all duration-150 hover:border-ink">
+<div class="flex flex-col gap-space-sm">
+<div class="flex items-center justify-between">
+<span class="inline-flex items-center gap-1 font-metadata text-metadata text-ink-muted font-semibold text-xs tracking-wide">
+<span class="material-symbols-outlined text-[16px]" data-icon="format_list_numbered">format_list_numbered</span>
+                  OPTION B · SEQUENTIAL PROGRESSION
+                </span>
+<span class="font-metadata text-metadata text-ink-muted text-xs font-semibold bg-surface-container px-2 py-0.5 rounded-full border border-border-subtle">
+                  Full Track
+                </span>
+</div>
+<h3 class="font-card-heading text-card-heading text-ink font-bold">Foundational Track</h3>
+<p class="font-ui-body text-ui-body text-ink-muted">
+                Begin directly with everyday digital threats. Recommended if you prefer an unhurried, complete progression from scratch.
+              </p>
+<!-- Annotation box -->
+<div class="bg-surface-container-low rounded-lg p-space-sm border border-border-subtle text-xs text-ink-muted flex items-start gap-space-xs mt-space-xs">
+<span class="material-symbols-outlined text-[16px] text-ink flex-shrink-0 mt-0.5" data-icon="verified_user">verified_user</span>
+<span>Covers all 5 core competency criteria systematically with embedded workplace examples.</span>
+</div>
+</div>
+<div class="mt-space-lg pt-space-md border-t border-border-subtle flex items-center justify-between">
+<button class="w-full min-h-[44px] px-space-md bg-surface hover:bg-surface-container text-ink font-metadata text-metadata font-semibold rounded-xl border border-border-control flex items-center justify-center gap-space-xs transition-colors">
+<span>Start from the beginning (Module 1)</span>
+<span class="material-symbols-outlined text-[18px]" data-icon="arrow_forward">arrow_forward</span>
+</button>
+</div>
+</div>
+</div>
+</section>
+<!-- Section: Course Modules (5 Competency Units) -->
+<section class="flex flex-col gap-space-md">
+<div class="flex items-baseline justify-between">
+<h2 class="font-section-heading text-section-heading text-ink font-bold">Course Modules</h2>
+<span class="font-metadata text-metadata text-ink-muted">5 Competency Units</span>
+</div>
+<div class="flex flex-col gap-space-sm">
+<!-- Module 1 -->
+<article class="bg-surface border border-border-subtle rounded-xl p-space-md md:p-space-lg flex flex-col md:flex-row md:items-center justify-between gap-space-md transition-all hover:border-border-control">
+<div class="flex items-start gap-space-md">
+<div class="w-10 h-10 rounded-xl bg-canvas border border-border-subtle flex items-center justify-center font-bold text-ink flex-shrink-0 text-sm">
+                01
+              </div>
+<div class="flex flex-col gap-1">
+<div class="flex flex-wrap items-center gap-space-xs">
+<span class="font-metadata text-metadata text-ink font-semibold">Module 1</span>
+<span class="text-ink-muted text-xs">·</span>
+<span class="inline-flex items-center gap-1 font-metadata text-metadata text-ink-muted text-xs">
+<span class="material-symbols-outlined text-[14px]" data-icon="radio_button_unchecked">radio_button_unchecked</span>
+                    Status: Not assessed
+                  </span>
+</div>
+<h3 class="font-card-heading text-card-heading text-ink font-semibold">Everyday digital threats</h3>
+<p class="font-metadata text-metadata text-ink-muted max-w-[680px]">
+                  Understand how common digital scams, deceptive links, and social engineering work.
+                </p>
+</div>
+</div>
+<div class="flex-shrink-0 flex items-center justify-end md:pl-space-md">
+<button class="min-h-[44px] px-space-md bg-surface border border-border-control rounded-xl font-metadata text-metadata text-ink font-semibold hover:bg-surface-container transition-colors inline-flex items-center gap-space-xs">
+<span>View</span>
+<span class="material-symbols-outlined text-[18px]" data-icon="arrow_forward">arrow_forward</span>
+</button>
+</div>
+</article>
+<!-- Module 2 (Recommended Highlight) -->
+<article class="bg-surface border-2 border-border-control rounded-xl p-space-md md:p-space-lg flex flex-col md:flex-row md:items-center justify-between gap-space-md transition-all relative overflow-hidden shadow-[0_2px_8px_rgba(0,0,0,0.03)]">
+<div class="flex items-start gap-space-md">
+<div class="w-10 h-10 rounded-xl bg-learning-surface border border-border-control flex items-center justify-center font-bold text-ink flex-shrink-0 text-sm">
+                02
+              </div>
+<div class="flex flex-col gap-1">
+<div class="flex flex-wrap items-center gap-space-xs">
+<span class="font-metadata text-metadata text-ink font-semibold">Module 2</span>
+<span class="text-ink-muted text-xs">·</span>
+<span class="inline-flex items-center gap-1 font-metadata text-metadata text-ink-muted text-xs">
+<span class="material-symbols-outlined text-[14px]" data-icon="radio_button_unchecked">radio_button_unchecked</span>
+                    Status: Not assessed
+                  </span>
+<span class="text-ink-muted text-xs">·</span>
+<span class="inline-flex items-center gap-1 font-metadata text-metadata text-secondary font-semibold text-xs px-2 py-0.5 bg-learning-surface rounded-full">
+<span class="material-symbols-outlined text-[14px]" data-icon="sparkles">arrow_back_ios_new</span>
+                    Recommended based on goal
+                  </span>
+</div>
+<h3 class="font-card-heading text-card-heading text-ink font-semibold">Recognise phishing (CY-2)</h3>
+<p class="font-metadata text-metadata text-ink-muted max-w-[680px]">
+                  Inspect unexpected urgency, fake domains, sender spoofing, and verify through independent trusted routes.
+                </p>
+</div>
+</div>
+<div class="flex-shrink-0 flex items-center justify-end md:pl-space-md">
+<button class="min-h-[44px] px-space-md bg-action hover:bg-action-hover border border-ink text-ink font-metadata text-metadata font-semibold rounded-xl transition-colors inline-flex items-center gap-space-xs">
+<span>View</span>
+<span class="material-symbols-outlined text-[18px]" data-icon="arrow_forward">arrow_forward</span>
+</button>
+</div>
+</article>
+<!-- Module 3 -->
+<article class="bg-surface border border-border-subtle rounded-xl p-space-md md:p-space-lg flex flex-col md:flex-row md:items-center justify-between gap-space-md transition-all hover:border-border-control">
+<div class="flex items-start gap-space-md">
+<div class="w-10 h-10 rounded-xl bg-canvas border border-border-subtle flex items-center justify-center font-bold text-ink flex-shrink-0 text-sm">
+                03
+              </div>
+<div class="flex flex-col gap-1">
+<div class="flex flex-wrap items-center gap-space-xs">
+<span class="font-metadata text-metadata text-ink font-semibold">Module 3</span>
+<span class="text-ink-muted text-xs">·</span>
+<span class="inline-flex items-center gap-1 font-metadata text-metadata text-ink-muted text-xs">
+<span class="material-symbols-outlined text-[14px]" data-icon="radio_button_unchecked">radio_button_unchecked</span>
+                    Status: Not assessed
+                  </span>
+</div>
+<h3 class="font-card-heading text-card-heading text-ink font-semibold">Secure accounts</h3>
+<p class="font-metadata text-metadata text-ink-muted max-w-[680px]">
+                  Password hygiene, password managers, multi-factor authentication passkeys.
+                </p>
+</div>
+</div>
+<div class="flex-shrink-0 flex items-center justify-end md:pl-space-md">
+<button class="min-h-[44px] px-space-md bg-surface border border-border-control rounded-xl font-metadata text-metadata text-ink font-semibold hover:bg-surface-container transition-colors inline-flex items-center gap-space-xs">
+<span>View</span>
+<span class="material-symbols-outlined text-[18px]" data-icon="arrow_forward">arrow_forward</span>
+</button>
+</div>
+</article>
+<!-- Module 4 -->
+<article class="bg-surface border border-border-subtle rounded-xl p-space-md md:p-space-lg flex flex-col md:flex-row md:items-center justify-between gap-space-md transition-all hover:border-border-control">
+<div class="flex items-start gap-space-md">
+<div class="w-10 h-10 rounded-xl bg-canvas border border-border-subtle flex items-center justify-center font-bold text-ink flex-shrink-0 text-sm">
+                04
+              </div>
+<div class="flex flex-col gap-1">
+<div class="flex flex-wrap items-center gap-space-xs">
+<span class="font-metadata text-metadata text-ink font-semibold">Module 4</span>
+<span class="text-ink-muted text-xs">·</span>
+<span class="inline-flex items-center gap-1 font-metadata text-metadata text-ink-muted text-xs">
+<span class="material-symbols-outlined text-[14px]" data-icon="radio_button_unchecked">radio_button_unchecked</span>
+                    Status: Not assessed
+                  </span>
+</div>
+<h3 class="font-card-heading text-card-heading text-ink font-semibold">Protect devices and personal data</h3>
+<p class="font-metadata text-metadata text-ink-muted max-w-[680px]">
+                  Software updates, permissions, device encryption, safe Wi-Fi.
+                </p>
+</div>
+</div>
+<div class="flex-shrink-0 flex items-center justify-end md:pl-space-md">
+<button class="min-h-[44px] px-space-md bg-surface border border-border-control rounded-xl font-metadata text-metadata text-ink font-semibold hover:bg-surface-container transition-colors inline-flex items-center gap-space-xs">
+<span>View</span>
+<span class="material-symbols-outlined text-[18px]" data-icon="arrow_forward">arrow_forward</span>
+</button>
+</div>
+</article>
+<!-- Module 5 -->
+<article class="bg-surface border border-border-subtle rounded-xl p-space-md md:p-space-lg flex flex-col md:flex-row md:items-center justify-between gap-space-md transition-all hover:border-border-control">
+<div class="flex items-start gap-space-md">
+<div class="w-10 h-10 rounded-xl bg-canvas border border-border-subtle flex items-center justify-center font-bold text-ink flex-shrink-0 text-sm">
+                05
+              </div>
+<div class="flex flex-col gap-1">
+<div class="flex flex-wrap items-center gap-space-xs">
+<span class="font-metadata text-metadata text-ink font-semibold">Module 5</span>
+<span class="text-ink-muted text-xs">·</span>
+<span class="inline-flex items-center gap-1 font-metadata text-metadata text-ink-muted text-xs">
+<span class="material-symbols-outlined text-[14px]" data-icon="radio_button_unchecked">radio_button_unchecked</span>
+                    Status: Not assessed
+                  </span>
+</div>
+<h3 class="font-card-heading text-card-heading text-ink font-semibold">Respond to suspicious activity</h3>
+<p class="font-metadata text-metadata text-ink-muted max-w-[680px]">
+                  Containment, password reset, reporting scams, evidence documentation.
+                </p>
+</div>
+</div>
+<div class="flex-shrink-0 flex items-center justify-end md:pl-space-md">
+<button class="min-h-[44px] px-space-md bg-surface border border-border-control rounded-xl font-metadata text-metadata text-ink font-semibold hover:bg-surface-container transition-colors inline-flex items-center gap-space-xs">
+<span>View</span>
+<span class="material-symbols-outlined text-[18px]" data-icon="arrow_forward">arrow_forward</span>
+</button>
+</div>
+</article>
+</div>
+</section>
+<!-- Educational Callout / Philosophy Card -->
+<section class="border border-border-control bg-surface rounded-xl p-space-lg relative">
+<div class="flex flex-col md:flex-row items-start gap-space-md">
+<div class="w-10 h-10 rounded-xl bg-review-surface border border-border-subtle flex items-center justify-center text-review-ink flex-shrink-0 mt-0.5">
+<span class="material-symbols-outlined text-[22px]" data-icon="psychology">psychology</span>
+</div>
+<div class="flex flex-col gap-space-xs">
+<h3 class="font-card-heading text-card-heading text-ink font-bold flex items-center gap-space-xs">
+              Evaluation Philosophy
+            </h3>
+<p class="font-lesson-body text-lesson-body text-ink leading-relaxed">
+              No combined mastery ring or overall percentage score. Capabilities are evaluated per objective with evidence. Optional diagnostic provides placement recommendation only; no earned evidence from placement.
+            </p>
+<div class="mt-space-xs flex flex-wrap gap-space-md text-xs font-metadata text-ink-muted">
+<span class="flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px] text-success-ink" data-icon="task_alt">task_alt</span>
+                Direct work artifact evidence
+              </span>
+<span class="flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px] text-ink-muted" data-icon="restart_alt">restart_alt</span>
+                Unlimited deliberate practice
+              </span>
+<span class="flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px] text-ink-muted" data-icon="visibility">visibility</span>
+                Transparent evaluation rubrics
+              </span>
+</div>
+</div>
+</div>
+</section>
+<!-- Footer Disclaimer / Meta Note -->
+<footer class="pt-space-md border-t border-border-subtle text-center md:text-left">
+<p class="font-metadata text-metadata text-ink-muted text-xs">
+          CuriousNext Adult Learning Workspace · Desktop · Course Overview · All course content and rubrics are fictional draft pilot materials.
+        </p>
+</footer>
+</div>
+</main>
+</body></html>

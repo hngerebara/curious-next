@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>CY-2 Lesson · Recognise Phishing - CuriousNext</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "on-surface-variant": "#454935",
+            "primary-fixed-dim": "#afd52a",
+            "on-secondary-fixed": "#260c46",
+            "learning-surface": "#F0E8FA",
+            "secondary-container": "#d7bafd",
+            "tertiary-fixed": "#d5e3ff",
+            "success-surface": "#EAF5EE",
+            "on-primary": "#ffffff",
+            "inverse-on-surface": "#f5f0e5",
+            "primary-container": "#c8ef45",
+            "error": "#ba1a1a",
+            "surface-container-lowest": "#ffffff",
+            "on-secondary-fixed-variant": "#533b74",
+            "surface-tint": "#516600",
+            "ink": "#171717",
+            "ink-muted": "#59564F",
+            "outline-variant": "#c5c9af",
+            "surface-container-low": "#f8f3e8",
+            "action": "#C8EF45",
+            "surface-dim": "#dedacf",
+            "surface-bright": "#fef9ee",
+            "review-surface": "#FFF4D6",
+            "on-secondary": "#ffffff",
+            "surface-container": "#f2ede2",
+            "canvas": "#F5F0E5",
+            "outline": "#757963",
+            "inverse-surface": "#323029",
+            "tertiary-fixed-dim": "#b7c7e4",
+            "error-surface": "#FCEEEF",
+            "tertiary": "#505f78",
+            "success-ink": "#226347",
+            "on-secondary-container": "#5f4781",
+            "error-ink": "#A52A32",
+            "on-error": "#ffffff",
+            "primary": "#516600",
+            "background": "#fef9ee",
+            "action-hover": "#B5DB32",
+            "on-primary-fixed": "#171e00",
+            "on-tertiary-fixed-variant": "#384760",
+            "review-ink": "#81530B",
+            "secondary": "#6c538e",
+            "on-tertiary-fixed": "#0b1c32",
+            "border-control": "#71828D",
+            "on-primary-fixed-variant": "#3d4d00",
+            "error-container": "#ffdad6",
+            "tertiary-container": "#d1e1ff",
+            "on-tertiary-container": "#54647d",
+            "on-background": "#1d1c15",
+            "surface": "#FFFFFF",
+            "highlight": "#C9ACEE",
+            "link": "#285F85",
+            "secondary-fixed-dim": "#d7bafd",
+            "secondary-fixed": "#eddcff",
+            "inverse-primary": "#afd52a",
+            "surface-container-high": "#ede8dd",
+            "on-surface": "#1d1c15",
+            "primary-fixed": "#caf247",
+            "border-subtle": "#D6DFE3",
+            "on-error-container": "#93000a",
+            "surface-container-highest": "#e7e2d7",
+            "on-tertiary": "#ffffff",
+            "on-primary-container": "#556b00",
+            "surface-variant": "#e7e2d7"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.125rem",
+            "lg": "0.25rem",
+            "xl": "0.5rem",
+            "full": "0.75rem"
+          },
+          "spacing": {
+            "space-xs": "0.25rem",
+            "space-xl": "3rem",
+            "space-sm": "0.5rem",
+            "space-2xl": "4rem",
+            "margin": "1.5rem",
+            "space-md": "0.75rem",
+            "space-lg": "1.5rem",
+            "gutter": "1rem"
+          },
+          "fontFamily": {
+            "section-heading": ["Inter"],
+            "page-title": ["Inter"],
+            "section-heading-mobile": ["Inter"],
+            "page-title-mobile": ["Inter"],
+            "metadata": ["Inter"],
+            "lesson-body": ["Inter"],
+            "ui-body": ["Inter"],
+            "card-heading": ["Inter"]
+          },
+          "fontSize": {
+            "section-heading": ["24px", { "lineHeight": "1.3", "fontWeight": "650" }],
+            "page-title": ["36px", { "lineHeight": "1.2", "fontWeight": "700" }],
+            "section-heading-mobile": ["22px", { "lineHeight": "1.3", "fontWeight": "650" }],
+            "page-title-mobile": ["28px", { "lineHeight": "1.2", "fontWeight": "700" }],
+            "metadata": ["14px", { "lineHeight": "1.5", "fontWeight": "500" }],
+            "lesson-body": ["18px", { "lineHeight": "1.65", "fontWeight": "400" }],
+            "ui-body": ["16px", { "lineHeight": "1.5", "fontWeight": "400" }],
+            "card-heading": ["20px", { "lineHeight": "1.35", "fontWeight": "650" }]
+          }
+        }
+      }
+    }
+  </script>
+<style>
+body{background:#F5F0E5!important;color:#171717!important;font-family:Inter,"Noto Sans",system-ui,sans-serif!important;margin:0!important;min-height:100vh}
+.cn-shell{display:grid;grid-template-columns:240px minmax(0,1fr);min-height:100vh}.cn-sidebar{padding:24px;background:white;border-right:1px solid #71828D}.cn-sidebar a{display:block;padding:14px 0;color:#171717}.cn-content{min-width:0}.cn-header{padding:20px 24px;border-bottom:1px solid #71828D;display:flex;justify-content:space-between;gap:16px}.cn-main{max-width:980px;padding:32px;margin:auto}.cn-main h1{font-size:32px;font-weight:700;line-height:1.25;margin:0 0 16px}.cn-main h2{font-size:22px;font-weight:650;margin:0 0 12px}.cn-main p,.cn-main li{font-size:18px;line-height:1.65}.cn-main p{margin:8px 0 16px}.cn-card{padding:24px;border:1px solid #71828D;border-radius:20px;background:white;margin:20px 0}.cn-lavender{background:#F0E8FA}.cn-main label{display:block;font-size:16px;line-height:1.5;margin:12px 0}.cn-main textarea{display:block;width:100%;box-sizing:border-box;border:1px solid #71828D;border-radius:12px;padding:12px;background:white;color:#171717;font:16px/1.5 Inter,system-ui,sans-serif;min-height:120px}.cn-main input{accent-color:#285F85;margin-right:10px}.cn-main button,.cn-main .cn-button{display:inline-block;border:1px solid #71828D;border-radius:12px;padding:12px 18px;min-height:44px;font-size:16px;color:#171717;background:#C8EF45;margin:8px 8px 8px 0;text-decoration:none}.cn-main .cn-secondary{background:white}.cn-main a{color:#285F85}.cn-main :focus-visible{outline:3px solid #285F85;outline-offset:2px}.cn-main small{font-size:14px;color:#59564F}.cn-cols{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px}.cn-main fieldset{border:0;padding:0}.cn-main legend{font-weight:650;font-size:20px}.cn-main ul{padding-left:24px}.cn-demo{font-size:14px;padding:10px 16px;background:#FFF4D6;border-bottom:1px solid #81530B}.cn-main details summary{padding:12px;cursor:pointer;font-size:16px}.cn-main code{overflow-wrap:anywhere}.cn-mobile .cn-shell{display:block}.cn-mobile .cn-sidebar{display:none}.cn-mobile .cn-main{padding:16px}.cn-mobile .cn-main h1{font-size:28px}.cn-mobile .cn-card{padding:16px}.cn-mobile .cn-cols{display:block}.cn-mobile .cn-header{padding:16px;font-size:16px;flex-wrap:wrap}.cn-bottom{padding:16px;display:flex;justify-content:space-around;background:white;border-top:1px solid #71828D}.cn-bottom a{padding:12px;color:#171717}
+@media(max-width:760px){.cn-shell{display:block}.cn-sidebar{display:none}.cn-main{padding:16px}.cn-main h1{font-size:28px}.cn-cols{display:block}.cn-header{flex-wrap:wrap}.cn-card{padding:16px}}@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style></head>
+<body class=""><a href="#content" style="display:block;padding:8px;color:#285F85">Skip to content</a><div class="cn-demo">Design preview · Fictional sample data · Draft curriculum</div><div class="cn-shell"><aside class="cn-sidebar"><strong style="font-size:24px">CuriousNext</strong><p>Know what to do next.</p><nav aria-label="Main"><a href="index.html">Learn</a><a href="index.html">My courses</a><a href="index.html">Evidence</a></nav></aside><div class="cn-content"><header class="cn-header"><strong>CuriousNext</strong><span>English · Draft content</span></header><main id="content" class="cn-main"><h1>CY-2 · Recognise phishing</h1><section class="cn-card cn-lavender"><h2>Objective</h2><p>Identify suspicious requests, choose a safe action and explain an independent verification route.</p></section><section class="cn-card"><h2>Learn</h2><p>A phishing message tries to persuade you to disclose information or take an unsafe action by pretending to be trustworthy. Urgency, authority or familiar branding deserve scrutiny, but one cue alone does not prove fraud.</p><p>A display name or logo is easy to imitate. A secure connection symbol does not prove legitimacy. Good spelling is not proof of authenticity.</p><p>If an unexpected message asks you to sign in, pay or share sensitive information, pause. Verify through a route you already trust, such as opening the official app yourself. Do not use the message’s contact details as your verification route.</p><button class="cn-secondary" type="button">Simpler explanation</button><button class="cn-secondary" type="button">Show another example</button></section><section class="cn-card"><h2>Worked example: ParcelPoint</h2><p>You have not placed an order. A fictional message says: “Your parcel will be returned in 30 minutes. Pay a small redelivery fee at parcelpoint-pay.example.” The destination is inert.</p><p>Inspect the requested payment, the unexpected context and the urgency. These support caution. They do not authenticate the sender.</p></section><section class="cn-card"><h2>Visual decision path and text equivalent</h2><p>Unexpected sensitive request → Pause → Verify through a trusted independent route → Decide and report where appropriate.</p><p>This text contains the same instructional information as the visual path.</p></section><section class="cn-card"><h2>Learning assistant</h2><p>Ask for another explanation or an example. Help stays available.</p><button class="cn-secondary" type="button">Ask a question</button></section><p><small>Draft content and CY-2 v1 rubric, subject review pending.</small></p><button type="button">Try guided practice</button></main><nav class="cn-bottom" aria-label="Workspace"><a href="index.html">Learn</a><a href="index.html">My courses</a><a href="index.html">Evidence</a></nav></div></div></body></html>

@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+
+<html class="h-full" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>CY-2 Guided Practice · Compare &amp; Decide - CuriousNext</title>
+<!-- Inter Font Family -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;650;700&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols Outlined -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS CDN -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Tailwind Configuration verbatim -->
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "on-surface-variant": "#454935",
+            "primary-fixed-dim": "#afd52a",
+            "on-secondary-fixed": "#260c46",
+            "learning-surface": "#F0E8FA",
+            "secondary-container": "#d7bafd",
+            "tertiary-fixed": "#d5e3ff",
+            "success-surface": "#EAF5EE",
+            "on-primary": "#ffffff",
+            "inverse-on-surface": "#f5f0e5",
+            "primary-container": "#c8ef45",
+            "error": "#ba1a1a",
+            "surface-container-lowest": "#ffffff",
+            "on-secondary-fixed-variant": "#533b74",
+            "surface-tint": "#516600",
+            "ink": "#171717",
+            "ink-muted": "#59564F",
+            "outline-variant": "#c5c9af",
+            "surface-container-low": "#f8f3e8",
+            "action": "#C8EF45",
+            "surface-dim": "#dedacf",
+            "surface-bright": "#fef9ee",
+            "review-surface": "#FFF4D6",
+            "on-secondary": "#ffffff",
+            "surface-container": "#f2ede2",
+            "canvas": "#F5F0E5",
+            "outline": "#757963",
+            "inverse-surface": "#323029",
+            "tertiary-fixed-dim": "#b7c7e4",
+            "error-surface": "#FCEEEF",
+            "tertiary": "#505f78",
+            "success-ink": "#226347",
+            "on-secondary-container": "#5f4781",
+            "error-ink": "#A52A32",
+            "on-error": "#ffffff",
+            "primary": "#516600",
+            "background": "#fef9ee",
+            "action-hover": "#B5DB32",
+            "on-primary-fixed": "#171e00",
+            "on-tertiary-fixed-variant": "#384760",
+            "review-ink": "#81530B",
+            "secondary": "#6c538e",
+            "on-tertiary-fixed": "#0b1c32",
+            "border-control": "#71828D",
+            "on-primary-fixed-variant": "#3d4d00",
+            "error-container": "#ffdad6",
+            "tertiary-container": "#d1e1ff",
+            "on-tertiary-container": "#54647d",
+            "on-background": "#1d1c15",
+            "surface": "#FFFFFF",
+            "highlight": "#C9ACEE",
+            "link": "#285F85",
+            "secondary-fixed-dim": "#d7bafd",
+            "secondary-fixed": "#eddcff",
+            "inverse-primary": "#afd52a",
+            "surface-container-high": "#ede8dd",
+            "on-surface": "#1d1c15",
+            "primary-fixed": "#caf247",
+            "border-subtle": "#D6DFE3",
+            "on-error-container": "#93000a",
+            "surface-container-highest": "#e7e2d7",
+            "on-tertiary": "#ffffff",
+            "on-primary-container": "#556b00",
+            "surface-variant": "#e7e2d7"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.125rem",
+            "lg": "0.25rem",
+            "xl": "0.5rem",
+            "full": "0.75rem"
+          },
+          "spacing": {
+            "space-xs": "0.25rem",
+            "space-xl": "3rem",
+            "space-sm": "0.5rem",
+            "space-2xl": "4rem",
+            "margin": "1.5rem",
+            "space-md": "0.75rem",
+            "space-lg": "1.5rem",
+            "gutter": "1rem"
+          },
+          "fontFamily": {
+            "section-heading": ["Inter"],
+            "page-title": ["Inter"],
+            "section-heading-mobile": ["Inter"],
+            "page-title-mobile": ["Inter"],
+            "metadata": ["Inter"],
+            "lesson-body": ["Inter"],
+            "ui-body": ["Inter"],
+            "card-heading": ["Inter"]
+          },
+          "fontSize": {
+            "section-heading": ["24px", { "lineHeight": "1.3", "fontWeight": "650" }],
+            "page-title": ["36px", { "lineHeight": "1.2", "fontWeight": "700" }],
+            "section-heading-mobile": ["22px", { "lineHeight": "1.3", "fontWeight": "650" }],
+            "page-title-mobile": ["28px", { "lineHeight": "1.2", "fontWeight": "700" }],
+            "metadata": ["14px", { "lineHeight": "1.5", "fontWeight": "500" }],
+            "lesson-body": ["18px", { "lineHeight": "1.65", "fontWeight": "400" }],
+            "ui-body": ["16px", { "lineHeight": "1.5", "fontWeight": "400" }],
+            "card-heading": ["20px", { "lineHeight": "1.35", "fontWeight": "650" }]
+          }
+        },
+      },
+    }
+  </script>
+</head>
+<body class="bg-canvas text-ink font-ui-body text-ui-body antialiased min-h-screen flex flex-col"><div style="padding:10px 16px;background:#FFF4D6;color:#171717;font:14px/1.5 Inter,system-ui,sans-serif">Design preview · Fictional sample data · Draft curriculum</div>
+<!-- Desktop SideNavBar Anchor (Shared Component JSON execution) -->
+<aside class="fixed top-0 left-0 h-screen w-[240px] flex flex-col justify-between bg-canvas dark:bg-canvas border-r border-border-subtle dark:border-border-control z-40 select-none">
+<div class="w-[240px] h-full p-gutter flex flex-col justify-between">
+<div>
+<!-- Brand Header -->
+<div class="flex items-center gap-space-sm mb-space-lg px-space-xs">
+<div class="w-8 h-8 rounded-lg bg-ink text-surface flex items-center justify-center font-bold text-sm tracking-tight">
+            CN
+          </div>
+<div>
+<div class="font-card-heading text-card-heading text-ink dark:text-ink font-bold tracking-tight">CuriousNext</div>
+<div class="font-metadata text-metadata text-ink-muted">Adult learning workspace</div>
+</div>
+</div>
+<!-- Navigation Tabs -->
+<nav class="space-y-space-xs">
+<!-- Item 1: Learn (ACTIVE for Guided Practice) -->
+<a class="flex items-center gap-space-sm px-gutter py-space-sm bg-surface dark:bg-surface border border-border-control dark:border-border-control rounded-xl font-metadata text-metadata text-ink dark:text-ink font-semibold min-h-[44px] transition-colors duration-150 cursor-pointer" href="#">
+<span class="material-symbols-outlined text-ink text-[20px]" data-icon="menu_book">menu_book</span>
+<span>Learn</span>
+</a>
+<!-- Item 2: My courses (Inactive) -->
+<a class="flex items-center gap-space-sm px-gutter py-space-sm rounded-xl font-metadata text-metadata text-ink-muted dark:text-ink-muted hover:bg-surface-container dark:hover:bg-surface-container hover:text-ink dark:hover:text-ink transition-colors duration-150 min-h-[44px] cursor-pointer" href="#">
+<span class="material-symbols-outlined text-ink-muted text-[20px]" data-icon="school">school</span>
+<span>My courses</span>
+</a>
+<!-- Item 3: Evidence (Inactive) -->
+<a class="flex items-center gap-space-sm px-gutter py-space-sm rounded-xl font-metadata text-metadata text-ink-muted dark:text-ink-muted hover:bg-surface-container dark:hover:bg-surface-container hover:text-ink dark:hover:text-ink transition-colors duration-150 min-h-[44px] cursor-pointer" href="#">
+<span class="material-symbols-outlined text-ink-muted text-[20px]" data-icon="verified">verified</span>
+<span>Evidence</span>
+</a>
+</nav>
+<!-- Context Callout / Resume Learning CTA in Nav -->
+<div class="mt-space-lg p-space-md bg-learning-surface border border-border-subtle rounded-xl">
+<div class="flex items-center gap-space-xs mb-space-xs text-secondary font-semibold font-metadata text-metadata">
+<span class="material-symbols-outlined text-[18px]" data-icon="psychology">psychology</span>
+<span>Module 2 in progress</span>
+</div>
+<p class="font-metadata text-metadata text-ink-muted mb-space-sm">Cybersecurity Essentials: Recognising Social Engineering</p>
+<button class="w-full py-space-xs px-space-sm bg-surface border border-border-control rounded-lg font-metadata text-metadata text-ink font-semibold hover:bg-surface-container transition-colors">
+            Resume Learning
+          </button>
+</div>
+</div>
+<!-- Footer Navigation Items from JSON -->
+<div class="pt-space-md border-t border-border-subtle space-y-space-xs">
+<a class="flex items-center gap-space-sm px-gutter py-space-sm rounded-xl font-metadata text-metadata text-ink-muted hover:bg-surface-container hover:text-ink transition-colors duration-150 min-h-[44px] cursor-pointer" href="#">
+<span class="material-symbols-outlined text-ink-muted text-[20px]" data-icon="settings">settings</span>
+<span>Settings</span>
+</a>
+<a class="flex items-center gap-space-sm px-gutter py-space-sm rounded-xl font-metadata text-metadata text-ink-muted hover:bg-surface-container hover:text-ink transition-colors duration-150 min-h-[44px] cursor-pointer" href="#">
+<span class="material-symbols-outlined text-ink-muted text-[20px]" data-icon="help">help</span>
+<span>Help</span>
+</a>
+</div>
+</div>
+</aside>
+<!-- Desktop TopNavBar Anchor (Shared Component JSON execution) -->
+<header class="fixed top-0 left-[240px] right-0 h-16 z-30 bg-canvas dark:bg-canvas border-b border-border-subtle dark:border-border-control">
+<div class="h-16 px-space-lg flex items-center justify-between max-w-[1120px]">
+<div class="flex items-center gap-space-md">
+<span class="font-card-heading text-card-heading text-ink dark:text-ink font-semibold">CuriousNext</span>
+<span class="text-border-control text-sm">/</span>
+<a class="font-metadata text-metadata text-ink dark:text-ink font-semibold flex items-center gap-space-xs hover:text-link transition-colors" href="#">
+<span>Cybersecurity Essentials</span>
+</a>
+</div>
+<!-- Trailing Action Cluster -->
+<div class="flex items-center gap-space-sm">
+<button aria-label="Language selection" class="min-h-[44px] min-w-[44px] inline-flex items-center justify-center font-metadata text-metadata text-ink-muted hover:bg-surface-container hover:text-ink rounded-lg transition-colors duration-150 cursor-pointer">
+<span class="material-symbols-outlined text-[20px]" data-icon="translate">translate</span>
+<span class="ml-space-xs hidden md:inline">Language</span>
+</button>
+<button aria-label="User Account" class="min-h-[44px] min-w-[44px] inline-flex items-center justify-center font-metadata text-metadata text-ink-muted hover:bg-surface-container hover:text-ink rounded-lg transition-colors duration-150 cursor-pointer">
+<span class="material-symbols-outlined text-[22px]" data-icon="account_circle">account_circle</span>
+<span class="ml-space-xs hidden md:inline">Account</span>
+</button>
+</div>
+</div>
+</header>
+<!-- Outer Canvas Wrapper with Left Padding for Fixed 240px Sidebar and Top 64px Header -->
+<div class="pl-[240px] pt-16 flex-1 flex flex-col min-w-0">
+<div class="w-full max-w-[1280px] mx-auto px-space-lg py-space-lg flex-1">
+<!-- Top Layout Grid: Main Work Canvas (820px max) + Learning Assistant Panel -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-space-lg items-start">
+<!-- Main Practice Area (max-w-[820px] on desktop) -->
+<main class="lg:col-span-8 max-w-[820px] w-full space-y-space-lg">
+<!-- Top Breadcrumb & Title Cluster -->
+<div>
+<nav aria-label="Breadcrumb" class="flex items-center gap-space-xs font-metadata text-metadata text-ink-muted mb-space-xs">
+<span>Cybersecurity Essentials</span>
+<span>/</span>
+<span>Module 2</span>
+<span>/</span>
+<span class="text-ink font-semibold">Guided Practice</span>
+</nav>
+<h1 class="font-page-title text-page-title text-ink tracking-tight mb-space-xs">
+              Guided Practice: Compare Two Messages
+            </h1>
+<p class="font-ui-body text-ui-body text-ink-muted">
+              Inspect both fictional communications below. One contains classic phishing indicators; the other is a routine non-sensitive reminder. Identify the deceptive message, choose your response, and explain your reasoning.
+            </p>
+</div>
+<!-- Top Status Strip -->
+<div class="flex items-center justify-between px-space-md py-space-xs bg-surface border border-border-subtle rounded-xl font-metadata text-metadata text-ink-muted">
+<div class="flex items-center gap-space-xs">
+<span class="w-2 h-2 rounded-full bg-success-ink inline-block"></span>
+<span>Draft auto-saved to device</span>
+</div>
+<div class="flex items-center gap-space-xs text-ink-muted">
+<span class="material-symbols-outlined text-[16px]" data-icon="hourglass_disabled">hourglass_disabled</span>
+<span>No countdown timers</span>
+</div>
+</div>
+<!-- Side-by-side or stacked Comparative Message Cards -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-space-md">
+<!-- Message A (Deceptive / Phishing Artifact) -->
+<div class="bg-surface border-2 border-border-control rounded-xl p-space-md flex flex-col justify-between relative shadow-sm">
+<div class="absolute -top-3 left-4 px-space-xs py-0.5 bg-review-surface border border-border-control rounded font-metadata text-metadata text-review-ink font-semibold flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]" data-icon="mail">mail</span>
+<span>Artifact A</span>
+</div>
+<div class="pt-2">
+<div class="pb-space-sm border-b border-border-subtle mb-space-sm">
+<div class="text-xs text-ink-muted uppercase font-semibold tracking-wider">From</div>
+<div class="font-metadata text-metadata text-ink font-mono font-medium truncate">notifications@courier-fasttrack.example</div>
+<div class="text-xs text-ink-muted uppercase font-semibold tracking-wider mt-space-xs">Subject</div>
+<div class="font-ui-body text-ui-body text-ink font-semibold text-error-ink">IMMEDIATE ACTION REQUIRED: Parcel delivery suspended</div>
+</div>
+<div class="bg-surface-container-low p-space-sm rounded-lg font-ui-body text-ui-body text-ink leading-relaxed mb-space-md">
+<p>Your package is held at regional sorting facility. A redelivery fee of <strong>$2.10</strong> is required before <strong>5:00 PM today</strong> or the parcel will be destroyed.</p>
+<div class="mt-space-sm pt-space-xs border-t border-border-subtle">
+<span class="font-metadata text-metadata text-ink-muted">Action demanded:</span>
+<div class="text-link underline break-all font-mono text-sm mt-0.5">http://courier-fasttrack.example/pay</div>
+</div>
+</div>
+</div>
+<div class="bg-surface-container px-space-sm py-space-xs rounded-lg flex items-center justify-between text-xs text-ink-muted font-metadata">
+<span class="flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px] text-error-ink" data-icon="warning">warning</span>
+                  Urgent penalty countdown
+                </span>
+<span class="font-semibold text-ink">External payment portal</span>
+</div>
+</div>
+<!-- Message B (Legitimate / Routine Artifact) -->
+<div class="bg-surface border border-border-control rounded-xl p-space-md flex flex-col justify-between relative shadow-sm">
+<div class="absolute -top-3 left-4 px-space-xs py-0.5 bg-success-surface border border-border-control rounded font-metadata text-metadata text-success-ink font-semibold flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]" data-icon="verified">verified</span>
+<span>Artifact B</span>
+</div>
+<div class="pt-2">
+<div class="pb-space-sm border-b border-border-subtle mb-space-sm">
+<div class="text-xs text-ink-muted uppercase font-semibold tracking-wider">From</div>
+<div class="font-metadata text-metadata text-ink font-mono font-medium truncate">library@community-books.org</div>
+<div class="text-xs text-ink-muted uppercase font-semibold tracking-wider mt-space-xs">Subject</div>
+<div class="font-ui-body text-ui-body text-ink font-semibold">Book return reminder: 'The History of Architecture'</div>
+</div>
+<div class="bg-surface-container-low p-space-sm rounded-lg font-ui-body text-ui-body text-ink leading-relaxed mb-space-md">
+<p>Friendly reminder that your checked-out loan is due next Tuesday, Oct 14. You can renew online through your account portal or drop the book off in the return slot.</p>
+<div class="mt-space-sm pt-space-xs border-t border-border-subtle">
+<span class="font-metadata text-metadata text-ink-muted">Action suggested:</span>
+<div class="font-metadata text-metadata text-ink font-medium mt-0.5">Renew via ordinary login portal · No fees are due.</div>
+</div>
+</div>
+</div>
+<div class="bg-surface-container px-space-sm py-space-xs rounded-lg flex items-center justify-between text-xs text-ink-muted font-metadata">
+<span class="flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px] text-success-ink" data-icon="check_circle">check_circle</span>
+                  Calm advance notice
+                </span>
+<span class="font-semibold text-ink">Zero payment requested</span>
+</div>
+</div>
+</div>
+<!-- Interactive Question & Decision Form -->
+<form class="space-y-space-lg" onsubmit="event.preventDefault();">
+<!-- Question 1 -->
+<fieldset class="bg-surface border border-border-control rounded-xl p-space-lg space-y-space-md">
+<legend class="font-card-heading text-card-heading text-ink px-space-xs font-semibold">
+                Question 1: Which message shows deceptive phishing characteristics?
+              </legend>
+<div class="space-y-space-sm pt-space-xs">
+<!-- Option A (Selected) -->
+<label class="flex items-start gap-space-md p-space-md rounded-xl border-2 border-primary bg-learning-surface/40 cursor-pointer transition-colors">
+<input checked="" class="mt-1 w-4 h-4 text-primary focus:ring-link focus:ring-2 border-border-control" name="deceptive_choice" type="radio" value="message_a"/>
+<div>
+<div class="font-metadata text-metadata font-semibold text-ink">Message A (Courier delivery alert)</div>
+<div class="font-metadata text-metadata text-ink-muted">Demands immediate credit card fee under threat of parcel destruction within hours.</div>
+</div>
+</label>
+<!-- Option B -->
+<label class="flex items-start gap-space-md p-space-md rounded-xl border border-border-subtle hover:border-border-control bg-surface cursor-pointer transition-colors">
+<input class="mt-1 w-4 h-4 text-primary focus:ring-link focus:ring-2 border-border-control" name="deceptive_choice" type="radio" value="message_b"/>
+<div>
+<div class="font-metadata text-metadata font-semibold text-ink">Message B (Library reminder)</div>
+<div class="font-metadata text-metadata text-ink-muted">Routine renewal reminder without urgent deadline panic or external financial redirect.</div>
+</div>
+</label>
+</div>
+</fieldset>
+<!-- Question 2 -->
+<fieldset class="bg-surface border border-border-control rounded-xl p-space-lg space-y-space-md">
+<legend class="font-card-heading text-card-heading text-ink px-space-xs font-semibold">
+                Question 2: What is your safe action for Message A?
+              </legend>
+<div class="space-y-space-sm pt-space-xs">
+<!-- Safe Action (Selected) -->
+<label class="flex items-start gap-space-md p-space-md rounded-xl border-2 border-primary bg-learning-surface/40 cursor-pointer transition-colors">
+<input checked="" class="mt-1 w-4 h-4 text-primary focus:ring-link focus:ring-2 border-border-control" name="safe_action" type="radio" value="ignore_delete"/>
+<div>
+<div class="font-metadata text-metadata font-semibold text-ink">Do not click the link; delete or report via official verified courier channel</div>
+<div class="font-metadata text-metadata text-ink-muted">Avoid interacting with the unverified domain; independently verify tracking if expecting a parcel.</div>
+</div>
+</label>
+<!-- Distractor 1 -->
+<label class="flex items-start gap-space-md p-space-md rounded-xl border border-border-subtle hover:border-border-control bg-surface cursor-pointer transition-colors">
+<input class="mt-1 w-4 h-4 text-primary focus:ring-link focus:ring-2 border-border-control" name="safe_action" type="radio" value="inspect_link"/>
+<div>
+<div class="font-metadata text-metadata font-semibold text-ink">Click the link and inspect the page</div>
+<div class="font-metadata text-metadata text-ink-muted">Visiting unfamiliar sites exposes your browser to credential logging or malicious scripts.</div>
+</div>
+</label>
+<!-- Distractor 2 -->
+<label class="flex items-start gap-space-md p-space-md rounded-xl border border-border-subtle hover:border-border-control bg-surface cursor-pointer transition-colors">
+<input class="mt-1 w-4 h-4 text-primary focus:ring-link focus:ring-2 border-border-control" name="safe_action" type="radio" value="reply_payment"/>
+<div>
+<div class="font-metadata text-metadata font-semibold text-ink">Reply with credit card details</div>
+<div class="font-metadata text-metadata text-ink-muted">Directly delivers financial information to unauthenticated recipients.</div>
+</div>
+</label>
+</div>
+</fieldset>
+<!-- Question 3 -->
+<div class="bg-surface border border-border-control rounded-xl p-space-lg space-y-space-md">
+<label class="block font-card-heading text-card-heading text-ink font-semibold" for="rationale_field">
+                Question 3: Explain your rationale in your own words:
+              </label>
+<p class="font-metadata text-metadata text-ink-muted">
+                Describe the specific warning signals that confirmed your choice and how you arrived at your safe next step.
+              </p>
+<textarea class="w-full rounded-xl border border-border-control p-space-md font-ui-body text-ui-body text-ink focus:outline-none focus:ring-2 focus:ring-link focus:border-link transition-colors bg-canvas/30 resize-y" id="rationale_field" rows="4">Message A uses manufactured panic ('suspended', 'destroyed before 5 PM') and asks for immediate payment on an unfamiliar domain link. I did not order anything. Even if I expected a parcel, the safe move is to open the real courier website directly without using the link.</textarea>
+<div class="flex items-center justify-between text-xs text-ink-muted font-metadata">
+<span>Rationale length: 48 words</span>
+<span class="text-success-ink font-medium flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]" data-icon="check">check</span>
+                  Meets precision checklist
+                </span>
+</div>
+</div>
+<!-- Bottom Action Navigation Bar & Status -->
+<div class="bg-surface border border-border-control rounded-xl p-space-md flex flex-col sm:flex-row items-center justify-between gap-space-md">
+<div class="flex items-center gap-space-md text-ink-muted font-metadata text-metadata">
+<span class="flex items-center gap-1">
+<span class="material-symbols-outlined text-[18px] text-ink-muted" data-icon="cloud_done">cloud_done</span>
+<span>Auto-saved 1 min ago</span>
+</span>
+<span>·</span>
+<button class="text-link hover:underline font-medium inline-flex items-center gap-1" type="button">
+<span class="material-symbols-outlined text-[16px]" data-icon="article">article</span>
+<span>Review lesson notes</span>
+</button>
+</div>
+<!-- Primary Action Lime Button -->
+<a class="inline-flex items-center justify-center gap-space-xs px-space-lg py-space-sm bg-action hover:bg-action-hover text-ink font-metadata text-metadata font-bold rounded-xl border border-border-control shadow-sm transition-colors cursor-pointer w-full sm:w-auto" href="#">
+<span>Continue to Independent Task</span>
+<span class="material-symbols-outlined text-[18px]" data-icon="arrow_forward">arrow_forward</span>
+</a>
+</div>
+<!-- Bottom Footnote Disclaimer -->
+<p class="text-center font-metadata text-metadata text-ink-muted">
+              Guided practice is non-graded. Work through examples at your own pace.
+            </p>
+</form>
+</main>
+<!-- Right Learning Assistant Panel -->
+<aside class="lg:col-span-4 sticky top-24 space-y-space-md">
+<div class="bg-learning-surface border border-border-control rounded-xl p-space-lg shadow-sm space-y-space-md">
+<!-- Panel Header -->
+<div class="flex items-center gap-space-sm pb-space-sm border-b border-border-subtle">
+<div class="w-8 h-8 rounded-lg bg-secondary text-surface flex items-center justify-center">
+<span class="material-symbols-outlined text-[20px]" data-icon="support_agent">support_agent</span>
+</div>
+<div>
+<h2 class="font-card-heading text-card-heading text-ink font-semibold">Learning Assistant</h2>
+<span class="inline-block px-1.5 py-0.5 rounded text-[11px] font-semibold uppercase tracking-wider bg-secondary-fixed text-on-secondary-fixed">
+                  Guided Practice
+                </span>
+</div>
+</div>
+<!-- Panel Mode Note -->
+<div class="bg-surface/80 p-space-sm rounded-lg border border-border-subtle font-metadata text-metadata text-ink-muted leading-relaxed">
+<p><strong>Guided practice mode.</strong> Hints here guide your thinking. In independent assessment later, hints are explicitly flagged as assistance.</p>
+</div>
+<!-- Hint Cards Stack -->
+<div class="space-y-space-sm">
+<!-- Hint 1 Card -->
+<div class="bg-surface rounded-xl p-space-md border border-border-control space-y-space-xs shadow-xs">
+<div class="flex items-center gap-space-xs font-metadata text-metadata text-secondary font-semibold">
+<span class="material-symbols-outlined text-[18px]" data-icon="lightbulb">lightbulb</span>
+<span>Observation Hint 1</span>
+</div>
+<p class="font-ui-body text-ui-body text-ink">
+                  Notice the difference in urgency and request type between the two communications.
+                </p>
+<div class="pt-space-xs text-xs text-ink-muted">
+                  Look closely at phrasing like "immediate" or "destroyed" versus neutral scheduling reminders.
+                </div>
+</div>
+<!-- Hint 2 Card -->
+<div class="bg-surface rounded-xl p-space-md border border-border-control space-y-space-xs shadow-xs">
+<div class="flex items-center gap-space-xs font-metadata text-metadata text-secondary font-semibold">
+<span class="material-symbols-outlined text-[18px]" data-icon="search_insights">search_insights</span>
+<span>Action Hint 2</span>
+</div>
+<p class="font-ui-body text-ui-body text-ink">
+                  Check what each message actually asks you to do: does one demand payment on an external link?
+                </p>
+<div class="pt-space-xs text-xs text-ink-muted">
+                  Authentic service providers do not threaten instant property destruction over small nominal fees.
+                </div>
+</div>
+</div>
+<!-- Additional Learning Assistant Prompt -->
+<div class="p-space-sm bg-surface-container rounded-lg border border-border-subtle">
+<div class="flex items-center justify-between text-xs font-metadata text-ink-muted mb-1">
+<span class="font-medium text-ink">Reflection question</span>
+<span>CY-2 Concept</span>
+</div>
+<p class="font-metadata text-metadata text-ink">
+                "What would you do if you actually WERE awaiting a courier package?"
+              </p>
+</div>
+</div>
+<!-- Quick Reference Badge Card -->
+<div class="bg-surface border border-border-subtle rounded-xl p-space-md flex items-start gap-space-sm">
+<span class="material-symbols-outlined text-review-ink text-[22px] mt-0.5" data-icon="shield">shield</span>
+<div>
+<div class="font-metadata text-metadata font-semibold text-ink">Zero Pressure Policy</div>
+<p class="font-metadata text-metadata text-ink-muted">
+                Take your time to articulate thoughts thoroughly. You can refine your answers as many times as necessary before proceeding.
+              </p>
+</div>
+</div>
+</aside>
+</div>
+</div>
+</div>
+</body></html>

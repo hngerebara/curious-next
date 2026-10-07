@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+
+<html class="h-full" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Review and Transfer Next Action - CuriousNext</title>
+<!-- Material Symbols Outlined font -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Google Fonts: Inter -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;650;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS CDN -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "tertiary-fixed-dim": "#b7c7e4",
+            "surface-dim": "#dedacf",
+            "action-hover": "#B5DB32",
+            "surface-container": "#f2ede2",
+            "on-primary": "#ffffff",
+            "canvas": "#F5F0E5",
+            "on-tertiary-fixed-variant": "#384760",
+            "on-primary-fixed-variant": "#3d4d00",
+            "on-surface-variant": "#454935",
+            "surface-bright": "#fef9ee",
+            "secondary-fixed-dim": "#d7bafd",
+            "error-container": "#ffdad6",
+            "secondary": "#6c538e",
+            "surface-container-high": "#ede8dd",
+            "success-ink": "#226347",
+            "on-primary-fixed": "#171e00",
+            "primary": "#516600",
+            "on-secondary-fixed": "#260c46",
+            "secondary-fixed": "#eddcff",
+            "surface": "#FFFFFF",
+            "on-background": "#1d1c15",
+            "on-primary-container": "#556b00",
+            "outline-variant": "#c5c9af",
+            "link": "#285F85",
+            "tertiary-fixed": "#d5e3ff",
+            "tertiary": "#505f78",
+            "inverse-on-surface": "#f5f0e5",
+            "outline": "#757963",
+            "surface-container-lowest": "#ffffff",
+            "on-tertiary-container": "#54647d",
+            "on-tertiary-fixed": "#0b1c32",
+            "review-surface": "#FFF4D6",
+            "ink": "#171717",
+            "inverse-surface": "#323029",
+            "error": "#ba1a1a",
+            "surface-variant": "#e7e2d7",
+            "on-secondary-container": "#5f4781",
+            "primary-container": "#c8ef45",
+            "tertiary-container": "#d1e1ff",
+            "surface-container-low": "#f8f3e8",
+            "error-surface": "#FCEEEF",
+            "on-error-container": "#93000a",
+            "surface-tint": "#516600",
+            "inverse-primary": "#afd52a",
+            "on-secondary-fixed-variant": "#533b74",
+            "surface-container-highest": "#e7e2d7",
+            "highlight": "#C9ACEE",
+            "primary-fixed-dim": "#afd52a",
+            "on-surface": "#1d1c15",
+            "background": "#fef9ee",
+            "border-subtle": "#D6DFE3",
+            "success-surface": "#EAF5EE",
+            "secondary-container": "#d7bafd",
+            "action": "#C8EF45",
+            "border-control": "#71828D",
+            "review-ink": "#81530B",
+            "ink-muted": "#59564F",
+            "error-ink": "#A52A32",
+            "primary-fixed": "#caf247",
+            "on-tertiary": "#ffffff",
+            "on-error": "#ffffff",
+            "learning-surface": "#F0E8FA",
+            "on-secondary": "#ffffff"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.125rem",
+            "lg": "0.25rem",
+            "xl": "0.5rem",
+            "card": "1.25rem",
+            "full": "0.75rem"
+          },
+          "spacing": {
+            "space-md": "0.75rem",
+            "space-xs": "0.25rem",
+            "space-sm": "0.5rem",
+            "space-2xl": "4rem",
+            "margin": "1.5rem",
+            "space-lg": "1.5rem",
+            "space-xl": "3rem",
+            "gutter": "1rem"
+          },
+          "fontFamily": {
+            "ui-body": ["Inter", "sans-serif"],
+            "lesson-body": ["Inter", "sans-serif"],
+            "section-heading-mobile": ["Inter", "sans-serif"],
+            "section-heading": ["Inter", "sans-serif"],
+            "page-title-mobile": ["Inter", "sans-serif"],
+            "page-title": ["Inter", "sans-serif"],
+            "metadata": ["Inter", "sans-serif"],
+            "card-heading": ["Inter", "sans-serif"]
+          },
+          "fontSize": {
+            "ui-body": ["16px", { "lineHeight": "1.5", "fontWeight": "400" }],
+            "lesson-body": ["18px", { "lineHeight": "1.65", "fontWeight": "400" }],
+            "section-heading-mobile": ["22px", { "lineHeight": "1.3", "fontWeight": "650" }],
+            "section-heading": ["24px", { "lineHeight": "1.3", "fontWeight": "650" }],
+            "page-title-mobile": ["28px", { "lineHeight": "1.2", "fontWeight": "700" }],
+            "page-title": ["36px", { "lineHeight": "1.2", "fontWeight": "700" }],
+            "metadata": ["14px", { "lineHeight": "1.5", "fontWeight": "500" }],
+            "card-heading": ["20px", { "lineHeight": "1.35", "fontWeight": "650" }]
+          }
+        }
+      }
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-family: 'Material Symbols Outlined';
+      font-weight: normal;
+      font-style: normal;
+      font-size: 20px;
+      line-height: 1;
+      letter-spacing: normal;
+      text-transform: none;
+      display: inline-block;
+      white-space: nowrap;
+      word-wrap: normal;
+      direction: ltr;
+      -webkit-font-feature-settings: 'liga';
+      -webkit-font-smoothing: antialiased;
+    }
+  </style>
+</head>
+<body class="bg-canvas text-ink antialiased min-h-screen flex flex-col font-ui-body text-ui-body selection:bg-highlight selection:text-ink"><div style="padding:10px 16px;background:#FFF4D6;color:#171717;font:14px/1.5 Inter,system-ui,sans-serif">Design preview · Fictional sample data · Draft curriculum</div>
+<!-- Desktop SideNavBar Component (Exact Shared Component implementation) -->
+<aside class="fixed top-0 left-0 h-screen w-[240px] flex flex-col justify-between bg-canvas border-r border-border-subtle z-40">
+<div class="w-[240px] p-gutter flex flex-col">
+<!-- Header / Logo -->
+<div class="flex items-center gap-space-sm pb-space-lg mb-space-sm border-b border-border-subtle">
+<div aria-label="CuriousNext notebook mark icon" class="w-8 h-8 rounded-xl bg-surface border border-border-control flex items-center justify-center text-ink shadow-sm">
+<span class="material-symbols-outlined text-ink" data-icon="menu_book">menu_book</span>
+</div>
+<div class="flex flex-col">
+<span class="font-card-heading text-card-heading text-ink font-bold tracking-tight">CuriousNext</span>
+<span class="font-metadata text-[11px] text-ink-muted leading-tight">Adult learning workspace</span>
+</div>
+</div>
+<!-- Navigation List -->
+<nav aria-label="Main Navigation" class="flex flex-col gap-space-xs mt-space-sm">
+<!-- Tab: Learn (Active) -->
+<a class="flex items-center gap-space-sm px-gutter py-space-sm bg-surface border border-border-control rounded-xl font-metadata text-metadata text-ink font-semibold min-h-[44px] transition-colors duration-150 cursor-pointer" href="#">
+<span class="material-symbols-outlined text-ink" data-icon="menu_book">menu_book</span>
+<span>Learn</span>
+</a>
+<!-- Tab: My courses (Inactive) -->
+<a class="flex items-center gap-space-sm px-gutter py-space-sm rounded-xl font-metadata text-metadata text-ink-muted hover:bg-surface-container hover:text-ink transition-colors duration-150 min-h-[44px] cursor-pointer" href="#">
+<span class="material-symbols-outlined text-ink-muted" data-icon="school">school</span>
+<span>My courses</span>
+</a>
+<!-- Tab: Evidence (Inactive) -->
+<a class="flex items-center gap-space-sm px-gutter py-space-sm rounded-xl font-metadata text-metadata text-ink-muted hover:bg-surface-container hover:text-ink transition-colors duration-150 min-h-[44px] cursor-pointer" href="#">
+<span class="material-symbols-outlined text-ink-muted" data-icon="verified">verified</span>
+<span>Evidence</span>
+</a>
+</nav>
+<!-- Contextual CTA -->
+<div class="mt-space-lg pt-space-md">
+<button class="w-full py-space-sm px-space-md rounded-xl bg-action hover:bg-action-hover text-ink font-metadata text-metadata font-semibold transition-colors duration-150 flex items-center justify-center gap-space-xs shadow-none border border-border-subtle">
+<span>Resume Learning</span>
+<span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+</button>
+</div>
+</div>
+<!-- Footer Tabs -->
+<div class="w-[240px] p-gutter border-t border-border-subtle flex flex-col gap-space-xs">
+<a class="flex items-center gap-space-sm px-gutter py-space-sm rounded-xl font-metadata text-metadata text-ink-muted hover:bg-surface-container hover:text-ink transition-colors duration-150 min-h-[44px] cursor-pointer" href="#">
+<span class="material-symbols-outlined text-ink-muted" data-icon="settings">settings</span>
+<span>Settings</span>
+</a>
+<a class="flex items-center gap-space-sm px-gutter py-space-sm rounded-xl font-metadata text-metadata text-ink-muted hover:bg-surface-container hover:text-ink transition-colors duration-150 min-h-[44px] cursor-pointer" href="#">
+<span class="material-symbols-outlined text-ink-muted" data-icon="help">help</span>
+<span>Help</span>
+</a>
+</div>
+</aside>
+<!-- Desktop TopNavBar Component (Exact Shared Component implementation) -->
+<header class="fixed top-0 left-[240px] right-0 h-16 bg-canvas border-b border-border-subtle z-30">
+<div class="h-16 px-space-lg flex items-center justify-between max-w-[1120px] mx-auto">
+<!-- Breadcrumb Cluster -->
+<nav aria-label="Breadcrumb" class="flex items-center gap-space-xs">
+<span class="font-metadata text-metadata text-ink-muted">CuriousNext</span>
+<span class="font-metadata text-metadata text-ink-muted">/</span>
+<span class="font-metadata text-metadata text-ink-muted">Practical AI</span>
+<span class="font-metadata text-metadata text-ink-muted">/</span>
+<span class="font-metadata text-metadata text-ink font-semibold flex items-center gap-space-xs">
+          Next learning rhythm
+        </span>
+</nav>
+<!-- Trailing Action Items -->
+<div class="flex items-center gap-space-sm">
+<!-- Language selector -->
+<button aria-label="Select Language" class="min-h-[44px] px-space-sm inline-flex items-center gap-space-xs rounded-xl font-metadata text-metadata text-ink-muted hover:bg-surface-container hover:text-ink transition-colors duration-150 cursor-pointer">
+<span class="material-symbols-outlined text-ink-muted text-[18px]" data-icon="translate">translate</span>
+<span>English</span>
+</button>
+<div class="h-5 w-[1px] bg-border-subtle"></div>
+<!-- Account button -->
+<button aria-label="User Account" class="min-h-[44px] px-space-sm inline-flex items-center gap-space-xs rounded-xl font-metadata text-metadata text-ink hover:bg-surface-container transition-colors duration-150 cursor-pointer">
+<span class="material-symbols-outlined text-ink text-[22px]" data-icon="account_circle">account_circle</span>
+<span class="font-medium">Account</span>
+</button>
+</div>
+</div>
+</header>
+<!-- Main Workspace Canvas -->
+<main class="ml-[240px] pt-16 flex-1 bg-canvas min-h-screen">
+<div class="max-w-[1120px] mx-auto px-space-lg py-space-xl">
+<!-- Lesson / Review Constrained Container (760px) for optimal editorial reading -->
+<div class="max-w-[760px] mx-auto flex flex-col gap-space-lg">
+<!-- 1. Goal Header Banner (Tactile Notebook Sub-banner) -->
+<section aria-label="Active Goal" class="bg-surface rounded-xl border border-border-subtle p-space-md flex items-center gap-space-sm">
+<div class="w-6 h-6 rounded-lg bg-surface-container flex items-center justify-center text-ink flex-shrink-0">
+<span class="material-symbols-outlined text-[16px] text-ink" data-icon="flag">flag</span>
+</div>
+<div class="flex-1 font-metadata text-metadata text-ink">
+<span class="font-semibold text-ink">Active Goal:</span>
+<span>Use AI to prepare clear study notes</span>
+<span class="text-ink-muted mx-space-xs">·</span>
+<span class="text-ink-muted">Course: <strong class="font-medium text-ink">Practical AI</strong></span>
+<span class="text-ink-muted mx-space-xs">·</span>
+<span class="text-ink-muted">Module <strong class="font-medium text-ink">AI-2</strong></span>
+</div>
+</section>
+<!-- 2. Headline & Lead Section -->
+<section class="flex flex-col gap-space-xs pt-space-xs">
+<h1 class="font-page-title text-page-title text-ink tracking-tight">
+            What would help you strengthen your understanding today?
+          </h1>
+<p class="font-lesson-body text-lesson-body text-ink-muted">
+            Choose your practice rhythm. Spaced recall protects prior gains, while novel transfer tests flexibility in new contexts.
+          </p>
+</section>
+<!-- 3. Time Estimate Selector (Quiet Segmented Control) -->
+<section aria-label="Practice Duration Preference" class="flex flex-col gap-space-xs pt-space-xs">
+<div class="flex items-center gap-space-xs">
+<span class="font-metadata text-metadata text-ink-muted font-medium pr-space-xs">Session length:</span>
+<div aria-label="Practice length" class="inline-flex p-1 bg-surface-container rounded-xl border border-border-subtle" role="radiogroup">
+<!-- Option 1: 10 min -->
+<button aria-checked="false" class="px-space-md py-1.5 rounded-lg font-metadata text-metadata text-ink-muted hover:text-ink hover:bg-surface-dim transition-colors duration-150 focus:outline-none focus:ring-2 focus:ring-link" role="radio">
+                10 min
+              </button>
+<!-- Option 2: 20 min (Recommended) Active -->
+<button aria-checked="true" class="px-space-md py-1.5 rounded-lg font-metadata text-metadata text-ink font-semibold bg-surface border border-border-subtle shadow-xs flex items-center gap-1.5 transition-colors duration-150 focus:outline-none focus:ring-2 focus:ring-link" role="radio">
+<span class="w-2 h-2 rounded-full bg-primary inline-block"></span>
+<span>20 min (Recommended)</span>
+</button>
+<!-- Option 3: 40 min -->
+<button aria-checked="false" class="px-space-md py-1.5 rounded-lg font-metadata text-metadata text-ink-muted hover:text-ink hover:bg-surface-dim transition-colors duration-150 focus:outline-none focus:ring-2 focus:ring-link" role="radio">
+                40 min
+              </button>
+</div>
+</div>
+<p class="font-metadata text-[13px] text-ink-muted italic pl-1">
+            Time is an estimate for pacing, not a countdown timer.
+          </p>
+</section>
+<!-- 4. Primary Recommended Action Card -->
+<article class="bg-learning-surface border border-secondary/20 rounded-[20px] p-space-lg flex flex-col gap-space-md relative overflow-hidden transition-all duration-200">
+<!-- Tactile top indicator strip -->
+<div class="absolute top-0 left-0 right-0 h-1 bg-highlight"></div>
+<!-- Header & Capability Badge -->
+<div class="flex flex-wrap items-center justify-between gap-space-sm pt-space-xs">
+<div class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-surface/80 border border-secondary/30 font-metadata text-[12px] font-semibold text-secondary tracking-wide uppercase">
+<span class="material-symbols-outlined text-[15px] text-secondary" data-icon="update">update</span>
+<span>DUE DELAYED RECALL · SPACED PRACTICE</span>
+</div>
+<span class="font-metadata text-metadata text-ink-muted flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px]">schedule</span>
+              Est. ~20 min
+            </span>
+</div>
+<!-- Title -->
+<div class="flex flex-col gap-space-xs">
+<h2 class="font-card-heading text-card-heading text-ink font-bold">
+              Reconstruct boundary prompt from new source
+            </h2>
+<div class="bg-surface/90 border border-border-subtle rounded-xl p-space-md flex flex-col gap-space-xs">
+<span class="font-metadata text-metadata font-semibold text-ink">Objective</span>
+<p class="font-ui-body text-ui-body text-ink">
+                Rebuild a reliable prompt structure from scratch for a community clinic schedule without looking at your previous River Cafe or Northstar templates.
+              </p>
+</div>
+</div>
+<!-- Reason & Evidence Context Row -->
+<div class="rounded-xl border border-border-subtle bg-surface-container/60 p-space-md flex items-start gap-space-sm">
+<span class="material-symbols-outlined text-secondary text-[20px] mt-0.5" data-icon="auto_awesome">auto_awesome</span>
+<div class="flex flex-col gap-0.5">
+<span class="font-metadata text-[13px] font-semibold text-ink">Why this recommendation now?</span>
+<p class="font-metadata text-metadata text-ink-muted">
+                Your original demonstration on Oct 4 showed strong constraint framing. 3 days have passed; a new recall task provides separate retention evidence.
+              </p>
+</div>
+</div>
+<!-- Primary Button Action -->
+<div class="pt-space-xs flex items-center justify-between flex-wrap gap-space-sm">
+<button class="px-space-lg py-space-sm bg-action hover:bg-action-hover active:scale-[0.99] text-ink font-metadata text-metadata font-bold rounded-xl transition-all duration-150 flex items-center gap-space-sm shadow-none border border-border-control focus:outline-none focus:ring-4 focus:ring-highlight/50 min-h-[48px]">
+<span>Start recall practice (20 min)</span>
+<span class="material-symbols-outlined text-[20px]">arrow_forward</span>
+</button>
+<span class="font-metadata text-[13px] text-ink-muted flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px] text-ink-muted">verified</span>
+              Generates fresh evidence item
+            </span>
+</div>
+</article>
+<!-- 5. Alternative Actions Section (Two white surface cards side-by-side) -->
+<section aria-label="Alternative Practice Choices" class="flex flex-col gap-space-md pt-space-sm">
+<div class="flex items-center justify-between">
+<h3 class="font-metadata text-metadata font-semibold text-ink uppercase tracking-wider">
+              Alternative Pathways
+            </h3>
+<span class="font-metadata text-[13px] text-ink-muted">Choose based on your focus today</span>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-space-md">
+<!-- Card A: Transfer Exercise -->
+<article class="bg-surface rounded-xl border border-border-subtle p-space-lg flex flex-col justify-between hover:border-border-control transition-colors duration-150 gap-space-md">
+<div class="flex flex-col gap-space-sm">
+<!-- Tag -->
+<div class="inline-flex items-center gap-1 px-2 py-0.5 rounded-lg bg-surface-container font-metadata text-[11px] font-semibold text-ink-muted tracking-wide uppercase self-start">
+<span class="material-symbols-outlined text-[14px]">psychology</span>
+<span>TRANSFER EXERCISE · NOVEL SCENARIO</span>
+</div>
+<!-- Title -->
+<h4 class="font-card-heading text-[18px] text-ink font-semibold leading-snug">
+                  Source-based study guide
+                </h4>
+<!-- Description -->
+<p class="font-ui-body text-[15px] text-ink-muted leading-relaxed">
+                  Apply your prompt structuring skills to prepare a study guide from a single supplied source.
+                </p>
+</div>
+<div class="flex flex-col gap-space-sm pt-space-xs border-t border-border-subtle">
+<!-- Status note -->
+<span class="font-metadata text-[12px] text-ink-muted flex items-center gap-1">
+<span class="material-symbols-outlined text-[15px] text-primary">check_circle</span>
+<span>Preserves your historical demonstration intact.</span>
+</span>
+<!-- Action -->
+<button class="w-full py-2.5 px-space-md rounded-xl bg-surface hover:bg-surface-container border border-border-control font-metadata text-metadata text-ink font-semibold flex items-center justify-center gap-space-xs transition-colors duration-150 min-h-[44px]">
+<span>Explore transfer task</span>
+<span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+</button>
+</div>
+</article>
+<!-- Card B: Continue Sequential Curriculum -->
+<article class="bg-surface rounded-xl border border-border-subtle p-space-lg flex flex-col justify-between hover:border-border-control transition-colors duration-150 gap-space-md">
+<div class="flex flex-col gap-space-sm">
+<!-- Tag -->
+<div class="inline-flex items-center gap-1 px-2 py-0.5 rounded-lg bg-surface-container font-metadata text-[11px] font-semibold text-ink-muted tracking-wide uppercase self-start">
+<span class="material-symbols-outlined text-[14px]">playlist_play</span>
+<span>CONTINUE SEQUENTIAL CURRICULUM</span>
+</div>
+<!-- Title -->
+<h4 class="font-card-heading text-[18px] text-ink font-semibold leading-snug">
+                  Module 3: Check and revise AI outputs
+                </h4>
+<!-- Description -->
+<p class="font-ui-body text-[15px] text-ink-muted leading-relaxed">
+                  Move forward to learning systematic fact-checking routines and automated spot-checking.
+                </p>
+</div>
+<div class="flex flex-col gap-space-sm pt-space-xs border-t border-border-subtle">
+<!-- Status note -->
+<span class="font-metadata text-[12px] text-ink-muted flex items-center gap-1">
+<span class="material-symbols-outlined text-[15px] text-tertiary">menu_book</span>
+<span>New foundational unit · 3 concepts</span>
+</span>
+<!-- Action -->
+<button class="w-full py-2.5 px-space-md rounded-xl bg-surface hover:bg-surface-container border border-border-control font-metadata text-metadata text-ink font-semibold flex items-center justify-center gap-space-xs transition-colors duration-150 min-h-[44px]">
+<span>Start Module 3</span>
+<span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+</button>
+</div>
+</article>
+</div>
+</section>
+<!-- 6. Non-judgmental Workspace Context Callout (Editorial Paper Frame) -->
+<section class="bg-canvas border border-border-subtle rounded-xl p-space-md flex items-center gap-space-md">
+<div class="w-8 h-8 rounded-full bg-surface border border-border-subtle flex items-center justify-center text-ink-muted flex-shrink-0">
+<span class="material-symbols-outlined text-[18px]">info</span>
+</div>
+<div class="flex-1 font-metadata text-metadata text-ink-muted leading-relaxed">
+            CuriousNext prioritizes later retention over quick completion. Re-testing core patterns after a delay provides evidence of later recall with zero penalty for missed days.
+          </div>
+</section>
+<!-- 7. Footer Metadata -->
+<footer class="pt-space-xl pb-space-2xl text-center border-t border-border-subtle/80 flex flex-col sm:flex-row items-center justify-between gap-space-sm">
+<span class="font-metadata text-[13px] text-ink-muted">
+            CuriousNext Workspace · Focused adult education · Historical demonstration record preserved.
+          </span>
+<div class="flex items-center gap-space-md font-metadata text-[13px] text-ink-muted">
+<a class="hover:text-ink hover:underline" href="#">Privacy policy</a>
+<span>·</span>
+<a class="hover:text-ink hover:underline" href="#">Notebook notes export</a>
+</div>
+</footer>
+</div>
+</div>
+</main>
+<script>
+    // Lightweight micro-interaction for segmented duration buttons
+    document.querySelectorAll('[role="radio"]').forEach(button => {
+      button.addEventListener('click', () => {
+        const group = button.closest('[role="radiogroup"]');
+        group.querySelectorAll('[role="radio"]').forEach(btn => {
+          btn.setAttribute('aria-checked', 'false');
+          btn.className = 'px-space-md py-1.5 rounded-lg font-metadata text-metadata text-ink-muted hover:text-ink hover:bg-surface-dim transition-colors duration-150 focus:outline-none focus:ring-2 focus:ring-link';
+          const dot = btn.querySelector('.bg-primary');
+          if (dot) dot.remove();
+        });
+        button.setAttribute('aria-checked', 'true');
+        button.className = 'px-space-md py-1.5 rounded-lg font-metadata text-metadata text-ink font-semibold bg-surface border border-border-subtle shadow-xs flex items-center gap-1.5 transition-colors duration-150 focus:outline-none focus:ring-2 focus:ring-link';
+        
+        // Add indicator dot to newly selected button
+        const dot = document.createElement('span');
+        dot.className = 'w-2 h-2 rounded-full bg-primary inline-block';
+        button.prepend(dot);
+      });
+    });
+  </script>
+</body></html>

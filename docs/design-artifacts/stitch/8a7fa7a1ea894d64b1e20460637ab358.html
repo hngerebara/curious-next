@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+
+<html class="h-full" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>CuriousNext - Course Recommendations</title>
+<!-- Material Symbols Outlined -->
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;700&amp;family=Inter:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
+<!-- Inter Font -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;650;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS with form & container-queries -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">tailwind.config = {darkMode: "class", theme: {extend: {colors: {"ink-muted": "#59564F", "surface-variant": "#e7e2d7", "on-surface-variant": "#454935", "surface-tint": "#516600", "on-primary": "#ffffff", "surface-container-highest": "#e7e2d7", "on-surface": "#1d1c15", "primary-container": "#c8ef45", "success-surface": "#EAF5EE", "on-secondary-container": "#5f4781", "surface-container": "#f2ede2", surface: "#fef9ee", "border-control": "#71828D", "tertiary-container": "#d1e1ff", "secondary-fixed": "#eddcff", "inverse-surface": "#323029", "inverse-on-surface": "#f5f0e5", secondary: "#6c538e", "surface-container-high": "#ede8dd", "learning-surface": "#F0E8FA", "on-secondary-fixed": "#260c46", "error-surface": "#FCEEEF", "tertiary-fixed-dim": "#b7c7e4", "tertiary-fixed": "#d5e3ff", "success-ink": "#226347", "on-error": "#ffffff", "error-container": "#ffdad6", "surface-bright": "#fef9ee", ink: "#171717", "action-hover": "#B5DB32", "on-tertiary-fixed": "#0b1c32", "on-primary-fixed": "#171e00", "surface-container-lowest": "#ffffff", "on-tertiary": "#ffffff", outline: "#757963", "secondary-fixed-dim": "#d7bafd", tertiary: "#505f78", "on-error-container": "#93000a", canvas: "#F5F0E5", "outline-variant": "#c5c9af", "on-primary-container": "#556b00", primary: "#516600", "inverse-primary": "#afd52a", action: "#C8EF45", "review-surface": "#FFF4D6", "review-ink": "#81530B", "on-secondary-fixed-variant": "#533b74", "primary-fixed-dim": "#afd52a", "on-primary-fixed-variant": "#3d4d00", "surface-container-low": "#f8f3e8", error: "#ba1a1a", "secondary-container": "#d7bafd", "on-background": "#1d1c15", "on-tertiary-container": "#54647d", "on-secondary": "#ffffff", "border-subtle": "#D6DFE3", link: "#285F85", "on-tertiary-fixed-variant": "#384760", "primary-fixed": "#caf247", "error-ink": "#A52A32", highlight: "#C9ACEE", "surface-dim": "#dedacf", background: "#fef9ee"}, borderRadius: {DEFAULT: "0.125rem", lg: "0.25rem", xl: "0.5rem", full: "0.75rem"}, spacing: {"space-sm": "0.5rem", gutter: "1rem", "space-xs": "0.25rem", "space-md": "0.75rem", "space-lg": "1.5rem", margin: "1.5rem", "space-2xl": "4rem", "space-xl": "3rem"}, fontFamily: {"page-title-mobile": ["Inter"], metadata: ["Inter"], "card-heading": ["Inter"], "section-heading-mobile": ["Inter"], "section-heading": ["Inter"], "lesson-body": ["Inter"], "page-title": ["Inter"], "ui-body": ["Inter"], headline: ["Inter"], display: ["Inter"], body: ["Inter"], label: ["Inter"]}, fontSize: {"page-title-mobile": ["28px", {lineHeight: "1.2", fontWeight: "700"}], metadata: ["14px", {lineHeight: "1.5", fontWeight: "500"}], "card-heading": ["20px", {lineHeight: "1.35", fontWeight: "650"}], "section-heading-mobile": ["22px", {lineHeight: "1.3", fontWeight: "650"}], "section-heading": ["24px", {lineHeight: "1.3", fontWeight: "650"}], "lesson-body": ["18px", {lineHeight: "1.65", fontWeight: "400"}], "page-title": ["36px", {lineHeight: "1.2", fontWeight: "700"}], "ui-body": ["16px", {lineHeight: "1.5", fontWeight: "400"}]}}}};</script>
+</head>
+<body class="bg-canvas text-ink antialiased min-h-screen flex flex-col font-ui-body text-ui-body selection:bg-highlight selection:text-ink"><div style="padding:10px 16px;background:#FFF4D6;color:#171717;font:14px/1.5 Inter,system-ui,sans-serif">Design preview · Fictional sample data · Draft curriculum</div>
+<!-- Desktop SideNavBar (Matches Shared Component JSON specification) -->
+<aside class="fixed top-0 left-0 h-screen w-[240px] flex flex-col justify-between bg-canvas border-r border-border-subtle z-40 select-none">
+<div class="w-[240px] p-gutter flex flex-col">
+<!-- Header Brand -->
+<div class="flex items-center gap-space-sm pb-space-lg pt-space-xs px-space-xs">
+<div class="w-8 h-8 rounded-xl bg-ink flex items-center justify-center text-canvas flex-shrink-0">
+<span class="material-symbols-outlined text-xl" data-icon="menu_book">menu_book</span>
+</div>
+<div class="flex flex-col">
+<span class="font-card-heading text-card-heading text-ink font-bold tracking-tight">CuriousNext</span>
+<span class="font-metadata text-[12px] text-ink-muted leading-tight">Adult learning workspace</span>
+</div>
+</div>
+<!-- Navigation tabs -->
+<nav aria-label="Main Navigation" class="flex flex-col gap-space-xs mt-space-sm">
+<!-- Active Tab: Learn (Primary Intent for Course Selection) -->
+<a class="flex items-center gap-space-sm px-gutter py-space-sm bg-surface border border-border-control rounded-xl font-metadata text-metadata text-ink font-semibold min-h-[44px] transition-colors duration-150 cursor-pointer" href="#">
+<span class="material-symbols-outlined text-ink text-xl" data-icon="menu_book">menu_book</span>
+<span>Learn</span>
+</a>
+<!-- Inactive Tab: My courses -->
+<a class="flex items-center gap-space-sm px-gutter py-space-sm rounded-xl font-metadata text-metadata text-ink-muted min-h-[44px] hover:bg-surface-container hover:text-ink transition-colors duration-150 cursor-pointer" href="#">
+<span class="material-symbols-outlined text-ink-muted text-xl" data-icon="school">school</span>
+<span>My courses</span>
+</a>
+<!-- Inactive Tab: Evidence -->
+<a class="flex items-center gap-space-sm px-gutter py-space-sm rounded-xl font-metadata text-metadata text-ink-muted min-h-[44px] hover:bg-surface-container hover:text-ink transition-colors duration-150 cursor-pointer" href="#">
+<span class="material-symbols-outlined text-ink-muted text-xl" data-icon="verified">verified</span>
+<span>Evidence</span>
+</a>
+</nav>
+<!-- Sidebar Workspace Context Callout -->
+<div class="mt-space-lg p-space-md bg-surface-container-high rounded-xl border border-border-subtle">
+<div class="flex items-center gap-space-xs mb-space-xs">
+<span class="material-symbols-outlined text-ink-muted text-base" data-icon="tune">tune</span>
+<span class="font-metadata text-[12px] font-semibold text-ink">Onboarding Flow</span>
+</div>
+<p class="font-metadata text-[12px] text-ink-muted leading-relaxed">
+          Step 3 of 3: Course recommendations tailored to your initial setup objective.
+        </p>
+</div>
+</div>
+<!-- Footer Utility Links -->
+<div class="p-gutter flex flex-col gap-space-xs border-t border-border-subtle">
+<a class="flex items-center gap-space-sm px-gutter py-space-sm rounded-xl font-metadata text-metadata text-ink-muted min-h-[44px] hover:bg-surface-container hover:text-ink transition-colors duration-150 cursor-pointer" href="#">
+<span class="material-symbols-outlined text-ink-muted text-xl" data-icon="settings">settings</span>
+<span>Settings</span>
+</a>
+<a class="flex items-center gap-space-sm px-gutter py-space-sm rounded-xl font-metadata text-metadata text-ink-muted min-h-[44px] hover:bg-surface-container hover:text-ink transition-colors duration-150 cursor-pointer" href="#">
+<span class="material-symbols-outlined text-ink-muted text-xl" data-icon="help">help</span>
+<span>Help</span>
+</a>
+</div>
+</aside>
+<!-- TopNavBar (Matches Shared Component JSON specification) -->
+<header class="fixed top-0 left-[240px] right-0 h-16 z-30 bg-canvas border-b border-border-subtle">
+<div class="h-16 px-space-lg flex items-center justify-between max-w-[1120px]">
+<!-- Pathway Title / Breadcrumb context -->
+<div class="flex items-center gap-space-sm">
+<span class="font-metadata text-metadata text-ink font-semibold flex items-center gap-space-xs">
+          Cybersecurity Essentials
+        </span>
+<span class="text-ink-muted text-sm font-metadata">/</span>
+<span class="font-metadata text-metadata text-ink-muted">Course Match</span>
+</div>
+<!-- Trailing Action Icons -->
+<div class="flex items-center gap-space-xs">
+<button aria-label="Language selection" class="min-h-[44px] min-w-[44px] inline-flex items-center justify-center font-metadata text-metadata text-ink-muted hover:bg-surface-container hover:text-ink rounded-lg transition-colors duration-150 cursor-pointer" title="Language settings" type="button">
+<span class="material-symbols-outlined text-xl" data-icon="translate">translate</span>
+</button>
+<button aria-label="Account" class="min-h-[44px] min-w-[44px] inline-flex items-center justify-center font-metadata text-metadata text-ink-muted hover:bg-surface-container hover:text-ink rounded-lg transition-colors duration-150 cursor-pointer" title="User Account" type="button">
+<span class="material-symbols-outlined text-2xl" data-icon="account_circle">account_circle</span>
+</button>
+</div>
+</div>
+</header>
+<!-- Main Content Canvas -->
+<main class="ml-[240px] pt-16 flex-1 px-space-lg pb-space-2xl">
+<div class="max-w-[760px] mx-auto pt-space-lg">
+<!-- Navigation & Step Progress Header -->
+<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-space-md mb-space-md">
+<!-- Back Button -->
+<a class="inline-flex items-center gap-space-xs text-link font-metadata text-metadata hover:underline focus:outline-none focus:ring-2 focus:ring-link focus:ring-offset-2 rounded px-space-xs py-1" href="#">
+<span class="material-symbols-outlined text-base" data-icon="arrow_back">arrow_back</span>
+<span>Back to preferences</span>
+</a>
+<!-- Step Indicator -->
+<div class="inline-flex items-center gap-space-xs px-space-md py-1 bg-surface-container border border-border-subtle rounded-full">
+<span class="w-2 h-2 rounded-full bg-primary flex-shrink-0"></span>
+<span class="font-metadata text-metadata text-ink font-medium">Step 3 of 3: Course recommendations</span>
+</div>
+</div>
+<!-- Page Title -->
+<h1 class="font-page-title text-page-title text-ink tracking-tight mb-space-md">
+        Courses matched to your goal
+      </h1>
+<!-- Goal Context Badge -->
+<div class="mb-space-lg p-space-md bg-surface border border-border-control rounded-xl flex items-start sm:items-center gap-space-md">
+<div class="w-8 h-8 rounded-lg bg-surface-container flex items-center justify-center flex-shrink-0 text-ink">
+<span class="material-symbols-outlined text-lg" data-icon="flag">flag</span>
+</div>
+<div class="flex flex-col sm:flex-row sm:items-center gap-space-xs sm:gap-space-sm flex-1">
+<span class="font-metadata text-metadata font-bold text-ink">Active goal:</span>
+<span class="font-ui-body text-ui-body text-ink">Use AI to prepare clear study notes <span class="text-ink-muted">(Beginner-friendly explanation)</span></span>
+</div>
+</div>
+<!-- Editorial Intro -->
+<p class="font-lesson-body text-lesson-body text-ink-muted mb-space-xl leading-relaxed">
+        Based on your goal, here are two foundational adult-beginner courses. Both share our quiet, structured learning environment with draft learning rubrics.
+      </p>
+<!-- Recommendation Cards Container (Exactly 2 Courses) -->
+<div class="flex flex-col gap-space-lg mb-space-xl">
+<!-- CARD 1: Practical AI (Top Recommendation) -->
+<article class="bg-learning-surface border border-border-control rounded-[20px] p-space-lg flex flex-col justify-between relative overflow-hidden transition-all duration-150">
+<!-- Top Tag & Match Indicator -->
+<div class="flex flex-wrap items-center justify-between gap-space-sm mb-space-sm">
+<div class="inline-flex items-center gap-space-xs px-space-md py-1 bg-surface rounded-full border border-border-subtle text-ink font-metadata text-[13px] font-semibold">
+<span class="material-symbols-outlined text-sm text-primary" data-icon="auto_awesome">auto_awesome</span>
+<span>Top recommendation</span>
+</div>
+<div class="font-metadata text-metadata text-ink-muted flex items-center gap-1">
+<span class="material-symbols-outlined text-base" data-icon="schedule">schedule</span>
+<span>Self-paced pilot</span>
+</div>
+</div>
+<!-- Course Title & Subtitle -->
+<div class="mb-space-md">
+<h2 class="font-card-heading text-card-heading text-ink font-bold mb-space-xs">
+              Practical AI
+            </h2>
+<p class="font-ui-body text-ui-body text-ink font-medium">
+              Use and verify AI output for daily work and study
+            </p>
+</div>
+<!-- Goal Relevance Box -->
+<div class="p-space-md bg-surface rounded-xl border border-border-subtle mb-space-md">
+<div class="flex items-start gap-space-xs">
+<span class="material-symbols-outlined text-primary text-lg mt-0.5 flex-shrink-0" data-icon="check_circle">check_circle</span>
+<div>
+<span class="font-metadata text-metadata font-bold text-ink block sm:inline">High match — </span>
+<span class="font-ui-body text-metadata text-ink-muted">teaches structured prompt drafting, checking output for accuracy, and creating reliable study notes.</span>
+</div>
+</div>
+</div>
+<!-- Metadata & Prerequisites breakdown -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-space-md pt-space-xs pb-space-lg border-t border-border-subtle text-ink">
+<div>
+<span class="block font-metadata text-[12px] font-bold text-ink-muted uppercase tracking-wider mb-1">Adult-beginner prerequisites</span>
+<p class="font-metadata text-metadata text-ink">
+                None required. Designed for adults starting with modern AI tools.
+              </p>
+</div>
+<div>
+<span class="block font-metadata text-[12px] font-bold text-ink-muted uppercase tracking-wider mb-1">Course structure</span>
+<p class="font-metadata text-metadata text-ink flex items-center gap-1">
+<span class="material-symbols-outlined text-sm text-ink-muted" data-icon="layers">layers</span>
+<span>5 practical modules · Draft pilot curriculum · ~20 min per module</span>
+</p>
+</div>
+</div>
+<!-- Primary CTA Button -->
+<div class="pt-space-xs flex items-center justify-between">
+<a class="inline-flex items-center justify-center gap-space-xs bg-action hover:bg-action-hover text-ink font-metadata text-metadata font-bold px-space-lg py-3 rounded-xl min-h-[44px] transition-colors duration-150 focus:outline-none focus:ring-2 focus:ring-ink focus:ring-offset-2" href="#">
+<span>Choose Practical AI</span>
+<span class="material-symbols-outlined text-lg" data-icon="arrow_forward">arrow_forward</span>
+</a>
+<span class="font-metadata text-[13px] text-ink-muted hidden sm:inline">Includes verifiable study rubric</span>
+</div>
+</article>
+<!-- CARD 2: Cybersecurity Essentials -->
+<article class="bg-surface border border-border-control rounded-[20px] p-space-lg flex flex-col justify-between relative overflow-hidden transition-all duration-150">
+<!-- Top Tag & Match Indicator -->
+<div class="flex flex-wrap items-center justify-between gap-space-sm mb-space-sm">
+<div class="inline-flex items-center gap-space-xs px-space-md py-1 bg-surface-container rounded-full border border-border-subtle text-ink font-metadata text-[13px] font-medium">
+<span class="material-symbols-outlined text-sm text-ink-muted" data-icon="shield">shield</span>
+<span>Recommended companion</span>
+</div>
+<div class="font-metadata text-metadata text-ink-muted flex items-center gap-1">
+<span class="material-symbols-outlined text-base" data-icon="schedule">schedule</span>
+<span>Self-paced pilot</span>
+</div>
+</div>
+<!-- Course Title & Subtitle -->
+<div class="mb-space-md">
+<h2 class="font-card-heading text-card-heading text-ink font-bold mb-space-xs">
+              Cybersecurity Essentials
+            </h2>
+<p class="font-ui-body text-ui-body text-ink font-medium">
+              Safe everyday digital decisions and account protection
+            </p>
+</div>
+<!-- Goal Relevance Box -->
+<div class="p-space-md bg-surface-container-low rounded-xl border border-border-subtle mb-space-md">
+<div class="flex items-start gap-space-xs">
+<span class="material-symbols-outlined text-ink-muted text-lg mt-0.5 flex-shrink-0" data-icon="verified_user">verified_user</span>
+<div>
+<span class="font-metadata text-metadata font-bold text-ink block sm:inline">Complementary foundation — </span>
+<span class="font-ui-body text-metadata text-ink-muted">recognizing suspicious communications, handling personal study data safely, and checking trusted sources.</span>
+</div>
+</div>
+</div>
+<!-- Metadata & Prerequisites breakdown -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-space-md pt-space-xs pb-space-lg border-t border-border-subtle text-ink">
+<div>
+<span class="block font-metadata text-[12px] font-bold text-ink-muted uppercase tracking-wider mb-1">Adult-beginner prerequisites</span>
+<p class="font-metadata text-metadata text-ink">
+                None required. Everyday digital safety without technical jargon.
+              </p>
+</div>
+<div>
+<span class="block font-metadata text-[12px] font-bold text-ink-muted uppercase tracking-wider mb-1">Course structure</span>
+<p class="font-metadata text-metadata text-ink flex items-center gap-1">
+<span class="material-symbols-outlined text-sm text-ink-muted" data-icon="layers">layers</span>
+<span>5 modules · Draft pilot curriculum · ~20 min per module</span>
+</p>
+</div>
+</div>
+<!-- Secondary CTA Button -->
+<div class="pt-space-xs flex items-center justify-between">
+<a class="inline-flex items-center justify-center gap-space-xs bg-surface hover:bg-surface-container text-ink border border-border-control font-metadata text-metadata font-bold px-space-lg py-3 rounded-xl min-h-[44px] transition-colors duration-150 focus:outline-none focus:ring-2 focus:ring-link focus:ring-offset-2" href="#">
+<span>Choose Cybersecurity Essentials</span>
+<span class="material-symbols-outlined text-lg" data-icon="arrow_forward">arrow_forward</span>
+</a>
+<span class="font-metadata text-[13px] text-ink-muted hidden sm:inline">General web and device safety</span>
+</div>
+</article>
+</div>
+<!-- Contextual Unsupported-Goal Note Callout -->
+<aside aria-label="Curriculum scope note" class="p-space-lg bg-surface border border-border-subtle rounded-card flex items-start gap-space-md">
+<div class="w-8 h-8 rounded-lg bg-surface-container flex items-center justify-center flex-shrink-0 text-ink-muted mt-0.5">
+<span class="material-symbols-outlined text-lg" data-icon="info">info</span>
+</div>
+<div class="flex-1">
+<h3 class="font-metadata text-metadata font-bold text-ink mb-1">Pilot workspace coverage note</h3>
+<p class="font-metadata text-metadata text-ink-muted leading-relaxed">
+            Looking for programming, advanced data science, or creative media? Those specialized topics are not covered in this pilot workspace. CuriousNext focuses strictly on safe, verifiable daily technology skills.
+          </p>
+</div>
+</aside>
+<!-- Footer reassurance / Quiet learning guarantee -->
+<div class="mt-space-xl pt-space-lg border-t border-border-subtle flex flex-col sm:flex-row items-center justify-between text-ink-muted font-metadata text-xs gap-space-sm">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-sm text-ink-muted" data-icon="lock">lock</span>
+<span>No public profile or leaderboards. Your learning progress stays private.</span>
+</div>
+<span>CuriousNext Adult Learning Workspace · Pilot v0.9</span>
+</div>
+</div>
+</main>
+</body></html>

@@ -1,5 +1,7 @@
 # Design document index
 
+- [Screen design handoff](screen-handoff.md): Stitch desktop/mobile artifacts, flow mapping, corrections and review requirements.
+
 - [Core beliefs](core-beliefs.md)
 - [Architecture](../../Architecture.md)
 - [Data model](data-model.md)

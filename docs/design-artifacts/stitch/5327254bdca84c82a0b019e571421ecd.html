@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+
+<html class="h-full" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>CuriousNext - Optional Diagnostic: Practical AI Starting Point</title>
+<!-- Material Symbols Outlined -->
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;700&amp;family=Inter:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
+<!-- Google Fonts: Inter -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;650;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS with configuration -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">tailwind.config = {darkMode: "class", theme: {extend: {colors: {"ink-muted": "#59564F", "surface-variant": "#e7e2d7", "on-surface-variant": "#454935", "surface-tint": "#516600", "on-primary": "#ffffff", "surface-container-highest": "#e7e2d7", "on-surface": "#1d1c15", "primary-container": "#c8ef45", "success-surface": "#EAF5EE", "on-secondary-container": "#5f4781", "surface-container": "#f2ede2", surface: "#fef9ee", "border-control": "#71828D", "tertiary-container": "#d1e1ff", "secondary-fixed": "#eddcff", "inverse-surface": "#323029", "inverse-on-surface": "#f5f0e5", secondary: "#6c538e", "surface-container-high": "#ede8dd", "learning-surface": "#F0E8FA", "on-secondary-fixed": "#260c46", "error-surface": "#FCEEEF", "tertiary-fixed-dim": "#b7c7e4", "tertiary-fixed": "#d5e3ff", "success-ink": "#226347", "on-error": "#ffffff", "error-container": "#ffdad6", "surface-bright": "#fef9ee", ink: "#171717", "action-hover": "#B5DB32", "on-tertiary-fixed": "#0b1c32", "on-primary-fixed": "#171e00", "surface-container-lowest": "#ffffff", "on-tertiary": "#ffffff", outline: "#757963", "secondary-fixed-dim": "#d7bafd", tertiary: "#505f78", "on-error-container": "#93000a", canvas: "#F5F0E5", "outline-variant": "#c5c9af", "on-primary-container": "#556b00", primary: "#516600", "inverse-primary": "#afd52a", action: "#C8EF45", "review-surface": "#FFF4D6", "review-ink": "#81530B", "on-secondary-fixed-variant": "#533b74", "primary-fixed-dim": "#afd52a", "on-primary-fixed-variant": "#3d4d00", "surface-container-low": "#f8f3e8", error: "#ba1a1a", "secondary-container": "#d7bafd", "on-background": "#1d1c15", "on-tertiary-container": "#54647d", "on-secondary": "#ffffff", "border-subtle": "#D6DFE3", link: "#285F85", "on-tertiary-fixed-variant": "#384760", "primary-fixed": "#caf247", "error-ink": "#A52A32", highlight: "#C9ACEE", "surface-dim": "#dedacf", background: "#fef9ee"}, borderRadius: {DEFAULT: "0.125rem", lg: "0.25rem", xl: "0.5rem", full: "0.75rem"}, spacing: {"space-sm": "0.5rem", gutter: "1rem", "space-xs": "0.25rem", "space-md": "0.75rem", "space-lg": "1.5rem", margin: "1.5rem", "space-2xl": "4rem", "space-xl": "3rem"}, fontFamily: {"page-title-mobile": ["Inter"], metadata: ["Inter"], "card-heading": ["Inter"], "section-heading-mobile": ["Inter"], "section-heading": ["Inter"], "lesson-body": ["Inter"], "page-title": ["Inter"], "ui-body": ["Inter"], headline: ["Inter"], display: ["Inter"], body: ["Inter"], label: ["Inter"]}, fontSize: {"page-title-mobile": ["28px", {lineHeight: "1.2", fontWeight: "700"}], metadata: ["14px", {lineHeight: "1.5", fontWeight: "500"}], "card-heading": ["20px", {lineHeight: "1.35", fontWeight: "650"}], "section-heading-mobile": ["22px", {lineHeight: "1.3", fontWeight: "650"}], "section-heading": ["24px", {lineHeight: "1.3", fontWeight: "650"}], "lesson-body": ["18px", {lineHeight: "1.65", fontWeight: "400"}], "page-title": ["36px", {lineHeight: "1.2", fontWeight: "700"}], "ui-body": ["16px", {lineHeight: "1.5", fontWeight: "400"}]}}}};</script>
+</head>
+<body class="bg-canvas text-ink antialiased min-h-screen flex flex-col font-ui-body text-ui-body"><div style="padding:10px 16px;background:#FFF4D6;color:#171717;font:14px/1.5 Inter,system-ui,sans-serif">Design preview · Fictional sample data · Draft curriculum</div>
+<!-- Desktop SideNavBar Anchor (Shared Component) -->
+<aside class="fixed top-0 left-0 h-screen w-[240px] flex flex-col justify-between bg-canvas border-r border-border-subtle z-40 select-none">
+<div class="w-[240px] h-full p-gutter flex flex-col justify-between">
+<!-- Top cluster: Brand & Navigation -->
+<div class="flex flex-col gap-space-lg">
+<!-- Brand Header -->
+<div class="flex items-center gap-space-sm px-space-xs py-space-xs">
+<div class="w-8 h-8 rounded-xl bg-ink flex items-center justify-center text-canvas">
+<span class="material-symbols-outlined text-[20px]" data-icon="menu_book">menu_book</span>
+</div>
+<div>
+<div class="font-card-heading text-card-heading text-ink font-bold tracking-tight">CuriousNext</div>
+<div class="font-metadata text-metadata text-ink-muted text-xs">Adult learning workspace</div>
+</div>
+</div>
+<!-- Primary Nav Tabs -->
+<nav aria-label="Main Navigation" class="flex flex-col gap-space-xs">
+<!-- Active Nav item: Learn -->
+<a class="flex items-center gap-space-sm px-gutter py-space-sm bg-surface border border-border-control rounded-xl font-metadata text-metadata text-ink font-semibold min-h-[44px] transition-colors duration-150" href="#">
+<span class="material-symbols-outlined text-[20px] text-primary" data-icon="menu_book" data-weight="fill" style="font-variation-settings: 'FILL' 1;">menu_book</span>
+<span>Learn</span>
+</a>
+<!-- Inactive Nav item: My courses -->
+<a class="flex items-center gap-space-sm px-gutter py-space-sm rounded-xl font-metadata text-metadata text-ink-muted hover:bg-surface-container hover:text-ink min-h-[44px] transition-colors duration-150" href="#">
+<span class="material-symbols-outlined text-[20px]" data-icon="school">school</span>
+<span>My courses</span>
+</a>
+<!-- Inactive Nav item: Evidence -->
+<a class="flex items-center gap-space-sm px-gutter py-space-sm rounded-xl font-metadata text-metadata text-ink-muted hover:bg-surface-container hover:text-ink min-h-[44px] transition-colors duration-150" href="#">
+<span class="material-symbols-outlined text-[20px]" data-icon="verified">verified</span>
+<span>Evidence</span>
+</a>
+</nav>
+</div>
+<!-- Bottom cluster: Footer & Resume CTA -->
+<div class="flex flex-col gap-space-md pt-space-md border-t border-border-subtle">
+<a class="flex items-center justify-center gap-space-xs w-full py-space-sm px-space-md rounded-xl bg-action text-ink font-metadata text-metadata font-semibold hover:bg-action-hover transition-colors min-h-[44px]" href="#">
+<span class="material-symbols-outlined text-[18px]" data-icon="play_arrow">play_arrow</span>
+<span>Resume Learning</span>
+</a>
+<div class="flex flex-col gap-space-xs">
+<a class="flex items-center gap-space-sm px-gutter py-space-xs rounded-xl font-metadata text-metadata text-ink-muted hover:bg-surface-container hover:text-ink min-h-[44px] transition-colors duration-150" href="#">
+<span class="material-symbols-outlined text-[20px]" data-icon="settings">settings</span>
+<span>Settings</span>
+</a>
+<a class="flex items-center gap-space-sm px-gutter py-space-xs rounded-xl font-metadata text-metadata text-ink-muted hover:bg-surface-container hover:text-ink min-h-[44px] transition-colors duration-150" href="#">
+<span class="material-symbols-outlined text-[20px]" data-icon="help">help</span>
+<span>Help</span>
+</a>
+</div>
+</div>
+</div>
+</aside>
+<!-- Desktop TopNavBar Anchor (Shared Component) -->
+<header class="fixed top-0 left-[240px] right-0 h-16 z-30 bg-canvas border-b border-border-subtle select-none">
+<div class="h-16 px-space-lg flex items-center justify-between max-w-[1120px] mx-auto w-full">
+<!-- Breadcrumb / Course context link -->
+<div class="flex items-center gap-space-sm">
+<span class="font-metadata text-metadata text-ink font-semibold flex items-center gap-space-xs cursor-pointer hover:text-link transition-colors">
+<span class="material-symbols-outlined text-[18px] text-ink-muted" data-icon="arrow_back">arrow_back</span>
+<span>Cybersecurity Essentials</span>
+</span>
+<span class="text-ink-muted font-metadata text-metadata">/</span>
+<span class="font-metadata text-metadata text-ink-muted">Diagnostic</span>
+</div>
+<!-- Trailing Action Cluster -->
+<div class="flex items-center gap-space-sm">
+<button class="min-h-[44px] px-space-md inline-flex items-center gap-space-xs rounded-lg font-metadata text-metadata text-ink hover:bg-surface-container transition-colors duration-150 cursor-pointer">
+<span class="material-symbols-outlined text-[20px] text-ink-muted" data-icon="translate">translate</span>
+<span>Language</span>
+</button>
+<button class="min-h-[44px] px-space-md inline-flex items-center gap-space-xs rounded-lg font-metadata text-metadata text-ink hover:bg-surface-container transition-colors duration-150 cursor-pointer">
+<span class="material-symbols-outlined text-[20px] text-ink-muted" data-icon="account_circle">account_circle</span>
+<span>Account</span>
+</button>
+</div>
+</div>
+</header>
+<!-- Main Canvas Container -->
+<main class="ml-[240px] pt-16 flex-1 flex flex-col items-center">
+<div class="w-full max-w-[1120px] px-space-lg py-space-xl flex flex-col items-center">
+<!-- Reading constrained column (760px) -->
+<div class="w-full max-w-[760px] flex flex-col gap-space-lg">
+<!-- Top Header & Primary Skip Action -->
+<div class="flex flex-col sm:flex-row sm:items-start justify-between gap-space-md pt-space-xs">
+<div class="flex flex-col gap-space-xs">
+<span class="font-metadata text-metadata text-ink-muted uppercase tracking-wider text-xs">Self-paced orientation</span>
+<h1 class="font-page-title text-page-title text-ink">Optional Diagnostic: Practical AI Starting Point</h1>
+</div>
+<div class="shrink-0 pt-space-xs">
+<a class="inline-flex items-center gap-space-xs font-metadata text-metadata text-link hover:underline min-h-[44px] px-space-xs font-semibold cursor-pointer transition-colors" href="#module-1" title="Bypass this diagnostic tool">
+<span>Skip diagnostic and start at Module 1</span>
+<span class="material-symbols-outlined text-[18px]" data-icon="arrow_forward">arrow_forward</span>
+</a>
+</div>
+</div>
+<!-- Reassurance Banner (Pale lavender #F0E8FA, 20px radius) -->
+<section class="bg-learning-surface border border-border-subtle rounded-[20px] p-gutter flex items-start gap-space-md">
+<div class="w-9 h-9 rounded-full bg-white flex items-center justify-center shrink-0 border border-border-subtle text-secondary shadow-sm">
+<span class="material-symbols-outlined text-[20px]" data-icon="info" data-weight="fill" style="font-variation-settings: 'FILL' 1;">info</span>
+</div>
+<div class="flex flex-col gap-space-xs pt-0.5">
+<h2 class="font-metadata text-metadata text-ink font-semibold">Low-stakes placement guide</h2>
+<p class="font-ui-body text-ui-body text-ink-muted">
+              This diagnostic provides a placement recommendation only. It does not award formal capability evidence or permanent ratings.
+            </p>
+</div>
+</section>
+<!-- Assessment Questions Stack -->
+<div class="flex flex-col gap-space-lg mt-space-xs">
+<!-- Question 1 Card -->
+<article class="bg-surface rounded-xl border border-border-control p-gutter shadow-none flex flex-col gap-space-md">
+<div class="flex items-center justify-between border-b border-border-subtle pb-space-sm">
+<div class="flex items-center gap-space-xs">
+<span class="inline-flex items-center justify-center w-6 h-6 rounded-full bg-canvas text-ink font-metadata text-xs font-semibold">1</span>
+<h3 class="font-card-heading text-card-heading text-ink">Prompt structure scenario</h3>
+</div>
+<span class="inline-flex items-center gap-space-xs px-2.5 py-0.5 rounded-full bg-success-surface text-success-ink font-metadata text-xs font-medium">
+<span class="material-symbols-outlined text-[14px]" data-icon="check_circle">check_circle</span>
+<span>Response recorded</span>
+</span>
+</div>
+<div class="flex flex-col gap-space-sm">
+<p class="font-ui-body text-ui-body text-ink font-medium">
+                You need a summary of a 5-page history chapter. Which instruction gives the model the clearest boundaries?
+              </p>
+<!-- Option selected -->
+<div class="mt-space-xs p-space-md rounded-xl bg-learning-surface border-2 border-secondary flex items-start gap-space-sm">
+<div class="w-5 h-5 rounded-full border-2 border-secondary flex items-center justify-center bg-white mt-0.5 shrink-0">
+<div class="w-2.5 h-2.5 rounded-full bg-secondary"></div>
+</div>
+<div class="flex flex-col">
+<span class="font-ui-body text-ui-body text-ink font-medium">
+                    B. “Summarize this chapter in 5 bullet points focusing only on key economic causes, under 200 words.”
+                  </span>
+<span class="font-metadata text-metadata text-secondary text-xs mt-0.5 font-semibold">Selected option</span>
+</div>
+</div>
+<!-- Typed rationale box -->
+<div class="mt-space-xs bg-canvas rounded-xl p-space-md border border-border-subtle flex flex-col gap-space-xs">
+<label class="font-metadata text-metadata text-ink-muted text-xs font-semibold uppercase tracking-wider flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px]" data-icon="edit_note">edit_note</span>
+<span>Your typed rationale:</span>
+</label>
+<blockquote class="font-ui-body text-ui-body text-ink italic pl-space-xs border-l-2 border-border-control">
+                  “I specified the format, topic focus, and length limit so the output doesn't wander.”
+                </blockquote>
+</div>
+</div>
+</article>
+<!-- Question 2 Card -->
+<article class="bg-surface rounded-xl border border-border-control p-gutter shadow-none flex flex-col gap-space-md">
+<div class="flex items-center justify-between border-b border-border-subtle pb-space-sm">
+<div class="flex items-center gap-space-xs">
+<span class="inline-flex items-center justify-center w-6 h-6 rounded-full bg-canvas text-ink font-metadata text-xs font-semibold">2</span>
+<h3 class="font-card-heading text-card-heading text-ink">Verification scenario</h3>
+</div>
+<span class="inline-flex items-center gap-space-xs px-2.5 py-0.5 rounded-full bg-success-surface text-success-ink font-metadata text-xs font-medium">
+<span class="material-symbols-outlined text-[14px]" data-icon="check_circle">check_circle</span>
+<span>Response recorded</span>
+</span>
+</div>
+<div class="flex flex-col gap-space-sm">
+<p class="font-ui-body text-ui-body text-ink font-medium">
+                An AI tool generates a quote attributed to a 19th-century scientist. How do you confirm its validity before adding it to your notes?
+              </p>
+<!-- Option selected -->
+<div class="mt-space-xs p-space-md rounded-xl bg-learning-surface border-2 border-secondary flex items-start gap-space-sm">
+<div class="w-5 h-5 rounded-full border-2 border-secondary flex items-center justify-center bg-white mt-0.5 shrink-0">
+<div class="w-2.5 h-2.5 rounded-full bg-secondary"></div>
+</div>
+<div class="flex flex-col">
+<span class="font-ui-body text-ui-body text-ink font-medium">
+                    A. Cross-check the exact quotation in an authoritative archive or book index before using it.
+                  </span>
+<span class="font-metadata text-metadata text-secondary text-xs mt-0.5 font-semibold">Selected option</span>
+</div>
+</div>
+<!-- Typed rationale box -->
+<div class="mt-space-xs bg-canvas rounded-xl p-space-md border border-border-subtle flex flex-col gap-space-xs">
+<label class="font-metadata text-metadata text-ink-muted text-xs font-semibold uppercase tracking-wider flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px]" data-icon="edit_note">edit_note</span>
+<span>Your typed rationale:</span>
+</label>
+<blockquote class="font-ui-body text-ui-body text-ink italic pl-space-xs border-l-2 border-border-control">
+                  “Language models regularly fabricate citations and quotes from real figures. Authoritative primary catalogs remain essential.”
+                </blockquote>
+</div>
+</div>
+</article>
+<!-- Question 3 Card -->
+<article class="bg-surface rounded-xl border border-border-control p-gutter shadow-none flex flex-col gap-space-md">
+<div class="flex items-center justify-between border-b border-border-subtle pb-space-sm">
+<div class="flex items-center gap-space-xs">
+<span class="inline-flex items-center justify-center w-6 h-6 rounded-full bg-canvas text-ink font-metadata text-xs font-semibold">3</span>
+<h3 class="font-card-heading text-card-heading text-ink">Hallucination &amp; limits</h3>
+</div>
+<span class="inline-flex items-center gap-space-xs px-2.5 py-0.5 rounded-full bg-success-surface text-success-ink font-metadata text-xs font-medium">
+<span class="material-symbols-outlined text-[14px]" data-icon="check_circle">check_circle</span>
+<span>Response recorded</span>
+</span>
+</div>
+<div class="flex flex-col gap-space-sm">
+<p class="font-ui-body text-ui-body text-ink font-medium">
+                When an AI model provides a confident explanation of an unfamiliar legal regulation, what is the safest assumption?
+              </p>
+<!-- Option selected -->
+<div class="mt-space-xs p-space-md rounded-xl bg-learning-surface border-2 border-secondary flex items-start gap-space-sm">
+<div class="w-5 h-5 rounded-full border-2 border-secondary flex items-center justify-center bg-white mt-0.5 shrink-0">
+<div class="w-2.5 h-2.5 rounded-full bg-secondary"></div>
+</div>
+<div class="flex flex-col">
+<span class="font-ui-body text-ui-body text-ink font-medium">
+                    C. Verify against official government statutory text; models generate plausible-sounding language, not guaranteed legal fact.
+                  </span>
+<span class="font-metadata text-metadata text-secondary text-xs mt-0.5 font-semibold">Selected option</span>
+</div>
+</div>
+<!-- Typed rationale box -->
+<div class="mt-space-xs bg-canvas rounded-xl p-space-md border border-border-subtle flex flex-col gap-space-xs">
+<label class="font-metadata text-metadata text-ink-muted text-xs font-semibold uppercase tracking-wider flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px]" data-icon="edit_note">edit_note</span>
+<span>Your typed rationale:</span>
+</label>
+<blockquote class="font-ui-body text-ui-body text-ink italic pl-space-xs border-l-2 border-border-control">
+                  “Confidence metrics do not equal factual correctness in probabilistic text generation.”
+                </blockquote>
+</div>
+</div>
+</article>
+</div>
+<!-- Placement Result Section (White card, lavender #C9ACEE accent border) -->
+<section class="bg-surface rounded-xl border-2 border-highlight p-gutter sm:p-space-lg flex flex-col gap-space-md mt-space-sm shadow-none">
+<div class="flex items-start justify-between gap-space-sm">
+<div class="flex flex-col gap-space-xs">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-secondary text-[24px]" data-icon="explore">explore</span>
+<span class="font-metadata text-metadata text-secondary font-semibold uppercase tracking-wide text-xs">Diagnostic Assessment Outcome</span>
+</div>
+<h2 class="font-section-heading text-section-heading text-ink">
+                Placement Recommendation: Module 2 (Write clear prompts)
+              </h2>
+</div>
+<div class="shrink-0 px-space-sm py-1 bg-surface-container rounded-lg font-metadata text-metadata text-ink-muted text-xs">
+              Suggested Path
+            </div>
+</div>
+<div class="p-space-md rounded-xl bg-canvas border border-border-subtle">
+<p class="font-lesson-body text-lesson-body text-ink">
+              You demonstrated solid intuition about AI limitations and verification habits, but structured prompt engineering will directly advance your goal of preparing clean study notes.
+            </p>
+</div>
+<!-- Structured Module Comparison Info -->
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-space-sm text-xs font-metadata text-metadata pt-space-xs">
+<div class="p-space-sm bg-surface-container-low rounded-lg border border-border-subtle flex items-start gap-2">
+<span class="material-symbols-outlined text-[18px] text-ink-muted" data-icon="tune">tune</span>
+<div>
+<span class="font-semibold text-ink block">Module 1 Focus</span>
+<span class="text-ink-muted">Basic mental models &amp; foundational limitations</span>
+</div>
+</div>
+<div class="p-space-sm bg-learning-surface rounded-lg border border-secondary flex items-start gap-2">
+<span class="material-symbols-outlined text-[18px] text-secondary" data-icon="assignment_turned_in">assignment_turned_in</span>
+<div>
+<span class="font-semibold text-ink block">Module 2 Match</span>
+<span class="text-secondary font-medium">Constraints, role assignments &amp; length controls</span>
+</div>
+</div>
+</div>
+<!-- Action Buttons Stack -->
+<div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-space-md pt-space-sm border-t border-border-subtle">
+<!-- Primary Lime Button -->
+<button class="min-h-[44px] px-space-lg rounded-xl bg-action hover:bg-action-hover text-ink font-metadata text-metadata font-bold inline-flex items-center justify-center gap-space-xs transition-colors cursor-pointer focus:outline-none focus:ring-2 focus:ring-link focus:ring-offset-2">
+<span>Start here (Module 2)</span>
+<span class="material-symbols-outlined text-[18px]" data-icon="arrow_forward">arrow_forward</span>
+</button>
+<!-- Secondary Button -->
+<button class="min-h-[44px] px-space-lg rounded-xl bg-surface hover:bg-surface-container text-ink border border-border-control font-metadata text-metadata font-semibold inline-flex items-center justify-center gap-space-xs transition-colors cursor-pointer focus:outline-none focus:ring-2 focus:ring-link focus:ring-offset-2">
+<span>Start from beginning (Module 1)</span>
+</button>
+</div>
+<!-- Explicit Disclaimer -->
+<div class="flex items-center gap-space-xs text-ink-muted font-metadata text-xs pt-space-xs">
+<span class="material-symbols-outlined text-[16px] text-ink-muted shrink-0" data-icon="verified_user">verified_user</span>
+<span>Placement recommendation does not grant capability awards or bypass evidence demonstration.</span>
+</div>
+</section>
+<!-- Subtle footer note -->
+<p class="text-center font-metadata text-metadata text-ink-muted text-xs pb-space-xl">
+          CuriousNext adult learning workspace • You can review or re-take this diagnostic at any point in course settings.
+        </p>
+</div>
+</div>
+</main>
+</body></html>

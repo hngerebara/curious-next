@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>CuriousNext - Language &amp; Accessibility Preferences</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;650;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "inverse-surface": "#323029",
+            "secondary-container": "#d7bafd",
+            "on-error-container": "#93000a",
+            "error-surface": "#FCEEEF",
+            "on-tertiary-fixed-variant": "#384760",
+            "on-secondary-container": "#5f4781",
+            "link": "#285F85",
+            "review-ink": "#81530B",
+            "on-tertiary-container": "#54647d",
+            "action": "#C8EF45",
+            "primary-container": "#c8ef45",
+            "tertiary-fixed": "#d5e3ff",
+            "success-ink": "#226347",
+            "outline-variant": "#c5c9af",
+            "tertiary": "#505f78",
+            "primary": "#516600",
+            "tertiary-fixed-dim": "#b7c7e4",
+            "on-primary-fixed-variant": "#3d4d00",
+            "surface-container-high": "#ede8dd",
+            "on-surface": "#1d1c15",
+            "highlight": "#C9ACEE",
+            "ink": "#171717",
+            "surface-container": "#f2ede2",
+            "on-tertiary-fixed": "#0b1c32",
+            "inverse-primary": "#afd52a",
+            "action-hover": "#B5DB32",
+            "surface": "#FFFFFF",
+            "on-background": "#1d1c15",
+            "on-secondary": "#ffffff",
+            "learning-surface": "#F0E8FA",
+            "tertiary-container": "#d1e1ff",
+            "primary-fixed": "#caf247",
+            "on-error": "#ffffff",
+            "surface-container-highest": "#e7e2d7",
+            "secondary-fixed-dim": "#d7bafd",
+            "on-surface-variant": "#454935",
+            "review-surface": "#FFF4D6",
+            "on-primary": "#ffffff",
+            "outline": "#757963",
+            "secondary": "#6c538e",
+            "error-ink": "#A52A32",
+            "border-control": "#71828D",
+            "ink-muted": "#59564F",
+            "on-primary-fixed": "#171e00",
+            "surface-dim": "#dedacf",
+            "surface-bright": "#fef9ee",
+            "inverse-on-surface": "#f5f0e5",
+            "surface-container-lowest": "#ffffff",
+            "secondary-fixed": "#eddcff",
+            "background": "#fef9ee",
+            "canvas": "#F5F0E5",
+            "surface-tint": "#516600",
+            "on-tertiary": "#ffffff",
+            "border-subtle": "#D6DFE3",
+            "on-primary-container": "#556b00",
+            "error-container": "#ffdad6",
+            "on-secondary-fixed-variant": "#533b74",
+            "on-secondary-fixed": "#260c46",
+            "error": "#ba1a1a",
+            "surface-container-low": "#f8f3e8",
+            "success-surface": "#EAF5EE",
+            "surface-variant": "#e7e2d7",
+            "primary-fixed-dim": "#afd52a"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.125rem",
+            "lg": "0.25rem",
+            "xl": "0.5rem",
+            "full": "0.75rem",
+            "card": "1.25rem",
+            "control": "0.75rem"
+          },
+          "spacing": {
+            "space-md": "0.75rem",
+            "gutter": "1rem",
+            "space-xl": "3rem",
+            "margin": "1.5rem",
+            "space-sm": "0.5rem",
+            "space-lg": "1.5rem",
+            "space-2xl": "4rem",
+            "space-xs": "0.25rem"
+          },
+          "fontFamily": {
+            "card-heading": ["Inter"],
+            "page-title-mobile": ["Inter"],
+            "page-title": ["Inter"],
+            "ui-body": ["Inter"],
+            "section-heading": ["Inter"],
+            "metadata": ["Inter"],
+            "section-heading-mobile": ["Inter"],
+            "lesson-body": ["Inter"]
+          },
+          "fontSize": {
+            "card-heading": ["20px", { "lineHeight": "1.35", "fontWeight": "650" }],
+            "page-title-mobile": ["28px", { "lineHeight": "1.2", "fontWeight": "700" }],
+            "page-title": ["36px", { "lineHeight": "1.2", "fontWeight": "700" }],
+            "ui-body": ["16px", { "lineHeight": "1.5", "fontWeight": "400" }],
+            "section-heading": ["24px", { "lineHeight": "1.3", "fontWeight": "650" }],
+            "metadata": ["14px", { "lineHeight": "1.5", "fontWeight": "500" }],
+            "section-heading-mobile": ["22px", { "lineHeight": "1.3", "fontWeight": "650" }],
+            "lesson-body": ["18px", { "lineHeight": "1.65", "fontWeight": "400" }]
+          }
+        }
+      }
+    }
+  </script>
+<style>
+    .focus-ring-preview {
+      outline: 3px solid #285F85;
+      outline-offset: 2px;
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-canvas text-ink antialiased min-h-screen flex justify-center selection:bg-highlight selection:text-ink"><div style="padding:10px 16px;background:#FFF4D6;color:#171717;font:14px/1.5 Inter,system-ui,sans-serif">Design preview · Fictional sample data · Draft curriculum</div>
+<!-- Mobile Viewport Container (390px baseline) -->
+<div class="w-full max-w-[390px] min-h-screen bg-canvas flex flex-col relative pb-24 shadow-sm">
+<!-- TopAppBar from Shared Components JSON -->
+<header class="bg-canvas dark:bg-inverse-surface border-b border-border-subtle dark:border-outline-variant flex justify-between items-center w-full px-margin h-16 sticky top-0 z-40">
+<div class="flex items-center gap-space-sm">
+<button aria-label="CuriousNext navigation home" class="active:scale-[0.98] transition-transform duration-150 min-h-[44px] min-w-[44px] flex items-center justify-center rounded-control hover:bg-surface-container dark:hover:bg-surface-variant text-ink dark:text-inverse-on-surface">
+<span class="material-symbols-outlined text-ink dark:text-inverse-on-surface text-[24px]">school</span>
+</button>
+<span class="text-section-heading-mobile font-section-heading-mobile font-bold text-ink dark:text-inverse-on-surface">CuriousNext</span>
+</div>
+<button aria-label="Open settings menu" class="active:scale-[0.98] transition-transform duration-150 min-h-[44px] min-w-[44px] flex items-center justify-center rounded-control hover:bg-surface-container dark:hover:bg-surface-variant text-ink dark:text-inverse-on-surface">
+<span class="material-symbols-outlined text-ink dark:text-inverse-on-surface text-[24px]">menu</span>
+</button>
+</header>
+<!-- Main Workspace Content -->
+<main class="flex-1 px-4 pt-5 pb-8 flex flex-col gap-6">
+<!-- Page Context & Header -->
+<section class="flex flex-col gap-1">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-link text-[18px]">tune</span>
+<p class="text-metadata font-metadata text-link uppercase tracking-wider font-semibold">Settings &amp; Configuration</p>
+</div>
+<h1 class="text-page-title-mobile font-page-title-mobile text-ink tracking-tight">Preferences &amp; Study Support</h1>
+<p class="text-metadata font-metadata text-ink-muted">Tailor readability, navigation, and explicit translation expectations for your workspace.</p>
+</section>
+<!-- SECTION 1: Study & Interface Language -->
+<section class="bg-surface rounded-card p-5 border border-border-subtle flex flex-col gap-4 shadow-[0_1px_3px_rgba(0,0,0,0.03)]">
+<div class="flex items-start justify-between gap-2 border-b border-border-subtle pb-3">
+<div class="flex flex-col">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-primary text-[20px]">translate</span>
+<h2 class="text-section-heading-mobile font-section-heading-mobile text-ink">Study &amp; Interface Language</h2>
+</div>
+<p class="text-metadata font-metadata text-ink-muted mt-0.5">Transparent curricular localization status</p>
+</div>
+<span class="inline-flex items-center gap-1 bg-success-surface text-success-ink px-2.5 py-1 rounded-full text-xs font-semibold border border-border-subtle">
+<span class="w-1.5 h-1.5 rounded-full bg-success-ink"></span> Active
+          </span>
+</div>
+<!-- Explicit notification of Active Language -->
+<div class="bg-surface-container-low rounded-control p-3.5 border border-border-control flex items-start gap-3">
+<span class="material-symbols-outlined text-success-ink text-[22px] mt-0.5" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+<div class="flex flex-col">
+<p class="text-metadata font-metadata font-semibold text-ink">Current active language: English</p>
+<p class="text-metadata font-metadata text-ink-muted text-xs mt-0.5 leading-snug">English draft preview. Curriculum and rubric review remain pending.</p>
+</div>
+</div>
+<!-- Strict Warning Callout: No Silent Fallback -->
+<div class="bg-review-surface border border-outline-variant/60 rounded-control p-3.5 flex items-start gap-3">
+<span class="material-symbols-outlined text-review-ink text-[20px] mt-0.5">info</span>
+<p class="text-metadata font-metadata text-review-ink text-xs leading-relaxed font-medium">
+<strong>Honest Localization Policy:</strong> No silent fallback to English — you will always be notified of translation status before starting a unit.
+          </p>
+</div>
+<!-- Local Languages with Honest Status (Strictly No Flags) -->
+<div class="flex flex-col gap-2 pt-1">
+<p class="text-metadata font-metadata text-ink font-semibold">Local Curricular Editions</p>
+<div class="grid grid-cols-1 gap-2">
+<!-- Nigerian Pidgin -->
+<div class="p-3 rounded-control border border-border-subtle bg-canvas/40 flex items-center justify-between">
+<div class="flex items-center gap-2.5">
+<span class="w-2 h-2 rounded-full bg-review-ink"></span>
+<span class="text-metadata font-metadata font-semibold text-ink">Nigerian Pidgin</span>
+</div>
+<span class="text-xs font-medium text-review-ink bg-review-surface px-2 py-0.5 rounded border border-border-subtle">Review pending for this module</span>
+</div>
+<!-- Igbo -->
+<div class="p-3 rounded-control border border-border-subtle bg-canvas/40 flex items-center justify-between">
+<div class="flex items-center gap-2.5">
+<span class="w-2 h-2 rounded-full bg-review-ink"></span>
+<span class="text-metadata font-metadata font-semibold text-ink">Igbo</span>
+</div>
+<span class="text-xs font-medium text-review-ink bg-review-surface px-2 py-0.5 rounded border border-border-subtle">Review pending for this module</span>
+</div>
+<!-- Yoruba -->
+<div class="p-3 rounded-control border border-border-subtle bg-canvas/40 flex items-center justify-between">
+<div class="flex items-center gap-2.5">
+<span class="w-2 h-2 rounded-full bg-review-ink"></span>
+<span class="text-metadata font-metadata font-semibold text-ink">Yoruba</span>
+</div>
+<span class="text-xs font-medium text-review-ink bg-review-surface px-2 py-0.5 rounded border border-border-subtle">Review pending for this module</span>
+</div>
+<!-- Hausa -->
+<div class="p-3 rounded-control border border-border-subtle bg-canvas/40 flex items-center justify-between">
+<div class="flex items-center gap-2.5">
+<span class="w-2 h-2 rounded-full bg-review-ink"></span>
+<span class="text-metadata font-metadata font-semibold text-ink">Hausa</span>
+</div>
+<span class="text-xs font-medium text-review-ink bg-review-surface px-2 py-0.5 rounded border border-border-subtle">Review pending for this module</span>
+</div>
+</div>
+</div>
+<!-- Explicit Learner Choice Actions -->
+<div class="pt-2 flex flex-col gap-2">
+<p class="text-xs text-ink-muted uppercase tracking-wider font-semibold">Curriculum Action Choice</p>
+<div class="flex flex-col gap-2">
+<button class="w-full min-h-[44px] py-2.5 px-3 rounded-control bg-action hover:bg-action-hover text-ink text-metadata font-metadata font-semibold flex items-center justify-center gap-2 active:scale-[0.98] transition-transform">
+<span class="material-symbols-outlined text-[18px]">menu_book</span>
+              Stay in English for this module
+            </button>
+<button class="w-full min-h-[44px] py-2.5 px-3 rounded-control bg-surface border border-border-control text-ink text-metadata font-metadata font-medium flex items-center justify-center gap-2 hover:bg-surface-container active:scale-[0.98] transition-transform">
+<span class="material-symbols-outlined text-[18px]">swap_horiz</span>
+              Return to course selection
+            </button>
+</div>
+</div>
+</section>
+<!-- SECTION 2: Text Presentation & Visual Accessibility -->
+<section class="bg-surface rounded-card p-5 border border-border-subtle flex flex-col gap-4 shadow-[0_1px_3px_rgba(0,0,0,0.03)]">
+<div class="flex items-start justify-between gap-2 border-b border-border-subtle pb-3">
+<div class="flex flex-col">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-secondary text-[20px]">visibility</span>
+<h2 class="text-section-heading-mobile font-section-heading-mobile text-ink">Text &amp; Visual Accessibility</h2>
+</div>
+<p class="text-metadata font-metadata text-ink-muted mt-0.5">Display comfort and navigation tooling</p>
+</div>
+</div>
+<!-- Text presentation & scaling toggle -->
+<div class="flex flex-col gap-2">
+<label class="text-metadata font-metadata font-semibold text-ink flex items-center justify-between">
+            Text presentation &amp; scaling
+            <span class="text-xs text-ink-muted font-normal">Workspace default</span>
+</label>
+<div class="grid grid-cols-2 gap-2 bg-canvas p-1 rounded-control border border-border-subtle">
+<button class="py-2 px-3 rounded-lg bg-surface text-ink font-semibold text-xs border border-border-control shadow-sm flex items-center justify-center gap-1.5">
+<span class="text-xs">Standard</span>
+<span class="text-[11px] text-ink-muted">(16px/18px)</span>
+</button>
+<button class="py-2 px-3 rounded-lg text-ink-muted hover:text-ink font-medium text-xs flex items-center justify-center gap-1.5 transition-colors">
+<span class="text-xs">Larger text</span>
+<span class="text-[11px] text-ink-muted">(20px/22px)</span>
+</button>
+</div>
+</div>
+<!-- Reduce motion toggle -->
+<div class="flex items-center justify-between py-2 border-y border-border-subtle/80">
+<div class="flex flex-col pr-4">
+<span class="text-metadata font-metadata font-semibold text-ink">Reduce motion</span>
+<span class="text-xs text-ink-muted">Suppresses animated transitions &amp; micro-interactions</span>
+</div>
+<label class="relative inline-flex items-center cursor-pointer min-h-[44px] min-w-[44px] justify-center">
+<input checked="" class="sr-only peer" type="checkbox"/>
+<div class="w-12 h-6 bg-border-control peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[14px] after:left-[8px] after:bg-white after:border-border-control after:border after:rounded-full after:h-4 after:w-4 after:transition-all peer-checked:bg-primary"></div>
+</label>
+</div>
+<!-- Enhanced keyboard focus indicators with visual preview -->
+<div class="flex flex-col gap-2.5">
+<div class="flex items-center justify-between">
+<div class="flex flex-col">
+<span class="text-metadata font-metadata font-semibold text-ink">Enhanced keyboard focus indicators</span>
+<span class="text-xs text-ink-muted">High-contrast boundary for screen readers &amp; tab keys</span>
+</div>
+<label class="relative inline-flex items-center cursor-pointer min-h-[44px] min-w-[44px] justify-center">
+<input checked="" class="sr-only peer" type="checkbox"/>
+<div class="w-12 h-6 bg-border-control peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[14px] after:left-[8px] after:bg-white after:border-border-control after:border after:rounded-full after:h-4 after:w-4 after:transition-all peer-checked:bg-primary"></div>
+</label>
+</div>
+<!-- Live Visual Preview of 3px solid #285F85 outline with 2px offset -->
+<div class="bg-surface-container-low rounded-control p-3 border border-border-subtle flex flex-col gap-1.5">
+<span class="text-xs font-semibold text-ink-muted">Focus visual preview:</span>
+<div class="p-3 bg-surface rounded-control border border-border-subtle flex items-center justify-between">
+<span class="text-xs font-medium text-ink">Interactive learning element</span>
+<div class="focus-ring-preview bg-learning-surface px-3 py-1.5 rounded-lg text-ink text-xs font-semibold">
+                Focused state active
+              </div>
+</div>
+<span class="text-[11px] text-ink-muted text-center pt-0.5">Rendered with 3px solid #285F85 and 2px offset boundary</span>
+</div>
+</div>
+<!-- Explicit Assistive Neutrality Policy Callout -->
+<div class="bg-learning-surface border border-secondary/20 rounded-control p-3.5 flex items-start gap-3">
+<span class="material-symbols-outlined text-secondary text-[20px] mt-0.5">verified_user</span>
+<div class="flex flex-col">
+<p class="text-xs font-semibold text-secondary mb-0.5">Neutrality Guarantee</p>
+<p class="text-metadata font-metadata text-ink text-xs leading-relaxed">
+              Screen reader usage, text enlargement, and keyboard navigation are assistive accessibility rights. They never count as 'Assisted' support in competency evaluation.
+            </p>
+</div>
+</div>
+</section>
+<!-- SECTION 3: Evidence Ledger Baseline -->
+<section class="bg-learning-surface rounded-card p-5 border border-secondary/20 flex flex-col gap-3.5 shadow-[0_1px_3px_rgba(0,0,0,0.03)]">
+<div class="flex items-center justify-between">
+<span class="text-xs font-bold uppercase tracking-wider text-secondary">Competency Baseline</span>
+<!-- Capability Badge for Baseline -->
+<div class="inline-flex items-center gap-1.5 bg-surface text-ink px-2.5 py-1 rounded-control border border-border-control text-xs font-medium">
+<span class="material-symbols-outlined text-ink-muted text-[15px]">hourglass_empty</span>
+<span>Not assessed yet</span>
+</div>
+</div>
+<div>
+<h2 class="text-card-heading font-card-heading text-ink">CuriousNext Evidence Status: Not assessed yet</h2>
+<p class="text-metadata font-metadata text-ink-muted mt-1.5 leading-relaxed">
+            Your evidence ledger starts empty. Demonstrating capability happens through completed practice tasks, not arbitrary quiz points.
+          </p>
+</div>
+<div class="pt-2">
+<!-- Next-Action primary button -->
+<button class="w-full min-h-[44px] py-3 px-4 rounded-control bg-action hover:bg-action-hover text-ink text-metadata font-metadata font-bold flex items-center justify-center gap-2 active:scale-[0.98] transition-transform shadow-sm">
+<span>Explore introductory exercises</span>
+<span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+</button>
+</div>
+</section>
+</main>
+<!-- BottomNavBar from Shared Components JSON -->
+<!-- Destination count: 3; Labels: ["Learn", "My Courses", "Evidence"]; Icons: ["menu_book", "collections_bookmark", "verified"] -->
+<!-- Context: This screen is an Evidence/Accessibility baseline setup page, active tab maps strictly to Evidence -->
+<nav aria-label="Bottom Navigation" class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-gutter h-16 pb-safe bg-canvas dark:bg-inverse-surface border-t border-border-subtle dark:border-outline-variant shadow-sm max-w-[390px] mx-auto right-0">
+<!-- Destination 1: Learn -->
+<a class="flex flex-col items-center justify-center text-ink-muted dark:text-on-surface-variant px-4 py-1 min-h-[44px] min-w-[44px] hover:bg-surface-container-high dark:hover:bg-surface-variant active:scale-[0.98] transition-transform duration-150" href="#learn">
+<span class="material-symbols-outlined text-[22px]">menu_book</span>
+<span class="text-metadata font-metadata text-xs">Learn</span>
+</a>
+<!-- Destination 2: My Courses -->
+<a class="flex flex-col items-center justify-center text-ink-muted dark:text-on-surface-variant px-4 py-1 min-h-[44px] min-w-[44px] hover:bg-surface-container-high dark:hover:bg-surface-variant active:scale-[0.98] transition-transform duration-150" href="#courses">
+<span class="material-symbols-outlined text-[22px]">collections_bookmark</span>
+<span class="text-metadata font-metadata text-xs">My Courses</span>
+</a>
+<!-- Destination 3: Evidence (Active semantic match for evidence baseline ledger) -->
+<a aria-current="page" class="flex flex-col items-center justify-center bg-action dark:bg-action text-ink dark:text-ink rounded-xl px-4 py-1 min-h-[44px] min-w-[44px] font-semibold active:scale-[0.98] transition-transform duration-150" href="#evidence">
+<span class="material-symbols-outlined text-[22px]" style="font-variation-settings: 'FILL' 1;">verified</span>
+<span class="text-metadata font-metadata text-xs">Evidence</span>
+</a>
+</nav>
+</div>
+</body></html>

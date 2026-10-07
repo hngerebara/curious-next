@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+
+<html class="h-full" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>CY-2 Feedback &amp; Rubric Ledger - CuriousNext</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;650;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "on-surface-variant": "#454935",
+            "primary-fixed-dim": "#afd52a",
+            "on-secondary-fixed": "#260c46",
+            "learning-surface": "#F0E8FA",
+            "secondary-container": "#d7bafd",
+            "tertiary-fixed": "#d5e3ff",
+            "success-surface": "#EAF5EE",
+            "on-primary": "#ffffff",
+            "inverse-on-surface": "#f5f0e5",
+            "primary-container": "#c8ef45",
+            "error": "#ba1a1a",
+            "surface-container-lowest": "#ffffff",
+            "on-secondary-fixed-variant": "#533b74",
+            "surface-tint": "#516600",
+            "ink": "#171717",
+            "ink-muted": "#59564F",
+            "outline-variant": "#c5c9af",
+            "surface-container-low": "#f8f3e8",
+            "action": "#C8EF45",
+            "surface-dim": "#dedacf",
+            "surface-bright": "#fef9ee",
+            "review-surface": "#FFF4D6",
+            "on-secondary": "#ffffff",
+            "surface-container": "#f2ede2",
+            "canvas": "#F5F0E5",
+            "outline": "#757963",
+            "inverse-surface": "#323029",
+            "tertiary-fixed-dim": "#b7c7e4",
+            "error-surface": "#FCEEEF",
+            "tertiary": "#505f78",
+            "success-ink": "#226347",
+            "on-secondary-container": "#5f4781",
+            "error-ink": "#A52A32",
+            "on-error": "#ffffff",
+            "primary": "#516600",
+            "background": "#fef9ee",
+            "action-hover": "#B5DB32",
+            "on-primary-fixed": "#171e00",
+            "on-tertiary-fixed-variant": "#384760",
+            "review-ink": "#81530B",
+            "secondary": "#6c538e",
+            "on-tertiary-fixed": "#0b1c32",
+            "border-control": "#71828D",
+            "on-primary-fixed-variant": "#3d4d00",
+            "error-container": "#ffdad6",
+            "tertiary-container": "#d1e1ff",
+            "on-tertiary-container": "#54647d",
+            "on-background": "#1d1c15",
+            "surface": "#FFFFFF",
+            "highlight": "#C9ACEE",
+            "link": "#285F85",
+            "secondary-fixed-dim": "#d7bafd",
+            "secondary-fixed": "#eddcff",
+            "inverse-primary": "#afd52a",
+            "surface-container-high": "#ede8dd",
+            "on-surface": "#1d1c15",
+            "primary-fixed": "#caf247",
+            "border-subtle": "#D6DFE3",
+            "on-error-container": "#93000a",
+            "surface-container-highest": "#e7e2d7",
+            "on-tertiary": "#ffffff",
+            "on-primary-container": "#556b00",
+            "surface-variant": "#e7e2d7"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.125rem",
+            "lg": "0.25rem",
+            "xl": "0.5rem",
+            "full": "0.75rem"
+          },
+          "spacing": {
+            "space-xs": "0.25rem",
+            "space-xl": "3rem",
+            "space-sm": "0.5rem",
+            "space-2xl": "4rem",
+            "margin": "1.5rem",
+            "space-md": "0.75rem",
+            "space-lg": "1.5rem",
+            "gutter": "1rem"
+          },
+          "fontFamily": {
+            "section-heading": ["Inter"],
+            "page-title": ["Inter"],
+            "section-heading-mobile": ["Inter"],
+            "page-title-mobile": ["Inter"],
+            "metadata": ["Inter"],
+            "lesson-body": ["Inter"],
+            "ui-body": ["Inter"],
+            "card-heading": ["Inter"]
+          },
+          "fontSize": {
+            "section-heading": ["24px", { "lineHeight": "1.3", "fontWeight": "650" }],
+            "page-title": ["36px", { "lineHeight": "1.2", "fontWeight": "700" }],
+            "section-heading-mobile": ["22px", { "lineHeight": "1.3", "fontWeight": "650" }],
+            "page-title-mobile": ["28px", { "lineHeight": "1.2", "fontWeight": "700" }],
+            "metadata": ["14px", { "lineHeight": "1.5", "fontWeight": "500" }],
+            "lesson-body": ["18px", { "lineHeight": "1.65", "fontWeight": "400" }],
+            "ui-body": ["16px", { "lineHeight": "1.5", "fontWeight": "400" }],
+            "card-heading": ["20px", { "lineHeight": "1.35", "fontWeight": "650" }]
+          }
+        }
+      }
+    }
+  </script>
+</head>
+<body class="bg-canvas text-ink antialiased min-h-full font-ui-body text-ui-body flex flex-col selection:bg-highlight selection:text-ink"><div style="padding:10px 16px;background:#FFF4D6;color:#171717;font:14px/1.5 Inter,system-ui,sans-serif">Design preview · Fictional sample data · Draft curriculum</div>
+<!-- Desktop SideNavBar (from JSON Anchor) -->
+<aside class="fixed top-0 left-0 h-screen w-[240px] flex flex-col justify-between bg-canvas border-r border-border-subtle z-40 select-none">
+<div class="w-[240px] h-full p-gutter flex flex-col">
+<!-- Sidebar Header / Logo -->
+<div class="mb-space-lg flex items-start gap-space-sm px-space-xs pt-space-xs">
+<div class="w-8 h-8 rounded-xl bg-action flex items-center justify-center border border-ink text-ink font-bold text-base flex-shrink-0">
+<span class="material-symbols-outlined text-ink" style="font-variation-settings: 'FILL' 1;">menu_book</span>
+</div>
+<div>
+<span class="font-card-heading text-card-heading text-ink font-bold tracking-tight block leading-none">CuriousNext</span>
+<span class="font-metadata text-metadata text-ink-muted text-xs block mt-1">Adult learning workspace</span>
+</div>
+</div>
+<!-- Resume CTA Button -->
+<div class="mb-space-lg">
+<button class="w-full bg-surface hover:bg-surface-container text-ink font-metadata text-metadata font-semibold py-space-sm px-gutter rounded-xl border border-border-control flex items-center justify-between transition-colors duration-150 min-h-[44px]">
+<span>Resume Learning</span>
+<span class="material-symbols-outlined text-ink text-base">arrow_forward</span>
+</button>
+</div>
+<!-- Navigation Tabs: Evidence active (since this screen is a Feedback & Rubric Ledger) -->
+<nav class="space-y-1 flex-1">
+<!-- Inactive: Learn -->
+<a class="flex items-center gap-space-sm px-gutter py-space-sm rounded-xl font-metadata text-metadata text-ink-muted hover:bg-surface-container hover:text-ink transition-colors duration-150 min-h-[44px]" href="#learn">
+<span class="material-symbols-outlined text-ink-muted">menu_book</span>
+<span>Learn</span>
+</a>
+<!-- Inactive: My courses -->
+<a class="flex items-center gap-space-sm px-gutter py-space-sm rounded-xl font-metadata text-metadata text-ink-muted hover:bg-surface-container hover:text-ink transition-colors duration-150 min-h-[44px]" href="#courses">
+<span class="material-symbols-outlined text-ink-muted">school</span>
+<span>My courses</span>
+</a>
+<!-- Active: Evidence (Strictly mapped to Ledger & Feedback record) -->
+<a class="flex items-center gap-space-sm px-gutter py-space-sm bg-surface border border-border-control rounded-xl font-metadata text-metadata text-ink font-semibold min-h-[44px]" href="#evidence">
+<span class="material-symbols-outlined text-ink" style="font-variation-settings: 'FILL' 1;">verified</span>
+<span>Evidence</span>
+</a>
+</nav>
+<!-- Sidebar Footer -->
+<div class="pt-space-md border-t border-border-subtle space-y-1">
+<a class="flex items-center gap-space-sm px-gutter py-space-sm rounded-xl font-metadata text-metadata text-ink-muted hover:bg-surface-container hover:text-ink transition-colors duration-150 min-h-[44px]" href="#settings">
+<span class="material-symbols-outlined text-ink-muted">settings</span>
+<span>Settings</span>
+</a>
+<a class="flex items-center gap-space-sm px-gutter py-space-sm rounded-xl font-metadata text-metadata text-ink-muted hover:bg-surface-container hover:text-ink transition-colors duration-150 min-h-[44px]" href="#help">
+<span class="material-symbols-outlined text-ink-muted">help</span>
+<span>Help</span>
+</a>
+</div>
+</div>
+</aside>
+<!-- Desktop TopNavBar (from JSON Anchor) -->
+<header class="fixed top-0 left-[240px] right-0 h-16 z-30 bg-canvas border-b border-border-subtle select-none">
+<div class="h-16 px-space-lg flex items-center justify-between max-w-[1120px]">
+<div class="flex items-center gap-space-md">
+<!-- Breadcrumb / Course context link -->
+<div class="flex items-center gap-space-xs font-metadata text-metadata text-ink font-semibold">
+<span class="text-ink-muted">Course:</span>
+<span class="hover:text-link cursor-pointer">Cybersecurity Essentials</span>
+<span class="text-ink-muted">/</span>
+<span class="text-ink">CY-2 Evidence Record</span>
+</div>
+</div>
+<!-- Trailing Actions -->
+<div class="flex items-center gap-space-sm">
+<button class="font-metadata text-metadata text-ink-muted hover:bg-surface-container hover:text-ink rounded-lg transition-colors duration-150 min-h-[44px] min-w-[44px] inline-flex items-center justify-center gap-1.5 px-space-sm" title="Language selection">
+<span class="material-symbols-outlined text-ink-muted text-lg">translate</span>
+<span class="font-metadata text-metadata">Language</span>
+</button>
+<button class="font-metadata text-metadata text-ink-muted hover:bg-surface-container hover:text-ink rounded-lg transition-colors duration-150 min-h-[44px] min-w-[44px] inline-flex items-center justify-center gap-1.5 px-space-sm" title="Account profile">
+<span class="material-symbols-outlined text-ink-muted text-lg">account_circle</span>
+<span class="font-metadata text-metadata">Account</span>
+</button>
+</div>
+</div>
+</header>
+<!-- Main Canvas Container -->
+<main class="ml-[240px] pt-16 flex-1 flex flex-col">
+<div class="max-w-[1120px] w-full mx-auto px-space-lg py-space-xl">
+<!-- Screen Header with Calm Nonjudgmental Positioning -->
+<div class="max-w-[760px] mb-space-lg">
+<div class="inline-flex items-center gap-space-xs px-2.5 py-1 rounded-full bg-surface border border-border-subtle font-metadata text-metadata text-ink-muted mb-space-sm">
+<span class="material-symbols-outlined text-sm text-ink-muted">history_edu</span>
+<span>Criterion-Referenced Feedback Ledger</span>
+</div>
+<h1 class="font-page-title text-page-title text-ink tracking-tight mb-space-xs">
+          Evaluation Feedback: Objective CY-2 (Phishing Recognition &amp; Independent Verification)
+        </h1>
+<p class="font-ui-body text-ui-body text-ink-muted">
+          Detailed diagnostic ledger evaluating observed learner responses against the empirical CY-2 assessment rubric.
+        </p>
+</div>
+<!-- Bento Layout Content Grid -->
+<div class="grid grid-cols-12 gap-space-lg">
+<!-- Bento Tile 1: Submission Status Card (Lavender #F0E8FA) -->
+<section class="col-span-12 bg-learning-surface border border-highlight rounded-xl p-space-lg relative overflow-hidden">
+<div class="flex flex-col md:flex-row md:items-start justify-between gap-space-md mb-space-md">
+<div>
+<div class="flex items-center gap-space-xs flex-wrap mb-1">
+<span class="font-metadata text-metadata font-semibold text-secondary">
+                  Rubric: CY-2 v1 (Draft Pilot)
+                </span>
+<span class="text-ink-muted">·</span>
+<!-- Capability Status Badge: Needs Review -->
+<span class="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-review-surface border border-border-subtle font-metadata text-metadata text-review-ink font-semibold">
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">flag</span>
+                  Status: Needs Review
+                </span>
+<span class="text-ink-muted">·</span>
+<span class="font-metadata text-metadata text-ink-muted">
+                  Assistance: Unassisted
+                </span>
+</div>
+<h2 class="font-card-heading text-card-heading text-ink font-bold">
+                Submission Evaluation Ledger
+              </h2>
+</div>
+<div class="bg-surface px-space-md py-1.5 rounded-xl border border-border-subtle flex items-center gap-space-sm text-xs text-ink-muted">
+<span class="material-symbols-outlined text-base text-ink-muted">event</span>
+<span>Observed: March 29, 2025</span>
+</div>
+</div>
+<div class="bg-surface/90 backdrop-blur-sm border border-border-subtle rounded-xl p-space-md">
+<div class="flex items-start gap-space-sm">
+<span class="material-symbols-outlined text-ink-muted mt-0.5 text-xl flex-shrink-0">quick_reference_all</span>
+<div>
+<p class="font-metadata text-metadata font-semibold text-ink mb-1">Diagnostic Summary</p>
+<p class="font-ui-body text-ui-body text-ink leading-relaxed">
+                  You correctly recognized the non-sensitive nature of Notification 2. However, for Notification 1, your response relied on the visual logo and recommended clicking the embedded link. Logos do not authenticate a message.
+                </p>
+</div>
+</div>
+</div>
+</section>
+<!-- Bento Tile 2: Misconception Analysis Card (White Card with Amber Review Accent) -->
+<section class="col-span-12 bg-surface border border-border-control rounded-xl p-space-lg shadow-sm">
+<div class="flex items-center gap-space-sm mb-space-md pb-space-sm border-b border-border-subtle">
+<span class="w-8 h-8 rounded-lg bg-review-surface flex items-center justify-center text-review-ink border border-review-surface flex-shrink-0">
+<span class="material-symbols-outlined text-lg" style="font-variation-settings: 'FILL' 1;">psychology</span>
+</span>
+<div>
+<span class="font-metadata text-metadata text-review-ink font-semibold uppercase tracking-wider text-xs block">Diagnostic Focus</span>
+<h2 class="font-card-heading text-card-heading text-ink font-bold">
+                Identified Misconception: Appearance vs Authentication
+              </h2>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-12 gap-space-md mb-space-md">
+<!-- Quoted Learner Rationale -->
+<div class="md:col-span-5 bg-surface-container p-space-md rounded-xl border border-border-subtle flex flex-col justify-between">
+<div>
+<div class="flex items-center gap-space-xs text-xs font-metadata text-ink-muted mb-space-xs">
+<span class="material-symbols-outlined text-sm">record_voice_over</span>
+<span>Quoted Learner Rationale</span>
+</div>
+<blockquote class="font-ui-body text-ui-body text-ink italic leading-relaxed">
+                  “I looked at the StudyHub logo and the urgent warning... I will open the link in the message...”
+                </blockquote>
+</div>
+<div class="mt-space-sm pt-space-xs border-t border-border-subtle flex items-center gap-1 text-xs text-ink-muted font-metadata">
+<span class="material-symbols-outlined text-xs">info</span>
+<span>Captured directly from Step 3 submission input</span>
+</div>
+</div>
+<!-- Teacher Note & Correction Framework -->
+<div class="md:col-span-7 bg-review-surface/60 border border-review-surface rounded-xl p-space-md flex flex-col justify-between">
+<div>
+<div class="flex items-center gap-space-xs text-xs font-metadata text-review-ink font-semibold mb-space-xs">
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">school</span>
+<span>Teacher &amp; Diagnostic Notes</span>
+</div>
+<p class="font-ui-body text-ui-body text-ink leading-relaxed">
+                  Attackers can freely copy logos, color palettes, and header styling from any legitimate organization. A familiar logo proves only that an image was copied, not that the sender is authentic. Always verify via an independent trusted route (such as opening the app directly or typing the known web address yourself).
+                </p>
+</div>
+<div class="mt-space-sm pt-space-xs flex items-center gap-space-sm text-xs text-review-ink font-metadata font-medium">
+<span class="inline-flex items-center gap-1">
+<span class="material-symbols-outlined text-sm">rule</span>
+                  Core Rule: Visual likeness ≠ Cryptographic or domain origin
+                </span>
+</div>
+</div>
+</div>
+</section>
+<!-- Bento Tile 3: Full Rubric Breakdown Table (All 6 criteria) -->
+<section class="col-span-12 bg-surface border border-border-control rounded-xl overflow-hidden shadow-sm">
+<div class="p-space-lg pb-space-md bg-canvas/60 border-b border-border-subtle flex flex-col sm:flex-row sm:items-center justify-between gap-space-sm">
+<div>
+<h2 class="font-card-heading text-card-heading text-ink font-bold">
+                Full Rubric Breakdown (CY-2 v1 Criteria)
+              </h2>
+<p class="font-metadata text-metadata text-ink-muted">
+                Each performance indicator is verified individually. Non-demonstrated states identify immediate focus targets.
+              </p>
+</div>
+<div class="flex items-center gap-space-xs">
+<span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-lg bg-surface border border-border-subtle text-xs font-metadata text-ink-muted">
+<span class="w-2 h-2 rounded-full bg-review-ink"></span> 5 Needs Review
+              </span>
+<span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-lg bg-surface border border-border-subtle text-xs font-metadata text-ink-muted">
+<span class="w-2 h-2 rounded-full bg-tertiary"></span> 1 Developing
+              </span>
+</div>
+</div>
+<div class="overflow-x-auto">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="border-b border-border-subtle bg-surface-container font-metadata text-metadata text-ink-muted text-xs">
+<th class="py-space-sm px-space-md font-semibold w-12 text-center" scope="col">#</th>
+<th class="py-space-sm px-space-md font-semibold w-1/4" scope="col">Criterion Description</th>
+<th class="py-space-sm px-space-md font-semibold w-40" scope="col">Observed Status</th>
+<th class="py-space-sm px-space-md font-semibold" scope="col">Evidence &amp; Feedback Ledger</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-border-subtle text-sm">
+<!-- Criterion 1 -->
+<tr class="hover:bg-surface-container/40 transition-colors">
+<td class="py-space-md px-space-md text-center font-metadata text-ink-muted font-mono">01</td>
+<td class="py-space-md px-space-md">
+<span class="font-semibold text-ink block">Evidence of Deception Recognition</span>
+<span class="text-xs text-ink-muted block mt-0.5">Detects inconsistencies and artificial pressure cues</span>
+</td>
+<td class="py-space-md px-space-md whitespace-nowrap align-top">
+<span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-xl bg-review-surface text-review-ink font-metadata text-xs font-semibold border border-review-surface">
+<span class="material-symbols-outlined text-xs" style="font-variation-settings: 'FILL' 1;">flag</span>
+                      Needs Review
+                    </span>
+</td>
+<td class="py-space-md px-space-md text-ink leading-relaxed align-top">
+                    Identified urgency in Notification 1, but treated urgency as proof of importance rather than a phishing signal.
+                  </td>
+</tr>
+<!-- Criterion 2 -->
+<tr class="hover:bg-surface-container/40 transition-colors">
+<td class="py-space-md px-space-md text-center font-metadata text-ink-muted font-mono">02</td>
+<td class="py-space-md px-space-md">
+<span class="font-semibold text-ink block">Safe Action Selection</span>
+<span class="text-xs text-ink-muted block mt-0.5">Avoids interacting with unverified external vectors</span>
+</td>
+<td class="py-space-md px-space-md whitespace-nowrap align-top">
+<span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-xl bg-review-surface text-review-ink font-metadata text-xs font-semibold border border-review-surface">
+<span class="material-symbols-outlined text-xs" style="font-variation-settings: 'FILL' 1;">flag</span>
+                      Needs Review
+                    </span>
+</td>
+<td class="py-space-md px-space-md text-ink leading-relaxed align-top">
+                    Chose to click message link instead of using an independent channel or reporting.
+                  </td>
+</tr>
+<!-- Criterion 3 -->
+<tr class="hover:bg-surface-container/40 transition-colors">
+<td class="py-space-md px-space-md text-center font-metadata text-ink-muted font-mono">03</td>
+<td class="py-space-md px-space-md">
+<span class="font-semibold text-ink block">Independent Verification Route</span>
+<span class="text-xs text-ink-muted block mt-0.5">Navigates out-of-band via trusted address book or URL</span>
+</td>
+<td class="py-space-md px-space-md whitespace-nowrap align-top">
+<span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-xl bg-review-surface text-review-ink font-metadata text-xs font-semibold border border-review-surface">
+<span class="material-symbols-outlined text-xs" style="font-variation-settings: 'FILL' 1;">flag</span>
+                      Needs Review
+                    </span>
+</td>
+<td class="py-space-md px-space-md text-ink leading-relaxed align-top">
+                    Did not apply independent route; relied on embedded destination <code class="bg-surface-container px-1 py-0.5 rounded text-xs text-link font-mono">studyhub-check.example</code>.
+                  </td>
+</tr>
+<!-- Criterion 4 -->
+<tr class="hover:bg-surface-container/40 transition-colors">
+<td class="py-space-md px-space-md text-center font-metadata text-ink-muted font-mono">04</td>
+<td class="py-space-md px-space-md">
+<span class="font-semibold text-ink block">Reporting &amp; Containment</span>
+<span class="text-xs text-ink-muted block mt-0.5">Utilizes internal enterprise triage mechanisms</span>
+</td>
+<td class="py-space-md px-space-md whitespace-nowrap align-top">
+<span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-xl bg-tertiary-fixed text-tertiary font-metadata text-xs font-semibold border border-border-subtle">
+<span class="material-symbols-outlined text-xs">pending</span>
+                      Developing
+                    </span>
+</td>
+<td class="py-space-md px-space-md text-ink leading-relaxed align-top">
+                    Recognized that suspicious items can be flagged, but did not initiate report for Notification 1.
+                  </td>
+</tr>
+<!-- Criterion 5 -->
+<tr class="hover:bg-surface-container/40 transition-colors">
+<td class="py-space-md px-space-md text-center font-metadata text-ink-muted font-mono">05</td>
+<td class="py-space-md px-space-md">
+<span class="font-semibold text-ink block">Reasoning &amp; Justification</span>
+<span class="text-xs text-ink-muted block mt-0.5">Articulates objective threat criteria rather than gut feel</span>
+</td>
+<td class="py-space-md px-space-md whitespace-nowrap align-top">
+<span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-xl bg-review-surface text-review-ink font-metadata text-xs font-semibold border border-review-surface">
+<span class="material-symbols-outlined text-xs" style="font-variation-settings: 'FILL' 1;">flag</span>
+                      Needs Review
+                    </span>
+</td>
+<td class="py-space-md px-space-md text-ink leading-relaxed align-top">
+                    Explicit rationale confirmed reliance on visual branding (<span class="italic text-ink-muted">“looked at StudyHub logo”</span>).
+                  </td>
+</tr>
+<!-- Criterion 6 -->
+<tr class="hover:bg-surface-container/40 transition-colors">
+<td class="py-space-md px-space-md text-center font-metadata text-ink-muted font-mono">06</td>
+<td class="py-space-md px-space-md">
+<span class="font-semibold text-ink block">Generalisation / Teach-back</span>
+<span class="text-xs text-ink-muted block mt-0.5">Applies safe mental model to novel team scenarios</span>
+</td>
+<td class="py-space-md px-space-md whitespace-nowrap align-top">
+<span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-xl bg-review-surface text-review-ink font-metadata text-xs font-semibold border border-review-surface">
+<span class="material-symbols-outlined text-xs" style="font-variation-settings: 'FILL' 1;">flag</span>
+                      Needs Review
+                    </span>
+</td>
+<td class="py-space-md px-space-md text-ink leading-relaxed align-top">
+                    Teach-back reinforced the misconception that logos guarantee authenticity.
+                  </td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<!-- Bento Tile 4: Actionable Next Steps Card (Lavender & High-Contrast CTA) -->
+<section class="col-span-12 bg-learning-surface border border-highlight rounded-xl p-space-lg shadow-sm">
+<div class="flex items-start justify-between flex-wrap gap-space-md mb-space-md">
+<div>
+<div class="inline-flex items-center gap-space-xs text-xs font-metadata text-secondary font-semibold uppercase tracking-wider mb-1">
+<span class="material-symbols-outlined text-base">forward</span>
+<span>Next-Action Diagnostic Recommendation</span>
+</div>
+<h2 class="font-card-heading text-card-heading text-ink font-bold">
+                Recommended Next Step
+              </h2>
+</div>
+<div class="px-3 py-1 rounded-full bg-surface border border-highlight text-xs font-metadata text-ink font-semibold flex items-center gap-1">
+<span class="material-symbols-outlined text-sm text-secondary">timer</span>
+<span>Estimated: ~10 minutes</span>
+</div>
+</div>
+<div class="bg-surface rounded-xl p-space-md border border-border-subtle mb-space-lg">
+<p class="font-lesson-body text-lesson-body text-ink leading-relaxed">
+              Targeted 10-minute practice on <strong class="text-ink font-semibold">“Appearance vs. Authentication”</strong>, followed by a fresh independent task with new fictional scenarios.
+            </p>
+<p class="text-xs font-metadata text-ink-muted mt-2">
+              Note: No negative scoring or penalties are recorded. Rubric evidence updates immediately upon successful re-evaluation.
+            </p>
+</div>
+<!-- Buttons & Action Rows -->
+<div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-space-md">
+<!-- Primary Lime Button -->
+<button class="bg-action hover:bg-action-hover text-ink font-metadata text-metadata font-bold px-space-lg py-space-sm rounded-xl inline-flex items-center justify-center gap-space-sm min-h-[48px] shadow-sm transition-colors duration-150">
+<span>Review Appearance vs Authentication (10 min)</span>
+<span class="material-symbols-outlined text-lg">arrow_forward</span>
+</button>
+<!-- Secondary Outline Button -->
+<button class="bg-surface hover:bg-surface-container text-ink font-metadata text-metadata font-semibold px-space-lg py-space-sm rounded-xl border border-border-control inline-flex items-center justify-center gap-space-sm min-h-[48px] transition-colors duration-150">
+<span class="material-symbols-outlined text-lg">menu_book</span>
+<span>Re-read CY-2 Lesson Notes</span>
+</button>
+<!-- Secondary Link Action -->
+<button class="font-metadata text-metadata text-link hover:underline inline-flex items-center justify-center gap-1 px-space-sm py-space-sm transition-colors duration-150 min-h-[48px] ml-auto">
+<span class="material-symbols-outlined text-base">support_agent</span>
+<span>Request optional human instructor review (nonblocking)</span>
+</button>
+</div>
+</section>
+</div>
+<!-- Footer Policy Statement -->
+<footer class="mt-space-2xl pt-space-lg border-t border-border-subtle text-center text-xs text-ink-muted font-metadata flex flex-col sm:flex-row items-center justify-between gap-space-sm">
+<p>CuriousNext Adult Learning Workspace · All evaluations are criterion-referenced evidence records.</p>
+<div class="flex items-center gap-space-md">
+<span class="flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-border-control"></span>
+            Nonjudgmental Evaluation Model
+          </span>
+<span>Ledger ID: EV-CY2-9941</span>
+</div>
+</footer>
+</div>
+</main>
+</body></html>

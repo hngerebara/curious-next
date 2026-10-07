@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+
+<html class="h-full" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>What do you want to achieve? — CuriousNext</title>
+<!-- Material Symbols Outlined -->
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;700&amp;family=Inter:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
+<!-- Google Font: Inter -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CDN -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">tailwind.config = {darkMode: "class", theme: {extend: {colors: {"ink-muted": "#59564F", "surface-variant": "#e7e2d7", "on-surface-variant": "#454935", "surface-tint": "#516600", "on-primary": "#ffffff", "surface-container-highest": "#e7e2d7", "on-surface": "#1d1c15", "primary-container": "#c8ef45", "success-surface": "#EAF5EE", "on-secondary-container": "#5f4781", "surface-container": "#f2ede2", surface: "#fef9ee", "border-control": "#71828D", "tertiary-container": "#d1e1ff", "secondary-fixed": "#eddcff", "inverse-surface": "#323029", "inverse-on-surface": "#f5f0e5", secondary: "#6c538e", "surface-container-high": "#ede8dd", "learning-surface": "#F0E8FA", "on-secondary-fixed": "#260c46", "error-surface": "#FCEEEF", "tertiary-fixed-dim": "#b7c7e4", "tertiary-fixed": "#d5e3ff", "success-ink": "#226347", "on-error": "#ffffff", "error-container": "#ffdad6", "surface-bright": "#fef9ee", ink: "#171717", "action-hover": "#B5DB32", "on-tertiary-fixed": "#0b1c32", "on-primary-fixed": "#171e00", "surface-container-lowest": "#ffffff", "on-tertiary": "#ffffff", outline: "#757963", "secondary-fixed-dim": "#d7bafd", tertiary: "#505f78", "on-error-container": "#93000a", canvas: "#F5F0E5", "outline-variant": "#c5c9af", "on-primary-container": "#556b00", primary: "#516600", "inverse-primary": "#afd52a", action: "#C8EF45", "review-surface": "#FFF4D6", "review-ink": "#81530B", "on-secondary-fixed-variant": "#533b74", "primary-fixed-dim": "#afd52a", "on-primary-fixed-variant": "#3d4d00", "surface-container-low": "#f8f3e8", error: "#ba1a1a", "secondary-container": "#d7bafd", "on-background": "#1d1c15", "on-tertiary-container": "#54647d", "on-secondary": "#ffffff", "border-subtle": "#D6DFE3", link: "#285F85", "on-tertiary-fixed-variant": "#384760", "primary-fixed": "#caf247", "error-ink": "#A52A32", highlight: "#C9ACEE", "surface-dim": "#dedacf", background: "#fef9ee"}, borderRadius: {DEFAULT: "0.125rem", lg: "0.25rem", xl: "0.5rem", full: "0.75rem"}, spacing: {"space-sm": "0.5rem", gutter: "1rem", "space-xs": "0.25rem", "space-md": "0.75rem", "space-lg": "1.5rem", margin: "1.5rem", "space-2xl": "4rem", "space-xl": "3rem"}, fontFamily: {"page-title-mobile": ["Inter"], metadata: ["Inter"], "card-heading": ["Inter"], "section-heading-mobile": ["Inter"], "section-heading": ["Inter"], "lesson-body": ["Inter"], "page-title": ["Inter"], "ui-body": ["Inter"], headline: ["Inter"], display: ["Inter"], body: ["Inter"], label: ["Inter"]}, fontSize: {"page-title-mobile": ["28px", {lineHeight: "1.2", fontWeight: "700"}], metadata: ["14px", {lineHeight: "1.5", fontWeight: "500"}], "card-heading": ["20px", {lineHeight: "1.35", fontWeight: "650"}], "section-heading-mobile": ["22px", {lineHeight: "1.3", fontWeight: "650"}], "section-heading": ["24px", {lineHeight: "1.3", fontWeight: "650"}], "lesson-body": ["18px", {lineHeight: "1.65", fontWeight: "400"}], "page-title": ["36px", {lineHeight: "1.2", fontWeight: "700"}], "ui-body": ["16px", {lineHeight: "1.5", fontWeight: "400"}]}}}};</script>
+<style>
+    .material-symbols-outlined {
+      font-family: 'Material Symbols Outlined';
+      font-weight: normal;
+      font-style: normal;
+      font-size: 20px;
+      line-height: 1;
+      letter-spacing: normal;
+      text-transform: none;
+      display: inline-block;
+      white-space: nowrap;
+      word-wrap: normal;
+      direction: ltr;
+      -webkit-font-feature-settings: 'liga';
+      -webkit-font-smoothing: antialiased;
+    }
+    textarea:focus {
+      outline: 3px solid #285F85 !important;
+      outline-offset: 2px !important;
+    }
+  </style>
+</head>
+<body class="bg-canvas text-ink font-ui-body text-ui-body antialiased min-h-screen flex flex-col"><div style="padding:10px 16px;background:#FFF4D6;color:#171717;font:14px/1.5 Inter,system-ui,sans-serif">Design preview · Fictional sample data · Draft curriculum</div>
+<!-- Desktop SideNavBar (from Shared Components JSON) -->
+<aside aria-label="Main Navigation" class="fixed top-0 left-0 h-screen w-[240px] flex flex-col justify-between bg-canvas border-r border-border-subtle z-40">
+<div class="w-[240px] h-full p-gutter flex flex-col justify-between">
+<!-- Workspace Brand Anchor -->
+<div>
+<div class="flex items-center gap-space-sm mb-space-lg px-space-xs">
+<div aria-hidden="true" class="w-8 h-8 rounded-lg bg-surface border border-border-control flex items-center justify-center text-ink shrink-0">
+<span class="material-symbols-outlined text-ink">menu_book</span>
+</div>
+<div>
+<div class="font-card-heading text-card-heading text-ink font-bold tracking-tight">CuriousNext</div>
+<div class="font-metadata text-metadata text-ink-muted leading-tight">Adult learning workspace</div>
+</div>
+</div>
+<!-- Primary Navigation Tabs -->
+<nav aria-label="Workspace destinations" class="flex flex-col gap-space-xs">
+<!-- Learn (Active destination intent for onboarding journey) -->
+<a aria-current="page" class="flex items-center gap-space-sm px-gutter py-space-sm bg-surface border border-border-control rounded-xl font-metadata text-metadata text-ink font-semibold min-h-[44px] transition-colors duration-150 cursor-pointer" href="#">
+<span class="material-symbols-outlined text-ink">menu_book</span>
+<span>Learn</span>
+</a>
+<!-- My courses -->
+<a class="flex items-center gap-space-sm px-gutter py-space-sm rounded-xl font-metadata text-metadata text-ink-muted hover:bg-surface-container hover:text-ink min-h-[44px] transition-colors duration-150 cursor-pointer" href="#">
+<span class="material-symbols-outlined text-ink-muted">school</span>
+<span>My courses</span>
+</a>
+<!-- Evidence -->
+<a class="flex items-center gap-space-sm px-gutter py-space-sm rounded-xl font-metadata text-metadata text-ink-muted hover:bg-surface-container hover:text-ink min-h-[44px] transition-colors duration-150 cursor-pointer" href="#">
+<span class="material-symbols-outlined text-ink-muted">verified</span>
+<span>Evidence</span>
+</a>
+</nav>
+</div>
+<!-- Quick Session Context & Secondary Actions -->
+<div class="flex flex-col gap-space-md pt-space-lg border-t border-border-subtle">
+<div class="bg-learning-surface border border-border-subtle rounded-xl p-space-sm">
+<div class="font-metadata text-metadata text-ink font-semibold flex items-center gap-space-xs mb-1">
+<span class="w-2 h-2 rounded-full bg-primary inline-block"></span>
+            Workspace setup
+          </div>
+<div class="font-metadata text-metadata text-ink-muted text-xs leading-normal">
+            Step 1 of 3 in progress. No diagnostic test required.
+          </div>
+</div>
+<!-- Footer tabs: Settings, Help -->
+<div class="flex flex-col gap-space-xs">
+<a class="flex items-center gap-space-sm px-gutter py-space-sm rounded-xl font-metadata text-metadata text-ink-muted hover:bg-surface-container hover:text-ink min-h-[44px] transition-colors duration-150 cursor-pointer" href="#">
+<span class="material-symbols-outlined text-ink-muted">settings</span>
+<span>Settings</span>
+</a>
+<a class="flex items-center gap-space-sm px-gutter py-space-sm rounded-xl font-metadata text-metadata text-ink-muted hover:bg-surface-container hover:text-ink min-h-[44px] transition-colors duration-150 cursor-pointer" href="#">
+<span class="material-symbols-outlined text-ink-muted">help</span>
+<span>Help</span>
+</a>
+</div>
+</div>
+</div>
+</aside>
+<!-- Desktop TopNavBar (from Shared Components JSON) -->
+<header class="fixed top-0 left-[240px] right-0 h-16 bg-canvas border-b border-border-subtle z-30" role="banner">
+<div class="h-16 px-space-lg flex items-center justify-between max-w-[1120px]">
+<!-- Left side: Breadcrumb Trail -->
+<nav aria-label="Breadcrumb" class="flex items-center gap-space-xs font-metadata text-metadata">
+<span class="text-ink-muted">Onboarding</span>
+<span class="text-ink-muted select-none">/</span>
+<span class="text-ink font-semibold">Goal setup</span>
+</nav>
+<!-- Trailing Action Cluster -->
+<div class="flex items-center gap-space-sm">
+<button aria-label="Change interface language" class="min-h-[44px] min-w-[44px] inline-flex items-center justify-center gap-space-xs px-space-sm text-ink-muted hover:bg-surface-container hover:text-ink rounded-lg font-metadata text-metadata transition-colors duration-150 cursor-pointer" type="button">
+<span class="material-symbols-outlined text-ink-muted">translate</span>
+<span class="hidden sm:inline">Language</span>
+</button>
+<button aria-label="User account details" class="min-h-[44px] min-w-[44px] inline-flex items-center justify-center gap-space-xs px-space-sm text-ink-muted hover:bg-surface-container hover:text-ink rounded-lg font-metadata text-metadata transition-colors duration-150 cursor-pointer" type="button">
+<span class="material-symbols-outlined text-ink">account_circle</span>
+<span class="hidden sm:inline text-ink font-semibold">Account</span>
+</button>
+</div>
+</div>
+</header>
+<!-- Main Content Canvas (Constrained to 760px Editorial Notebook Metaphor) -->
+<main class="ml-[240px] pt-16 flex-1 flex justify-start px-space-lg py-space-xl" role="main">
+<div class="w-full max-w-[760px] flex flex-col gap-space-xl">
+<!-- Notebook Header & Progression Tracker -->
+<section class="flex flex-col gap-space-sm">
+<!-- Step indicator badge -->
+<div class="inline-flex items-center gap-space-xs self-start px-space-sm py-1 bg-surface border border-border-control rounded-full font-metadata text-metadata text-ink font-semibold">
+<span class="material-symbols-outlined text-link" style="font-size: 16px;">flag</span>
+<span>Step 1 of 3: Your learning goal</span>
+</div>
+<h1 class="font-page-title text-page-title text-ink tracking-tight mt-space-xs">
+          What do you want to achieve?
+        </h1>
+<p class="font-lesson-body text-lesson-body text-ink-muted leading-relaxed max-w-[680px]">
+          Tell CuriousNext what practical task you want to accomplish. We will use this to suggest relevant courses and examples. You can adjust this anytime.
+        </p>
+</section>
+<!-- Input Section with Notebook Field -->
+<section class="bg-surface rounded-card border border-border-control p-space-lg flex flex-col gap-space-md">
+<div class="flex flex-col gap-space-xs">
+<label class="font-card-heading text-card-heading text-ink font-semibold" for="learning-goal-input">
+            Describe your goal in plain words
+          </label>
+<span class="font-metadata text-metadata text-ink-muted">
+            Be as specific as you like — e.g., preparing notes, summarizing reports, or verifying online messages.
+          </span>
+</div>
+<!-- Accessible Textarea with 12px radius and crisp #71828D boundary -->
+<div class="relative">
+<textarea aria-describedby="goal-helper-text" class="w-full rounded-[12px] border-2 border-border-control bg-surface-container-low px-space-md py-space-md font-ui-body text-ui-body text-ink focus:bg-surface transition-all duration-150 resize-y" id="learning-goal-input" name="learning-goal" rows="4">Use AI to prepare clear study notes</textarea>
+</div>
+<div class="flex items-center justify-between font-metadata text-metadata text-ink-muted pt-space-xs border-t border-border-subtle" id="goal-helper-text">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-link" style="font-size: 16px;">check_circle</span>
+<span>Verbatim baseline ready for customization</span>
+</div>
+<span class="text-xs">Saved automatically to session</span>
+</div>
+</section>
+<!-- Outcomes Helper Callout Card (White Card, 20px radius, subtle border) -->
+<section aria-labelledby="outcomes-helper-heading" class="bg-surface rounded-[20px] border border-border-subtle p-space-lg shadow-none">
+<div class="flex items-start gap-space-md mb-space-md">
+<div aria-hidden="true" class="w-10 h-10 rounded-xl bg-learning-surface border border-border-subtle flex items-center justify-center text-secondary shrink-0">
+<span class="material-symbols-outlined text-secondary">tune</span>
+</div>
+<div>
+<h2 class="font-card-heading text-card-heading text-ink font-semibold" id="outcomes-helper-heading">
+              How CuriousNext shapes your learning around this goal
+            </h2>
+<p class="font-metadata text-metadata text-ink-muted mt-0.5">
+              No diagnostic test or score rating required before finding the right materials.
+            </p>
+</div>
+</div>
+<!-- 3 Distinct Bullet Points -->
+<ol class="space-y-space-md font-ui-body text-ui-body text-ink list-none">
+<li class="flex items-start gap-space-md p-space-sm rounded-xl bg-surface-container-low border border-border-subtle">
+<span class="w-6 h-6 rounded-full bg-surface border border-border-control flex items-center justify-center font-metadata text-metadata text-ink font-semibold shrink-0 mt-0.5">
+              1
+            </span>
+<div class="leading-relaxed">
+<strong class="font-semibold text-ink">Hands-on exercises centered on real prompts and draft notes</strong>
+<div class="font-metadata text-metadata text-ink-muted mt-0.5">Work with realistic study material from day one instead of abstract theories.</div>
+</div>
+</li>
+<li class="flex items-start gap-space-md p-space-sm rounded-xl bg-surface-container-low border border-border-subtle">
+<span class="w-6 h-6 rounded-full bg-surface border border-border-control flex items-center justify-center font-metadata text-metadata text-ink font-semibold shrink-0 mt-0.5">
+              2
+            </span>
+<div class="leading-relaxed">
+<strong class="font-semibold text-ink">Practice checking AI output for omissions and factual slips</strong>
+<div class="font-metadata text-metadata text-ink-muted mt-0.5">Build critical editorial routines to ensure synthesized notes remain trustworthy.</div>
+</div>
+</li>
+<li class="flex items-start gap-space-md p-space-sm rounded-xl bg-surface-container-low border border-border-subtle">
+<span class="w-6 h-6 rounded-full bg-surface border border-border-control flex items-center justify-center font-metadata text-metadata text-ink font-semibold shrink-0 mt-0.5">
+              3
+            </span>
+<div class="leading-relaxed">
+<strong class="font-semibold text-ink">Step-by-step progress with no assumed technical background</strong>
+<div class="font-metadata text-metadata text-ink-muted mt-0.5">Curriculum assumes everyday computer literacy, skipping jargon and unnecessary code.</div>
+</div>
+</li>
+</ol>
+</section>
+<!-- Action Area: Primary Button & Secondary Subtle Link -->
+<footer class="pt-space-sm pb-space-2xl flex flex-col sm:flex-row items-center gap-space-md border-t border-border-subtle">
+<a class="min-h-[44px] w-full sm:w-auto px-space-lg py-space-sm bg-action hover:bg-action-hover text-ink font-ui-body font-semibold rounded-xl inline-flex items-center justify-center gap-space-xs transition-colors duration-150 cursor-pointer shadow-none" href="#">
+<span>Continue to preferences</span>
+<span class="material-symbols-outlined text-ink" style="font-size: 18px;">arrow_forward</span>
+</a>
+<a class="min-h-[44px] w-full sm:w-auto px-space-lg py-space-sm bg-transparent hover:bg-surface-container text-ink font-ui-body text-ui-body rounded-xl inline-flex items-center justify-center gap-space-xs transition-colors duration-150 cursor-pointer" href="#">
+<span>Explore all courses instead</span>
+</a>
+</footer>
+</div>
+</main>
+<script>
+    // Micro-interaction for goal textarea input
+    const textarea = document.getElementById('learning-goal-input');
+    textarea.addEventListener('input', function() {
+      // Accessible visual indicator of state preservation
+      this.classList.remove('border-border-control');
+      this.classList.add('border-ink');
+    });
+  </script>
+</body></html>

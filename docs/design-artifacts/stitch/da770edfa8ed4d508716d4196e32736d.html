@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+
+<html class="h-full" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>CuriousNext - Practical AI Course Overview</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;700&amp;family=Inter:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">tailwind.config = {darkMode: "class", theme: {extend: {colors: {"ink-muted": "#59564F", "surface-variant": "#e7e2d7", "on-surface-variant": "#454935", "surface-tint": "#516600", "on-primary": "#ffffff", "surface-container-highest": "#e7e2d7", "on-surface": "#1d1c15", "primary-container": "#c8ef45", "success-surface": "#EAF5EE", "on-secondary-container": "#5f4781", "surface-container": "#f2ede2", surface: "#fef9ee", "border-control": "#71828D", "tertiary-container": "#d1e1ff", "secondary-fixed": "#eddcff", "inverse-surface": "#323029", "inverse-on-surface": "#f5f0e5", secondary: "#6c538e", "surface-container-high": "#ede8dd", "learning-surface": "#F0E8FA", "on-secondary-fixed": "#260c46", "error-surface": "#FCEEEF", "tertiary-fixed-dim": "#b7c7e4", "tertiary-fixed": "#d5e3ff", "success-ink": "#226347", "on-error": "#ffffff", "error-container": "#ffdad6", "surface-bright": "#fef9ee", ink: "#171717", "action-hover": "#B5DB32", "on-tertiary-fixed": "#0b1c32", "on-primary-fixed": "#171e00", "surface-container-lowest": "#ffffff", "on-tertiary": "#ffffff", outline: "#757963", "secondary-fixed-dim": "#d7bafd", tertiary: "#505f78", "on-error-container": "#93000a", canvas: "#F5F0E5", "outline-variant": "#c5c9af", "on-primary-container": "#556b00", primary: "#516600", "inverse-primary": "#afd52a", action: "#C8EF45", "review-surface": "#FFF4D6", "review-ink": "#81530B", "on-secondary-fixed-variant": "#533b74", "primary-fixed-dim": "#afd52a", "on-primary-fixed-variant": "#3d4d00", "surface-container-low": "#f8f3e8", error: "#ba1a1a", "secondary-container": "#d7bafd", "on-background": "#1d1c15", "on-tertiary-container": "#54647d", "on-secondary": "#ffffff", "border-subtle": "#D6DFE3", link: "#285F85", "on-tertiary-fixed-variant": "#384760", "primary-fixed": "#caf247", "error-ink": "#A52A32", highlight: "#C9ACEE", "surface-dim": "#dedacf", background: "#fef9ee"}, borderRadius: {DEFAULT: "0.125rem", lg: "0.25rem", xl: "0.5rem", full: "0.75rem"}, spacing: {"space-sm": "0.5rem", gutter: "1rem", "space-xs": "0.25rem", "space-md": "0.75rem", "space-lg": "1.5rem", margin: "1.5rem", "space-2xl": "4rem", "space-xl": "3rem"}, fontFamily: {"page-title-mobile": ["Inter"], metadata: ["Inter"], "card-heading": ["Inter"], "section-heading-mobile": ["Inter"], "section-heading": ["Inter"], "lesson-body": ["Inter"], "page-title": ["Inter"], "ui-body": ["Inter"], headline: ["Inter"], display: ["Inter"], body: ["Inter"], label: ["Inter"]}, fontSize: {"page-title-mobile": ["28px", {lineHeight: "1.2", fontWeight: "700"}], metadata: ["14px", {lineHeight: "1.5", fontWeight: "500"}], "card-heading": ["20px", {lineHeight: "1.35", fontWeight: "650"}], "section-heading-mobile": ["22px", {lineHeight: "1.3", fontWeight: "650"}], "section-heading": ["24px", {lineHeight: "1.3", fontWeight: "650"}], "lesson-body": ["18px", {lineHeight: "1.65", fontWeight: "400"}], "page-title": ["36px", {lineHeight: "1.2", fontWeight: "700"}], "ui-body": ["16px", {lineHeight: "1.5", fontWeight: "400"}]}}}};</script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      display: inline-block;
+      vertical-align: middle;
+      line-height: 1;
+    }
+  </style>
+</head>
+<body class="bg-canvas text-ink font-ui-body text-ui-body antialiased min-h-screen flex selection:bg-highlight selection:text-ink"><div style="padding:10px 16px;background:#FFF4D6;color:#171717;font:14px/1.5 Inter,system-ui,sans-serif">Design preview · Fictional sample data · Draft curriculum</div>
+<!-- Desktop SideNavBar Component (Fixed 240px) -->
+<aside class="fixed top-0 left-0 h-screen w-[240px] flex flex-col justify-between bg-canvas border-r border-border-subtle z-40">
+<div class="w-[240px] h-full p-gutter flex flex-col justify-between">
+<!-- Brand & Primary Nav -->
+<div class="flex flex-col gap-space-lg">
+<!-- Logo / Workspace Header -->
+<div class="flex items-center gap-space-sm px-space-xs py-space-xs">
+<div class="w-8 h-8 rounded-xl bg-ink flex items-center justify-center text-canvas flex-shrink-0">
+<span class="material-symbols-outlined text-[18px]">menu_book</span>
+</div>
+<div>
+<h1 class="font-card-heading text-card-heading text-ink font-bold tracking-tight">CuriousNext</h1>
+<p class="font-metadata text-metadata text-ink-muted">Adult learning workspace</p>
+</div>
+</div>
+<!-- Navigation items -->
+<nav class="flex flex-col gap-space-xs">
+<!-- Item 1: Learn -->
+<a class="flex items-center gap-space-sm px-gutter py-space-sm rounded-xl font-metadata text-metadata text-ink-muted hover:bg-surface-container hover:text-ink min-h-[44px] transition-colors duration-150" href="#">
+<span class="material-symbols-outlined text-[20px]" data-icon="menu_book">menu_book</span>
+<span>Learn</span>
+</a>
+<!-- Item 2: My courses (Active Destination) -->
+<a class="flex items-center gap-space-sm px-gutter py-space-sm bg-surface border border-border-control rounded-xl font-metadata text-metadata text-ink font-semibold min-h-[44px] transition-colors duration-150" href="#">
+<span class="material-symbols-outlined text-[20px]" data-icon="school">school</span>
+<span>My courses</span>
+</a>
+<!-- Item 3: Evidence -->
+<a class="flex items-center gap-space-sm px-gutter py-space-sm rounded-xl font-metadata text-metadata text-ink-muted hover:bg-surface-container hover:text-ink min-h-[44px] transition-colors duration-150" href="#">
+<span class="material-symbols-outlined text-[20px]" data-icon="verified">verified</span>
+<span>Evidence</span>
+</a>
+</nav>
+</div>
+<!-- Quick CTA & Footer Nav -->
+<div class="flex flex-col gap-space-md pt-space-lg border-t border-border-subtle">
+<button class="w-full flex items-center justify-center gap-space-xs py-space-sm px-gutter bg-action hover:bg-action-hover text-ink font-metadata text-metadata font-semibold rounded-xl min-h-[44px] transition-colors duration-150 border border-ink/10">
+<span class="material-symbols-outlined text-[18px]">play_arrow</span>
+<span>Resume Learning</span>
+</button>
+<div class="flex flex-col gap-space-xs">
+<a class="flex items-center gap-space-sm px-gutter py-space-sm rounded-xl font-metadata text-metadata text-ink-muted hover:bg-surface-container hover:text-ink min-h-[44px] transition-colors duration-150" href="#">
+<span class="material-symbols-outlined text-[20px]" data-icon="settings">settings</span>
+<span>Settings</span>
+</a>
+<a class="flex items-center gap-space-sm px-gutter py-space-sm rounded-xl font-metadata text-metadata text-ink-muted hover:bg-surface-container hover:text-ink min-h-[44px] transition-colors duration-150" href="#">
+<span class="material-symbols-outlined text-[20px]" data-icon="help">help</span>
+<span>Help</span>
+</a>
+</div>
+</div>
+</div>
+</aside>
+<!-- Desktop TopNavBar Header Component -->
+<header class="fixed top-0 left-[240px] right-0 h-16 bg-canvas border-b border-border-subtle z-30">
+<div class="h-16 px-space-lg flex items-center justify-between max-w-[1120px] mx-auto w-full">
+<!-- Breadcrumb navigation -->
+<div class="flex items-center gap-space-xs font-metadata text-metadata text-ink font-semibold">
+<span class="text-ink-muted hover:text-ink transition-colors cursor-pointer">Curriculum</span>
+<span class="material-symbols-outlined text-[16px] text-ink-muted">chevron_right</span>
+<span class="text-ink font-semibold">Cybersecurity Essentials</span>
+</div>
+<!-- Actions cluster -->
+<div class="flex items-center gap-space-sm">
+<button class="min-h-[44px] min-w-[44px] inline-flex items-center justify-center gap-space-xs px-space-sm rounded-lg font-metadata text-metadata text-ink hover:bg-surface-container transition-colors duration-150" title="Language settings">
+<span class="material-symbols-outlined text-[20px]" data-icon="translate">translate</span>
+<span class="font-metadata text-metadata">Language</span>
+</button>
+<button class="min-h-[44px] min-w-[44px] inline-flex items-center justify-center gap-space-xs px-space-sm rounded-lg font-metadata text-metadata text-ink hover:bg-surface-container transition-colors duration-150" title="Account profile">
+<span class="material-symbols-outlined text-[20px]" data-icon="account_circle">account_circle</span>
+<span class="font-metadata text-metadata">Account</span>
+</button>
+</div>
+</div>
+</header>
+<!-- Main Canvas Content Area -->
+<main class="ml-[240px] pt-16 flex-1 min-h-screen">
+<div class="max-w-[1120px] mx-auto px-space-lg py-space-xl">
+<div class="max-w-[760px] mx-auto flex flex-col gap-space-xl">
+<!-- Course Header Section -->
+<section class="flex flex-col gap-space-md">
+<!-- Curriculum Status Badge -->
+<div class="flex items-center gap-space-xs">
+<span class="inline-flex items-center gap-space-xs px-space-sm py-1 rounded-xl bg-surface border border-border-subtle font-metadata text-metadata text-ink-muted">
+<span class="w-2 h-2 rounded-full bg-border-control"></span>
+              Draft pilot curriculum · Capabilities: Not assessed
+            </span>
+</div>
+<!-- Course Title & Description -->
+<div class="flex flex-col gap-space-sm">
+<h1 class="font-page-title text-page-title text-ink tracking-tight">Practical AI</h1>
+<p class="font-lesson-body text-lesson-body text-ink-muted leading-relaxed">
+              Learn to write effective prompts, inspect generated text for errors, and build reliable study and work notes.
+            </p>
+</div>
+</section>
+<!-- Dual Starting Pathway Card -->
+<section class="bg-surface rounded-20px border border-border-control p-space-lg flex flex-col gap-space-lg shadow-none">
+<div class="flex flex-col gap-space-xs">
+<div class="flex items-center gap-space-xs text-primary font-metadata text-metadata font-semibold">
+<span class="material-symbols-outlined text-[18px]">alt_route</span>
+<span>Choose your entry path</span>
+</div>
+<h2 class="font-card-heading text-card-heading text-ink">How would you like to start?</h2>
+<p class="font-metadata text-metadata text-ink-muted">
+              CuriousNext adapts to your practical background. You can jump directly into learning or take a brief scenario-based check.
+            </p>
+</div>
+<!-- Dual Option Bento Cards -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-space-md">
+<!-- Option A: Diagnostic (Primary) -->
+<div class="p-space-lg rounded-20px bg-learning-surface border border-secondary-container flex flex-col justify-between gap-space-md transition-all">
+<div class="flex flex-col gap-space-xs">
+<div class="flex items-center justify-between">
+<span class="inline-flex items-center px-space-xs py-0.5 rounded-lg bg-surface font-metadata text-metadata text-secondary font-semibold">
+                    Fast Check
+                  </span>
+<span class="font-metadata text-metadata text-ink-muted flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px]">schedule</span>
+                    ~5 min
+                  </span>
+</div>
+<h3 class="font-card-heading text-card-heading text-ink pt-space-xs">Diagnostic Assessment</h3>
+<p class="font-metadata text-metadata text-ink-muted leading-relaxed">
+                  Takes ~5 minutes. Answering 3 quick scenario questions helps suggest the best module to begin with. You can skip anytime.
+                </p>
+</div>
+<button class="w-full mt-space-sm flex items-center justify-center gap-space-xs py-space-sm px-gutter bg-action hover:bg-action-hover text-ink font-metadata text-metadata font-semibold rounded-xl min-h-[44px] transition-colors duration-150 border border-ink/10">
+<span>Check my starting point (Optional diagnostic)</span>
+<span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+</button>
+</div>
+<!-- Option B: Linear Module 1 (Secondary) -->
+<div class="p-space-lg rounded-20px bg-surface-container-low border border-border-subtle flex flex-col justify-between gap-space-md transition-all">
+<div class="flex flex-col gap-space-xs">
+<div class="flex items-center justify-between">
+<span class="inline-flex items-center px-space-xs py-0.5 rounded-lg bg-surface font-metadata text-metadata text-ink-muted font-semibold">
+                    Sequential Path
+                  </span>
+<span class="font-metadata text-metadata text-ink-muted flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px]">play_circle</span>
+                    Module 1
+                  </span>
+</div>
+<h3 class="font-card-heading text-card-heading text-ink pt-space-xs">Foundational Track</h3>
+<p class="font-metadata text-metadata text-ink-muted leading-relaxed">
+                  Begin directly with AI basics and limits. Recommended if you prefer an unhurried, complete progression from scratch.
+                </p>
+</div>
+<button class="w-full mt-space-sm flex items-center justify-center gap-space-xs py-space-sm px-gutter bg-surface hover:bg-surface-container text-ink font-metadata text-metadata font-semibold rounded-xl min-h-[44px] transition-colors duration-150 border border-border-control">
+<span>Start from the beginning (Module 1)</span>
+<span class="material-symbols-outlined text-[18px]">chevron_right</span>
+</button>
+</div>
+</div>
+</section>
+<!-- Course Modules List Section -->
+<section class="flex flex-col gap-space-md">
+<div class="flex items-center justify-between">
+<div class="flex flex-col">
+<h2 class="font-section-heading text-section-heading text-ink tracking-tight">Course Modules</h2>
+<p class="font-metadata text-metadata text-ink-muted">5 practical competency modules focused on dependable output</p>
+</div>
+<span class="font-metadata text-metadata text-ink-muted">5 units</span>
+</div>
+<!-- Modules Container -->
+<div class="flex flex-col gap-space-sm">
+<!-- Module 1 -->
+<article class="p-space-lg bg-surface rounded-20px border border-border-subtle hover:border-border-control transition-all flex flex-col gap-space-sm">
+<div class="flex items-start justify-between gap-space-md">
+<div class="flex flex-col gap-space-xs">
+<div class="flex items-center gap-space-xs flex-wrap">
+<span class="font-metadata text-metadata text-ink-muted font-semibold">Module 1</span>
+<span class="text-ink-muted text-[12px]">•</span>
+<!-- Capability Badge: Neutral Not Assessed -->
+<span class="inline-flex items-center gap-space-xs px-2 py-0.5 rounded-lg bg-surface-container-high text-ink-muted font-metadata text-metadata">
+<span class="material-symbols-outlined text-[14px]">radio_button_unchecked</span>
+                      Status: Not assessed
+                    </span>
+</div>
+<h3 class="font-card-heading text-card-heading text-ink">AI basics and limits</h3>
+</div>
+<button aria-label="Explore Module 1" class="flex items-center gap-1 font-metadata text-metadata text-link hover:underline min-h-[44px] px-space-xs">
+<span>View</span>
+<span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+</button>
+</div>
+<p class="font-ui-body text-ui-body text-ink-muted">
+                Understand how language models process prompts and where they fail.
+              </p>
+</article>
+<!-- Module 2 (Recommended highlight) -->
+<article class="p-space-lg bg-surface rounded-20px border-2 border-highlight/70 hover:border-highlight transition-all flex flex-col gap-space-sm relative">
+<div class="flex items-start justify-between gap-space-md">
+<div class="flex flex-col gap-space-xs">
+<div class="flex items-center gap-space-xs flex-wrap">
+<span class="font-metadata text-metadata text-ink font-semibold">Module 2</span>
+<span class="text-ink-muted text-[12px]">•</span>
+<span class="inline-flex items-center gap-space-xs px-2 py-0.5 rounded-lg bg-surface-container-high text-ink-muted font-metadata text-metadata">
+<span class="material-symbols-outlined text-[14px]">radio_button_unchecked</span>
+                      Status: Not assessed
+                    </span>
+<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-lg bg-learning-surface text-secondary font-metadata text-metadata font-semibold">
+<span class="material-symbols-outlined text-[14px]">recommend</span>
+                      Provisional recommendation based on your goal
+                    </span>
+</div>
+<h3 class="font-card-heading text-card-heading text-ink">Write clear prompts</h3>
+</div>
+<button aria-label="Explore Module 2" class="flex items-center gap-1 font-metadata text-metadata text-link hover:underline min-h-[44px] px-space-xs">
+<span>View</span>
+<span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+</button>
+</div>
+<p class="font-ui-body text-ui-body text-ink-muted">
+                Structure prompts with role, context, task, and formatting constraints.
+              </p>
+</article>
+<!-- Module 3 -->
+<article class="p-space-lg bg-surface rounded-20px border border-border-subtle hover:border-border-control transition-all flex flex-col gap-space-sm">
+<div class="flex items-start justify-between gap-space-md">
+<div class="flex flex-col gap-space-xs">
+<div class="flex items-center gap-space-xs flex-wrap">
+<span class="font-metadata text-metadata text-ink-muted font-semibold">Module 3</span>
+<span class="text-ink-muted text-[12px]">•</span>
+<span class="inline-flex items-center gap-space-xs px-2 py-0.5 rounded-lg bg-surface-container-high text-ink-muted font-metadata text-metadata">
+<span class="material-symbols-outlined text-[14px]">radio_button_unchecked</span>
+                      Status: Not assessed
+                    </span>
+</div>
+<h3 class="font-card-heading text-card-heading text-ink">Check and revise outputs</h3>
+</div>
+<button aria-label="Explore Module 3" class="flex items-center gap-1 font-metadata text-metadata text-link hover:underline min-h-[44px] px-space-xs">
+<span>View</span>
+<span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+</button>
+</div>
+<p class="font-ui-body text-ui-body text-ink-muted">
+                Compare model claims against reference facts and spot subtle fabrications.
+              </p>
+</article>
+<!-- Module 4 -->
+<article class="p-space-lg bg-surface rounded-20px border border-border-subtle hover:border-border-control transition-all flex flex-col gap-space-sm">
+<div class="flex items-start justify-between gap-space-md">
+<div class="flex flex-col gap-space-xs">
+<div class="flex items-center gap-space-xs flex-wrap">
+<span class="font-metadata text-metadata text-ink-muted font-semibold">Module 4</span>
+<span class="text-ink-muted text-[12px]">•</span>
+<span class="inline-flex items-center gap-space-xs px-2 py-0.5 rounded-lg bg-surface-container-high text-ink-muted font-metadata text-metadata">
+<span class="material-symbols-outlined text-[14px]">radio_button_unchecked</span>
+                      Status: Not assessed
+                    </span>
+</div>
+<h3 class="font-card-heading text-card-heading text-ink">Use AI responsibly</h3>
+</div>
+<button aria-label="Explore Module 4" class="flex items-center gap-1 font-metadata text-metadata text-link hover:underline min-h-[44px] px-space-xs">
+<span>View</span>
+<span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+</button>
+</div>
+<p class="font-ui-body text-ui-body text-ink-muted">
+                Privacy considerations, copyright awareness, and when not to use AI.
+              </p>
+</article>
+<!-- Module 5 -->
+<article class="p-space-lg bg-surface rounded-20px border border-border-subtle hover:border-border-control transition-all flex flex-col gap-space-sm">
+<div class="flex items-start justify-between gap-space-md">
+<div class="flex flex-col gap-space-xs">
+<div class="flex items-center gap-space-xs flex-wrap">
+<span class="font-metadata text-metadata text-ink-muted font-semibold">Module 5</span>
+<span class="text-ink-muted text-[12px]">•</span>
+<span class="inline-flex items-center gap-space-xs px-2 py-0.5 rounded-lg bg-surface-container-high text-ink-muted font-metadata text-metadata">
+<span class="material-symbols-outlined text-[14px]">radio_button_unchecked</span>
+                      Status: Not assessed
+                    </span>
+</div>
+<h3 class="font-card-heading text-card-heading text-ink">Complete a small verified workflow</h3>
+</div>
+<button aria-label="Explore Module 5" class="flex items-center gap-1 font-metadata text-metadata text-link hover:underline min-h-[44px] px-space-xs">
+<span>View</span>
+<span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+</button>
+</div>
+<p class="font-ui-body text-ui-body text-ink-muted">
+                Produce an end-to-end verified study note packet independently.
+              </p>
+</article>
+</div>
+</section>
+<!-- Evaluation Philosophy Notice Box -->
+<aside class="p-space-md rounded-20px bg-surface-container border border-border-subtle flex items-start gap-space-md">
+<div class="w-8 h-8 rounded-lg bg-surface border border-border-control flex items-center justify-center flex-shrink-0 text-ink-muted mt-0.5">
+<span class="material-symbols-outlined text-[20px]">info</span>
+</div>
+<div class="flex flex-col gap-1">
+<p class="font-metadata text-metadata font-semibold text-ink">
+              Evaluation Philosophy
+            </p>
+<p class="font-metadata text-metadata text-ink-muted leading-relaxed">
+              No combined mastery ring or overall percentage score. Capabilities are evaluated per objective with evidence.
+            </p>
+</div>
+</aside>
+<!-- Screen Progression Marker -->
+<footer class="pt-space-md pb-space-2xl border-t border-border-subtle flex items-center justify-between font-metadata text-metadata text-ink-muted">
+<span>CuriousNext Adult Learning Workspace · Screen 4 of 6</span>
+<div class="flex items-center gap-space-sm">
+<span class="w-2 h-2 rounded-full bg-border-control"></span>
+<span>Course Overview</span>
+</div>
+</footer>
+</div>
+</div>
+</main>
+</body></html>
