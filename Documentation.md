@@ -50,3 +50,7 @@ Origin is configured as https://github.com/hngerebara/curious-next.git. Remote i
 ## Screen design milestone
 
 2026-10-07: added M1.5 between architecture and screen implementation. Desktop/mobile flows, detailed reference-task screens, alternate/error states, accessible representations and design review are required before M2. No mockups or completed design review are claimed.
+
+## Linear integration preparation
+
+2026-10-07: added the real-ticket-per-PR workflow. Linear connection verified. THE-5 through THE-9 link existing PRs #1-#5, and THE-10 tracks the integration. Ticket URLs are linked both ways. CI validates the workspace/team URL in Related tickets, while agents verify real issue existence. No Linear credentials are added to repository or CI.

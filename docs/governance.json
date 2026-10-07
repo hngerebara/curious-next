@@ -35,7 +35,8 @@
         "## Design specification slice",
         "## Foundation specification slice",
         "## PR quality workflow",
-        "## Screen design milestone"
+        "## Screen design milestone",
+        "## Linear integration preparation"
       ]
     },
     "Implement.md": {
@@ -224,7 +225,8 @@
         "## Small PRs and minimal blocking gates",
         "## Cleanup and changes to enforcement",
         "## Per-slice PR workflow",
-        "## PR description and review standard"
+        "## PR description and review standard",
+        "## Linear ticket per PR"
       ]
     },
     "docs/design-docs/index.md": {
