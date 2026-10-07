@@ -1,0 +1,25 @@
+name: Repository governance
+on:
+  pull_request:
+  push:
+permissions:
+  contents: read
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Validate repository
+        run: python3 scripts/validate_repo.py
+      - name: Validate PR documentation update
+        if: github.event_name == 'pull_request'
+        env:
+          PR_BASE: ${{ github.event.pull_request.base.sha }}
+        run: python3 scripts/validate_repo.py --base "$PR_BASE"
+      - name: Test governance enforcement
+        run: python3 -m unittest discover -s tests -v

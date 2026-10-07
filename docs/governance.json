@@ -1,0 +1,290 @@
+{
+  "version": 1,
+  "documents": {
+    "AGENTS.md": {
+      "required_headings": [
+        "# CuriousNext repository map"
+      ]
+    },
+    "Architecture.md": {
+      "required_headings": [
+        "# CuriousNext architecture",
+        "## Guiding principles",
+        "## Dependency directions",
+        "## Operational boundaries"
+      ]
+    },
+    "Documentation.md": {
+      "required_headings": [
+        "# CuriousNext milestone status",
+        "## Status",
+        "## Validation evidence",
+        "## Limitations and next work",
+        "## Repository organisation",
+        "## Documentation simplification"
+      ]
+    },
+    "Implement.md": {
+      "required_headings": [
+        "# CuriousNext implementation prompt",
+        "## Requested execution configuration",
+        "## Implementation instructions",
+        "## Repository inspection and implementation sequence"
+      ]
+    },
+    "Plans.md": {
+      "required_headings": [
+        "# CuriousNext implementation plan",
+        "## Milestones",
+        "## Execution and validation",
+        "## Delivery"
+      ]
+    },
+    "Prompt.md": {
+      "required_headings": [
+        "# CuriousNext product contract",
+        "## 1. Product and positioning",
+        "## 2. Preservation requirements",
+        "## 3. Strict pilot scope",
+        "## 4. Goal-first onboarding",
+        "## 5. Short diagnostic and capability map",
+        "## 6. Primary experience: What should I do now?",
+        "## 7. Learning and support",
+        "## 8. Teach-back and assessment",
+        "## 9. Recall integrated into guidance",
+        "## 10. Projects and the opportunity bridge",
+        "## 11. Mobile and data-conscious design",
+        "## 12. Data and implementation requirements",
+        "## 13. Demonstration",
+        "## 14. Acceptance criteria",
+        "## 15. Deliverables",
+        "## 16. Misconceptions, transfer, and evidence reporting",
+        "## 17. Accessibility and teaching languages",
+        "## 18. Supporting specifications"
+      ]
+    },
+    "docs/DESIGN.md": {
+      "required_headings": [
+        "# CuriousNext design guidance",
+        "## Experience principles",
+        "## Accessibility and language"
+      ]
+    },
+    "docs/FRONTEND.md": {
+      "required_headings": [
+        "# CuriousNext frontend guidance",
+        "## Boundaries",
+        "## Required behavior"
+      ]
+    },
+    "docs/PRODUCT_SENSE.md": {
+      "required_headings": [
+        "# CuriousNext product principles",
+        "## Decisions",
+        "## Evaluation"
+      ]
+    },
+    "docs/curriculum/cybersecurity-essentials/reference-module.md": {
+      "required_headings": [
+        "# Reference module: CY-2, Recognise phishing",
+        "## Lesson text",
+        "## Visual specification",
+        "## Guided practice",
+        "## Independent assessment",
+        "## Rubric CY-2 v1",
+        "## Review status"
+      ]
+    },
+    "docs/curriculum/cybersecurity-essentials/syllabus.md": {
+      "required_headings": [
+        "# Cybersecurity Essentials syllabus",
+        "## Review status",
+        "## Assessment baseline",
+        "## Modules"
+      ]
+    },
+    "docs/curriculum/index.md": {
+      "required_headings": [
+        "# Curriculum index",
+        "## Courses",
+        "## Ownership"
+      ]
+    },
+    "docs/curriculum/practical-ai/reference-module.md": {
+      "required_headings": [
+        "# Reference module: AI-2, Write clear prompts",
+        "## Lesson text",
+        "## Visual specification",
+        "## Guided practice",
+        "## Independent assessment",
+        "## Rubric AI-2 v1",
+        "## Review status"
+      ]
+    },
+    "docs/curriculum/practical-ai/syllabus.md": {
+      "required_headings": [
+        "# Practical AI syllabus",
+        "## Review status",
+        "## Assessment baseline",
+        "## Modules"
+      ]
+    },
+    "docs/design-docs/core-beliefs.md": {
+      "required_headings": [
+        "# Golden principles",
+        "## Rules",
+        "## Related rules"
+      ]
+    },
+    "docs/design-docs/data-model.md": {
+      "required_headings": [
+        "# CuriousNext data model and interfaces",
+        "## 1. Ownership and conventions",
+        "## 2. Curriculum and personalisation entities",
+        "## 3. Attempts, assistance, and assessment",
+        "## 4. Misconceptions, capabilities, recommendations, and review",
+        "## 5. Submission transaction and logical interfaces",
+        "## 6. Validation, migration, and limitations",
+        "## 7. Accessible multilingual extensions"
+      ]
+    },
+    "docs/design-docs/decisions/001-layered-boundaries.md": {
+      "required_headings": [
+        "# ADR-001: Layered boundaries and conservative checks",
+        "## Status",
+        "## Decision",
+        "## Consequences"
+      ]
+    },
+    "docs/design-docs/decisions/index.md": {
+      "required_headings": [
+        "# Decision log",
+        "## Decisions"
+      ]
+    },
+    "docs/design-docs/document-ownership.md": {
+      "required_headings": [
+        "# Document ownership",
+        "## Authoritative homes",
+        "## Maintenance"
+      ]
+    },
+    "docs/design-docs/engineering.md": {
+      "required_headings": [
+        "# Repository enforcement and PR workflow",
+        "## Commands and documentation freshness",
+        "## Small PRs and minimal blocking gates",
+        "## Cleanup and changes to enforcement"
+      ]
+    },
+    "docs/design-docs/index.md": {
+      "required_headings": [
+        "# Design document index"
+      ]
+    },
+    "docs/exec-plans/active/pilot.md": {
+      "required_headings": [
+        "# CN-PILOT-001: Application pilot",
+        "## Plan lifecycle",
+        "## Work and validation"
+      ]
+    },
+    "docs/exec-plans/completed/governance.md": {
+      "required_headings": [
+        "# CN-GOV-001: Repository governance",
+        "## Plan lifecycle",
+        "## Deliverables and validation"
+      ]
+    },
+    "docs/exec-plans/index.md": {
+      "required_headings": [
+        "# Plan index",
+        "## Active",
+        "## Completed",
+        "## Debt"
+      ]
+    },
+    "docs/exec-plans/tech-debt-tracker.md": {
+      "required_headings": [
+        "# Tech debt register",
+        "## Open",
+        "## Resolved"
+      ]
+    },
+    "docs/product-specs/index.md": {
+      "required_headings": [
+        "# Product specification index"
+      ]
+    },
+    "docs/product-specs/new-user-onboarding.md": {
+      "required_headings": [
+        "# New user onboarding",
+        "## Flow",
+        "## Accessibility and validation"
+      ]
+    },
+    "docs/product-specs/pilot-design.md": {
+      "required_headings": [
+        "# CuriousNext pilot design",
+        "## 1. Product boundaries and decisions",
+        "## 2. Curriculum interfaces",
+        "## 5. Progression, sessions, and failures",
+        "## 6. Screens and continuity",
+        "## 7. Validation scenarios and release gates",
+        "## 8. References and deferred work",
+        "## 9. Accessibility and language release"
+      ]
+    },
+    "docs/references/curriculum-sources.md": {
+      "required_headings": [
+        "# Curriculum reference register"
+      ]
+    },
+    "docs/references/index.md": {
+      "required_headings": [
+        "# Reference index",
+        "## Current references",
+        "## Future reference snapshots"
+      ]
+    },
+    ".github/pull_request_template.md": {
+      "required_headings": [
+        "## Plan and slice",
+        "## Behavior and changes",
+        "## Validation and review"
+      ]
+    }
+  },
+  "layers": {
+    "contracts": [],
+    "domain": [
+      "contracts"
+    ],
+    "application": [
+      "domain",
+      "contracts"
+    ],
+    "adapters": [
+      "application",
+      "domain",
+      "contracts"
+    ],
+    "ui": [
+      "application",
+      "contracts"
+    ],
+    "bootstrap": [
+      "ui",
+      "application",
+      "adapters",
+      "domain",
+      "contracts"
+    ]
+  },
+  "max_source_lines": 300,
+  "max_document_lines": 500,
+  "external_allowlist": {
+    "domain": [],
+    "contracts": []
+  }
+}

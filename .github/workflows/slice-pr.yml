@@ -1,0 +1,80 @@
+name: Slice PR and validation review
+on:
+  workflow_dispatch:
+    inputs:
+      branch:
+        description: Existing codex/ branch for the completed slice
+        required: true
+        type: string
+      title:
+        description: Pull request title
+        required: true
+        type: string
+      plan_id:
+        description: Execution plan ID
+        required: true
+        type: string
+permissions:
+  contents: read
+  pull-requests: write
+concurrency:
+  group: slice-pr-${{ inputs.branch }}
+  cancel-in-progress: false
+jobs:
+  test-and-open:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Validate branch input
+        env:
+          SLICE_BRANCH: ${{ inputs.branch }}
+        run: |
+          case "$SLICE_BRANCH" in codex/*) ;; *) echo 'Expected a codex/ branch'; exit 1 ;; esac
+          git check-ref-format --branch "$SLICE_BRANCH"
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ inputs.branch }}
+          fetch-depth: 0
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Run required checks
+        run: |
+          set -eu
+          python3 scripts/validate_repo.py --base origin/main
+          python3 -m unittest discover -s tests -v
+          git diff --check origin/main...HEAD
+      - name: Open or reuse PR and post validation review
+        env:
+          GH_TOKEN: ${{ github.token }}
+          GH_REPO: ${{ github.repository }}
+          SLICE_BRANCH: ${{ inputs.branch }}
+          SLICE_TITLE: ${{ inputs.title }}
+          PLAN_ID: ${{ inputs.plan_id }}
+        run: |
+          set -eu
+          export VALIDATED_SHA=$(git rev-parse HEAD)
+          pr_url=$(gh pr list --head "$SLICE_BRANCH" --base main --state open --json url --jq '.[0].url // empty')
+          if [ -z "$pr_url" ]; then
+            python3 - <<'PY'
+          import os
+          from pathlib import Path
+          Path('/tmp/slice-body.md').write_text(
+              'Plan: ' + os.environ['PLAN_ID'] + '\n\n'
+              'Completed slice on `' + os.environ['SLICE_BRANCH'] + '`.\n\n'
+              'Validation: repository governance, checker regression tests, and diff whitespace checks passed. '
+              'Inspect the diff and milestone evidence for substantive review. This workflow does not merge.\n')
+          PY
+            pr_url=$(gh pr create --base main --head "$SLICE_BRANCH" --title "$SLICE_TITLE" --body-file /tmp/slice-body.md)
+          fi
+          python3 - <<'PY'
+          import os
+          from pathlib import Path
+          Path('/tmp/slice-review.md').write_text(
+              'Automated validation review for commit ' + os.environ['VALIDATED_SHA'] + ': checks passed.\n\n'
+              'This is a structural/test review, not a semantic code review. '
+              'The implementing agent must inspect the complete diff, fix findings, '
+              'run relevant application tests when present, and record evidence. No merge is performed.\n')
+          PY
+          gh pr comment "$pr_url" --body-file /tmp/slice-review.md
+          printf 'PR: %s\n' "$pr_url" >> "$GITHUB_STEP_SUMMARY"
