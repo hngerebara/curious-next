@@ -36,4 +36,4 @@ Origin is configured as https://github.com/hngerebara/curious-next.git. Remote i
 
 ## Design specification slice
 
-2026-10-07: expanded docs/DESIGN.md with Janett-observed layout concepts, proposed CuriousNext tokens, screen/component guidance and accessible multilingual presentation. Curious Tech Girl post skill/reference is not located, so brand attribution remains pending. No rendered UI validation is claimed. Repository checks and regression tests are required for this slice.
+2026-10-07: expanded docs/DESIGN.md with Janett-observed layout concepts, proposed CuriousNext tokens, screen/component guidance and accessible multilingual presentation. The supplied Curious Tech Girl skill package was subsequently read and its visual example inspected. Brand paper/ink/lime/lavender tokens replace the provisional Janett-inspired palette. App adaptations remain explicit, with no copied portraits or artwork. No rendered UI validation is claimed. Repository checks and regression tests are required for this slice.

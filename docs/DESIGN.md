@@ -6,11 +6,13 @@ Version 0.2, 2026-10-07. Proposed implementation specification, not a rendered o
 
 The [Janett study workspace](https://janett.app/study) was inspected directly on 2026-10-07. Observed concepts: warm near-white canvas, dark rounded headline lettering, white navigation, pale-blue task surfaces, yellow primary actions, generous whitespace, small uppercase section labels, and contextual help. Exact source fonts and colours were not extracted. All tokens below are CuriousNext proposals, not claimed Janett measurements. Navigation information density is reduced for this pilot.
 
-The requested Curious Tech Girl post skill was not found in the installed skill directories. Its file path or reference posts are pending. Do not describe the proposed palette, typography or illustrations as verified Curious Tech Girl branding. Incorporate approved brand assets after direct review, keeping the learning and accessibility rules intact.
+The Curious Tech Girl source is the user-supplied `curious-tech-girl-posts` package at `/Users/hopengerebara/Documents/ChatGPT/thecurioustechgirl/skill-packages`. Read on 2026-10-07: SKILL.md, brand foundation, visual system, token JSON, asset provenance and quality checklist. The bundled context-window example was visually inspected. Its factual claims were not used as curriculum authority.
+
+Verified source tokens are Paper #F5F0E5, Ink #171717, Lime #C8EF45, Lavender #C9ACEE and Muted #59564F. The package's production font defaults are Barlow Condensed, Inter and Caveat, not measured historical-example fonts. CuriousNext adopts the palette and editorial intent, with accessible app typography and interaction adaptations below. Janett informs workspace hierarchy, not the final brand palette. No portrait, wordmark or historical artwork has been copied into this repository.
 
 ## Design intent
 
-A welcoming adult learning workspace with a clear next step and room to think. Express curiosity through thoughtful questions, annotated examples and small moments of discovery. Avoid childish characters, decorative complexity, leaderboard pressure and implied expertise from progress graphics.
+A welcoming adult learning workspace with a clear next step and room to think. Combine The Curious Tech Girl’s intelligent, practical technology scrapbook with Janett’s calm workspace structure. Express curiosity through thoughtful questions, annotated examples and small moments of discovery. Avoid childish characters, decorative complexity, leaderboard pressure and implied expertise from progress graphics.
 
 Use an editorial lesson hierarchy with concise section labels, clear headings, readable paragraphs and lightweight diagrams. The home screen answers what to do next and why. A course overview remains available, but does not compete with the primary recommended action. Practical AI and Cybersecurity share the same system, differentiated by labelled course icons and examples rather than separate visual identities.
 
@@ -20,14 +22,15 @@ Light theme is the pilot default. Do not advertise a dark theme until it is spec
 
 | Token | Value | Purpose |
 |---|---|---|
-| canvas | #FAF9F6 | Warm page background |
+| canvas | #F5F0E5 | Brand paper canvas |
 | surface | #FFFFFF | Navigation, inputs and secondary cards |
-| ink | #172B3A | Headings and primary text |
-| ink-muted | #52616B | Supporting text and metadata |
-| action | #F6C74D | Primary action with ink text |
-| action-hover | #E8B733 | Hover on enabled primary action |
+| ink | #171717 | Headings and primary text |
+| ink-muted | #59564F | Supporting text and metadata |
+| action | #C8EF45 | Brand lime action with ink text |
+| action-hover | #B5DB32 | Hover on enabled primary action |
 | link | #285F85 | Links, selected navigation text, focus |
-| learning-surface | #EAF3F7 | Next-action and worked-example cards |
+| learning-surface | #F0E8FA | Light lavender next-action and example cards |
+| highlight | #C9ACEE | Reviewed lavender annotation or selected emphasis |
 | border-subtle | #D6DFE3 | Decorative separators only |
 | border-control | #71828D | Input and interactive control boundaries |
 | success-ink | #226347 | Demonstrated state text/icon |
@@ -37,11 +40,11 @@ Light theme is the pilot default. Do not advertise a dark theme until it is spec
 | error-ink | #A52A32 | Error text/icon |
 | error-surface | #FCEEEF | Error background |
 
-Use ink on action, ink/link on learning-surface, and state ink on its matching surface. Do not place white text on yellow or use border-subtle as the sole input outline. Colour is always paired with a label, icon or pattern. Focus uses a 3px link outline with a 2px contrasting surface offset. Contrast must be verified for actual rendered states, including hover, disabled and focus. These tokens are not a conformance claim.
+Use ink on action, ink/link on learning-surface, and state ink on its matching surface. Do not place white text on lime or use border-subtle as the sole input outline. Colour is always paired with a label, icon or pattern. Lime and lavender are background emphasis, never low-contrast text on paper. Focus uses a 3px link outline with a 2px contrasting surface offset. Contrast must be verified for actual rendered states, including hover, disabled and focus. These tokens are not a conformance claim.
 
 ## Typography
 
-Use a self-hosted Noto Sans variable font when available, with system-ui and sans-serif fallbacks. Verify the actual font files and rendering of Igbo/Yoruba diacritics, Hausa characters and Nigerian Pidgin punctuation. Never remove accents to fit a layout. Use the same readable family for headings and body until approved brand typography exists.
+Use self-hosted Inter for interface and lesson text, with Noto Sans, system-ui and sans-serif fallbacks. Use Barlow Condensed bold only for short promotional/page headlines after glyph and readability checks. Keep lesson headings and controls in Inter. Caveat is optional for one short decorative note, never instructions, status, assessment content or navigation. Verify the actual font files and rendering of Igbo/Yoruba diacritics, Hausa characters and Nigerian Pidgin punctuation. Never remove accents to fit a layout. The selected brand fonts are source production defaults. App use requires font licensing, actual file/glyph verification and readability testing. Noto Sans takes precedence for any locale where the chosen font lacks suitable glyphs.
 
 | Role | Desktop | Mobile | Weight / line height |
 |---|---|---|---|
@@ -86,7 +89,7 @@ Evidence: objective, original demonstration, later recall, transfer, assistance,
 
 Next-action card: pale learning-surface, small action-type label, task heading, objective, estimate, short reason, one primary button. Alternatives are quieter surface rows.
 
-Primary button: yellow with dark text, verb-based label, optional trailing icon. One dominant action per screen region. Secondary button: surface with border-control. Text links are underlined in prose. Disabled controls explain unmet conditions where relevant.
+Primary button: lime with dark text, verb-based label, optional trailing icon. One dominant action per screen region. Secondary button: surface with border-control. Text links are underlined in prose. Disabled controls explain unmet conditions where relevant.
 
 Capability badge: status word plus a shape/icon and accessible name. Not assessed is neutral, Developing is blue, Demonstrated is green, Needs review is amber. Supporting detail explains the evidence. Pending or failed assessment is an attempt state, not a fabricated capability award.
 
@@ -97,6 +100,14 @@ Explanation control: labelled menu of simpler explanation, example, visual, deep
 Message history: ordered list with speaker, content and status. Avoid typing indicators that imply the model is thinking like a person. Announce message completion once, not each token. Loading text says Generating response or Assessing submission.
 
 Feedback criterion row: criterion name, result, evidence and next practice link where needed. Do not hide explanation behind colour or hover.
+
+## Editorial brand treatments
+
+Use a flat paper canvas for the core workspace, avoiding texture behind reading and form controls. Carry brand recognition through lime primary actions, lavender example panels, ink typography and occasional semantic underlines. Optional paper-note or torn-edge framing belongs only to a brief introduction or worked-example callout. Use at most two intentional motifs per screen, fewer in dense practice.
+
+Keep labels and diagrams as live text. A hand-drawn-style underline is decorative and must not indicate correctness by itself. No photo-heavy lesson headers or social-carousel canvas dimensions. A creator portrait is not required for the learning app. Do not reuse historical screenshots, third-party art or portraits solely because they are bundled in the source package. Future assets require provenance and a reviewed use basis.
+
+Brand voice is curious, conversational and slightly cheeky in introductions. Assessment feedback remains clear, precise and nonjudgmental. Explain terms at first use and use one concrete idea per example. Do not invent creator experiences or turn brand personality into teasing the learner.
 
 ## Illustration and visual teaching
 
@@ -128,6 +139,6 @@ Before release, render onboarding, home, lesson, practice, independent task, fee
 
 Test with blind and low-vision learners. Verify diagram/text equivalence and assessment parity. Screenshots and automated scans alone are insufficient. No interface has yet been built or validated against this specification.
 
-Brand-source review remains pending for the requested Curious Tech Girl skill/posts. After receipt, record observed brand traits separately from proposed adaptations and update tokens deliberately. Do not import social-post density or image-only typography into lessons.
+Brand references were inspected, but final CuriousNext identity approval and rendered readability remain pending. Preserve the source distinction: verified brand tokens, observed Janett layout, and proposed app adaptations. Do not import social-post density or image-only typography into lessons.
 
 Related documents: [product contract](../Prompt.md), [curriculum](curriculum/index.md), [frontend](FRONTEND.md), [document ownership](design-docs/document-ownership.md).
