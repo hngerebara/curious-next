@@ -4,7 +4,7 @@ Explain the problem, why it matters, and the resulting behavior. Group related c
 
 ### Related tickets
 
-Link related issues or PRs and identify the execution plan.
+Link the verified Linear issue, related PRs, and execution plan. Example format: `[THE-number](https://linear.app/the-curious-tech-girl/issue/THE-number/slug)`.
 
 ### Screenshots
 

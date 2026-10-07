@@ -20,6 +20,10 @@ def validate(title, body):
             content = body.split(marker, 1)[1].split('\n### ', 1)[0].strip()
             if not content or content.lower() in {'tbd', 'todo', '(describe the changes here)'}:
                 errors.append(f'{heading}: provide concrete content')
+    related = body.split('### Related tickets', 1)[-1].split('\n### ', 1)[0]
+    issue_url = r'https://linear\.app/the-curious-tech-girl/issue/THE-[1-9]\d*(?:/[a-z0-9-]+)?(?=[\s)>]|$)'
+    if not re.search(issue_url, related):
+        errors.append('Related tickets: include a Linear issue URL for the configured team')
     return errors
 
 

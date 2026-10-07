@@ -35,3 +35,9 @@ Titles contain at most 50 characters. Descriptions use the five sections in the 
 Review descriptions and code together for Content (problem, reasoning and proportionate detail), Readability (natural scannable prose without filler), and Faithfulness (claims supported by requirements, diff or tests). Cite specific evidence for actionable findings. Avoid bare edit inventories, misleading guarantees and boilerplate. Review findings identify severity, concrete trigger, impact and location. Report unresolved uncertainty honestly.
 
 `python3 scripts/validate_pr.py` checks title length and section structure. It cannot establish semantic quality or claim accuracy. CI checks edited PR metadata as well as code changes. Manual slice dispatch now requires a complete description, so it does not invent the purpose from a branch name.
+
+## Linear ticket per PR
+
+Every new implementation PR must reference a real Linear issue in Related tickets. Create or reuse a ticket before opening the PR, with slice purpose, execution-plan ID, milestone, acceptance criteria and validation scope. After PR creation, add its URL to the ticket. Reuse the ticket for fixes within the same slice. Keep review status honest and do not mark work released merely because tests pass. Leave PRs unmerged.
+
+Linear is connected to The curious tech girl team (key THE). No CuriousNext project was found, so tickets are team-scoped. PRs #1-#5 were backfilled with THE-5 through THE-9. THE-10 tracks this integration. CI requires a Linear issue URL in Related tickets for this workspace/team. It validates syntax, not remote existence. Agents verify existence through the connected service. No Linear secret is stored in CI.
