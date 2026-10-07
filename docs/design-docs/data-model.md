@@ -2,6 +2,8 @@
 
 Version: 0.1. Date: 2026-10-07. Status: logical implementation contract, not an applied database schema. Refer to [pilot design](../product-specs/pilot-design.md) for curriculum, rubrics, and policy pilot-v1. No migrations or runtime services exist yet.
 
+The [domain model](domain-model.md) owns conceptual invariants. This document owns records, persistence and logical service operations. The [security specification](security.md) owns threat controls.
+
 ## 1. Ownership and conventions
 
 Use opaque IDs, UTC timestamps, explicit versions, and learner-local date rendering. All learner-owned records carry learner_id. Derive it from authenticated identity, never trust a request's ownership field. Validate ownership on reads, writes, exports, nested foreign keys, and conversation access. Public curriculum is separate from private attempts. Demo identities and data are explicitly labelled and isolated.
