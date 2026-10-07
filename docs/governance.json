@@ -3,9 +3,11 @@
   "documents": {
     ".github/pull_request_template.md": {
       "required_headings": [
-        "## Plan and slice",
-        "## Behavior and changes",
-        "## Validation and review"
+        "### What does this PR do?",
+        "### Related tickets",
+        "### Screenshots",
+        "### How to test",
+        "### Additional notes"
       ]
     },
     "AGENTS.md": {
@@ -31,7 +33,8 @@
         "## Documentation simplification",
         "## Slice PR publication",
         "## Design specification slice",
-        "## Foundation specification slice"
+        "## Foundation specification slice",
+        "## PR quality workflow"
       ]
     },
     "Implement.md": {
@@ -219,7 +222,8 @@
         "## Commands and documentation freshness",
         "## Small PRs and minimal blocking gates",
         "## Cleanup and changes to enforcement",
-        "## Per-slice PR workflow"
+        "## Per-slice PR workflow",
+        "## PR description and review standard"
       ]
     },
     "docs/design-docs/index.md": {

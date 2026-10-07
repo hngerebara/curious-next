@@ -41,3 +41,7 @@ Origin is configured as https://github.com/hngerebara/curious-next.git. Remote i
 ## Foundation specification slice
 
 2026-10-07: added README, end-to-end user flows, domain concepts/invariants and security requirements. Extended frontend screen behavior and cross-linked authoritative ownership. Concrete API and deployment specifications remain M1 deliverables pending stack decisions. No application controls or learner flows are claimed as tested.
+
+## PR quality workflow
+
+2026-10-07: adopted five-section PR descriptions, 50-character title limit, and content/readability/faithfulness review criteria. Added metadata validation and tests. Existing PR descriptions updated to the same structure. No merge is authorised.

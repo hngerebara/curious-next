@@ -10,6 +10,10 @@ on:
         description: Pull request title
         required: true
         type: string
+      description:
+        description: Complete PR body with the five required sections
+        required: true
+        type: string
       plan_id:
         description: Execution plan ID
         required: true
@@ -51,21 +55,21 @@ jobs:
           SLICE_BRANCH: ${{ inputs.branch }}
           SLICE_TITLE: ${{ inputs.title }}
           PLAN_ID: ${{ inputs.plan_id }}
+          SLICE_BODY: ${{ inputs.description }}
         run: |
           set -eu
           export VALIDATED_SHA=$(git rev-parse HEAD)
           pr_url=$(gh pr list --head "$SLICE_BRANCH" --base main --state open --json url --jq '.[0].url // empty')
-          if [ -z "$pr_url" ]; then
-            python3 - <<'PY'
+          python3 - <<'PY'
           import os
           from pathlib import Path
-          Path('/tmp/slice-body.md').write_text(
-              'Plan: ' + os.environ['PLAN_ID'] + '\n\n'
-              'Completed slice on `' + os.environ['SLICE_BRANCH'] + '`.\n\n'
-              'Validation: repository governance, checker regression tests, and diff whitespace checks passed. '
-              'Inspect the diff and milestone evidence for substantive review. This workflow does not merge.\n')
+          Path('/tmp/slice-body.md').write_text(os.environ['SLICE_BODY'])
           PY
+          python3 scripts/validate_pr.py --title "$SLICE_TITLE" --body-file /tmp/slice-body.md
+          if [ -z "$pr_url" ]; then
             pr_url=$(gh pr create --base main --head "$SLICE_BRANCH" --title "$SLICE_TITLE" --body-file /tmp/slice-body.md)
+          else
+            gh pr edit "$pr_url" --title "$SLICE_TITLE" --body-file /tmp/slice-body.md
           fi
           python3 - <<'PY'
           import os
