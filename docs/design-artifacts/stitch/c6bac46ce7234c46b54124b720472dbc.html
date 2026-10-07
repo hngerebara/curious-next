@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+
+<html class="scroll-smooth" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Sign In / Sign Up — CuriousNext</title>
+<!-- Google Fonts: Inter & Fredoka -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@600&amp;family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols Outlined -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS with Forms and Container Queries -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "on-tertiary-container": "#54647d",
+            "on-secondary-container": "#5a6b26",
+            "tertiary-fixed-dim": "#b7c7e4",
+            "primary-container": "#c8ef45",
+            "on-surface": "#1a1d12",
+            "on-tertiary": "#ffffff",
+            "secondary-fixed": "#d7eb97",
+            "tertiary-fixed": "#d5e3ff",
+            "primary-fixed-dim": "#afd52a",
+            "surface-tint": "#516600",
+            "secondary-container": "#d7eb97",
+            "on-error-container": "#93000a",
+            "on-primary": "#ffffff",
+            "on-secondary": "#ffffff",
+            "background": "#fafbe9",
+            "on-secondary-fixed-variant": "#3d4c08",
+            "surface-container-lowest": "#ffffff",
+            "surface-container-highest": "#e3e4d3",
+            "on-primary-fixed": "#171e00",
+            "on-surface-variant": "#454935",
+            "tertiary-container": "#d1e1ff",
+            "on-primary-fixed-variant": "#3d4d00",
+            "on-error": "#ffffff",
+            "surface": "#fafbe9",
+            "error": "#ba1a1a",
+            "on-tertiary-fixed-variant": "#384760",
+            "surface-variant": "#e3e4d3",
+            "surface-container": "#eeefde",
+            "inverse-surface": "#2f3226",
+            "surface-bright": "#fafbe9",
+            "tertiary": "#505f78",
+            "outline-variant": "#c5c9af",
+            "surface-dim": "#dadbcb",
+            "secondary": "#556520",
+            "surface-container-high": "#e8e9d8",
+            "primary-fixed": "#caf247",
+            "on-tertiary-fixed": "#0b1c32",
+            "inverse-primary": "#afd52a",
+            "inverse-on-surface": "#f1f2e1",
+            "surface-container-low": "#f4f5e4",
+            "secondary-fixed-dim": "#bccf7e",
+            "primary": "#516600",
+            "error-container": "#ffdad6",
+            "on-secondary-fixed": "#171e00",
+            "outline": "#757963",
+            "on-background": "#1a1d12",
+            "on-primary-container": "#556b00",
+            // Custom Specification Tokens
+            "paper": "#F5F0E5",
+            "ink": "#171717",
+            "lime-action": "#C8EF45",
+            "lavender-card": "#F0E8FA",
+            "border-control": "#71828D",
+            "border-subtle": "#D6DFE3",
+            "focus-blue": "#285F85"
+          },
+          borderRadius: {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          spacing: {
+            "space-2xl": "4rem",
+            "space-xs": "0.25rem",
+            "margin": "1.5rem",
+            "space-lg": "1.5rem",
+            "gutter": "1rem",
+            "space-md": "0.75rem",
+            "space-sm": "0.5rem",
+            "space-xl": "3rem"
+          },
+          fontFamily: {
+            "page-title-mobile": ["Inter", "sans-serif"],
+            "section-heading": ["Inter", "sans-serif"],
+            "section-heading-mobile": ["Inter", "sans-serif"],
+            "page-title": ["Inter", "sans-serif"],
+            "metadata": ["Inter", "sans-serif"],
+            "lesson-body": ["Inter", "sans-serif"],
+            "card-heading": ["Inter", "sans-serif"],
+            "ui-body": ["Inter", "sans-serif"],
+            "fredoka": ["Fredoka", "sans-serif"]
+          },
+          fontSize: {
+            "page-title-mobile": ["28px", { lineHeight: "1.2", fontWeight: "700" }],
+            "section-heading": ["24px", { lineHeight: "1.3", fontWeight: "600" }],
+            "section-heading-mobile": ["22px", { lineHeight: "1.3", fontWeight: "600" }],
+            "page-title": ["36px", { lineHeight: "1.2", fontWeight: "700" }],
+            "metadata": ["14px", { lineHeight: "1.5", fontWeight: "500" }],
+            "lesson-body": ["18px", { lineHeight: "1.65", fontWeight: "400" }],
+            "card-heading": ["20px", { lineHeight: "1.35", fontWeight: "600" }],
+            "ui-body": ["16px", { lineHeight: "1.5", fontWeight: "400" }]
+          }
+        }
+      }
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-family: 'Material Symbols Outlined';
+      font-weight: normal;
+      font-style: normal;
+      font-size: 20px;
+      line-height: 1;
+      display: inline-block;
+      white-space: nowrap;
+      word-wrap: normal;
+      direction: ltr;
+      -webkit-font-feature-settings: 'liga';
+      -webkit-font-smoothing: antialiased;
+    }
+    
+    /* Strict Focus Ring Specification */
+    .custom-focus:focus-visible {
+      outline: 3px solid #285F85 !important;
+      outline-offset: 2px !important;
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  <style>h1{font-family:Fredoka,"Noto Sans",system-ui,sans-serif!important;font-weight:600!important}h2,h3,h4{font-family:Inter,"Noto Sans",system-ui,sans-serif!important}a,button,input{min-height:44px}body{background:#F5F0E5!important;color:#171717}header{background:#F5F0E5!important}nav{flex-wrap:wrap}input{max-width:100%;min-width:0}*{overflow-wrap:break-word}a:focus-visible,button:focus-visible,input:focus-visible{outline:3px solid #285F85;outline-offset:2px}</style></head>
+<body class="bg-paper text-ink antialiased min-h-screen flex flex-col items-center justify-start py-0 px-0 sm:py-6 selection:bg-lime-action selection:text-ink"><div style="padding:12px 16px;background:#fff4d6;border-bottom:1px solid #71828d;font-family:Inter,sans-serif">Design preview · Draft pilot · No email is sent</div>
+<!-- Accessible Skip Link -->
+<a class="sr-only focus:not-sr-only focus:fixed focus:top-2 focus:left-2 focus:z-50 focus:bg-lime-action focus:text-ink focus:px-4 focus:py-2 focus:rounded-lg focus:shadow-md custom-focus text-metadata font-metadata font-semibold" href="#main-auth">
+    Skip to main authentication content
+  </a>
+<!-- Mobile Container (Max 390px Stacked Width for mobile reflow down to 320px) -->
+<div class="w-full max-w-[390px] min-h-screen bg-paper flex flex-col border-x border-border-subtle shadow-sm">
+<!-- Header Landmark (Sub-page linear flow with Back link, suppressed bottom navigation) -->
+<header class="w-full bg-paper px-margin pt-4 pb-3 flex items-center justify-between border-b border-border-subtle shrink-0" role="banner">
+<a aria-label="Back to CuriousNext Home" class="inline-flex items-center gap-1.5 text-ink hover:text-primary transition-colors duration-150 py-2 custom-focus rounded" href="6f5b8702213a4338b4bec1f00a994d7c.html">
+<span class="material-symbols-outlined text-[20px]" data-icon="arrow_back">arrow_back</span>
+<span class="text-metadata font-metadata font-medium">Home</span>
+</a>
+<!-- Brand Anchor Title -->
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-primary text-[22px]" data-icon="school">school</span>
+<span class="font-fredoka font-semibold text-[18px] tracking-tight text-ink">CuriousNext</span>
+</div>
+<div class="w-12 flex justify-end">
+<span class="inline-flex items-center text-[11px] font-mono uppercase tracking-wider text-outline px-1.5 py-0.5 rounded bg-surface-container-high border border-outline-variant">Auth</span>
+</div>
+</header>
+<!-- Main Content Canvas -->
+<main class="flex-1 px-margin pt-6 pb-12 flex flex-col space-y-6" id="main-auth" role="main">
+<!-- Intro Section -->
+<section aria-labelledby="auth-heading" class="space-y-3">
+<div class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-tertiary-container text-on-tertiary-fixed text-[12px] font-metadata font-medium border border-outline-variant">
+<span class="material-symbols-outlined text-[14px]" data-icon="lock">lock</span>
+<span>Passwordless Magic Link</span>
+</div>
+<h1 class="font-fredoka font-semibold text-[28px] leading-[1.18] text-ink tracking-tight" id="auth-heading">
+          Your next step starts here.
+        </h1>
+<p class="text-ui-body font-ui-body text-on-surface-variant leading-relaxed">
+          Enter your email. We will send a secure sign-in link. New here? The same link creates your account after you verify your email.
+        </p>
+</section>
+<!-- Magic Link Form (EMAIL MAGIC LINK ONLY) -->
+<section aria-labelledby="form-section-title" class="bg-surface-container-lowest p-5 rounded-xl border border-border-subtle shadow-none">
+<h2 class="sr-only" id="form-section-title">Sign In or Sign Up Form</h2>
+<form class="space-y-4" id="magic-link-form" onsubmit="event.preventDefault()">
+<!-- Exactly ONE labelled blank Email address input -->
+<div class="space-y-1.5">
+<label class="block text-metadata font-metadata font-semibold text-ink" for="learner-email">
+              Email address
+            </label>
+<div class="relative">
+<span class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-outline">
+<span class="material-symbols-outlined text-[20px]" data-icon="mail">mail</span>
+</span>
+<input aria-describedby="email-explanation email-prototype-notice" autocomplete="email" class="w-full pl-10 pr-3 min-h-[44px] bg-paper text-ink text-ui-body font-ui-body rounded-lg border border-border-control placeholder:text-outline focus:border-focus-blue custom-focus transition duration-150" id="learner-email" name="email" placeholder="name@example.com" required="" type="email"/>
+</div>
+<p class="text-[12px] font-metadata text-on-surface-variant pt-0.5" id="email-explanation">
+              Strictly password-free. We verify identity via one-time inbox token.
+            </p>
+</div>
+<!-- Primary Button -->
+<button class="w-full min-h-[44px] bg-lime-action text-ink font-metadata font-semibold rounded-lg px-4 py-3 flex items-center justify-center gap-2 hover:brightness-95 active:scale-[0.99] transition-all custom-focus shadow-sm cursor-pointer" id="btn-submit" type="submit">
+<span>Send me a magic link</span>
+<span class="material-symbols-outlined text-[18px]" data-icon="send">send</span>
+</button>
+</form><section class="mt-6 p-4 bg-[#F0E8FA] rounded-xl"><h2>Confirm sign-in</h2><p>After opening the email link, confirm that you requested access before creating a session.</p><button type="button" class="mt-3 p-3 bg-[#C8EF45] rounded-xl">Confirm and continue</button><p>State preview only. This button does not create an account.</p></section>
+<!-- Static Prototype Mockup Notice -->
+<p class="text-[12px] font-metadata text-outline text-center mt-3 pt-3 border-t border-border-subtle" id="email-prototype-notice">
+          Static prototype mockup — no actual email will be transmitted. Designed authentication specification only.
+        </p>
+</section>
+<!-- Auth requirements Callout (Lavender card #F0E8FA) -->
+<aside aria-label="Authentication Guarantees and Privacy Commitments" class="bg-lavender-card rounded-xl p-5 border border-border-subtle space-y-3.5">
+<div class="flex items-center gap-2 text-ink">
+<span class="material-symbols-outlined text-[20px] text-tertiary" data-icon="verified_user">verified_user</span>
+<h2 class="text-card-heading font-card-heading font-semibold text-[17px] text-ink">
+            Auth requirements
+          </h2>
+</div>
+<ul class="space-y-3 text-metadata font-metadata text-ink divide-y divide-[#E0D5EE]/60">
+<li class="pt-1.5 first:pt-0 flex items-start gap-2.5">
+<span class="material-symbols-outlined text-tertiary text-[18px] shrink-0 mt-0.5" data-icon="visibility_off">visibility_off</span>
+<div>
+<strong class="font-semibold block text-ink">Never leaks account existence</strong>
+<span class="text-on-surface-variant text-[13px] leading-snug">We never disclose whether an address is already registered or new.</span>
+</div>
+</li>
+<li class="pt-2.5 flex items-start gap-2.5">
+<span class="material-symbols-outlined text-tertiary text-[18px] shrink-0 mt-0.5" data-icon="mark_email_read">mark_email_read</span>
+<div>
+<strong class="font-semibold block text-ink">Unverified emails never create accounts</strong>
+<span class="text-on-surface-variant text-[13px] leading-snug">Accounts are created only when the magic link in your inbox is verified.</span>
+</div>
+</li>
+<li class="pt-2.5 flex items-start gap-2.5">
+<span class="material-symbols-outlined text-tertiary text-[18px] shrink-0 mt-0.5" data-icon="sync_alt">sync_alt</span>
+<div>
+<strong class="font-semibold block text-ink">Seamless context handoff</strong>
+<span class="text-on-surface-variant text-[13px] leading-snug">Returning learners return directly to saved practice drafts; new learners proceed to goal setup.</span>
+</div>
+</li>
+<li class="pt-2.5 flex items-start gap-2.5">
+<span class="material-symbols-outlined text-tertiary text-[18px] shrink-0 mt-0.5" data-icon="history_toggle_off">history_toggle_off</span>
+<div>
+<strong class="font-semibold block text-ink">Session expiration protection</strong>
+<span class="text-on-surface-variant text-[13px] leading-snug">Re-verifying a link returns you safely to the last confirmed saved work.</span>
+</div>
+</li>
+</ul>
+</aside>
+<!-- State Preview & Specification Section -->
+<section aria-labelledby="states-spec-title" class="space-y-4 pt-2">
+<div class="flex items-center justify-between border-b border-border-subtle pb-2">
+<h2 class="font-card-heading text-card-heading font-semibold text-ink text-[18px]" id="states-spec-title">
+            Visual State Specifications
+          </h2>
+<span class="text-[11px] font-mono text-outline uppercase tracking-wider">Prototype States</span>
+</div>
+<p class="text-metadata font-metadata text-on-surface-variant text-[13px]">
+          Preview the proposed states for email-link access.
+        </p>
+<div class="space-y-4">
+<!-- State A: Dispatched / Check Email -->
+<article aria-labelledby="state-a-title" class="bg-surface-container-low rounded-xl p-4 border border-border-subtle space-y-3">
+<div class="flex items-center justify-between">
+<span class="inline-flex items-center gap-1 text-[11px] font-semibold text-primary uppercase tracking-wide bg-secondary-container px-2 py-0.5 rounded">
+<span class="material-symbols-outlined text-[14px]" data-icon="outgoing_mail">outgoing_mail</span>
+                State A
+              </span>
+<span class="text-[12px] font-metadata text-outline">Dispatched</span>
+</div>
+<h3 class="text-card-heading font-card-heading font-semibold text-ink text-[16px]" id="state-a-title">
+              Check your inbox for sign-in link
+            </h3>
+<p class="text-metadata font-metadata text-on-surface-variant">
+              If the request is accepted, check your inbox for a sign-in link.
+            </p>
+<div class="bg-surface-container p-2.5 rounded-lg border border-outline-variant text-[12px] font-metadata text-on-surface-variant flex items-center gap-2">
+<span class="material-symbols-outlined text-[16px] text-tertiary" data-icon="shield">shield</span>
+<span>Identical message shown whether email is newly created or existing.</span>
+</div>
+<div class="flex flex-col gap-2 pt-1">
+<button class="w-full min-h-[44px] bg-paper text-ink border border-border-control font-metadata font-medium rounded-lg px-3 py-2 flex items-center justify-center gap-1.5 hover:bg-surface-container transition-colors custom-focus" type="button">
+<span class="material-symbols-outlined text-[16px]" data-icon="edit">edit</span>
+<span>Change email</span>
+</button>
+<button class="w-full min-h-[44px] bg-surface-container-highest text-outline font-metadata font-medium rounded-lg px-3 py-2 flex items-center justify-center gap-1.5 cursor-not-allowed" disabled="" type="button">
+<span class="material-symbols-outlined text-[16px]" data-icon="timer">timer</span>
+<span>Resend link (cooldown preview)</span>
+</button>
+</div>
+</article>
+<!-- State B: Expired or already used link -->
+<article aria-labelledby="state-b-title" class="bg-surface-container-low rounded-xl p-4 border border-border-subtle space-y-3">
+<div class="flex items-center justify-between">
+<span class="inline-flex items-center gap-1 text-[11px] font-semibold text-error uppercase tracking-wide bg-error-container px-2 py-0.5 rounded">
+<span class="material-symbols-outlined text-[14px]" data-icon="link_off">link_off</span>
+                State B
+              </span>
+<span class="text-[12px] font-metadata text-outline">Token Expired</span>
+</div>
+<h3 class="text-card-heading font-card-heading font-semibold text-ink text-[16px]" id="state-b-title">
+              Expired or already used link
+            </h3>
+<p class="text-metadata font-metadata text-on-surface-variant">
+              This magic link has expired or was already used to sign in.
+            </p>
+<div class="pt-1">
+<button class="w-full min-h-[44px] bg-lime-action text-ink font-metadata font-semibold rounded-lg px-4 py-2.5 flex items-center justify-center gap-2 hover:brightness-95 transition-all custom-focus shadow-sm" type="button">
+<span class="material-symbols-outlined text-[18px]" data-icon="refresh">refresh</span>
+<span>Request a new magic link</span>
+</button>
+</div>
+</article>
+<!-- State C: Connection paused / Unavailable network -->
+<article aria-labelledby="state-c-title" class="bg-surface-container-low rounded-xl p-4 border border-border-subtle space-y-3">
+<div class="flex items-center justify-between">
+<span class="inline-flex items-center gap-1 text-[11px] font-semibold text-tertiary uppercase tracking-wide bg-tertiary-container px-2 py-0.5 rounded">
+<span class="material-symbols-outlined text-[14px]" data-icon="wifi_off">wifi_off</span>
+                State C
+              </span>
+<span class="text-[12px] font-metadata text-outline">Offline / Retry</span>
+</div>
+<h3 class="text-card-heading font-card-heading font-semibold text-ink text-[16px]" id="state-c-title">
+              Unavailable network
+            </h3>
+<p class="text-metadata font-metadata text-on-surface-variant">
+              Unable to reach the authentication service. Your entered email remains in this form while you retry. Never leaks account existence during network drop.
+            </p>
+<div class="pt-1">
+<button class="w-full min-h-[44px] bg-paper text-ink border border-border-control font-metadata font-semibold rounded-lg px-4 py-2.5 flex items-center justify-center gap-2 hover:bg-surface-container transition-colors custom-focus" type="button">
+<span class="material-symbols-outlined text-[18px]" data-icon="replay">replay</span>
+<span>Try again</span>
+</button>
+</div>
+</article>
+<!-- State D: Session expired during active practice -->
+<article aria-labelledby="state-d-title" class="bg-surface-container-low rounded-xl p-4 border border-border-subtle space-y-3">
+<div class="flex items-center justify-between">
+<span class="inline-flex items-center gap-1 text-[11px] font-semibold text-secondary uppercase tracking-wide bg-secondary-container px-2 py-0.5 rounded">
+<span class="material-symbols-outlined text-[14px]" data-icon="edit_note">edit_note</span>
+                State D
+              </span>
+<span class="text-[12px] font-metadata text-outline">Practice Preserved</span>
+</div>
+<h3 class="text-card-heading font-card-heading font-semibold text-ink text-[16px]" id="state-d-title">
+              Session expired during active practice
+            </h3>
+<p class="text-metadata font-metadata text-on-surface-variant">
+              After verification, return to the last confirmed saved draft. Unconfirmed edits require recovery.
+            </p>
+<div class="pt-1">
+<button class="w-full min-h-[44px] bg-lime-action text-ink font-metadata font-semibold rounded-lg px-4 py-2.5 flex items-center justify-center gap-2 hover:brightness-95 transition-all custom-focus shadow-sm" type="button">
+<span class="material-symbols-outlined text-[18px]" data-icon="restore">restore</span>
+<span>Send link to restore active session</span>
+</button>
+</div>
+</article>
+</div>
+</section>
+<!-- Protocol Footnote & Compliance Badge -->
+<footer class="pt-4 border-t border-border-subtle text-center space-y-2">
+<div class="flex items-center justify-center gap-2 text-outline text-[12px] font-metadata">
+<span class="material-symbols-outlined text-[16px]" data-icon="key_off">key_off</span>
+<span>Zero passwords stored or transmitted</span>
+</div>
+<p class="text-[11px] text-outline leading-tight">
+          CuriousNext · Draft access design. Email magic links are the only sign-up and login method.
+        </p>
+</footer>
+</main>
+<!-- Interactive Toast Simulator -->
+<div aria-live="polite" class="hidden fixed bottom-6 left-1/2 -translate-x-1/2 w-[90%] max-w-[360px] bg-ink text-surface p-3.5 rounded-xl shadow-lg z-50 text-metadata font-metadata items-center justify-between border border-outline" id="toast-message" role="status">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-lime-action text-[20px]" data-icon="check_circle">check_circle</span>
+<span>Mock link generated for review.</span>
+</div>
+<button aria-label="Dismiss notification" class="text-outline-variant hover:text-surface custom-focus p-1" onclick="hidePreviewToast()" type="button">
+<span class="material-symbols-outlined text-[18px]" data-icon="close">close</span>
+</button>
+</div>
+</div>
+
+</body></html>

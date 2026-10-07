@@ -42,11 +42,11 @@ Use ink on action, ink/link on learning-surface, and state ink on its matching s
 
 ## Typography
 
-Use self-hosted Inter for interface and lesson text, with Noto Sans, system-ui and sans-serif fallbacks. Use Barlow Condensed bold only for short promotional/page headlines after glyph and readability checks. Keep lesson headings and controls in Inter. Caveat is optional for one short decorative note, never instructions, status, assessment content or navigation. Verify the actual font files and rendering of Igbo/Yoruba diacritics, Hausa characters and Nigerian Pidgin punctuation. Never remove accents to fit a layout. The selected brand fonts are source production defaults. App use requires font licensing, actual file/glyph verification and readability testing. Noto Sans takes precedence for any locale where the chosen font lacks suitable glyphs.
+Use Fredoka at weight 600 for hero and h1 page titles, matching the user-supplied screenshot. Rendered reference styles were inspected: the large heading uses Fredoka 600, supporting headings and copy use Inter. Use Inter for section/card headings, lesson text, forms, controls and metadata. This replaces the earlier Barlow Condensed headline and Caveat note proposal. Retain the existing CuriousNext palette. Production fonts should be self-hosted after license and glyph review, with Noto Sans, system-ui and sans-serif fallbacks. Verify Igbo/Yoruba diacritics and Hausa characters. Never remove accents to fit a layout. Font choice alone does not prove readability or accessibility.
 
 | Role | Desktop | Mobile | Weight / line height |
 |---|---|---|---|
-| Page title | 36px | 28px | 700 / 1.2 |
+| Page title (Fredoka) | 36px | 28px | 600 / 1.2 |
 | Section heading | 24px | 22px | 650 / 1.3 |
 | Card heading | 20px | 20px | 650 / 1.35 |
 | Lesson body | 18px | 18px | 400 / 1.65 |
@@ -67,7 +67,11 @@ Core flows reflow at 320 CSS pixels and remain usable at 200% text resize and 40
 
 Navigation contains Learn, My courses and Evidence. Course detail exposes modules and relevant review/misconceptions contextually. Preferences and language are labelled in the account area. Keep study tools contextual rather than adding separate destinations for every feature.
 
-Home: goal context → one next-action card → evidence-based reason → Start action → time choices (10/20/40 minutes) → up to two alternatives. Estimates are labelled and do not become countdowns. Keep due review visible without turning home into a dashboard of scores.
+Public homepage: explain the learning loop, introduce Practical AI and Cybersecurity Essentials, and lead to goal setup. Offer a separate Log in entry. Do not fabricate pilot usage, testimonials, pricing or certification.
+
+Authentication: one email magic-link flow for sign-up and login. No password, social-provider or code-entry controls. Show email entry, submitting, check-email, change-email, rate-limited resend, expired/used link and network recovery. New accounts enter goal setup only after verification. Returning learners resume their authorised destination.
+
+Learning home: goal context → one next-action card → evidence-based reason → Start action → time choices (10/20/40 minutes) → up to two alternatives. Estimates are labelled and do not become countdowns. Keep due review visible without turning home into a dashboard of scores.
 
 Onboarding: one question group at a time, with progress through setup steps and Back. Language and explanation level are distinct controls. Course suggestions show outcome, relevance and prerequisites. Diagnostic and Start from the beginning are both visible, with no implied penalty for skipping.
 

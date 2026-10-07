@@ -2,9 +2,9 @@
 
 ## Status and artifacts
 
-CN-DESIGN-001, M1.5 design preparation. Version 0.1, 2026-10-07. [Stitch project](https://stitch.withgoogle.com/projects/18036214979648223266), [Linear THE-11](https://linear.app/the-curious-tech-girl/issue/THE-11/design-curiousnext-pilot-screens-in-stitch), [local gallery](../design-artifacts/stitch/index.html), [artifact manifest](../design-artifacts/stitch/manifest.json).
+CN-DESIGN-001, M1.5 design preparation. Version 0.2, 2026-10-08. [Stitch project](https://stitch.withgoogle.com/projects/18036214979648223266), [Linear THE-11](https://linear.app/the-curious-tech-girl/issue/THE-11/design-curiousnext-pilot-screens-in-stitch), [local gallery](../design-artifacts/stitch/index.html), [artifact manifest](../design-artifacts/stitch/manifest.json).
 
-27 selected mockups cover 17 desktop and 10 mobile screens. The initial AI lesson is superseded by its corrected version. Original and intermediate screens remain in Stitch for traceability. The repository exports select the current handoff version, not every historical version. Repository HTML includes reviewed local content corrections. JPEGs are fresh browser renders of that corrected HTML at 1280px desktop or 390px mobile width. These differ from the original Stitch drafts. Original export hashes remain in the manifest. Manifest source-screen IDs identify actual exported resources. Downloads from generated sessions and the project inventory do not always become visible at the same time.
+31 selected mockups cover 19 desktop and 12 mobile screens. The initial AI lesson is superseded by its corrected version. Original and intermediate screens remain in Stitch for traceability. The repository exports select the current handoff version, not every historical version. Repository HTML includes reviewed local content corrections. JPEGs are fresh browser renders of that corrected HTML at 1280px desktop or 390px mobile width. These differ from the original Stitch drafts. Original export hashes remain in the manifest. Manifest source-screen IDs identify actual exported resources. Downloads from generated sessions and the project inventory do not always become visible at the same time.
 
 These are static design artifacts with simulated data and placeholder interactions. They are not application code, working enrollment, model calls, draft persistence, assessment, or evidence exports. Generated HTML uses external font/icon/style dependencies. Do not promote it directly into production. The repository design system and product contract remain authoritative when generated content disagrees.
 
@@ -14,6 +14,10 @@ M1 remains pending. The user authorized early visual preparation. M1.5 stays in 
 
 | Screen | Flow | Repository artifact |
 |---|---|---|
+| CuriousNext - Magic Link Sign In / Sign Up (Desktop) | Public entry, UF1, UF7 | [Mockup](../design-artifacts/stitch/943c6dc444034a338fec4923effc261d.jpg) · [HTML](../design-artifacts/stitch/943c6dc444034a338fec4923effc261d.html) |
+| CuriousNext - Public Homepage (Desktop) | Public entry, UF1, UF7 | [Mockup](../design-artifacts/stitch/97431bce4b0f40b7b54d9c79dba8e2b3.jpg) · [HTML](../design-artifacts/stitch/97431bce4b0f40b7b54d9c79dba8e2b3.html) |
+| CuriousNext - Public Homepage (Mobile) | Public entry, UF1, UF7 | [Mockup](../design-artifacts/stitch/6f5b8702213a4338b4bec1f00a994d7c.jpg) · [HTML](../design-artifacts/stitch/6f5b8702213a4338b4bec1f00a994d7c.html) |
+| CuriousNext - Magic Link Sign In / Sign Up (Mobile) | Public entry, UF1, UF7 | [Mockup](../design-artifacts/stitch/c6bac46ce7234c46b54124b720472dbc.jpg) · [HTML](../design-artifacts/stitch/c6bac46ce7234c46b54124b720472dbc.html) |
 | 4. Language & Access Preferences - CuriousNext Mobile | UF1, UF7 | [Mockup](../design-artifacts/stitch/010a7f0460164258a8b21bff34a7fd7a.jpg) · [HTML](../design-artifacts/stitch/010a7f0460164258a8b21bff34a7fd7a.html) |
 | 1. Goal Setup - CuriousNext | UF1, UF7 | [Mockup](../design-artifacts/stitch/9b48bacaaaed4028ba72eb220ff1b35d.jpg) · [HTML](../design-artifacts/stitch/9b48bacaaaed4028ba72eb220ff1b35d.html) |
 | AI-2 Guided practice - CuriousNext | UF2, UF7 | [Mockup](../design-artifacts/stitch/02b0dda1e9884b50b7c4c4ad176eb79f.jpg) · [HTML](../design-artifacts/stitch/02b0dda1e9884b50b7c4c4ad176eb79f.html) |
@@ -44,6 +48,10 @@ M1 remains pending. The user authorized early visual preparation. M1.5 stays in 
 
 ## Interaction handoff
 
+Public homepage and email-only magic-link entry extend the selected onboarding designs. Sign-up and login share the same email form, new accounts are created only after verification. Verification uses explicit confirmation, followed by goal setup or an authorised return destination. No password, social-provider or code-entry alternative is offered. Check-email, resend limits, expired/used links and network failures require neutral messages without account-existence disclosure. Production authentication is not implemented.
+
+Typography now uses Fredoka 600 for hero/h1 titles and Inter for supporting headings, reading and controls, verified from the supplied screenshot reference. All existing repository mockups have been rerendered. Actual multilingual glyph and readability review remains pending.
+
 - UF1: goal before ability questions. Teaching language and explanation preference are separate. Course selection precedes diagnostic. Skip and start-from-beginning remain visible. Placement is provisional and never earns demonstration evidence. Back preserves confirmed inputs.
 - UF2: objective, explanatory text and visual/text equivalents precede supported practice. Explain differently adjusts this presentation only. Practice AI and Learning assistant are separate. Generated model responses are practice artifacts, not teacher hints. Confirmed draft and generation state survive interruption.
 - UF3: fresh task, permitted tools, blank response fields, requirement checklist and written teach-back. No answer-revealing hints in placeholders or neutral text equivalents. Substantive teaching help marks assisted work. Assistive access does not. Submission freezes the attempt. Pending/failed/uncertain views preserve it without awarding new evidence. Learning and optional human review remain accessible.
@@ -65,14 +73,16 @@ Required review before M2:
 1. Inspect every selected screen against exact course facts, six criteria and draft status. Resolve any remaining generated terminology or rule drift. Confirm neutral independent-message representations and initially blank answers.
 2. Review both desktop and mobile journeys with the user. Check long-page density, action hierarchy and transitions. Diagnostic response-entry and result views need explicit transition treatment beyond the single illustrative snapshot.
 3. Check mobile 320px reflow and zoom intent, labels, focus order and text alternatives. Static JPEGs cannot prove keyboard support, contrast in every state or screen-reader behavior.
-4. Complete missing shared patterns: accessible sign-in/session-expiry return, unsupported-goal and no-fitting-session recovery, explicit assisted-status transition, unsaved navigation, empty suggestions and optional-review confirmation. Existing recovery screens establish the pattern but do not replace full state coverage.
+4. Complete missing shared patterns: session-expiry return integration, unsupported-goal and no-fitting-session recovery, explicit assisted-status transition, unsaved navigation, empty suggestions and optional-review confirmation. Existing recovery screens establish the pattern but do not replace full state coverage.
 5. Verify actual font glyphs and reviewed long-language examples. Non-English content availability remains pending, not implemented translations.
 
 Remaining findings are tracked here and in milestone evidence. User design approval and runtime accessibility testing remain outstanding. Do not mark M1.5 complete or begin M2 solely because Stitch produced screenshots.
 
+Stitch headline token update was requested and applied to existing screens, but a returned sample still uses Inter. Repository headline corrections are verified. Remote typography should be checked in each screen before accepting it. Homepage/auth exports were verified directly, rather than relying on the stale project inventory.
+
 ## Validation and regeneration
 
-Repository validation and existing regression tests apply to this documentation slice. Independently check each manifest HTML/JPEG exists, hashes match, HTML is a CuriousNext export rather than an authentication page, and JPEG signatures are valid. These checks establish artifact integrity only.
+Run python3 scripts/validate_design_artifacts.py for artifact checks and email-only auth-form boundaries. Mobile public entry and auth were checked at 320px without horizontal overflow. Fredoka was loaded in all four new screen renders. Repository validation and existing regression tests apply to this documentation slice. Independently check each manifest HTML/JPEG exists, hashes match, HTML is a CuriousNext export rather than an authentication page, and JPEG signatures are valid. These checks establish artifact integrity only.
 
 Use manifest source IDs with Stitch get_screen/edit_screens. After an edit, refresh project metadata because an instance ID and its current source-screen ID differ. Verify a timed-out generation through project screen instances before retrying. Export the selected current screens through authenticated Stitch ZIP export. Retain verified source artifacts separately before applying local corrections. Do not overwrite the corrected handoff with a fresh unreviewed export. Render new previews from corrected HTML and refresh checksums. The local gallery provides static navigation without invoking the generated pages' scripts.
 

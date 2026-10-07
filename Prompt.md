@@ -162,7 +162,7 @@ Use the repository's conventions. Ensure durable persistence for goals, teaching
 
 Maintain traceability: each capability change must point to evidence and the policy or rubric used. Keep historical attempts rather than overwriting them with a summary score. Handle retries and duplicate submissions without double-counting evidence.
 
-Use secure authentication and learner-scoped authorization. Keep API keys server-side. Validate AI outputs and user input. Handle loading, empty, failed assessment and interrupted-network states. Use fixtures only in explicitly labeled demo mode; do not present seeded activity as a real learner's achievement.
+Use email magic links as the only sign-up and login method, with learner-scoped authorization. Create accounts only after email verification. Do not offer passwords, social login or numeric code entry. Keep API keys server-side. Validate AI outputs and user input. Handle loading, empty, failed assessment and interrupted-network states. Use fixtures only in explicitly labeled demo mode; do not present seeded activity as a real learner's achievement.
 
 Render learner and AI text safely. Never execute generated scripts, activate simulated phishing links, or treat submissions as assessor instructions.
 

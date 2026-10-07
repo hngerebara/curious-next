@@ -37,3 +37,7 @@ GitHub workflows use minimum permissions. PR validation has read-only repository
 Run ownership and role tests, injection/unsafe-rendering cases, retry/assistance races, session/CSRF checks applicable to the selected stack, secret/log inspection and provider failure tests. Confirm deletion and recovery behavior before real learner release. Record actual results in [Documentation.md](../../Documentation.md), never label this specification an audit.
 
 [Architecture](../../Architecture.md), [domain](domain-model.md), [persistence](data-model.md), [user flows](../product-specs/user-flows.md).
+
+## Magic-link authentication
+
+Sign-up and login share email-only magic-link entry. Responses do not reveal account existence. Create a new account only after successful verification. Tokens must be cryptographically random, short-lived and single-use, stored hashed server-side, validated atomically and excluded from logs, analytics and referrer leakage. Expiry and resend cooldown values are M1 decisions. Rate-limit requests and verification attempts. Email scanners must not consume the token through a GET request, require explicit user confirmation before session creation. Use secure HttpOnly session cookies and CSRF protection where needed. Allow only validated same-origin return destinations. Preserve learner ownership checks after reauthentication. Never submit actual emails from design previews. Provider and delivery configuration remain unimplemented.

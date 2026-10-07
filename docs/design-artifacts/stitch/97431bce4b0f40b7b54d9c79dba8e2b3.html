@@ -1,0 +1,657 @@
+<!DOCTYPE html>
+
+<html class="scroll-smooth" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>CuriousNext — Adult Learner Pilot Workspace</title>
+<!-- Typography and Material Symbols -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&amp;family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS CDN -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Tailwind Configuration matching Design System & Brand Anchors -->
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "tertiary-container": "#d1e1ff",
+            "on-tertiary-container": "#54647d",
+            "surface-tint": "#516600",
+            "on-surface": "#1a1d12",
+            "secondary-container": "#d7eb97",
+            "tertiary-fixed": "#d5e3ff",
+            "on-primary": "#ffffff",
+            "inverse-surface": "#2f3226",
+            "outline": "#757963",
+            "outline-variant": "#c5c9af",
+            "on-secondary": "#ffffff",
+            "inverse-on-surface": "#f1f2e1",
+            "surface-container-lowest": "#ffffff",
+            "tertiary": "#505f78",
+            "on-tertiary-fixed-variant": "#384760",
+            "surface-bright": "#fafbe9",
+            "secondary": "#556520",
+            "error-container": "#ffdad6",
+            "on-secondary-container": "#5a6b26",
+            "surface-container": "#eeefde",
+            "on-tertiary": "#ffffff",
+            "on-error-container": "#93000a",
+            "on-secondary-fixed-variant": "#3d4c08",
+            "surface-container-high": "#e8e9d8",
+            "on-primary-container": "#556b00",
+            "on-error": "#ffffff",
+            "primary": "#516600",
+            "on-secondary-fixed": "#171e00",
+            "surface-container-low": "#f4f5e4",
+            "tertiary-fixed-dim": "#b7c7e4",
+            "inverse-primary": "#afd52a",
+            "surface-dim": "#dadbcb",
+            "on-background": "#1a1d12",
+            "on-surface-variant": "#454935",
+            "on-primary-fixed-variant": "#3d4d00",
+            "surface-variant": "#e3e4d3",
+            "primary-fixed-dim": "#afd52a",
+            "on-tertiary-fixed": "#0b1c32",
+            "primary-fixed": "#caf247",
+            "error": "#ba1a1a",
+            "primary-container": "#c8ef45",
+            "on-primary-fixed": "#171e00",
+            "surface": "#fafbe9",
+            "background": "#fafbe9",
+            "surface-container-highest": "#e3e4d3",
+            "secondary-fixed-dim": "#bccf7e",
+            "secondary-fixed": "#d7eb97",
+            /* Prompt custom brand palette additions */
+            "paper": "#F5F0E5",
+            "ink": "#171717",
+            "ink-muted": "#59564F",
+            "lavender-tint": "#F0E8FA",
+            "lime-action": "#C8EF45",
+            "focus-ring": "#285F85"
+          },
+          borderRadius: {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "2xl": "1rem",
+            "full": "9999px"
+          },
+          spacing: {
+            "space-xs": "0.25rem",
+            "space-sm": "0.5rem",
+            "space-md": "0.75rem",
+            "space-lg": "1.5rem",
+            "space-xl": "3rem",
+            "space-2xl": "4rem",
+            "gutter": "1rem",
+            "margin": "1.5rem"
+          },
+          fontFamily: {
+            "ui-body": ["Inter", "sans-serif"],
+            "page-title": ["Inter", "sans-serif"],
+            "card-heading": ["Inter", "sans-serif"],
+            "section-heading": ["Inter", "sans-serif"],
+            "lesson-body": ["Inter", "sans-serif"],
+            "metadata": ["Inter", "sans-serif"],
+            "fredoka": ["Fredoka", "sans-serif"]
+          },
+          fontSize: {
+            "ui-body": ["16px", { lineHeight: "1.5", fontWeight: "400" }],
+            "page-title": ["36px", { lineHeight: "1.2", fontWeight: "700" }],
+            "card-heading": ["20px", { lineHeight: "1.35", fontWeight: "600" }],
+            "section-heading": ["24px", { lineHeight: "1.3", fontWeight: "600" }],
+            "lesson-body": ["18px", { lineHeight: "1.65", fontWeight: "400" }],
+            "metadata": ["14px", { lineHeight: "1.5", fontWeight: "500" }]
+          }
+        }
+      }
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      display: inline-block;
+      vertical-align: middle;
+      line-height: 1;
+    }
+    :focus-visible {
+      outline: 3px solid #285F85 !important;
+      outline-offset: 2px !important;
+    }
+    .custom-fredoka-title {
+      font-family: 'Fredoka', sans-serif;
+      font-weight: 600;
+    }
+  </style>
+<style>h1{font-family:Fredoka,"Noto Sans",system-ui,sans-serif!important;font-weight:600!important}h2,h3,h4{font-family:Inter,"Noto Sans",system-ui,sans-serif!important}a,button,input{min-height:44px}body{background:#F5F0E5!important;color:#171717}header{background:#F5F0E5!important}nav{flex-wrap:wrap}input{max-width:100%;min-width:0}*{overflow-wrap:break-word}a:focus-visible,button:focus-visible,input:focus-visible{outline:3px solid #285F85;outline-offset:2px}</style></head>
+<body class="bg-[#F5F0E5] text-[#171717] font-ui-body text-ui-body antialiased min-h-screen flex flex-col selection:bg-secondary-container selection:text-on-secondary-fixed"><div style="padding:12px 16px;background:#fff4d6;border-bottom:1px solid #71828d;font-family:Inter,sans-serif">Design preview · Draft pilot · No email is sent</div>
+<!-- Skip to Content Link -->
+<a class="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 z-50 bg-[#171717] text-white px-4 py-2 rounded-lg font-metadata text-metadata" href="#main-content">
+    Skip to main content
+  </a>
+<!-- TOP NAVIGATION BAR (Shared Component: TopNavBar) -->
+<header class="sticky top-0 z-40 bg-[#FAFBE9]/95 backdrop-blur-md border-b border-outline-variant">
+<div class="w-full max-w-7xl mx-auto px-margin py-space-md flex items-center justify-between">
+<!-- Brand Logo / Identity -->
+<div class="flex items-center gap-3">
+<a class="flex items-center gap-2 group" href="#">
+<span class="w-8 h-8 rounded-lg bg-primary-container text-on-primary-fixed flex items-center justify-center font-bold text-lg border border-outline">
+<span class="material-symbols-outlined text-[20px]">explore</span>
+</span>
+<span class="custom-fredoka-title text-[24px] tracking-tight text-[#171717]">CuriousNext</span>
+</a>
+<span class="hidden sm:inline-flex items-center px-2 py-0.5 rounded-full text-xs font-metadata text-on-surface-variant bg-surface-container border border-outline-variant">
+          Pilot Workspace
+        </span>
+</div>
+<!-- Navigation Links -->
+<nav aria-label="Main Navigation" class="flex items-center gap-6">
+<a class="text-primary font-semibold border-b-2 border-primary pb-1 hover:text-primary transition-colors duration-150" href="#courses">
+          Courses
+        </a>
+<a class="text-on-surface-variant font-metadata text-metadata hover:text-primary transition-colors duration-150" href="#how-it-works">
+          How it works
+        </a>
+</nav>
+<!-- Trailing Actions -->
+<div class="flex items-center gap-3">
+<a class="text-on-surface-variant font-metadata text-metadata px-3 py-2 rounded-lg hover:text-primary transition-colors duration-150 focus:outline-none" href="943c6dc444034a338fec4923effc261d.html">
+          Log in
+        </a>
+<a class="bg-primary-container text-[#171717] font-semibold font-metadata text-metadata px-4 py-2.5 rounded-[12px] min-h-[44px] inline-flex items-center justify-center border border-outline shadow-sm transition-all duration-150 active:scale-95 hover:bg-[#d4f850]" href="9b48bacaaaed4028ba72eb220ff1b35d.html">
+          Set your goal
+        </a>
+</div>
+</div>
+</header>
+<!-- MAIN CANVAS -->
+<main class="flex-grow" id="main-content">
+<!-- HERO SECTION -->
+<section class="w-full max-w-7xl mx-auto px-margin pt-12 pb-16">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+<!-- Left Column: Core Positioning -->
+<div class="lg:col-span-7 flex flex-col items-start gap-5">
+<div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-secondary-container border border-outline text-[#171717] text-xs font-semibold uppercase tracking-wider font-metadata">
+<span class="w-2 h-2 rounded-full bg-secondary"></span>
+            Adult Learner Pilot Workspace
+          </div>
+<h1 class="custom-fredoka-title text-[40px] md:text-[46px] leading-[1.12] text-[#171717] tracking-tight">
+            Learn something useful. <br class="hidden sm:inline"/>Make it yours.
+          </h1>
+<p class="font-lesson-body text-lesson-body text-[#59564F] max-w-xl">
+            Goal-first explanations, supported practice, independent teach-back and instant feedback. Built for self-paced retention without streak penalties or automated noise.
+          </p>
+<!-- Primary CTAs -->
+<div class="flex flex-wrap items-center gap-4 pt-2">
+<a class="bg-primary-container text-[#171717] font-semibold font-ui-body px-6 py-3 rounded-[12px] min-h-[44px] inline-flex items-center justify-center border border-outline shadow-sm transition-all duration-150 active:scale-95 hover:bg-[#d4f850]" href="9b48bacaaaed4028ba72eb220ff1b35d.html">
+              Set your goal
+            </a>
+<a class="bg-surface-container-lowest text-[#171717] font-medium font-ui-body px-6 py-3 rounded-[12px] min-h-[44px] inline-flex items-center justify-center border border-outline transition-all duration-150 hover:bg-surface-container" href="#courses">
+              Explore courses
+            </a>
+</div>
+<!-- Session Pacing Selector (Interactive Mock) -->
+<div class="w-full mt-4 p-5 rounded-2xl bg-surface-container-lowest border border-outline-variant">
+<div class="flex items-center justify-between mb-3">
+<span class="font-metadata text-metadata font-semibold text-[#171717] flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[18px] text-secondary">schedule</span>
+                Selectable session pacing estimates:
+              </span>
+<span class="text-xs text-[#59564F] bg-surface-container px-2 py-0.5 rounded">Adaptive pace</span>
+</div>
+<div aria-label="Session pacing options" class="grid grid-cols-1 sm:grid-cols-3 gap-2.5" role="radiogroup">
+<button aria-checked="false" class="p-3 text-left rounded-xl border border-outline-variant bg-surface hover:border-outline focus:outline-none transition-all" type="button">
+<div class="font-semibold text-sm text-[#171717]">10 min</div>
+<div class="text-xs text-[#59564F]">Bite-sized concept</div>
+</button>
+<button aria-checked="true" class="p-3 text-left rounded-xl border-2 border-primary bg-secondary-container/30 focus:outline-none transition-all shadow-sm" type="button">
+<div class="font-semibold text-sm text-[#171717] flex items-center justify-between">
+                  20 min
+                  <span class="material-symbols-outlined text-[16px] text-primary">check_circle</span>
+</div>
+<div class="text-xs font-medium text-secondary">Recommended</div>
+</button>
+<button aria-checked="false" class="p-3 text-left rounded-xl border border-outline-variant bg-surface hover:border-outline focus:outline-none transition-all" type="button">
+<div class="font-semibold text-sm text-[#171717]">40 min</div>
+<div class="text-xs text-[#59564F]">Deep dive practice</div>
+</button>
+</div>
+<p class="text-xs text-[#59564F] mt-3 flex items-center gap-1 font-metadata">
+<span class="material-symbols-outlined text-[14px] text-outline">info</span>
+              Time is an estimate for pacing, not a countdown timer. You retain full control over your study rhythm.
+            </p>
+</div>
+</div>
+<!-- Right Column: Editorial Scrapbook / Visual Concept Card -->
+<div class="lg:col-span-5">
+<div class="bg-surface-container-lowest rounded-2xl border border-outline p-6 shadow-sm relative overflow-hidden">
+<div class="flex items-center justify-between pb-4 border-b border-outline-variant mb-4">
+<div class="flex items-center gap-2">
+<span class="w-3 h-3 rounded-full bg-secondary"></span>
+<span class="font-metadata text-metadata font-semibold text-[#171717]">Sample Workspace Note</span>
+</div>
+<span class="text-xs font-mono text-[#59564F]">PRACTICAL_AI // M01</span>
+</div>
+<!-- Annotated Step Card Preview -->
+<div class="space-y-3 font-ui-body text-sm">
+<div class="p-3.5 rounded-xl bg-tertiary-container/35 border border-[#B7C7E4]">
+<div class="font-semibold text-xs text-tertiary uppercase tracking-wider mb-1">Deliberate Constraints Protocol</div>
+<p class="text-[#171717] text-sm">
+                  "Draft a memo summarizing these audit findings. <strong class="text-primary font-semibold">Constraint:</strong> Do not extrapolate beyond provided bullet points. Cite document lines for each recommendation."
+                </p>
+</div>
+<div class="p-3 rounded-xl bg-[#FAFBE9] border border-outline-variant">
+<div class="flex items-center justify-between text-xs text-[#59564F] mb-1">
+<span class="font-semibold text-[#171717]">Inspection Check</span>
+<span class="text-secondary font-medium">Fact verified (3/3)</span>
+</div>
+<div class="w-full bg-surface-container-high h-1.5 rounded-full overflow-hidden">
+<div class="bg-secondary h-full rounded-full w-full"></div>
+</div>
+</div>
+<div class="p-3.5 rounded-xl bg-secondary-container/20 border border-secondary-container flex items-start gap-2.5">
+<span class="material-symbols-outlined text-secondary text-[20px] mt-0.5">psychology</span>
+<div>
+<div class="text-xs font-semibold text-[#171717]">Teach-back prompt</div>
+<div class="text-xs text-[#59564F] mt-0.5">Explain why hallucination risk decreases when file context boundaries are explicitly closed.</div>
+</div>
+</div>
+</div>
+<div class="mt-4 pt-3 border-t border-outline-variant flex items-center justify-between text-xs text-[#59564F]">
+<span>Active session model</span>
+<span class="font-semibold text-[#171717]">Direct Diagnostic Ready</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- LEARNING METHOD SECTION ('The CuriousNext Method' in Lavender #F0E8FA) -->
+<section class="w-full bg-[#F0E8FA] py-16 border-y border-outline-variant">
+<div class="w-full max-w-7xl mx-auto px-margin">
+<div class="max-w-2xl mb-10">
+<span class="font-metadata text-metadata text-tertiary font-semibold uppercase tracking-wider block mb-1">Pedagogical Framework</span>
+<h2 class="custom-fredoka-title text-3xl sm:text-4xl text-[#171717] mb-2">Learn → Practise → Teach-back</h2>
+<p class="font-ui-body text-ui-body text-[#59564F]">
+            How curiosity develops into reliable, self-directed competence without passive video fatigue.
+          </p>
+</div>
+<!-- 3-Column Diagram Layout -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+<!-- Step 1: Learn -->
+<div class="bg-surface-container-lowest p-6 rounded-2xl border border-outline flex flex-col justify-between shadow-sm">
+<div>
+<div class="w-10 h-10 rounded-xl bg-tertiary-container flex items-center justify-center text-tertiary mb-4">
+<span class="material-symbols-outlined text-[24px]">menu_book</span>
+</div>
+<div class="flex items-center gap-2 mb-2">
+<span class="font-mono text-xs font-bold text-tertiary px-2 py-0.5 rounded bg-tertiary-container/40">PHASE 01</span>
+<h3 class="custom-fredoka-title text-2xl text-[#171717]">Learn</h3>
+</div>
+<p class="text-sm text-[#59564F] leading-relaxed">
+                Annotated concepts broken into concrete workplace examples. Theory is stripped of jargon and mapped directly to actual daily friction points.
+              </p>
+</div>
+<div class="mt-6 pt-4 border-t border-outline-variant text-xs text-tertiary font-semibold flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px]">visibility</span> Grounded source materials
+            </div>
+</div>
+<!-- Step 2: Practise -->
+<div class="bg-surface-container-lowest p-6 rounded-2xl border border-outline flex flex-col justify-between shadow-sm">
+<div>
+<div class="w-10 h-10 rounded-xl bg-secondary-container flex items-center justify-center text-secondary mb-4">
+<span class="material-symbols-outlined text-[24px]">handyman</span>
+</div>
+<div class="flex items-center gap-2 mb-2">
+<span class="font-mono text-xs font-bold text-secondary px-2 py-0.5 rounded bg-secondary-container/40">PHASE 02</span>
+<h3 class="custom-fredoka-title text-2xl text-[#171717]">Practise</h3>
+</div>
+<p class="text-sm text-[#59564F] leading-relaxed">
+                Low-stress guided exercises with instant, transparent hints. You test constraints and troubleshoot errors without penalty or countdown timers.
+              </p>
+</div>
+<div class="mt-6 pt-4 border-t border-outline-variant text-xs text-secondary font-semibold flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px]">lightbulb</span> Transparent formative hints
+            </div>
+</div>
+<!-- Step 3: Teach-back -->
+<div class="bg-surface-container-lowest p-6 rounded-2xl border border-outline flex flex-col justify-between shadow-sm">
+<div>
+<div class="w-10 h-10 rounded-xl bg-primary-container flex items-center justify-center text-on-primary-fixed mb-4">
+<span class="material-symbols-outlined text-[24px]">record_voice_over</span>
+</div>
+<div class="flex items-center gap-2 mb-2">
+<span class="font-mono text-xs font-bold text-primary px-2 py-0.5 rounded bg-primary-container/50">PHASE 03</span>
+<h3 class="custom-fredoka-title text-2xl text-[#171717]">Teach-back</h3>
+</div>
+<p class="text-sm text-[#59564F] leading-relaxed">
+                Explain the solution in your own words to verify true recall. Immediate criteria-based evaluation checks nuance, not memorized keywords.
+              </p>
+</div>
+<div class="mt-6 pt-4 border-t border-outline-variant text-xs text-primary font-semibold flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px]">verified</span> True diagnostic retention
+            </div>
+</div>
+</div>
+</div>
+</section>
+<!-- CORE LEARNING TRACKS SECTION (id="courses") -->
+<section class="w-full max-w-7xl mx-auto px-margin py-16 scroll-mt-20" id="courses">
+<div class="flex flex-col md:flex-row md:items-end justify-between mb-10 pb-4 border-b border-outline-variant gap-4">
+<div>
+<span class="font-metadata text-metadata text-secondary font-semibold uppercase tracking-wider block mb-1">Standardized Curriculum</span>
+<h2 class="custom-fredoka-title text-3xl sm:text-4xl text-[#171717]">Core Learning Tracks</h2>
+<p class="font-ui-body text-ui-body text-[#59564F] mt-1">
+            Transparent syllabus tracks. Exactly 5 modules each, zero algorithmic pressure.
+          </p>
+</div>
+<div class="text-xs text-[#59564F] bg-surface-container px-3 py-1.5 rounded-lg border border-outline-variant font-metadata">
+          No completion rings • Nonjudgmental workspaces
+        </div>
+</div>
+<!-- Exactly Two Course Cards in a 2-Column Desktop Grid -->
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-stretch">
+<!-- Track 1: Practical AI -->
+<article class="bg-surface-container-lowest rounded-2xl border border-outline p-7 flex flex-col justify-between shadow-sm hover:border-primary transition-all">
+<div>
+<!-- Card Header -->
+<div class="flex items-start justify-between gap-4 mb-4">
+<div>
+<span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-semibold bg-secondary-container text-on-secondary-fixed border border-outline-variant mb-2">
+<span class="material-symbols-outlined text-[16px]">auto_stories</span>
+                  5 practical modules
+                </span>
+<h3 class="custom-fredoka-title text-2xl text-[#171717]">Practical AI</h3>
+</div>
+<div class="w-10 h-10 rounded-xl bg-surface-container flex items-center justify-center text-primary border border-outline-variant">
+<span class="material-symbols-outlined text-[24px]">cognition</span>
+</div>
+</div>
+<!-- Highlight Box -->
+<div class="p-4 rounded-xl bg-[#FAFBE9] border border-outline-variant mb-6 text-sm text-[#171717] leading-relaxed">
+<strong class="font-semibold text-secondary">Core Objective:</strong> Write clear prompts with Task, Context, Constraints, and Format, and inspect responses against source facts.
+            </div>
+<!-- Exactly 5 Modules List -->
+<div class="space-y-3 mb-6">
+<span class="text-xs font-semibold text-[#59564F] uppercase tracking-wider block font-metadata">Syllabus breakdown</span>
+<div class="flex items-start gap-3 p-2.5 rounded-lg bg-surface-container-low border border-outline-variant text-sm">
+<span class="font-mono text-xs font-bold text-secondary bg-surface px-1.5 py-0.5 rounded border border-outline-variant">01</span>
+<span class="text-[#171717]">Prompt anatomy &amp; deliberate constraints</span>
+</div>
+<div class="flex items-start gap-3 p-2.5 rounded-lg bg-surface-container-low border border-outline-variant text-sm">
+<span class="font-mono text-xs font-bold text-secondary bg-surface px-1.5 py-0.5 rounded border border-outline-variant">02</span>
+<span class="text-[#171717]">Fact-checking hallucinations against files</span>
+</div>
+<div class="flex items-start gap-3 p-2.5 rounded-lg bg-surface-container-low border border-outline-variant text-sm">
+<span class="font-mono text-xs font-bold text-secondary bg-surface px-1.5 py-0.5 rounded border border-outline-variant">03</span>
+<span class="text-[#171717]">Structured synthesis &amp; document drafting</span>
+</div>
+<div class="flex items-start gap-3 p-2.5 rounded-lg bg-surface-container-low border border-outline-variant text-sm">
+<span class="font-mono text-xs font-bold text-secondary bg-surface px-1.5 py-0.5 rounded border border-outline-variant">04</span>
+<span class="text-[#171717]">Iterative troubleshooting workflows</span>
+</div>
+<div class="flex items-start gap-3 p-2.5 rounded-lg bg-surface-container-low border border-outline-variant text-sm">
+<span class="font-mono text-xs font-bold text-secondary bg-surface px-1.5 py-0.5 rounded border border-outline-variant">05</span>
+<span class="text-[#171717]">Teach-back synthesis &amp; daily audit routine</span>
+</div>
+</div>
+</div>
+<!-- Card Footer -->
+<div class="pt-5 border-t border-outline-variant flex items-center justify-between">
+<span class="font-metadata text-xs text-[#59564F]">Self-paced • No completion rings</span>
+<a class="text-primary font-semibold font-metadata text-metadata inline-flex items-center gap-1 hover:underline focus:outline-none" href="da770edfa8ed4d508716d4196e32736d.html">
+              Explore Practical AI <span aria-hidden="true">→</span>
+</a>
+</div>
+</article>
+<!-- Track 2: Cybersecurity Essentials -->
+<article class="bg-surface-container-lowest rounded-2xl border border-outline p-7 flex flex-col justify-between shadow-sm hover:border-primary transition-all">
+<div>
+<!-- Card Header -->
+<div class="flex items-start justify-between gap-4 mb-4">
+<div>
+<span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-semibold bg-secondary-container text-on-secondary-fixed border border-outline-variant mb-2">
+<span class="material-symbols-outlined text-[16px]">shield</span>
+                  5 practical modules
+                </span>
+<h3 class="custom-fredoka-title text-2xl text-[#171717]">Cybersecurity Essentials</h3>
+</div>
+<div class="w-10 h-10 rounded-xl bg-surface-container flex items-center justify-center text-primary border border-outline-variant">
+<span class="material-symbols-outlined text-[24px]">lock_reset</span>
+</div>
+</div>
+<!-- Highlight Box -->
+<div class="p-4 rounded-xl bg-[#FAFBE9] border border-outline-variant mb-6 text-sm text-[#171717] leading-relaxed">
+<strong class="font-semibold text-secondary">Core Objective:</strong> Recognise phishing, verify sender channels independently, and make safe decisions without panic.
+            </div>
+<!-- Exactly 5 Modules List -->
+<div class="space-y-3 mb-6">
+<span class="text-xs font-semibold text-[#59564F] uppercase tracking-wider block font-metadata">Syllabus breakdown</span>
+<div class="flex items-start gap-3 p-2.5 rounded-lg bg-surface-container-low border border-outline-variant text-sm">
+<span class="font-mono text-xs font-bold text-secondary bg-surface px-1.5 py-0.5 rounded border border-outline-variant">01</span>
+<span class="text-[#171717]">Phishing mechanics &amp; calm verification</span>
+</div>
+<div class="flex items-start gap-3 p-2.5 rounded-lg bg-surface-container-low border border-outline-variant text-sm">
+<span class="font-mono text-xs font-bold text-secondary bg-surface px-1.5 py-0.5 rounded border border-outline-variant">02</span>
+<span class="text-[#171717]">Multi-factor auth &amp; token security</span>
+</div>
+<div class="flex items-start gap-3 p-2.5 rounded-lg bg-surface-container-low border border-outline-variant text-sm">
+<span class="font-mono text-xs font-bold text-secondary bg-surface px-1.5 py-0.5 rounded border border-outline-variant">03</span>
+<span class="text-[#171717]">Password managers &amp; account segmentation</span>
+</div>
+<div class="flex items-start gap-3 p-2.5 rounded-lg bg-surface-container-low border border-outline-variant text-sm">
+<span class="font-mono text-xs font-bold text-secondary bg-surface px-1.5 py-0.5 rounded border border-outline-variant">04</span>
+<span class="text-[#171717]">Device boundaries &amp; safe Wi-Fi triage</span>
+</div>
+<div class="flex items-start gap-3 p-2.5 rounded-lg bg-surface-container-low border border-outline-variant text-sm">
+<span class="font-mono text-xs font-bold text-secondary bg-surface px-1.5 py-0.5 rounded border border-outline-variant">05</span>
+<span class="text-[#171717]">Practical incident report teach-back</span>
+</div>
+</div>
+</div>
+<!-- Card Footer -->
+<div class="pt-5 border-t border-outline-variant flex items-center justify-between">
+<span class="font-metadata text-xs text-[#59564F]">Self-paced • No job promises</span>
+<a class="text-primary font-semibold font-metadata text-metadata inline-flex items-center gap-1 hover:underline focus:outline-none" href="a13d0fc3f83840e2a7dea64d881e5041.html">
+              Explore Cybersecurity Essentials <span aria-hidden="true">→</span>
+</a>
+</div>
+</article>
+</div>
+</section>
+<!-- HOW IT WORKS SECTION (id="how-it-works") -->
+<section class="w-full bg-[#EEFEDE]/30 py-16 border-t border-outline-variant scroll-mt-20" id="how-it-works">
+<div class="w-full max-w-7xl mx-auto px-margin">
+<div class="max-w-2xl mb-12">
+<span class="font-metadata text-metadata text-primary font-semibold uppercase tracking-wider block mb-1">Deliberate Architecture</span>
+<h2 class="custom-fredoka-title text-3xl sm:text-4xl text-[#171717] mb-2">How it works</h2>
+<p class="font-ui-body text-ui-body text-[#59564F]">
+            Four measured steps from initial intention to verified understanding.
+          </p>
+</div>
+<!-- 4-Step Process Grid -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+<!-- Step 1 -->
+<div class="bg-surface-container-lowest p-6 rounded-2xl border border-outline-variant flex flex-col justify-between">
+<div>
+<span class="font-mono text-sm font-bold text-secondary mb-3 block">01</span>
+<h3 class="custom-fredoka-title text-xl text-[#171717] mb-2">Set practical goal &amp; tone</h3>
+<p class="text-sm text-[#59564F] leading-relaxed mb-4">
+                Choose your learning objective and select an explanation tone: Beginner-friendly, Standard, or Technical depth.
+              </p>
+</div>
+<div class="bg-surface p-2.5 rounded-lg border border-outline-variant text-xs text-[#171717]">
+              Tone adapts without altering factual rigor.
+            </div>
+</div>
+<!-- Step 2 -->
+<div class="bg-surface-container-lowest p-6 rounded-2xl border border-outline-variant flex flex-col justify-between">
+<div>
+<span class="font-mono text-sm font-bold text-secondary mb-3 block">02</span>
+<h3 class="custom-fredoka-title text-xl text-[#171717] mb-2">Match course &amp; baseline</h3>
+<p class="text-sm text-[#59564F] leading-relaxed mb-4">
+                Take an optional low-stakes 3-minute diagnostic or skip directly to Module 1 without penalty or lockouts.
+              </p>
+</div>
+<div class="bg-surface p-2.5 rounded-lg border border-outline-variant text-xs text-[#171717]">
+              No penalty for exploring advanced modules.
+            </div>
+</div>
+<!-- Step 3 -->
+<div class="bg-surface-container-lowest p-6 rounded-2xl border border-outline-variant flex flex-col justify-between">
+<div>
+<span class="font-mono text-sm font-bold text-secondary mb-3 block">03</span>
+<h3 class="custom-fredoka-title text-xl text-[#171717] mb-2">Learn, Practise, Teach-back</h3>
+<p class="text-sm text-[#59564F] leading-relaxed mb-4">
+                Progress at a calm, deliberate pace without artificial streaks, pop-up countdowns, or peer comparisons.
+              </p>
+</div>
+<div class="bg-surface p-2.5 rounded-lg border border-outline-variant text-xs text-[#171717]">
+              No urgency mechanics or countdown alarms.
+            </div>
+</div>
+<!-- Step 4 -->
+<div class="bg-surface-container-lowest p-6 rounded-2xl border border-outline-variant flex flex-col justify-between">
+<div>
+<span class="font-mono text-sm font-bold text-secondary mb-3 block">04</span>
+<h3 class="custom-fredoka-title text-xl text-[#171717] mb-2">Criterion feedback</h3>
+<p class="text-sm text-[#59564F] leading-relaxed mb-4">
+                Receive clear criteria notes showing exactly what was understood and recommended next exercises.
+              </p>
+</div>
+<div class="bg-surface p-2.5 rounded-lg border border-outline-variant text-xs text-[#171717]">
+              Qualitative rubric, not a numerical score.
+            </div>
+</div>
+</div>
+</div>
+</section>
+<!-- LANGUAGE & REGIONAL EDITIONS -->
+<section class="w-full max-w-7xl mx-auto px-margin py-16 border-t border-outline-variant">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+<div class="lg:col-span-5">
+<span class="font-metadata text-metadata text-secondary font-semibold uppercase tracking-wider block mb-1">Accessibility &amp; Reach</span>
+<h2 class="custom-fredoka-title text-3xl text-[#171717] mb-3">Language &amp; Regional Editions</h2>
+<p class="font-ui-body text-ui-body text-[#59564F] mb-4">
+            CuriousNext is built with explicit localization clarity. Non-English editions require fluent-speaker review before release.
+          </p>
+<div class="p-4 rounded-xl bg-surface-container border border-outline-variant text-xs text-[#59564F] leading-relaxed">
+<strong class="text-[#171717] font-semibold block mb-1">Honest Localization Policy:</strong>
+            Translations are target editions currently in community review. We do not use silent automated fallbacks to English without explicit user consent.
+          </div>
+</div>
+<div class="lg:col-span-7">
+<div class="bg-surface-container-lowest rounded-2xl border border-outline p-6 space-y-3">
+<div class="text-xs font-semibold text-[#59564F] uppercase tracking-wider mb-2 font-metadata">Status by edition</div>
+<!-- English -->
+<div class="flex items-center justify-between p-3 rounded-xl bg-[#FAFBE9] border border-outline-variant">
+<div class="flex items-center gap-3">
+<span class="w-8 h-8 rounded-lg bg-surface-container flex items-center justify-center font-bold text-xs text-[#171717]">EN</span>
+<span class="font-medium text-[#171717]">English</span>
+</div>
+<span class="inline-flex items-center px-2.5 py-1 rounded-full text-xs font-semibold bg-secondary-container text-on-secondary-fixed border border-secondary">
+                Draft demo available
+              </span>
+</div>
+<!-- Nigerian Pidgin -->
+<div class="flex items-center justify-between p-3 rounded-xl bg-surface-container-low border border-outline-variant">
+<div class="flex items-center gap-3">
+<span class="w-8 h-8 rounded-lg bg-surface-container flex items-center justify-center font-bold text-xs text-[#171717]">PCM</span>
+<span class="font-medium text-[#171717]">Nigerian Pidgin</span>
+</div>
+<span class="inline-flex items-center px-2.5 py-1 rounded-full text-xs font-medium bg-surface-container text-[#59564F] border border-outline-variant">
+                Review pending
+              </span>
+</div>
+<!-- Igbo -->
+<div class="flex items-center justify-between p-3 rounded-xl bg-surface-container-low border border-outline-variant">
+<div class="flex items-center gap-3">
+<span class="w-8 h-8 rounded-lg bg-surface-container flex items-center justify-center font-bold text-xs text-[#171717]">IBO</span>
+<span class="font-medium text-[#171717]">Igbo</span>
+</div>
+<span class="inline-flex items-center px-2.5 py-1 rounded-full text-xs font-medium bg-surface-container text-[#59564F] border border-outline-variant">
+                Review pending
+              </span>
+</div>
+<!-- Yoruba -->
+<div class="flex items-center justify-between p-3 rounded-xl bg-surface-container-low border border-outline-variant">
+<div class="flex items-center gap-3">
+<span class="w-8 h-8 rounded-lg bg-surface-container flex items-center justify-center font-bold text-xs text-[#171717]">YOR</span>
+<span class="font-medium text-[#171717]">Yoruba</span>
+</div>
+<span class="inline-flex items-center px-2.5 py-1 rounded-full text-xs font-medium bg-surface-container text-[#59564F] border border-outline-variant">
+                Review pending
+              </span>
+</div>
+<!-- Hausa -->
+<div class="flex items-center justify-between p-3 rounded-xl bg-surface-container-low border border-outline-variant">
+<div class="flex items-center gap-3">
+<span class="w-8 h-8 rounded-lg bg-surface-container flex items-center justify-center font-bold text-xs text-[#171717]">HAU</span>
+<span class="font-medium text-[#171717]">Hausa</span>
+</div>
+<span class="inline-flex items-center px-2.5 py-1 rounded-full text-xs font-medium bg-surface-container text-[#59564F] border border-outline-variant">
+                Review pending
+              </span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- ACCESSIBILITY & NEUTRALITY NOTE -->
+<section class="w-full bg-[#FAFBE9] py-12 border-t border-outline-variant">
+<div class="w-full max-w-7xl mx-auto px-margin flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
+<div class="flex items-start gap-4">
+<div class="w-10 h-10 rounded-xl bg-surface-container-high flex items-center justify-center text-primary shrink-0 border border-outline-variant">
+<span class="material-symbols-outlined text-[24px]">accessibility_new</span>
+</div>
+<div>
+<h3 class="custom-fredoka-title text-xl text-[#171717]">Accessibility &amp; Cognitive Neutrality Guarantee</h3>
+<p class="text-sm text-[#59564F] max-w-3xl mt-0.5">
+              All visual diagrams contain semantic text equivalents and flow naturally for screen readers. High contrast modes and keyboard-first navigation paths are supported natively without external overlays.
+            </p>
+</div>
+</div>
+<div class="shrink-0 text-xs font-mono font-medium text-secondary bg-surface-container px-3 py-1.5 rounded-lg border border-outline-variant">
+          WCAG 2.1 AA Compliant
+        </div>
+</div>
+</section>
+</main>
+<!-- FOOTER (Shared Component: Footer) -->
+<footer class="bg-surface-container border-t border-outline-variant">
+<div class="w-full max-w-7xl mx-auto px-margin py-space-xl flex flex-col md:flex-row justify-between items-center gap-gutter">
+<!-- Brand & Honest Workspace Disclosure -->
+<div class="flex flex-col gap-2 max-w-lg text-center md:text-left">
+<div class="flex items-center justify-center md:justify-start gap-2">
+<span class="custom-fredoka-title text-[20px] text-[#171717]">CuriousNext</span>
+<span class="text-xs text-[#59564F] font-metadata">• Draft Pilot Workspace</span>
+</div>
+<p class="font-metadata text-xs text-on-surface-variant leading-relaxed">
+          CuriousNext does not feature public leaderboards, ranking points, streak penalties, or peer comparisons. Our workspace is strictly nonjudgmental, focused on verifiable practical retention.
+        </p>
+<div class="text-xs text-[#59564F] mt-1">
+          © 2024 CuriousNext. All rights reserved. Pilot educational experience.
+        </div>
+</div>
+<!-- Links (JSON Mandatory List: Privacy Policy, Terms of Service, Accessibility Disclosures, Feedback) -->
+<nav aria-label="Footer Links" class="flex flex-wrap items-center justify-center gap-6">
+<a class="text-on-surface-variant font-metadata text-metadata hover:text-primary transition-colors duration-150" href="#privacy">
+          Privacy Policy
+        </a>
+<a class="text-on-surface-variant font-metadata text-metadata hover:text-primary transition-colors duration-150" href="#terms">
+          Terms of Service
+        </a>
+<a class="text-on-surface-variant font-metadata text-metadata hover:text-primary transition-colors duration-150" href="#accessibility">
+          Accessibility Disclosures
+        </a>
+<a class="text-on-surface-variant font-metadata text-metadata hover:text-primary transition-colors duration-150" href="#feedback">
+          Feedback
+        </a>
+</nav>
+</div>
+</footer>
+</body></html>
