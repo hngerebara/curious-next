@@ -5,7 +5,7 @@
 | ID | Status | Evidence |
 |---|---|---|
 | M0 | completed | Governance documents, local checker and regression tests. Validation commands recorded below. |
-| M1 | pending | No stack selected, reference and rubric review pending. |
+| M1 | in_progress | Neon selected. [Stack proposal](docs/design-docs/decisions/002-neon-pilot-stack.md), API and deployment drafts prepared. Remaining providers, integration tests, reference and rubric review pending. |
 | M1.5 | in_progress | Stitch desktop/mobile mockups and [design handoff](docs/design-docs/screen-handoff.md). Locally corrected static previews prepared. User review pending. Runtime accessibility remains untested. |
 | M2 | pending | No application screens or learner journeys implemented. |
 | M3 | pending | Logical contracts only, no runtime persistence or model integration. |
@@ -19,7 +19,7 @@ M0: `python3 scripts/validate_repo.py` and `python3 -m unittest discover -s test
 
 ## Limitations and next work
 
-Origin is configured as https://github.com/hngerebara/curious-next.git. Remote inspection returned no refs on 2026-10-07. Initial publication is in progress, with governance and planning changes proposed through an unmerged PR. A manual slice PR workflow is supplied. No recurring agent is active. [Implement.md](Implement.md) describes the requested future model configuration, not current execution. Reference review, technology decisions, and data retention are M1 prerequisites.
+The initial remote inspection returned no refs on 2026-10-07. Subsequent planning slices have been published through PRs. Current design and foundation work remains proposed through unmerged PRs. A manual slice PR workflow is supplied. No recurring agent is active. [Implement.md](Implement.md) describes the requested future model configuration, not current execution. Reference review, technology decisions, and data retention are M1 prerequisites.
 
 [Plan](Plans.md), [active plan](docs/exec-plans/active/pilot.md), [tech debt](docs/exec-plans/tech-debt-tracker.md), [decision log](docs/design-docs/decisions/index.md).
 
@@ -64,3 +64,9 @@ Origin is configured as https://github.com/hngerebara/curious-next.git. Remote i
 2026-10-07: user requested public homepage and login designs, and email magic links as the only sign-up/login method. Product, frontend, user-flow and security requirements updated. Reference typography inspected: Fredoka 600 for large headlines, Inter for supporting headings and text. Existing static previews rerendered using that pairing. Authentication provider, delivery, token expiry and resend cooldown remain M1 decisions. No email is sent by these designs.
 
 2026-10-08: added four selected public-homepage and magic-link access designs, bringing the handoff to 31 screens. Auth forms start with one blank email field and no password controls. Fredoka loaded in all four new previews. Mobile homepage and auth checked at 320px without horizontal overflow. All 31 static artifact checks, repository checks and 16 regression tests passed. Added artifact integrity and email-only form checks to CI. These do not validate a live authentication service.
+
+## Neon foundation preparation
+
+2026-10-08: THE-12 tracks CN-FOUNDATION-001. Neon is the selected database. Added a proposed Next.js/Drizzle/Better Auth/Resend/Vercel stack, draft authentication/course-entry API and deployment runbook. No services provisioned or runtime tests executed. Provider acceptance, budget, retention, authentication spike and curriculum review remain open. Entry review found and corrected an inert mobile homepage login control in the local static artifact. Required repository, checker and artifact commands provide reproducible validation for this slice.
+
+Validation: mobile homepage header login navigated to the blank magic-link form at 320px. Updated homepage captures at 320px and 1440px showed no horizontal overflow. Course lists now match syllabus modules. Footer legal links and auth state controls remain static placeholders, not implemented behavior.
