@@ -33,3 +33,7 @@ Origin is configured as https://github.com/hngerebara/curious-next.git. Remote i
 ## Slice PR publication
 
 2026-10-07: added per-slice test, review, fix, and PR instructions, a PR template, and a manual test-before-PR GitHub workflow. No merging is authorised. Local tests and remote CI results will be reported with the PR.
+
+## Design specification slice
+
+2026-10-07: expanded docs/DESIGN.md with focused workspace layout concepts, proposed CuriousNext tokens, screen/component guidance and accessible multilingual presentation. Curious Tech Girl post skill/reference is not located, so brand attribution remains pending. No rendered UI validation is claimed. Repository checks and regression tests are required for this slice.
