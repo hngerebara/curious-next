@@ -130,7 +130,7 @@
         "## Visual specification",
         "## Guided practice",
         "## Independent assessment",
-        "## Rubric CY-2 v1",
+        "## Rubric CY-2 v2",
         "## Review status"
       ]
     },
@@ -156,7 +156,7 @@
         "## Visual specification",
         "## Guided practice",
         "## Independent assessment",
-        "## Rubric AI-2 v1",
+        "## Rubric AI-2 v2",
         "## Review status"
       ]
     },
@@ -403,6 +403,45 @@
         "## Scope and evidence",
         "## Mobile and keyboard walkthrough",
         "## Reproduce and remaining gates"
+      ]
+    },
+    "docs/curriculum/practical-ai/reference-module-v1.md": {
+      "required_headings": [
+        "# Reference module: AI-2, Write clear prompts",
+        "## Lesson text",
+        "## Visual specification",
+        "## Guided practice",
+        "## Independent assessment",
+        "## Rubric AI-2 v1",
+        "## Review status"
+      ]
+    },
+    "docs/curriculum/cybersecurity-essentials/reference-module-v1.md": {
+      "required_headings": [
+        "# Reference module: CY-2, Recognise phishing",
+        "## Lesson text",
+        "## Visual specification",
+        "## Guided practice",
+        "## Independent assessment",
+        "## Rubric CY-2 v1",
+        "## Review status"
+      ]
+    },
+    "docs/curriculum/rubric-calibration.md": {
+      "required_headings": [
+        "# Reference rubric calibration pack",
+        "## Scope and status",
+        "## Case coverage and expected judgments",
+        "## Reviewer procedure and release gates",
+        "## Validation"
+      ]
+    },
+    "docs/exec-plans/active/curriculum-review.md": {
+      "required_headings": [
+        "# CN-CURRICULUM-001: Reference and rubric review",
+        "## Plan lifecycle",
+        "## Deliverables",
+        "## Validation and remaining gates"
       ]
     }
   },

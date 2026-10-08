@@ -4,6 +4,8 @@
 
 - Practical AI: [syllabus](practical-ai/syllabus.md), [clear prompts reference module](practical-ai/reference-module.md).
 - Cybersecurity Essentials: [syllabus](cybersecurity-essentials/syllabus.md), [phishing reference module](cybersecurity-essentials/reference-module.md).
+- [Rubric calibration pack](rubric-calibration.md): draft v2 tasks, synthetic judgments and remaining expert/model review.
+- Preserved draft v1 modules: [Practical AI](practical-ai/reference-module-v1.md), [Cybersecurity](cybersecurity-essentials/reference-module-v1.md).
 
 ## Ownership
 
