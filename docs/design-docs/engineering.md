@@ -4,6 +4,8 @@
 
 Run `python3 scripts/validate_repo.py`, `python3 -m unittest discover -s tests`, and `python3 scripts/validate_design_artifacts.py`. These governance checks use Python's standard library. With Node.js 24, run `npm ci`, `npm run check`, and `npm audit --audit-level=high`. Application checks generate route types, type-check, test the authentication boundary and build. Both CI workflows run these checks. No live service credentials are required.
 
+`python3 scripts/validate_calibration.py` checks the synthetic reference pack's rubric fingerprints, action keys and expected evidence gates. It does not assess learner text or establish model accuracy. Review fixture judgments before refreshing a rubric fingerprint. Both CI workflows run this check.
+
 `docs/doc-state.json` fingerprints governed documents. After reviewing affected documentation, run `python3 scripts/validate_repo.py --refresh` and commit the resulting state. Refresh does not repair errors or certify truth. The checker requires valid links, required headings, milestone rows, registered Markdown files, matching document hashes, and dependency/taste rules.
 
 A source change also requires a change to Documentation.md relative to the PR base. Reviewers still assess whether updates are meaningful. No linter can prove that prose is accurate. CI does not validate remote links, release translations, or execute learner flows before an application exists.

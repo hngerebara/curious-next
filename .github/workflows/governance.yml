@@ -37,5 +37,7 @@ jobs:
         run: python3 scripts/validate_pr.py --event "$GITHUB_EVENT_PATH"
       - name: Test governance enforcement
         run: python3 -m unittest discover -s tests -v
+      - name: Validate curriculum calibration fixtures
+        run: python3 scripts/validate_calibration.py
       - name: Validate static design artifacts
         run: python3 scripts/validate_design_artifacts.py

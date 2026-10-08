@@ -66,6 +66,7 @@ jobs:
           set -eu
           python3 scripts/validate_repo.py --base "origin/$SLICE_BASE"
           python3 -m unittest discover -s tests -v
+          python3 scripts/validate_calibration.py
           python3 scripts/validate_design_artifacts.py
           git diff --check "origin/$SLICE_BASE...HEAD"
       - name: Open or reuse PR and post validation review

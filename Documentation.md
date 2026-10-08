@@ -86,3 +86,11 @@ Validation: 18 authentication/configuration tests passed using real Better Auth 
 Governance validation, all 21 checker/PR-metadata regression tests and all 31 static design artifact checks passed. A clean locked dependency installation succeeded. The manual PR workflow now accepts the intended base branch for stacked unmerged slices.
 
 Published as [draft PR #11](https://github.com/hngerebara/curious-next/pull/11), stacked on PR #10 and linked both ways to THE-13 (In Review). The implementing-agent semantic review records fixes and release limitations. Both [push CI](https://github.com/hngerebara/curious-next/actions/runs/37763152604) and [PR CI](https://github.com/hngerebara/curious-next/actions/runs/37763223269) passed for implementation commit 2c3da838523204ab9ef6287f46e1e60c66983dfc. This is not independent approval or live-service acceptance. The PR remains open and unmerged.
+
+## Reference and rubric review preparation
+
+2026-10-08: CN-CURRICULUM-001 / THE-14 maps selected OpenAI/NIST, FTC and Chromium primary-source sections to draft AI-2/CY-2 v2. Preserved v1 artifacts. Clarified the required recording-policy question, acceptable reporting branches, unsafe-action override, accessible presentation and substantive assistance. Added a [calibration pack](docs/curriculum/rubric-calibration.md) with 15 synthetic submissions and author-assigned expectations, plus fingerprint/action/evidence-gate checks in both workflows.
+
+Agent source review is complete for the stated scope. Subject approval, independent fixture labels, actual configured-assessor calibration and multilingual parity remain pending. No learner content is published, no model is called and no demonstration evidence is awarded. M1 remains in progress. Execution results and published-head CI are reported with the review PR.
+
+Local validation passed: 28 governance/calibration regression tests, 18 application tests, 15 fixture checks, repository governance and 31 static design checks. These checks validate tooling and policy expectations, not LLM grading accuracy.
