@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Assessment Pending - CuriousNext</title>
+<!-- Fonts & Icons -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;650;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "inverse-surface": "#323029",
+            "secondary-container": "#d7bafd",
+            "on-error-container": "#93000a",
+            "error-surface": "#FCEEEF",
+            "on-tertiary-fixed-variant": "#384760",
+            "on-secondary-container": "#5f4781",
+            "link": "#285F85",
+            "review-ink": "#81530B",
+            "on-tertiary-container": "#54647d",
+            "action": "#C8EF45",
+            "primary-container": "#c8ef45",
+            "tertiary-fixed": "#d5e3ff",
+            "success-ink": "#226347",
+            "outline-variant": "#c5c9af",
+            "tertiary": "#505f78",
+            "primary": "#516600",
+            "tertiary-fixed-dim": "#b7c7e4",
+            "on-primary-fixed-variant": "#3d4d00",
+            "surface-container-high": "#ede8dd",
+            "on-surface": "#1d1c15",
+            "highlight": "#C9ACEE",
+            "ink": "#171717",
+            "surface-container": "#f2ede2",
+            "on-tertiary-fixed": "#0b1c32",
+            "inverse-primary": "#afd52a",
+            "action-hover": "#B5DB32",
+            "surface": "#FFFFFF",
+            "on-background": "#1d1c15",
+            "on-secondary": "#ffffff",
+            "learning-surface": "#F0E8FA",
+            "tertiary-container": "#d1e1ff",
+            "primary-fixed": "#caf247",
+            "on-error": "#ffffff",
+            "surface-container-highest": "#e7e2d7",
+            "secondary-fixed-dim": "#d7bafd",
+            "on-surface-variant": "#454935",
+            "review-surface": "#FFF4D6",
+            "on-primary": "#ffffff",
+            "outline": "#757963",
+            "secondary": "#6c538e",
+            "error-ink": "#A52A32",
+            "border-control": "#71828D",
+            "ink-muted": "#59564F",
+            "on-primary-fixed": "#171e00",
+            "surface-dim": "#dedacf",
+            "surface-bright": "#fef9ee",
+            "inverse-on-surface": "#f5f0e5",
+            "surface-container-lowest": "#ffffff",
+            "secondary-fixed": "#eddcff",
+            "background": "#fef9ee",
+            "canvas": "#F5F0E5",
+            "surface-tint": "#516600",
+            "on-tertiary": "#ffffff",
+            "border-subtle": "#D6DFE3",
+            "on-primary-container": "#556b00",
+            "error-container": "#ffdad6",
+            "on-secondary-fixed-variant": "#533b74",
+            "on-secondary-fixed": "#260c46",
+            "error": "#ba1a1a",
+            "surface-container-low": "#f8f3e8",
+            "success-surface": "#EAF5EE",
+            "surface-variant": "#e7e2d7",
+            "primary-fixed-dim": "#afd52a"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.125rem",
+            "lg": "0.25rem",
+            "xl": "0.5rem",
+            "full": "0.75rem",
+            "card": "1.25rem",
+            "input": "0.75rem"
+          },
+          "spacing": {
+            "space-md": "0.75rem",
+            "gutter": "1rem",
+            "space-xl": "3rem",
+            "margin": "1.5rem",
+            "space-sm": "0.5rem",
+            "space-lg": "1.5rem",
+            "space-2xl": "4rem",
+            "space-xs": "0.25rem"
+          },
+          "fontFamily": {
+            "card-heading": ["Inter"],
+            "page-title-mobile": ["Inter"],
+            "page-title": ["Inter"],
+            "ui-body": ["Inter"],
+            "section-heading": ["Inter"],
+            "metadata": ["Inter"],
+            "section-heading-mobile": ["Inter"],
+            "lesson-body": ["Inter"]
+          },
+          "fontSize": {
+            "card-heading": ["20px", { "lineHeight": "1.35", "fontWeight": "650" }],
+            "page-title-mobile": ["28px", { "lineHeight": "1.2", "fontWeight": "700" }],
+            "page-title": ["36px", { "lineHeight": "1.2", "fontWeight": "700" }],
+            "ui-body": ["16px", { "lineHeight": "1.5", "fontWeight": "400" }],
+            "section-heading": ["24px", { "lineHeight": "1.3", "fontWeight": "650" }],
+            "metadata": ["14px", { "lineHeight": "1.5", "fontWeight": "500" }],
+            "section-heading-mobile": ["22px", { "lineHeight": "1.3", "fontWeight": "650" }],
+            "lesson-body": ["18px", { "lineHeight": "1.65", "fontWeight": "400" }]
+          }
+        }
+      }
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      display: inline-block;
+      vertical-align: middle;
+      line-height: 1;
+    }
+    .touch-target {
+      min-height: 44px;
+      min-width: 44px;
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@600&amp;display=swap" rel="stylesheet"/><style>h1{font-family:Fredoka,"Noto Sans",system-ui,sans-serif!important;font-weight:600!important;line-height:1.2}</style></head>
+<body class="bg-canvas text-ink antialiased min-h-screen flex flex-col justify-between items-center selection:bg-action selection:text-ink"><div style="padding:10px 16px;background:#FFF4D6;color:#171717;font:14px/1.5 Inter,system-ui,sans-serif">Design preview · Fictional sample data · Draft curriculum</div>
+<!-- Mobile View Container: 390px Width Target -->
+<div class="w-full max-w-[420px] bg-canvas flex flex-col min-h-screen relative shadow-sm">
+<!-- Top Navigation Header (Derived from Shared Component TopAppBar) -->
+<header class="bg-canvas text-ink flex justify-between items-center w-full px-margin h-16 sticky top-0 z-40">
+<div class="flex items-center space-x-2">
+<span class="material-symbols-outlined text-ink text-[26px]">school</span>
+<span class="text-section-heading-mobile font-section-heading-mobile font-bold text-ink">CuriousNext</span>
+</div>
+<button aria-label="Open navigation menu" class="min-h-[44px] min-w-[44px] flex items-center justify-center rounded-input text-ink active:scale-[0.98] transition-transform duration-150 hover:bg-surface-container" type="button">
+<span class="material-symbols-outlined text-ink text-[24px]">menu</span>
+</button>
+</header>
+<!-- Context & Back Link Bar -->
+<nav aria-label="Breadcrumb" class="px-margin pt-1 pb-3 flex items-center justify-between">
+<a class="inline-flex items-center space-x-1 text-link text-metadata font-metadata min-h-[44px] rounded-input py-1 px-1 -ml-1 active:scale-[0.98] transition-transform focus:outline-none focus:ring-2 focus:ring-link" href="#module-2">
+<span class="material-symbols-outlined text-[18px]">arrow_back</span>
+<span>Back to Module 2</span>
+</a>
+<span class="text-metadata font-metadata text-ink-muted">Module AI-2 · Independent Task</span>
+</nav>
+<!-- Main Content Canvas -->
+<main class="px-margin flex-1 pb-24 space-y-4">
+<!-- Page Title Header -->
+<section class="space-y-1">
+<div class="flex items-center gap-2">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-surface-container border border-border-subtle text-ink-muted text-metadata font-metadata">
+<span class="material-symbols-outlined text-[16px] text-tertiary">assignment_turned_in</span>
+<span>Task AI-2.4</span>
+</span>
+<span class="text-metadata font-metadata text-ink-muted">Independent Evaluation</span>
+</div>
+<h1 class="text-page-title-mobile font-page-title-mobile text-ink tracking-tight pt-1">
+          Assessment Pending
+        </h1>
+<p class="text-ui-body font-ui-body text-ink-muted">
+          Your response has been sealed for review against rubric criteria.
+        </p>
+</section>
+<!-- Status Banner: Assessing Submission -->
+<section class="bg-review-surface border border-outline-variant rounded-card p-4 space-y-2">
+<div class="flex items-start gap-3">
+<div class="w-10 h-10 rounded-input bg-review-surface border border-outline-variant flex items-center justify-center flex-shrink-0 text-review-ink mt-0.5">
+<span class="material-symbols-outlined animate-spin text-[22px]" style="animation-duration: 3s;">progress_activity</span>
+</div>
+<div class="space-y-1 flex-1">
+<div class="flex items-center justify-between">
+<h2 class="text-card-heading font-card-heading text-ink text-base">Assessing submission</h2>
+<span class="text-metadata font-metadata text-review-ink font-semibold">Running</span>
+</div>
+<p class="text-metadata font-metadata text-ink-muted">
+              Evaluation checks clear constraint formulation, contextual specificity, and self-rationale alignment.
+            </p>
+</div>
+</div>
+<div class="bg-surface/80 rounded-input p-3 border border-border-subtle flex items-start gap-2">
+<span class="material-symbols-outlined text-[18px] text-tertiary flex-shrink-0 mt-0.5">verified_user</span>
+<p class="text-metadata font-metadata text-ink-muted">
+<strong class="font-semibold text-ink">No result or capability award is recorded while evaluation is running.</strong> CuriousNext never provides guessed scores.
+          </p>
+</div>
+</section>
+<!-- Duplicate Submission Control Callout -->
+<section class="bg-surface rounded-card p-3.5 border border-border-subtle flex items-start gap-3">
+<div class="w-9 h-9 rounded-input bg-surface-container flex items-center justify-center flex-shrink-0 text-ink-muted mt-0.5">
+<span class="material-symbols-outlined text-[20px]">sync_disabled</span>
+</div>
+<div class="space-y-0.5">
+<h3 class="text-metadata font-metadata font-semibold text-ink">Duplicate submission prevented</h3>
+<p class="text-metadata font-metadata text-ink-muted">
+            A new submission cannot be sent while this task assessment is in progress. The current version remains the verified reference.
+          </p>
+</div>
+</section>
+<!-- Immutable Submitted Snapshot Card -->
+<article class="bg-surface rounded-card border border-border-control p-4 space-y-4">
+<!-- Card Header with Lock Badge & Meta -->
+<div class="flex items-start justify-between border-b border-border-subtle pb-3">
+<div class="space-y-0.5">
+<div class="flex items-center gap-2">
+<span class="text-card-heading font-card-heading text-ink">Submitted Work Snapshot</span>
+</div>
+<p class="text-metadata font-metadata text-ink-muted">
+              Version v1.4 · Submitted 3 minutes ago
+            </p>
+</div>
+<div class="inline-flex items-center gap-1 bg-surface-container px-2 py-1 rounded-input border border-border-subtle">
+<span class="material-symbols-outlined text-[16px] text-ink">lock</span>
+<span class="text-metadata font-metadata font-semibold text-ink">Locked</span>
+</div>
+</div>
+<!-- Lock notification badge -->
+<div class="flex items-center gap-2 px-3 py-2 bg-surface-container-low rounded-input border border-border-subtle text-metadata font-metadata text-ink-muted">
+<span class="material-symbols-outlined text-[16px] text-ink-muted">history_edu</span>
+<span>Submitted work is locked and immutable. Ref: <code class="font-semibold text-ink">#SUB-8402</code></span>
+</div>
+<!-- Learner Submitted Work Excerpts -->
+<div class="space-y-3">
+<!-- Submitted Prompt Section -->
+<div class="space-y-1.5">
+<span class="text-metadata font-metadata text-ink-muted flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[16px] text-tertiary">terminal</span>
+              Prompt Drafted by Learner
+            </span>
+<div class="p-3 bg-surface-container-low rounded-input border border-border-subtle text-ui-body font-ui-body text-ink space-y-2">
+<p class="font-medium">
+                "Draft 4 customer FAQ entries for River Cafe..."
+              </p>
+<p class="text-metadata font-metadata text-ink-muted leading-relaxed">
+                "Include: (1) seasonal outdoor deck policies, (2) dietary labeling protocols, (3) walk-in vs reservation seating windows, and (4) parking validation terms. Tone must be warm, direct, and under 55 words per answer."
+              </p>
+</div>
+</div>
+<!-- Submitted Rationale Section -->
+<div class="space-y-1.5">
+<span class="text-metadata font-metadata text-ink-muted flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[16px] text-tertiary">notes</span>
+              Learner Rationale &amp; Constraints
+            </span>
+<div class="p-3 bg-surface-container-low rounded-input border border-border-subtle text-metadata font-metadata text-ink-muted">
+<p>
+                "Specified itemized parameters and rigid word budgets to eliminate boilerplate verbosity, directly applying Module 2's negative constraint formula."
+              </p>
+</div>
+</div>
+</div>
+<!-- Evidence Integrity Footnote -->
+<div class="pt-2 border-t border-border-subtle flex items-center justify-between text-metadata font-metadata text-ink-muted">
+<span class="flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px] text-success-ink">check_circle</span>
+            Integrity check passed
+          </span>
+<span class="font-mono text-xs text-ink-muted">SHA-256: 4f98...c21a</span>
+</div>
+</article>
+<!-- Unblocked Learning Pathway Card (Next-Action Card pattern on learning-surface) -->
+<section class="bg-learning-surface border border-secondary-container rounded-card p-4 space-y-3">
+<div class="space-y-1">
+<div class="inline-flex items-center gap-1 text-secondary text-metadata font-metadata font-semibold">
+<span class="material-symbols-outlined text-[18px]">route</span>
+<span>Unblocked Learning Pathway</span>
+</div>
+<h2 class="text-card-heading font-card-heading text-ink">
+            Learning and practice remain accessible
+          </h2>
+<p class="text-metadata font-metadata text-ink-muted">
+            Evaluation proceeds in the background. You are free to advance through upcoming hands-on drills or review module theory without losing state.
+          </p>
+</div>
+<!-- Action Buttons -->
+<div class="space-y-2 pt-1">
+<!-- Primary Action Button: Lime #C8EF45, ink text, verb-based label -->
+<button class="w-full min-h-[44px] bg-action hover:bg-action-hover active:scale-[0.98] text-ink font-semibold rounded-input px-4 py-2.5 flex items-center justify-center gap-2 transition-transform duration-150 shadow-none focus:outline-none focus:ring-2 focus:ring-link" type="button">
+<span class="text-ui-body font-ui-body font-semibold">Continue to next practice exercise</span>
+<span class="material-symbols-outlined text-[20px]">arrow_forward</span>
+</button>
+<!-- Secondary Action Button: Clean surface with border-control outline -->
+<button class="w-full min-h-[44px] bg-surface hover:bg-surface-container active:scale-[0.98] text-ink font-semibold rounded-input px-4 py-2.5 border border-border-control flex items-center justify-center gap-2 transition-transform duration-150 focus:outline-none focus:ring-2 focus:ring-link" type="button">
+<span class="material-symbols-outlined text-[18px] text-ink-muted">menu_book</span>
+<span class="text-ui-body font-ui-body font-semibold">Review Module 2 lesson notes</span>
+</button>
+</div>
+<p class="text-center text-xs text-ink-muted pt-1">
+          Estimated review duration: ~4–6 minutes. You will receive an unobtrusive badge notification when ready.
+        </p>
+</section>
+<!-- System Metadata & Assessment Philosophy Notice -->
+<section class="bg-surface rounded-card border border-border-subtle p-3.5 space-y-2.5">
+<div class="flex items-center justify-between text-metadata font-metadata text-ink-muted border-b border-border-subtle pb-2">
+<span>Verification engine</span>
+<span class="font-mono text-xs text-ink">eval-core-v2.8</span>
+</div>
+<div class="flex items-center justify-between text-metadata font-metadata text-ink-muted border-b border-border-subtle pb-2">
+<span>Submission timestamp</span>
+<span class="font-mono text-xs text-ink">Today, 14:32:08 UTC</span>
+</div>
+<div class="flex items-center justify-between text-metadata font-metadata text-ink-muted border-b border-border-subtle pb-2">
+<span>Estimated queue</span>
+<span class="text-xs font-semibold text-ink">Normal (&lt; 5 min)</span>
+</div>
+<!-- Nonjudgmental Adult Workspace Guarantee -->
+<div class="pt-1 flex items-start gap-2">
+<span class="material-symbols-outlined text-[18px] text-ink-muted flex-shrink-0 mt-0.5">balance</span>
+<p class="text-metadata font-metadata text-ink-muted">
+<strong class="font-medium text-ink">CuriousNext records assessment on evidence only.</strong> No comparative rank, social leaderboard, or time-pressure penalties exist in this environment.
+          </p>
+</div>
+</section>
+</main>
+<!-- Bottom Navigation Bar (Derived exactly from Shared Component BottomNavBar) -->
+<!-- Fixed bottom docked bar with Learn active -->
+<nav aria-label="Bottom Navigation" class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-gutter h-16 pb-safe bg-canvas text-primary">
+<!-- Tab 1: Learn (ACTIVE) -->
+<a class="flex flex-col items-center justify-center bg-action text-ink rounded-xl px-4 py-1 min-h-[44px] min-w-[44px] font-semibold active:scale-[0.98] transition-transform duration-150" href="#learn">
+<span class="material-symbols-outlined text-[22px]">menu_book</span>
+<span class="text-metadata font-metadata">Learn</span>
+</a>
+<!-- Tab 2: My Courses (INACTIVE) -->
+<a class="flex flex-col items-center justify-center text-ink-muted px-4 py-1 min-h-[44px] min-w-[44px] active:scale-[0.98] transition-transform duration-150 hover:bg-surface-container-high" href="#courses">
+<span class="material-symbols-outlined text-[22px]">collections_bookmark</span>
+<span class="text-metadata font-metadata">My Courses</span>
+</a>
+<!-- Tab 3: Evidence (INACTIVE) -->
+<a class="flex flex-col items-center justify-center text-ink-muted px-4 py-1 min-h-[44px] min-w-[44px] active:scale-[0.98] transition-transform duration-150 hover:bg-surface-container-high" href="#evidence">
+<span class="material-symbols-outlined text-[22px]">verified</span>
+<span class="text-metadata font-metadata">Evidence</span>
+</a>
+</nav>
+</div>
+</body></html>

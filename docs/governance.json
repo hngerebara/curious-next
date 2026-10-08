@@ -329,6 +329,16 @@
         "## Deliverables",
         "## Review and validation"
       ]
+    },
+    "docs/design-docs/screen-handoff.md": {
+      "required_headings": [
+        "# CuriousNext screen design handoff",
+        "## Status and artifacts",
+        "## Flow and screen inventory",
+        "## Interaction handoff",
+        "## Review findings and acceptance",
+        "## Validation and regeneration"
+      ]
     }
   },
   "layers": {

@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+
+<html class="h-full" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>CuriousNext — Learn Workspace</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;700&amp;family=Inter:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">tailwind.config = {darkMode: "class", theme: {extend: {colors: {"ink-muted": "#59564F", "surface-variant": "#e7e2d7", "on-surface-variant": "#454935", "surface-tint": "#516600", "on-primary": "#ffffff", "surface-container-highest": "#e7e2d7", "on-surface": "#1d1c15", "primary-container": "#c8ef45", "success-surface": "#EAF5EE", "on-secondary-container": "#5f4781", "surface-container": "#f2ede2", surface: "#fef9ee", "border-control": "#71828D", "tertiary-container": "#d1e1ff", "secondary-fixed": "#eddcff", "inverse-surface": "#323029", "inverse-on-surface": "#f5f0e5", secondary: "#6c538e", "surface-container-high": "#ede8dd", "learning-surface": "#F0E8FA", "on-secondary-fixed": "#260c46", "error-surface": "#FCEEEF", "tertiary-fixed-dim": "#b7c7e4", "tertiary-fixed": "#d5e3ff", "success-ink": "#226347", "on-error": "#ffffff", "error-container": "#ffdad6", "surface-bright": "#fef9ee", ink: "#171717", "action-hover": "#B5DB32", "on-tertiary-fixed": "#0b1c32", "on-primary-fixed": "#171e00", "surface-container-lowest": "#ffffff", "on-tertiary": "#ffffff", outline: "#757963", "secondary-fixed-dim": "#d7bafd", tertiary: "#505f78", "on-error-container": "#93000a", canvas: "#F5F0E5", "outline-variant": "#c5c9af", "on-primary-container": "#556b00", primary: "#516600", "inverse-primary": "#afd52a", action: "#C8EF45", "review-surface": "#FFF4D6", "review-ink": "#81530B", "on-secondary-fixed-variant": "#533b74", "primary-fixed-dim": "#afd52a", "on-primary-fixed-variant": "#3d4d00", "surface-container-low": "#f8f3e8", error: "#ba1a1a", "secondary-container": "#d7bafd", "on-background": "#1d1c15", "on-tertiary-container": "#54647d", "on-secondary": "#ffffff", "border-subtle": "#D6DFE3", link: "#285F85", "on-tertiary-fixed-variant": "#384760", "primary-fixed": "#caf247", "error-ink": "#A52A32", highlight: "#C9ACEE", "surface-dim": "#dedacf", background: "#fef9ee"}, borderRadius: {DEFAULT: "0.125rem", lg: "0.25rem", xl: "0.5rem", full: "0.75rem"}, spacing: {"space-xs": "0.25rem", "space-sm": "0.5rem", "space-md": "0.75rem", gutter: "1rem", "space-lg": "1.5rem", margin: "1.5rem", "space-xl": "3rem", "space-2xl": "4rem"}, fontFamily: {"page-title-mobile": ["Inter"], metadata: ["Inter"], "card-heading": ["Inter"], "section-heading-mobile": ["Inter"], "section-heading": ["Inter"], "lesson-body": ["Inter"], "page-title": ["Inter"], "ui-body": ["Inter"], headline: ["Inter"], display: ["Inter"], body: ["Inter"], label: ["Inter"]}, fontSize: {"page-title-mobile": ["28px", {lineHeight: "1.2", fontWeight: "700"}], metadata: ["14px", {lineHeight: "1.5", fontWeight: "500"}], "card-heading": ["20px", {lineHeight: "1.35", fontWeight: "650"}], "section-heading-mobile": ["22px", {lineHeight: "1.3", fontWeight: "650"}], "section-heading": ["24px", {lineHeight: "1.3", fontWeight: "650"}], "lesson-body": ["18px", {lineHeight: "1.65", fontWeight: "400"}], "page-title": ["36px", {lineHeight: "1.2", fontWeight: "700"}], "ui-body": ["16px", {lineHeight: "1.5", fontWeight: "400"}]}}}};</script>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@600&amp;display=swap" rel="stylesheet"/><style>h1{font-family:Fredoka,"Noto Sans",system-ui,sans-serif!important;font-weight:600!important;line-height:1.2}</style></head>
+<body class="bg-canvas text-ink antialiased min-h-screen selection:bg-action selection:text-ink"><div style="padding:10px 16px;background:#FFF4D6;color:#171717;font:14px/1.5 Inter,system-ui,sans-serif">Design preview · Fictional sample data · Draft curriculum</div>
+<!-- Desktop Persistent Sidebar (240px) -->
+<aside class="fixed top-0 left-0 h-screen w-[240px] flex flex-col justify-between bg-canvas border-r border-border-subtle z-40">
+<div class="w-[240px] h-full p-gutter flex flex-col justify-between">
+<!-- Top Workspace Brand & Primary Nav -->
+<div class="flex flex-col gap-space-lg">
+<!-- Brand identity -->
+<div class="flex items-start gap-space-sm px-space-xs pt-space-xs">
+<div class="w-8 h-8 rounded-xl bg-surface border border-border-control flex items-center justify-center shrink-0 shadow-sm text-ink">
+<span class="material-symbols-outlined text-[20px]" data-icon="menu_book">menu_book</span>
+</div>
+<div>
+<div class="font-card-heading text-card-heading text-ink font-bold tracking-tight leading-none">CuriousNext</div>
+<div class="font-metadata text-metadata text-ink-muted text-xs mt-1">Adult learning workspace</div>
+</div>
+</div>
+<!-- Navigation items list -->
+<nav aria-label="Main Navigation" class="flex flex-col gap-1.5">
+<!-- Active: Learn -->
+<a class="flex items-center gap-space-sm px-gutter py-space-sm bg-surface border border-border-control rounded-xl font-metadata text-metadata text-ink font-semibold min-h-[44px] transition-colors duration-150 cursor-pointer shadow-[0_1px_2px_rgba(0,0,0,0.04)]" href="#learn">
+<span class="material-symbols-outlined text-ink" data-icon="menu_book" style="font-variation-settings: 'FILL' 1;">menu_book</span>
+<span>Learn</span>
+</a>
+<!-- Inactive: My courses -->
+<a class="flex items-center gap-space-sm px-gutter py-space-sm rounded-xl font-metadata text-metadata text-ink-muted hover:bg-surface-container hover:text-ink transition-colors duration-150 min-h-[44px] cursor-pointer" href="#courses">
+<span class="material-symbols-outlined text-ink-muted" data-icon="school">school</span>
+<span>My courses</span>
+</a>
+<!-- Inactive: Evidence -->
+<a class="flex items-center gap-space-sm px-gutter py-space-sm rounded-xl font-metadata text-metadata text-ink-muted hover:bg-surface-container hover:text-ink transition-colors duration-150 min-h-[44px] cursor-pointer" href="#evidence">
+<span class="material-symbols-outlined text-ink-muted" data-icon="verified">verified</span>
+<span>Evidence</span>
+</a>
+</nav>
+</div>
+<!-- Quick workspace CTA & Bottom Footer Nav -->
+<div class="flex flex-col gap-space-md pt-space-lg border-t border-border-subtle">
+<a class="w-full inline-flex items-center justify-center gap-space-xs px-gutter py-space-sm rounded-xl bg-surface border border-border-control font-metadata text-metadata text-ink font-semibold hover:bg-surface-container min-h-[44px] transition-colors duration-150" href="#next-action">
+<span class="material-symbols-outlined text-sm" data-icon="play_arrow">play_arrow</span>
+<span>Resume Learning</span>
+</a>
+<div class="flex flex-col gap-1">
+<a class="flex items-center gap-space-sm px-gutter py-space-xs rounded-xl font-metadata text-metadata text-ink-muted hover:bg-surface-container hover:text-ink transition-colors duration-150 min-h-[44px] cursor-pointer" href="#settings">
+<span class="material-symbols-outlined text-[20px]" data-icon="settings">settings</span>
+<span>Settings</span>
+</a>
+<a class="flex items-center gap-space-sm px-gutter py-space-xs rounded-xl font-metadata text-metadata text-ink-muted hover:bg-surface-container hover:text-ink transition-colors duration-150 min-h-[44px] cursor-pointer" href="#help">
+<span class="material-symbols-outlined text-[20px]" data-icon="help">help</span>
+<span>Help</span>
+</a>
+</div>
+</div>
+</div>
+</aside>
+<!-- Desktop Top Header (64px height, offset 240px) -->
+<header class="fixed top-0 left-[240px] right-0 h-16 z-30 bg-canvas border-b border-border-subtle">
+<div class="h-16 px-space-lg flex items-center justify-between max-w-[1120px] mx-auto">
+<!-- Current Context Trail -->
+<div class="flex items-center gap-space-sm">
+<span class="font-metadata text-metadata text-ink-muted">Course:</span>
+<div class="font-metadata text-metadata text-ink font-semibold flex items-center gap-space-xs bg-surface px-space-sm py-1 rounded-lg border border-border-subtle">
+<span class="w-2 h-2 rounded-full bg-primary inline-block"></span>
+<span>Practical AI</span>
+</div>
+</div>
+<!-- Trailing Action Controls -->
+<div class="flex items-center gap-space-xs">
+<button aria-label="Language selection" class="min-h-[44px] px-space-md inline-flex items-center gap-space-xs font-metadata text-metadata text-ink-muted hover:bg-surface-container hover:text-ink rounded-lg transition-colors duration-150 cursor-pointer" type="button">
+<span class="material-symbols-outlined text-[20px]" data-icon="translate">translate</span>
+<span>Language</span>
+</button>
+<button aria-label="Account details" class="min-h-[44px] px-space-md inline-flex items-center gap-space-xs font-metadata text-metadata text-ink font-semibold hover:bg-surface-container rounded-lg transition-colors duration-150 cursor-pointer" type="button">
+<span class="material-symbols-outlined text-[22px] text-ink" data-icon="account_circle">account_circle</span>
+<span>Account</span>
+</button>
+</div>
+</div>
+</header>
+<!-- Main Canvas Container -->
+<main class="ml-[240px] pt-16 min-h-screen">
+<div class="max-w-[1120px] mx-auto px-space-lg py-space-xl flex flex-col gap-space-xl">
+<!-- Goal and Course Context Strip -->
+<section aria-label="Current Learning Context" class="bg-surface rounded-card border border-border-subtle p-space-md shadow-[0_1px_3px_rgba(0,0,0,0.03)]">
+<div class="flex flex-wrap items-center justify-between gap-space-sm px-space-xs">
+<div class="flex items-center gap-space-sm font-metadata text-metadata text-ink-muted flex-wrap">
+<span class="inline-flex items-center gap-1.5 text-ink font-semibold">
+<span class="material-symbols-outlined text-primary text-[18px]" data-icon="track_changes">track_changes</span>
+              Active Goal:
+            </span>
+<span class="text-ink">Use AI to prepare clear study notes</span>
+<span class="text-border-control">·</span>
+<span class="text-ink-muted">Course: <strong class="text-ink font-semibold">Practical AI</strong></span>
+<span class="text-border-control">·</span>
+<span class="inline-flex items-center gap-1 text-ink-muted bg-surface-container px-2 py-0.5 rounded text-xs font-medium">
+              Level: Beginner-friendly
+            </span>
+</div>
+<a class="font-metadata text-metadata text-link hover:underline inline-flex items-center gap-1" href="#change-goal">
+<span>Adjust goal</span>
+<span class="material-symbols-outlined text-xs" data-icon="arrow_forward">arrow_forward</span>
+</a>
+</div>
+</section>
+<!-- Primary Workspace Section: What would help you move forward? -->
+<section class="flex flex-col gap-space-lg">
+<div>
+<h1 class="font-section-heading text-section-heading text-ink tracking-tight">What would help you move forward?</h1>
+<p class="font-lesson-body text-lesson-body text-ink-muted mt-1 max-w-[760px]">
+            Pick up right where your mental model left off, or take a deliberate detour to review prior notes.
+          </p>
+</div>
+<!-- Primary Next-Action Card -->
+<article class="bg-learning-surface rounded-[20px] border border-highlight p-space-lg flex flex-col gap-space-lg transition-all" id="next-action">
+<!-- Top meta strip -->
+<div class="flex flex-wrap items-center justify-between gap-space-sm">
+<span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-surface/80 border border-secondary/20 font-metadata text-metadata text-secondary text-xs uppercase tracking-wider font-semibold">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>
+              RECOMMENDED NEXT ACTION · LESSON &amp; PRACTICE
+            </span>
+<div class="inline-flex items-center gap-1.5 font-metadata text-metadata text-ink-muted">
+<span class="material-symbols-outlined text-[18px]" data-icon="schedule">schedule</span>
+<span>Estimated time: 20 minutes</span>
+</div>
+</div>
+<!-- Main heading & pedagogy framing (constrained to 760px for reading comfort) -->
+<div class="max-w-[760px] flex flex-col gap-space-sm">
+<h2 class="font-page-title text-card-heading md:text-[28px] text-ink font-bold tracking-tight">
+              Module 2: Write clear prompts
+            </h2>
+<p class="font-lesson-body text-lesson-body text-ink leading-relaxed">
+              Learn the four core elements of a prompt: <span class="font-semibold text-ink">Task</span>, <span class="font-semibold text-ink">Context</span>, <span class="font-semibold text-ink">Format</span>, and <span class="font-semibold text-ink">Constraints</span>.
+            </p>
+<div class="p-space-md rounded-xl bg-surface/60 border border-secondary/15 mt-space-xs font-metadata text-metadata text-ink-muted flex items-start gap-space-sm">
+<span class="material-symbols-outlined text-secondary text-[20px] shrink-0 mt-0.5" data-icon="lightbulb">lightbulb</span>
+<span><strong class="text-ink font-semibold">Why this step:</strong> You selected a beginner-friendly explanation and set a goal of producing study notes.</span>
+</div>
+</div>
+<!-- Session Time Selector & Action Row -->
+<div class="pt-space-md border-t border-secondary/20 flex flex-col lg:flex-row lg:items-center justify-between gap-space-lg">
+<!-- In-situ Radio Group for pacing control -->
+<fieldset class="flex flex-col gap-1.5">
+<legend class="font-metadata text-metadata text-ink font-semibold flex items-center gap-2">
+<span>Session length:</span>
+<span class="text-xs font-normal text-ink-muted">(Adjusts suggested depth)</span>
+</legend>
+<div class="inline-flex items-center bg-surface rounded-xl p-1 border border-border-control/50 w-fit">
+<label class="cursor-pointer inline-flex items-center gap-1 px-3 py-1.5 rounded-lg text-sm text-ink-muted hover:text-ink has-[:checked]:bg-canvas has-[:checked]:text-ink has-[:checked]:font-semibold has-[:checked]:shadow-sm transition-all">
+<input class="sr-only" name="session_length" type="radio" value="10"/>
+<span>10 min</span>
+</label>
+<label class="cursor-pointer inline-flex items-center gap-1 px-3 py-1.5 rounded-lg text-sm text-ink has-[:checked]:bg-canvas has-[:checked]:text-ink has-[:checked]:font-semibold has-[:checked]:shadow-sm transition-all">
+<input checked="" class="sr-only" name="session_length" type="radio" value="20"/>
+<span class="inline-block w-1.5 h-1.5 rounded-full bg-primary mr-0.5"></span>
+<span>20 min</span>
+</label>
+<label class="cursor-pointer inline-flex items-center gap-1 px-3 py-1.5 rounded-lg text-sm text-ink-muted hover:text-ink has-[:checked]:bg-canvas has-[:checked]:text-ink has-[:checked]:font-semibold has-[:checked]:shadow-sm transition-all">
+<input class="sr-only" name="session_length" type="radio" value="40"/>
+<span>40 min</span>
+</label>
+</div>
+<p class="font-metadata text-metadata text-xs text-ink-muted">
+                Time is an estimate for pacing, not a countdown.
+              </p>
+</fieldset>
+<!-- Primary Action Launch Button -->
+<div class="flex items-center gap-space-md">
+<a class="min-h-[48px] px-space-lg py-space-sm rounded-xl bg-action hover:bg-action-hover text-ink font-semibold inline-flex items-center justify-center gap-2 transition-all duration-150 border border-[#A4CD1E] shadow-sm cursor-pointer text-base" href="#start-lesson">
+<span>Start lesson</span>
+<span class="material-symbols-outlined text-[20px]" data-icon="arrow_forward">arrow_forward</span>
+</a>
+</div>
+</div>
+</article>
+<!-- Two Quiet Alternative Options Grid -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-space-lg">
+<!-- Alternative 1: AI Limits -->
+<article class="bg-surface rounded-[20px] border border-border-control/60 p-space-lg flex flex-col justify-between gap-space-md hover:border-border-control transition-colors duration-150">
+<div class="flex flex-col gap-space-xs">
+<div class="font-metadata text-metadata text-ink-muted text-xs uppercase tracking-wide">Review &amp; Boundary Testing</div>
+<h3 class="font-card-heading text-card-heading text-ink font-semibold">
+                Learn AI limits (Module 1 review)
+              </h3>
+<p class="font-ui-body text-ui-body text-ink-muted mt-1 leading-relaxed">
+                Explore common failure modes and boundary cases when summarizing complex text.
+              </p>
+</div>
+<div class="pt-space-sm flex items-center justify-between border-t border-border-subtle">
+<span class="font-metadata text-metadata text-xs text-ink-muted">~8 min read</span>
+<a class="min-h-[44px] px-gutter py-space-xs rounded-xl bg-surface hover:bg-surface-container border border-border-control font-metadata text-metadata text-ink font-semibold inline-flex items-center gap-1 transition-colors" href="#explore-limits">
+<span>Explore</span>
+<span class="material-symbols-outlined text-sm" data-icon="arrow_forward">arrow_forward</span>
+</a>
+</div>
+</article>
+<!-- Alternative 2: Review Notes -->
+<article class="bg-surface rounded-[20px] border border-border-control/60 p-space-lg flex flex-col justify-between gap-space-md hover:border-border-control transition-colors duration-150">
+<div class="flex flex-col gap-space-xs">
+<div class="font-metadata text-metadata text-ink-muted text-xs uppercase tracking-wide">Workspace Artifacts</div>
+<h3 class="font-card-heading text-card-heading text-ink font-semibold">
+                Review prior work &amp; notes
+              </h3>
+<p class="font-ui-body text-ui-body text-ink-muted mt-1 leading-relaxed">
+                Inspect your saved prompt templates and draft note outputs.
+              </p>
+</div>
+<div class="pt-space-sm flex items-center justify-between border-t border-border-subtle">
+<span class="font-metadata text-metadata text-xs text-ink-muted">3 saved drafts</span>
+<a class="min-h-[44px] px-gutter py-space-xs rounded-xl bg-surface hover:bg-surface-container border border-border-control font-metadata text-metadata text-ink font-semibold inline-flex items-center gap-1 transition-colors" href="#open-notebook">
+<span>Open notebook</span>
+<span class="material-symbols-outlined text-sm" data-icon="menu_book">menu_book</span>
+</a>
+</div>
+</article>
+</div>
+</section>
+<!-- Evidence & Capabilities Status Section -->
+<section aria-label="Course Capabilities Status" class="bg-surface rounded-card border border-border-subtle p-space-lg flex flex-col gap-space-md">
+<div class="flex flex-col md:flex-row md:items-center justify-between gap-space-sm pb-space-sm border-b border-border-subtle">
+<div>
+<h2 class="font-card-heading text-card-heading text-ink font-semibold">
+              Course Capabilities Status
+            </h2>
+<p class="font-metadata text-metadata text-ink-muted mt-0.5">
+              Capabilities are demonstrated through independent tasks. No combined percentage score or completion ring.
+            </p>
+</div>
+<a class="font-metadata text-metadata text-link hover:underline inline-flex items-center gap-1 shrink-0" href="#evidence-details">
+<span>View evidence ledger</span>
+<span class="material-symbols-outlined text-xs" data-icon="arrow_forward">arrow_forward</span>
+</a>
+</div>
+<!-- Capability Badges Display Grid -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-space-md pt-space-xs">
+<!-- Badge 1: Prompt structuring -->
+<div class="p-space-md rounded-xl bg-surface-container-low border border-border-subtle flex flex-col gap-space-sm">
+<div class="flex items-center justify-between">
+<span class="font-metadata text-metadata text-ink font-semibold">Prompt structuring</span>
+<span class="material-symbols-outlined text-border-control text-[18px]" data-icon="radio_button_unchecked">radio_button_unchecked</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-surface border border-border-control/50 font-metadata text-metadata text-xs text-ink-muted">
+<span class="w-2 h-2 rounded-full bg-border-control"></span>
+                Not assessed
+              </span>
+</div>
+<span class="text-xs text-ink-muted">Assessed after Module 2 application exercise.</span>
+</div>
+<!-- Badge 2: Output verification -->
+<div class="p-space-md rounded-xl bg-surface-container-low border border-border-subtle flex flex-col gap-space-sm">
+<div class="flex items-center justify-between">
+<span class="font-metadata text-metadata text-ink font-semibold">Output verification</span>
+<span class="material-symbols-outlined text-border-control text-[18px]" data-icon="radio_button_unchecked">radio_button_unchecked</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-surface border border-border-control/50 font-metadata text-metadata text-xs text-ink-muted">
+<span class="w-2 h-2 rounded-full bg-border-control"></span>
+                Not assessed
+              </span>
+</div>
+<span class="text-xs text-ink-muted">Assessed after Hallucination Detection practice.</span>
+</div>
+<!-- Badge 3: Responsible citation -->
+<div class="p-space-md rounded-xl bg-surface-container-low border border-border-subtle flex flex-col gap-space-sm">
+<div class="flex items-center justify-between">
+<span class="font-metadata text-metadata text-ink font-semibold">Responsible citation</span>
+<span class="material-symbols-outlined text-border-control text-[18px]" data-icon="radio_button_unchecked">radio_button_unchecked</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-surface border border-border-control/50 font-metadata text-metadata text-xs text-ink-muted">
+<span class="w-2 h-2 rounded-full bg-border-control"></span>
+                Not assessed
+              </span>
+</div>
+<span class="text-xs text-ink-muted">Assessed in final study summary submission.</span>
+</div>
+</div>
+</section>
+<!-- Quiet Footer Attribution & Principles -->
+<footer class="pt-space-md pb-space-lg text-center flex flex-col items-center gap-1">
+<p class="font-metadata text-metadata text-ink-muted text-xs">
+          CuriousNext Workspace · Focused self-paced adult education · No comparative leaderboards
+        </p>
+</footer>
+</div>
+</main>
+<script>
+    // Smooth interaction toggles for radio buttons without page jumps
+    document.querySelectorAll('input[name="session_length"]').forEach(radio => {
+      radio.addEventListener('change', (e) => {
+        const val = e.target.value;
+        const estimateSpan = document.querySelector('#next-action span.material-symbols-outlined[data-icon="schedule"]')?.nextElementSibling;
+        if (estimateSpan) {
+          estimateSpan.textContent = `Estimated time: ${val} minutes`;
+        }
+      });
+    });
+  </script>
+</body></html>

@@ -4,6 +4,8 @@
 
 Active work plan for M1.5, after M1 and before M2. Actual milestone status lives in [Documentation.md](../../../Documentation.md). [Roadmap](../../../Plans.md).
 
+The user authorized early Stitch design preparation before M1 completion. [Artifact inventory and review](../../design-docs/screen-handoff.md) records the current work. This does not bypass M1 decisions or authorize M2 implementation. [Ticket THE-11](https://linear.app/the-curious-tech-girl/issue/THE-11/design-curiousnext-pilot-screens-in-stitch).
+
 ## Deliverables
 
 - Flow-linked wireframes for onboarding, course suggestions, optional diagnostic/skip, next action, course overview, lesson, practice, independent task/teach-back, feedback, and evidence/export.

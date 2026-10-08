@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+
+<html class="scroll-smooth" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>CuriousNext — Adult Learner Pilot Workspace</title>
+<!-- Typography Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@600&amp;family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols Outlined -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS CDN -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Tailwind Configuration matching Design System & Guidelines -->
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "on-tertiary-container": "#54647d",
+            "on-secondary-container": "#5a6b26",
+            "tertiary-fixed-dim": "#b7c7e4",
+            "primary-container": "#c8ef45",
+            "on-surface": "#1a1d12",
+            "on-tertiary": "#ffffff",
+            "secondary-fixed": "#d7eb97",
+            "tertiary-fixed": "#d5e3ff",
+            "primary-fixed-dim": "#afd52a",
+            "surface-tint": "#516600",
+            "secondary-container": "#d7eb97",
+            "on-error-container": "#93000a",
+            "on-primary": "#ffffff",
+            "on-secondary": "#ffffff",
+            "background": "#fafbe9",
+            "on-secondary-fixed-variant": "#3d4c08",
+            "surface-container-lowest": "#ffffff",
+            "surface-container-highest": "#e3e4d3",
+            "on-primary-fixed": "#171e00",
+            "on-surface-variant": "#454935",
+            "tertiary-container": "#d1e1ff",
+            "on-primary-fixed-variant": "#3d4d00",
+            "on-error": "#ffffff",
+            "surface": "#fafbe9",
+            "error": "#ba1a1a",
+            "on-tertiary-fixed-variant": "#384760",
+            "surface-variant": "#e3e4d3",
+            "surface-container": "#eeefde",
+            "inverse-surface": "#2f3226",
+            "surface-bright": "#fafbe9",
+            "tertiary": "#505f78",
+            "outline-variant": "#c5c9af",
+            "surface-dim": "#dadbcb",
+            "secondary": "#556520",
+            "surface-container-high": "#e8e9d8",
+            "primary-fixed": "#caf247",
+            "on-tertiary-fixed": "#0b1c32",
+            "inverse-primary": "#afd52a",
+            "inverse-on-surface": "#f1f2e1",
+            "surface-container-low": "#f4f5e4",
+            "secondary-fixed-dim": "#bccf7e",
+            "primary": "#516600",
+            "error-container": "#ffdad6",
+            "on-secondary-fixed": "#171e00",
+            "outline": "#757963",
+            "on-background": "#1a1d12",
+            "on-primary-container": "#556b00"
+          },
+          borderRadius: {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          spacing: {
+            "space-2xl": "4rem",
+            "space-xs": "0.25rem",
+            "margin": "1.5rem",
+            "space-lg": "1.5rem",
+            "gutter": "1rem",
+            "space-md": "0.75rem",
+            "space-sm": "0.5rem",
+            "space-xl": "3rem"
+          },
+          fontFamily: {
+            "brand-heading": ["Fredoka", "sans-serif"],
+            "page-title-mobile": ["Inter"],
+            "section-heading": ["Inter"],
+            "section-heading-mobile": ["Inter"],
+            "page-title": ["Inter"],
+            "metadata": ["Inter"],
+            "lesson-body": ["Inter"],
+            "card-heading": ["Inter"],
+            "ui-body": ["Inter"]
+          },
+          fontSize: {
+            "page-title-mobile": ["28px", { lineHeight: "1.2", fontWeight: "700" }],
+            "section-heading": ["24px", { lineHeight: "1.3", fontWeight: "600" }],
+            "section-heading-mobile": ["22px", { lineHeight: "1.3", fontWeight: "600" }],
+            "page-title": ["36px", { lineHeight: "1.2", fontWeight: "700" }],
+            "metadata": ["14px", { lineHeight: "1.5", fontWeight: "500" }],
+            "lesson-body": ["18px", { lineHeight: "1.65", fontWeight: "400" }],
+            "card-heading": ["20px", { lineHeight: "1.35", fontWeight: "600" }],
+            "ui-body": ["16px", { lineHeight: "1.5", fontWeight: "400" }]
+          }
+        }
+      }
+    }
+  </script>
+<style>
+    /* Focus Ring Custom Rules per Spec */
+    *:focus-visible {
+      outline: 3px solid #285F85 !important;
+      outline-offset: 2px !important;
+    }
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      display: inline-block;
+      vertical-align: middle;
+      line-height: 1;
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  <style>h1{font-family:Fredoka,"Noto Sans",system-ui,sans-serif!important;font-weight:600!important}h2,h3,h4{font-family:Inter,"Noto Sans",system-ui,sans-serif!important}a,button,input{min-height:44px}body{background:#F5F0E5!important;color:#171717}header{background:#F5F0E5!important}nav{flex-wrap:wrap}input{max-width:100%;min-width:0}*{overflow-wrap:break-word}a:focus-visible,button:focus-visible,input:focus-visible{outline:3px solid #285F85;outline-offset:2px}</style></head>
+<body class="bg-[#F5F0E5] text-[#171717] font-ui-body text-ui-body min-h-screen flex flex-col antialiased selection:bg-primary-container selection:text-on-surface"><div style="padding:12px 16px;background:#fff4d6;border-bottom:1px solid #71828d;font-family:Inter,sans-serif">Design preview · Draft pilot · No email is sent</div>
+<!-- Accessible Skip Link -->
+<a class="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 z-[100] px-4 py-2 bg-[#C8EF45] text-[#171717] font-metadata text-metadata rounded-lg shadow-md border border-[#757963]" href="#main-content">
+    Skip to main content
+  </a>
+<!-- Top Navigation Bar (Shared Component JSON Blueprint & Prompt Alignment) -->
+<header class="fixed top-0 left-0 w-full z-50 flex justify-between items-center px-margin h-14 bg-surface dark:bg-inverse-surface border-b border-outline-variant dark:border-outline">
+<div class="flex items-center gap-2">
+<span aria-hidden="true" class="material-symbols-outlined text-primary dark:text-inverse-primary">school</span>
+<span class="text-card-heading font-brand-heading font-semibold text-on-surface dark:text-inverse-on-surface tracking-tight">CuriousNext</span>
+</div>
+<!-- Desktop links cluster (hidden on mobile) -->
+<nav aria-label="Desktop primary navigation" class="hidden md:flex items-center gap-6">
+<a class="text-on-surface-variant dark:text-outline-variant hover:text-primary dark:hover:text-inverse-primary transition-colors duration-150 font-metadata text-metadata" href="#courses">Courses</a>
+<a class="text-on-surface-variant dark:text-outline-variant hover:text-primary dark:hover:text-inverse-primary transition-colors duration-150 font-metadata text-metadata" href="#method">How it works</a>
+<a class="text-on-surface-variant dark:text-outline-variant hover:text-primary dark:hover:text-inverse-primary transition-colors duration-150 font-metadata text-metadata" href="c6bac46ce7234c46b54124b720472dbc.html">Log In</a>
+<a class="bg-primary-container text-on-primary-container font-metadata text-metadata font-semibold px-4 py-2 rounded-lg hover:brightness-95 transition-all" href="e0fadc75dc564b45a1fa2e02024e65d3.html">Set your goal</a>
+</nav>
+<!-- Mobile Header Trailing Action directly from JSON spec -->
+<div class="flex items-center gap-2 md:hidden">
+<a class="text-metadata font-metadata font-semibold bg-[#C8EF45] text-[#171717] px-3 py-1.5 rounded-lg border border-outline-variant hover:opacity-90 active:scale-95 transition-transform flex items-center min-h-[38px]" href="e0fadc75dc564b45a1fa2e02024e65d3.html">
+        Set goal
+      </a>
+<button aria-label="Log in to account" class="text-metadata font-metadata text-on-surface-variant px-2.5 py-1.5 hover:text-primary min-h-[44px] min-w-[44px] inline-flex items-center justify-center rounded-lg" type="button">
+        Log In
+      </button>
+</div>
+</header>
+<!-- Main Canvas (Mobile Centered 390px Stacked Container, flexible reflow to 320px) -->
+<main class="w-full max-w-[440px] mx-auto px-4 pt-20 pb-28 flex flex-col gap-10 focus:outline-none" id="main-content">
+<!-- Hero Section -->
+<section aria-labelledby="hero-heading" class="flex flex-col gap-5 pt-2">
+<!-- Pilot Workspace Status Badge -->
+<div class="self-start inline-flex items-center gap-1.5 bg-surface-container-high border border-[#D6DFE3] px-3 py-1 rounded-full text-metadata font-metadata text-on-surface-variant">
+<span aria-hidden="true" class="w-2 h-2 rounded-full bg-primary"></span>
+<span>Adult Learner Pilot Workspace</span>
+</div>
+<!-- Hero Heading in Fredoka 600 -->
+<h1 class="font-brand-heading font-semibold text-[32px] sm:text-page-title-mobile leading-[1.15] text-[#171717] tracking-tight" id="hero-heading">
+        Learn something useful. <br/><span class="text-primary">Make it yours.</span>
+</h1>
+<!-- Editorial Subheading -->
+<p class="font-lesson-body text-[16px] text-[#454935] leading-relaxed">
+        Goal-first explanations, supported practice, independent teach-back and instant feedback. Built for self-paced retention without streak penalties or automated noise.
+      </p>
+<!-- Action Cluster -->
+<div class="flex flex-col gap-3 pt-1">
+<a class="w-full min-h-[48px] inline-flex items-center justify-center bg-[#C8EF45] text-[#171717] font-ui-body font-semibold rounded-xl border border-[#757963] shadow-sm active:scale-[0.99] transition-transform" href="e0fadc75dc564b45a1fa2e02024e65d3.html">
+          Set your goal
+        </a>
+<a class="w-full min-h-[48px] inline-flex items-center justify-center bg-[#fafbe9] text-[#171717] font-ui-body font-medium rounded-xl border border-[#71828D] active:scale-[0.99] transition-transform" href="#courses">
+          Explore courses
+        </a>
+</div>
+<!-- Selectable Session Pacing Estimates -->
+<div class="bg-surface-container-low border border-[#D6DFE3] rounded-2xl p-4 flex flex-col gap-3">
+<div class="flex items-center justify-between">
+<span class="font-card-heading text-metadata font-semibold text-on-surface flex items-center gap-1.5">
+<span aria-hidden="true" class="material-symbols-outlined text-[18px] text-primary">timer</span>
+            Session pacing estimates
+          </span>
+<span class="text-[12px] font-metadata text-on-surface-variant font-normal">Choose pacing</span>
+</div>
+<fieldset aria-label="Session pacing options" class="grid grid-cols-3 gap-2" role="radiogroup">
+<label class="cursor-pointer">
+<input class="sr-only peer" name="pacing" type="radio" value="10"/>
+<div class="peer-checked:bg-primary-container peer-checked:border-primary peer-checked:text-[#171717] bg-surface-container-lowest border border-[#D6DFE3] rounded-xl p-2.5 text-center flex flex-col items-center justify-center min-h-[64px] transition-all">
+<span class="font-card-heading text-[15px] font-semibold">10 min</span>
+<span class="font-metadata text-[11px] text-on-surface-variant leading-tight">Bite-sized</span>
+</div>
+</label>
+<label class="cursor-pointer">
+<input checked="" class="sr-only peer" name="pacing" type="radio" value="20"/>
+<div class="peer-checked:bg-primary-container peer-checked:border-primary peer-checked:text-[#171717] bg-surface-container-lowest border border-[#D6DFE3] rounded-xl p-2.5 text-center flex flex-col items-center justify-center min-h-[64px] transition-all">
+<span class="font-card-heading text-[15px] font-semibold">20 min</span>
+<span class="font-metadata text-[11px] text-on-surface-variant leading-tight">Recommended</span>
+</div>
+</label>
+<label class="cursor-pointer">
+<input class="sr-only peer" name="pacing" type="radio" value="40"/>
+<div class="peer-checked:bg-primary-container peer-checked:border-primary peer-checked:text-[#171717] bg-surface-container-lowest border border-[#D6DFE3] rounded-xl p-2.5 text-center flex flex-col items-center justify-center min-h-[64px] transition-all">
+<span class="font-card-heading text-[15px] font-semibold">40 min</span>
+<span class="font-metadata text-[11px] text-on-surface-variant leading-tight">Deep dive</span>
+</div>
+</label>
+</fieldset>
+<p class="text-[12px] font-metadata text-on-surface-variant leading-normal flex items-start gap-1 pt-1">
+<span aria-hidden="true" class="material-symbols-outlined text-[15px] text-outline flex-shrink-0 mt-0.5">info</span>
+<span>Note: Time is an estimate for pacing, not a countdown timer. You always work at your own rate.</span>
+</p>
+</div>
+</section>
+<!-- Method Diagram (Live HTML/CSS Text: Learn → Practise → Teach-back) -->
+<section aria-labelledby="method-heading" class="flex flex-col gap-3.5" id="method">
+<div class="flex items-baseline justify-between">
+<h2 class="font-brand-heading font-semibold text-section-heading-mobile text-on-surface" id="method-heading">
+          Our Learning Method
+        </h2>
+<span class="text-[12px] font-metadata text-on-surface-variant">The 3-stage loop</span>
+</div>
+<!-- Method Card in Lavender #F0E8FA -->
+<div class="bg-[#F0E8FA] border border-[#D6DFE3] rounded-2xl p-5 flex flex-col gap-4 shadow-sm">
+<!-- Step 1: Learn -->
+<div class="flex gap-3.5 items-start bg-white/70 backdrop-blur-sm p-3.5 rounded-xl border border-white">
+<div class="w-8 h-8 rounded-lg bg-primary-container text-on-primary-fixed flex items-center justify-center font-bold text-sm shrink-0">
+            1
+          </div>
+<div class="flex flex-col">
+<h3 class="font-card-heading text-[17px] font-semibold text-[#171717] flex items-center gap-1.5">
+<span>Learn</span>
+<span class="text-[11px] font-metadata uppercase tracking-wide px-2 py-0.5 bg-surface-container rounded font-medium text-on-surface-variant">Stage 1</span>
+</h3>
+<p class="font-ui-body text-[14px] text-on-surface-variant leading-relaxed mt-1">
+              Annotated concepts broken into concrete workplace examples.
+            </p>
+</div>
+</div>
+<!-- Flow indicator -->
+<div aria-hidden="true" class="flex justify-center -my-2 text-outline">
+<span class="material-symbols-outlined text-[20px]">arrow_downward</span>
+</div>
+<!-- Step 2: Practise -->
+<div class="flex gap-3.5 items-start bg-white/70 backdrop-blur-sm p-3.5 rounded-xl border border-white">
+<div class="w-8 h-8 rounded-lg bg-secondary-fixed text-on-secondary-fixed flex items-center justify-center font-bold text-sm shrink-0">
+            2
+          </div>
+<div class="flex flex-col">
+<h3 class="font-card-heading text-[17px] font-semibold text-[#171717] flex items-center gap-1.5">
+<span>Practise</span>
+<span class="text-[11px] font-metadata uppercase tracking-wide px-2 py-0.5 bg-surface-container rounded font-medium text-on-surface-variant">Stage 2</span>
+</h3>
+<p class="font-ui-body text-[14px] text-on-surface-variant leading-relaxed mt-1">
+              Low-stress guided exercises with instant, transparent hints.
+            </p>
+</div>
+</div>
+<!-- Flow indicator -->
+<div aria-hidden="true" class="flex justify-center -my-2 text-outline">
+<span class="material-symbols-outlined text-[20px]">arrow_downward</span>
+</div>
+<!-- Step 3: Teach-back -->
+<div class="flex gap-3.5 items-start bg-white/70 backdrop-blur-sm p-3.5 rounded-xl border border-white">
+<div class="w-8 h-8 rounded-lg bg-tertiary-container text-on-tertiary-fixed flex items-center justify-center font-bold text-sm shrink-0">
+            3
+          </div>
+<div class="flex flex-col">
+<h3 class="font-card-heading text-[17px] font-semibold text-[#171717] flex items-center gap-1.5">
+<span>Teach-back</span>
+<span class="text-[11px] font-metadata uppercase tracking-wide px-2 py-0.5 bg-surface-container rounded font-medium text-on-surface-variant">Stage 3</span>
+</h3>
+<p class="font-ui-body text-[14px] text-on-surface-variant leading-relaxed mt-1">
+              Explain the solution in your own words to verify true recall.
+            </p>
+</div>
+</div>
+</div>
+</section>
+<!-- Core Learning Tracks (Exactly Two Courses) -->
+<section aria-labelledby="tracks-heading" class="flex flex-col gap-4" id="courses">
+<div>
+<h2 class="font-brand-heading font-semibold text-section-heading-mobile text-on-surface" id="tracks-heading">
+          Core Learning Tracks
+        </h2>
+<p class="font-metadata text-metadata text-on-surface-variant mt-0.5">
+          Self-paced foundational syllabi designed for direct real-world execution.
+        </p>
+</div>
+<!-- Course 1: Practical AI -->
+<article class="bg-surface-container-lowest border border-[#D6DFE3] rounded-2xl p-5 flex flex-col gap-3.5 shadow-sm">
+<div class="flex items-center justify-between">
+<span class="inline-flex items-center px-2.5 py-1 rounded-md text-[12px] font-metadata font-medium bg-tertiary-container text-on-tertiary-fixed">
+            Track 01
+          </span>
+<span class="font-metadata text-metadata text-on-surface-variant font-medium">
+            5 practical modules
+          </span>
+</div>
+<div>
+<h3 class="font-brand-heading font-semibold text-[22px] text-on-surface">
+            Practical AI
+          </h3>
+<p class="font-ui-body text-[15px] text-on-surface-variant mt-1.5 leading-relaxed">
+<strong class="font-semibold text-on-surface">Core Objective:</strong> Write clear prompts with Task, Context, Constraints, and Format, and inspect responses against source facts.
+          </p>
+</div>
+<div class="border-t border-outline-variant pt-3 flex flex-col gap-2">
+<div class="flex items-center justify-between text-[13px] font-metadata text-on-surface-variant">
+<span>Modules breakdown:</span>
+<span class="font-medium text-on-surface">1. Task • 2. Context • 3. Constraints • 4. Output • 5. Verification</span>
+</div>
+<a class="mt-1 w-full min-h-[44px] inline-flex items-center justify-center bg-surface-container text-on-surface hover:bg-surface-container-high font-metadata text-metadata font-semibold rounded-xl border border-outline-variant transition-colors" href="#practical-ai">
+            View course syllabus
+          </a>
+</div>
+</article>
+<!-- Course 2: Cybersecurity Essentials -->
+<article class="bg-surface-container-lowest border border-[#D6DFE3] rounded-2xl p-5 flex flex-col gap-3.5 shadow-sm">
+<div class="flex items-center justify-between">
+<span class="inline-flex items-center px-2.5 py-1 rounded-md text-[12px] font-metadata font-medium bg-secondary-container text-on-secondary-fixed">
+            Track 02
+          </span>
+<span class="font-metadata text-metadata text-on-surface-variant font-medium">
+            5 practical modules
+          </span>
+</div>
+<div>
+<h3 class="font-brand-heading font-semibold text-[22px] text-on-surface">
+            Cybersecurity Essentials
+          </h3>
+<p class="font-ui-body text-[15px] text-on-surface-variant mt-1.5 leading-relaxed">
+<strong class="font-semibold text-on-surface">Core Objective:</strong> Recognise phishing, verify sender channels independently, and make safe decisions without panic.
+          </p>
+</div>
+<div class="border-t border-outline-variant pt-3 flex flex-col gap-2">
+<div class="flex items-center justify-between text-[13px] font-metadata text-on-surface-variant">
+<span>Modules breakdown:</span>
+<span class="font-medium text-on-surface">1. Threat cues • 2. Channel check • 3. Passkeys • 4. Auth flows • 5. Incident audit</span>
+</div>
+<a class="mt-1 w-full min-h-[44px] inline-flex items-center justify-center bg-surface-container text-on-surface hover:bg-surface-container-high font-metadata text-metadata font-semibold rounded-xl border border-outline-variant transition-colors" href="#cybersecurity-essentials">
+            View course syllabus
+          </a>
+</div>
+</article>
+</section>
+<!-- How It Works Section (4 Clear Steps) -->
+<section aria-labelledby="steps-heading" class="flex flex-col gap-4">
+<div>
+<h2 class="font-brand-heading font-semibold text-section-heading-mobile text-on-surface" id="steps-heading">
+          How It Works
+        </h2>
+<p class="font-metadata text-metadata text-on-surface-variant mt-0.5">
+          Structured guidance built to respect adult reasoning and practical demands.
+        </p>
+</div>
+<div class="grid grid-cols-1 gap-3">
+<!-- Step 1 -->
+<div class="bg-surface-container-low border border-[#D6DFE3] rounded-xl p-4 flex gap-3.5 items-start">
+<span class="flex-shrink-0 w-7 h-7 rounded-full bg-[#171717] text-[#C8EF45] flex items-center justify-center font-bold text-xs font-metadata">1</span>
+<div>
+<h3 class="font-card-heading text-metadata font-semibold text-on-surface">Set practical goal &amp; explanation tone</h3>
+<p class="font-ui-body text-[14px] text-on-surface-variant mt-0.5 leading-normal">
+              Define the problem you want to solve and choose how technical you want the foundational vocabulary to be.
+            </p>
+</div>
+</div>
+<!-- Step 2 -->
+<div class="bg-surface-container-low border border-[#D6DFE3] rounded-xl p-4 flex gap-3.5 items-start">
+<span class="flex-shrink-0 w-7 h-7 rounded-full bg-[#171717] text-[#C8EF45] flex items-center justify-center font-bold text-xs font-metadata">2</span>
+<div>
+<h3 class="font-card-heading text-metadata font-semibold text-on-surface">Match course &amp; optional baseline</h3>
+<p class="font-ui-body text-[14px] text-on-surface-variant mt-0.5 leading-normal">
+              Select your module track. Optionally complete an introductory review so concepts meet your exact existing knowledge.
+            </p>
+</div>
+</div>
+<!-- Step 3 -->
+<div class="bg-surface-container-low border border-[#D6DFE3] rounded-xl p-4 flex gap-3.5 items-start">
+<span class="flex-shrink-0 w-7 h-7 rounded-full bg-[#171717] text-[#C8EF45] flex items-center justify-center font-bold text-xs font-metadata">3</span>
+<div>
+<h3 class="font-card-heading text-metadata font-semibold text-on-surface">Learn, Practise, and Teach-back</h3>
+<p class="font-ui-body text-[14px] text-on-surface-variant mt-0.5 leading-normal">
+              Go through clear explanations, solve contextual scenario exercises, and articulate the rationale in your own words.
+            </p>
+</div>
+</div>
+<!-- Step 4 -->
+<div class="bg-surface-container-low border border-[#D6DFE3] rounded-xl p-4 flex gap-3.5 items-start">
+<span class="flex-shrink-0 w-7 h-7 rounded-full bg-[#171717] text-[#C8EF45] flex items-center justify-center font-bold text-xs font-metadata">4</span>
+<div>
+<h3 class="font-card-heading text-metadata font-semibold text-on-surface">Criterion-referenced feedback</h3>
+<p class="font-ui-body text-[14px] text-on-surface-variant mt-0.5 leading-normal">
+              Receive evaluation tied to concrete criteria, identifying what is demonstrated, developing, or requiring another look.
+            </p>
+</div>
+</div>
+</div>
+</section>
+<!-- Language & Regional Editions -->
+<section aria-labelledby="languages-heading" class="flex flex-col gap-4">
+<div>
+<h2 class="font-brand-heading font-semibold text-section-heading-mobile text-on-surface" id="languages-heading">
+          Language &amp; Regional Editions
+        </h2>
+<p class="font-metadata text-metadata text-on-surface-variant mt-0.5">
+          CuriousNext is developed for accessibility across multilingual work environments.
+        </p>
+</div>
+<div class="bg-surface-container-lowest border border-[#D6DFE3] rounded-2xl p-4 flex flex-col gap-3">
+<ul class="divide-y divide-outline-variant/60" role="list">
+<li class="py-2.5 flex items-center justify-between">
+<span class="font-ui-body font-medium text-[15px] text-on-surface">English</span>
+<span class="inline-flex items-center gap-1.5 text-[12px] font-metadata font-medium text-on-secondary-container bg-secondary-container px-2.5 py-1 rounded-md">
+<span aria-hidden="true" class="w-1.5 h-1.5 rounded-full bg-secondary"></span>
+              Draft demo available
+            </span>
+</li>
+<li class="py-2.5 flex items-center justify-between">
+<span class="font-ui-body font-medium text-[15px] text-on-surface">Nigerian Pidgin</span>
+<span class="inline-flex items-center gap-1.5 text-[12px] font-metadata text-on-surface-variant bg-surface-container px-2.5 py-1 rounded-md">
+              Review pending
+            </span>
+</li>
+<li class="py-2.5 flex items-center justify-between">
+<span class="font-ui-body font-medium text-[15px] text-on-surface">Igbo</span>
+<span class="inline-flex items-center gap-1.5 text-[12px] font-metadata text-on-surface-variant bg-surface-container px-2.5 py-1 rounded-md">
+              Review pending
+            </span>
+</li>
+<li class="py-2.5 flex items-center justify-between">
+<span class="font-ui-body font-medium text-[15px] text-on-surface">Yoruba</span>
+<span class="inline-flex items-center gap-1.5 text-[12px] font-metadata text-on-surface-variant bg-surface-container px-2.5 py-1 rounded-md">
+              Review pending
+            </span>
+</li>
+<li class="py-2.5 flex items-center justify-between">
+<span class="font-ui-body font-medium text-[15px] text-on-surface">Hausa</span>
+<span class="inline-flex items-center gap-1.5 text-[12px] font-metadata text-on-surface-variant bg-surface-container px-2.5 py-1 rounded-md">
+              Review pending
+            </span>
+</li>
+</ul>
+<!-- Honest Localization Policy Note -->
+<div class="mt-2 bg-[#fafbe9] border border-outline-variant rounded-xl p-3 text-[13px] font-metadata text-on-surface-variant leading-relaxed">
+<p class="font-semibold text-on-surface flex items-center gap-1 mb-1">
+<span aria-hidden="true" class="material-symbols-outlined text-[16px] text-primary">verified_user</span>
+            Honest Localization Policy
+          </p>
+          Translations are aspirational target editions currently in community review. We do not use silent automated fallbacks to English without explicit user consent.
+        </div>
+</div>
+</section>
+<!-- Goal Setting Callout (Anchors Bottom Flow) -->
+<section class="bg-primary-container border border-outline rounded-2xl p-5 flex flex-col gap-3" id="set-goal">
+<h2 class="font-brand-heading font-semibold text-[22px] text-on-primary-fixed">
+        Ready to define your learning goal?
+      </h2>
+<p class="font-ui-body text-[14px] text-on-primary-fixed leading-relaxed">
+        Start with a single workplace objective. Learn at your chosen pace, test with practical scenarios, and own the result.
+      </p>
+<button class="mt-1 w-full min-h-[48px] inline-flex items-center justify-center bg-[#171717] text-[#C8EF45] font-ui-body font-semibold rounded-xl hover:bg-black active:scale-[0.99] transition-transform" type="button">
+        Start workspace onboarding
+      </button>
+</section>
+<!-- Footer Content Canvas -->
+<footer class="pt-6 border-t border-outline-variant flex flex-col gap-5 text-on-surface-variant" role="contentinfo">
+<div class="flex flex-col gap-2">
+<div class="flex items-center gap-2">
+<span aria-hidden="true" class="material-symbols-outlined text-primary">school</span>
+<span class="font-brand-heading font-semibold text-[18px] text-on-surface">CuriousNext</span>
+</div>
+<p class="text-[13px] font-metadata leading-relaxed">
+          Pilot educational workspace dedicated to respectful adult learning, practical computational thinking, and verifiable personal understanding.
+        </p>
+</div>
+<nav aria-label="Footer links" class="grid grid-cols-2 gap-y-2.5 gap-x-4 text-[13px] font-metadata">
+<a class="hover:text-primary transition-colors min-h-[32px] flex items-center" href="#privacy">Privacy Notice</a>
+<a class="hover:text-primary transition-colors min-h-[32px] flex items-center" href="#terms">Terms of Service</a>
+<a class="hover:text-primary transition-colors min-h-[32px] flex items-center" href="#accessibility">Accessibility Disclosures</a>
+<a class="hover:text-primary transition-colors min-h-[32px] flex items-center" href="#feedback">Feedback</a>
+</nav>
+<div class="text-[12px] font-metadata text-outline pt-2">
+        © 2025 CuriousNext. All rights reserved. Active pilot workspace edition.
+      </div>
+</footer>
+</main>
+<!-- Bottom Navigation Bar (Shared Components JSON Blueprint) -->
+<!-- Rendered since this is a top-level mobile destination (Homepage / Explore) -->
+<!-- style_active_navigation mapped dynamically to 'Explore' tab -->
+<!-- style_inactive_navigation mapped to Method, Goals, Account -->
+<!-- Shell Border Ban respected: No border-t / border-b, relying on background tone & subtle shadow -->
+<nav aria-label="Mobile primary navigation" class="md:hidden fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-gutter py-space-xs bg-surface dark:bg-inverse-surface shadow-[0_-2px_8px_rgba(0,0,0,0.04)]">
+<!-- Tab 1: Explore (Active State based on Semantic Mapping hierarchy) -->
+<a aria-current="page" class="flex flex-col items-center justify-center bg-primary-container text-on-primary-container dark:bg-primary-fixed dark:text-on-primary-fixed rounded-xl px-3 py-1.5 min-w-[44px] min-h-[44px] active:scale-95 transition-transform duration-150" href="#courses">
+<span aria-hidden="true" class="material-symbols-outlined text-[20px]">explore</span>
+<span class="text-metadata font-metadata text-[11px] font-semibold mt-0.5">Explore</span>
+</a>
+<!-- Tab 2: Method (Inactive State) -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-outline-variant px-3 py-1.5 min-w-[44px] min-h-[44px] hover:text-primary dark:hover:text-inverse-primary transition-colors duration-150 active:scale-95 transition-transform duration-150" href="#method">
+<span aria-hidden="true" class="material-symbols-outlined text-[20px]">auto_stories</span>
+<span class="text-metadata font-metadata text-[11px] mt-0.5">Method</span>
+</a>
+<!-- Tab 3: Goals (Inactive State) -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-outline-variant px-3 py-1.5 min-w-[44px] min-h-[44px] hover:text-primary dark:hover:text-inverse-primary transition-colors duration-150 active:scale-95 transition-transform duration-150" href="e0fadc75dc564b45a1fa2e02024e65d3.html">
+<span aria-hidden="true" class="material-symbols-outlined text-[20px]">flag</span>
+<span class="text-metadata font-metadata text-[11px] mt-0.5">Goals</span>
+</a>
+<!-- Tab 4: Account (Inactive State) -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-outline-variant px-3 py-1.5 min-w-[44px] min-h-[44px] hover:text-primary dark:hover:text-inverse-primary transition-colors duration-150 active:scale-95 transition-transform duration-150" href="c6bac46ce7234c46b54124b720472dbc.html">
+<span aria-hidden="true" class="material-symbols-outlined text-[20px]">account_circle</span>
+<span class="text-metadata font-metadata text-[11px] mt-0.5">Account</span>
+</a>
+</nav>
+</body></html>

@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport"/>
+<title>CuriousNext - AI-2: Prompt Anatomy</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;650;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "success-ink": "#226347",
+            "action": "#C8EF45",
+            "error-container": "#ffdad6",
+            "outline": "#757963",
+            "primary-container": "#c8ef45",
+            "on-surface": "#1d1c15",
+            "background": "#fef9ee",
+            "tertiary-fixed": "#d5e3ff",
+            "tertiary": "#505f78",
+            "primary": "#516600",
+            "on-tertiary-fixed-variant": "#384760",
+            "learning-surface": "#F0E8FA",
+            "secondary-fixed-dim": "#d7bafd",
+            "on-secondary": "#ffffff",
+            "surface-container-high": "#ede8dd",
+            "primary-fixed-dim": "#afd52a",
+            "on-background": "#1d1c15",
+            "surface": "#FFFFFF",
+            "review-surface": "#FFF4D6",
+            "outline-variant": "#c5c9af",
+            "surface-dim": "#dedacf",
+            "on-error-container": "#93000a",
+            "on-primary-container": "#556b00",
+            "review-ink": "#81530B",
+            "secondary": "#6c538e",
+            "surface-tint": "#516600",
+            "surface-bright": "#fef9ee",
+            "surface-container-low": "#f8f3e8",
+            "link": "#285F85",
+            "tertiary-container": "#d1e1ff",
+            "secondary-fixed": "#eddcff",
+            "on-primary-fixed": "#171e00",
+            "inverse-primary": "#afd52a",
+            "inverse-on-surface": "#f5f0e5",
+            "ink-muted": "#59564F",
+            "error-ink": "#A52A32",
+            "border-control": "#71828D",
+            "surface-container-highest": "#e7e2d7",
+            "on-tertiary-container": "#54647d",
+            "surface-container": "#f2ede2",
+            "on-primary-fixed-variant": "#3d4d00",
+            "inverse-surface": "#323029",
+            "on-secondary-fixed": "#260c46",
+            "on-error": "#ffffff",
+            "on-tertiary": "#ffffff",
+            "ink": "#171717",
+            "surface-variant": "#e7e2d7",
+            "primary-fixed": "#caf247",
+            "on-primary": "#ffffff",
+            "on-secondary-fixed-variant": "#533b74",
+            "on-surface-variant": "#454935",
+            "action-hover": "#B5DB32",
+            "surface-container-lowest": "#ffffff",
+            "secondary-container": "#d7bafd",
+            "canvas": "#F5F0E5",
+            "border-subtle": "#D6DFE3",
+            "tertiary-fixed-dim": "#b7c7e4",
+            "success-surface": "#EAF5EE",
+            "error": "#ba1a1a",
+            "on-tertiary-fixed": "#0b1c32",
+            "on-secondary-container": "#5f4781",
+            "highlight": "#C9ACEE",
+            "error-surface": "#FCEEEF"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.125rem",
+            "lg": "0.25rem",
+            "xl": "0.5rem",
+            "full": "0.75rem",
+            "card": "1.25rem"
+          },
+          "spacing": {
+            "space-md": "0.75rem",
+            "space-xs": "0.25rem",
+            "space-2xl": "4rem",
+            "margin": "1.5rem",
+            "space-sm": "0.5rem",
+            "space-lg": "1.5rem",
+            "space-xl": "3rem",
+            "gutter": "1rem"
+          },
+          "fontFamily": {
+            "page-title-mobile": ["Inter"],
+            "page-title": ["Inter"],
+            "lesson-body": ["Inter"],
+            "section-heading": ["Inter"],
+            "section-heading-mobile": ["Inter"],
+            "ui-body": ["Inter"],
+            "metadata": ["Inter"],
+            "card-heading": ["Inter"]
+          },
+          "fontSize": {
+            "page-title-mobile": ["28px", { "lineHeight": "1.2", "fontWeight": "700" }],
+            "page-title": ["36px", { "lineHeight": "1.2", "fontWeight": "700" }],
+            "lesson-body": ["18px", { "lineHeight": "1.65", "fontWeight": "400" }],
+            "section-heading": ["24px", { "lineHeight": "1.3", "fontWeight": "650" }],
+            "section-heading-mobile": ["22px", { "lineHeight": "1.3", "fontWeight": "650" }],
+            "ui-body": ["16px", { "lineHeight": "1.5", "fontWeight": "400" }],
+            "metadata": ["14px", { "lineHeight": "1.5", "fontWeight": "500" }],
+            "card-heading": ["20px", { "lineHeight": "1.35", "fontWeight": "650" }]
+          }
+        }
+      }
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      display: inline-block;
+      vertical-align: middle;
+      line-height: 1;
+    }
+    .material-symbols-fill {
+      font-variation-settings: 'FILL' 1, 'wght' 500, 'GRAD' 0, 'opsz' 24;
+    }
+    body {
+      -webkit-tap-highlight-color: transparent;
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@600&amp;display=swap" rel="stylesheet"/><style>h1{font-family:Fredoka,"Noto Sans",system-ui,sans-serif!important;font-weight:600!important;line-height:1.2}</style></head>
+<body class="bg-canvas text-ink antialiased min-h-screen flex flex-col font-ui-body text-ui-body selection:bg-action selection:text-ink"><div style="padding:10px 16px;background:#FFF4D6;color:#171717;font:14px/1.5 Inter,system-ui,sans-serif">Design preview · Fictional sample data · Draft curriculum</div>
+<!-- TOP APP BAR (from Shared Components JSON: docked full-width top-0, border-b border-border-subtle bg-canvas) -->
+<header class="w-full h-16 px-gutter flex items-center justify-between border-b border-border-subtle bg-canvas sticky top-0 z-40">
+<div class="flex items-center gap-space-sm">
+<button aria-label="Open navigation drawer" class="min-h-[44px] min-w-[44px] flex items-center justify-center active:scale-[0.98] transition-all rounded-lg hover:bg-surface-container text-ink" type="button">
+<span class="material-symbols-outlined text-[24px]">menu</span>
+</button>
+<span class="font-section-heading-mobile text-section-heading-mobile font-bold tracking-tight text-ink">CuriousNext</span>
+</div>
+<div class="flex items-center gap-space-xs">
+<button aria-label="Change language" class="min-h-[44px] min-w-[44px] flex items-center justify-center active:scale-[0.98] transition-all rounded-lg hover:bg-surface-container text-ink" type="button">
+<span class="material-symbols-outlined text-[20px]">translate</span>
+</button>
+<button class="min-h-[44px] px-space-md py-space-xs flex items-center gap-1 rounded-xl bg-surface border border-border-subtle active:scale-[0.98] transition-all hover:bg-surface-container text-ink font-metadata text-metadata" type="button">
+<span>Account</span>
+</button>
+</div>
+</header>
+<!-- SUB-HEADER META BANNER -->
+<aside aria-label="Lesson metadata" class="w-full bg-surface-container-low px-gutter py-space-sm flex items-center justify-between border-b border-border-subtle text-ink-muted font-metadata text-metadata">
+<div class="flex items-center gap-1.5">
+<span class="w-2 h-2 rounded-full bg-secondary inline-block"></span>
+<span class="font-medium text-ink">Module 2 · Core Skill</span>
+</div>
+<div class="flex items-center gap-1 text-ink-muted">
+<span class="material-symbols-outlined text-[16px]">schedule</span>
+<span>Est. read: 6 min</span>
+</div>
+</aside>
+<!-- MAIN LESSON CANVAS (constrained mobile reading layout) -->
+<main class="flex-1 w-full max-w-[390px] mx-auto px-gutter pt-space-lg pb-36">
+<!-- LESSON TITLE -->
+<h1 class="font-page-title-mobile text-page-title-mobile text-ink tracking-tight mb-space-md">
+      AI-2 · Learn to write clear prompts
+    </h1>
+<!-- LEARNING OBJECTIVE CARD -->
+<div class="bg-learning-surface rounded-card p-space-md border border-highlight/40 mb-space-lg shadow-sm">
+<div class="flex items-start gap-space-sm">
+<div class="w-8 h-8 rounded-lg bg-surface flex items-center justify-center shrink-0 border border-border-subtle">
+<span class="material-symbols-outlined text-secondary material-symbols-fill text-[20px]">flag</span>
+</div>
+<div>
+<span class="font-metadata text-metadata font-bold text-secondary tracking-wide uppercase block text-[11px] mb-0.5">Learning Objective</span>
+<p class="font-ui-body text-ui-body text-ink font-medium leading-snug">
+            Write a prompt with task, context, constraints, and format, then check the response.
+          </p>
+</div>
+</div>
+</div>
+<!-- LESSON BODY TEXT -->
+<div class="mb-space-lg">
+<p class="font-lesson-body text-lesson-body text-ink">
+        Large language models are pattern-matching engines rather than conscious problem solvers. Without precise guardrails, the model fills in blanks with plausible-sounding fabrications. Writing clear prompts is simply the discipline of drawing boundaries around what the model is allowed to generate.
+      </p>
+</div>
+<!-- EXPLANATION CONTROLS BAR (min 44px touch targets) -->
+<div class="mb-space-lg">
+<div class="text-[12px] font-metadata text-ink-muted font-semibold uppercase tracking-wider mb-2">Explanatory lens</div>
+<div aria-label="Explanation depth options" class="flex items-center gap-2 overflow-x-auto pb-1 no-scrollbar" role="tablist">
+<button aria-selected="false" class="shrink-0 min-h-[44px] px-space-md rounded-xl border border-border-control bg-surface text-ink font-metadata text-metadata active:scale-[0.98] transition-all hover:bg-surface-container" role="tab" type="button">
+          Simpler
+        </button>
+<button aria-selected="true" class="shrink-0 min-h-[44px] px-space-md rounded-xl bg-ink text-surface font-metadata text-metadata font-semibold active:scale-[0.98] transition-all shadow-sm flex items-center gap-1.5" role="tab" type="button">
+<span class="w-1.5 h-1.5 rounded-full bg-action inline-block"></span>
+          Show example
+        </button>
+<button aria-selected="false" class="shrink-0 min-h-[44px] px-space-md rounded-xl border border-border-control bg-surface text-ink font-metadata text-metadata active:scale-[0.98] transition-all hover:bg-surface-container" role="tab" type="button">
+          Visual diagram
+        </button>
+<button aria-selected="false" class="shrink-0 min-h-[44px] px-space-md rounded-xl border border-border-control bg-surface text-ink font-metadata text-metadata active:scale-[0.98] transition-all hover:bg-surface-container" role="tab" type="button">
+          Go deeper
+        </button>
+</div>
+</div>
+<!-- THE FOUR-STAGE DELIVERY FLOW (Visual Diagram + Accessible Text Transcript) -->
+<section aria-labelledby="flow-heading" class="bg-surface rounded-card border border-border-control p-space-md mb-space-lg shadow-sm">
+<div class="flex items-center justify-between mb-space-sm">
+<h2 class="font-card-heading text-card-heading text-ink flex items-center gap-1.5" id="flow-heading">
+<span class="material-symbols-outlined text-secondary text-[22px]">schema</span>
+<span>Prompt pipeline flow</span>
+</h2>
+<span class="text-[11px] font-metadata px-2 py-0.5 rounded-full bg-surface-container text-ink-muted font-medium">4 stages</span>
+</div>
+<p class="font-metadata text-metadata text-ink-muted mb-space-md">
+        Every robust AI prompt follows an audited single-direction cycle:
+      </p>
+<!-- SVG/HTML PIPELINE DIAGRAM -->
+<div aria-label="Visual flowchart showing Brief to Prompt to Response to Check" class="bg-surface-container-low rounded-xl p-3 border border-border-subtle mb-space-sm" role="img">
+<div class="grid grid-cols-2 gap-2.5">
+<!-- Stage 1 -->
+<div class="bg-surface p-2.5 rounded-lg border border-border-subtle flex flex-col justify-between">
+<div class="flex items-center justify-between mb-1">
+<span class="w-5 h-5 rounded-full bg-surface-container flex items-center justify-center font-bold text-[11px] text-ink">1</span>
+<span class="material-symbols-outlined text-[16px] text-ink-muted">edit_note</span>
+</div>
+<div>
+<div class="font-bold text-[13px] text-ink">Brief</div>
+<div class="text-[11px] text-ink-muted leading-tight">Define exact problem</div>
+</div>
+</div>
+<!-- Stage 2 -->
+<div class="bg-learning-surface p-2.5 rounded-lg border border-highlight/60 flex flex-col justify-between">
+<div class="flex items-center justify-between mb-1">
+<span class="w-5 h-5 rounded-full bg-secondary text-surface flex items-center justify-center font-bold text-[11px]">2</span>
+<span class="material-symbols-outlined text-[16px] text-secondary">tune</span>
+</div>
+<div>
+<div class="font-bold text-[13px] text-ink">Prompt</div>
+<div class="text-[11px] text-secondary font-medium leading-tight">Structure guardrails</div>
+</div>
+</div>
+<!-- Stage 3 -->
+<div class="bg-surface p-2.5 rounded-lg border border-border-subtle flex flex-col justify-between">
+<div class="flex items-center justify-between mb-1">
+<span class="w-5 h-5 rounded-full bg-surface-container flex items-center justify-center font-bold text-[11px] text-ink">3</span>
+<span class="material-symbols-outlined text-[16px] text-ink-muted">output</span>
+</div>
+<div>
+<div class="font-bold text-[13px] text-ink">Response</div>
+<div class="text-[11px] text-ink-muted leading-tight">Receive output</div>
+</div>
+</div>
+<!-- Stage 4 -->
+<div class="bg-success-surface p-2.5 rounded-lg border border-success-ink/30 flex flex-col justify-between">
+<div class="flex items-center justify-between mb-1">
+<span class="w-5 h-5 rounded-full bg-success-ink text-surface flex items-center justify-center font-bold text-[11px]">4</span>
+<span class="material-symbols-outlined text-[16px] text-success-ink">verified</span>
+</div>
+<div>
+<div class="font-bold text-[13px] text-ink">Check</div>
+<div class="text-[11px] text-success-ink font-medium leading-tight">Verify accuracy</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Expandable Text Transcript Toggle -->
+<div class="pt-1">
+<button aria-controls="transcriptContent" aria-expanded="false" class="min-h-[44px] w-full flex items-center justify-between text-link font-metadata text-metadata font-semibold active:opacity-75 transition-opacity" id="toggleTranscriptBtn" onclick="const c = document.getElementById('transcriptContent'); const expanded = c.classList.toggle('hidden'); this.setAttribute('aria-expanded', !expanded); document.getElementById('transcriptToggleText').innerText = expanded ? '[Show text transcript]' : '[Hide text transcript]';" type="button">
+<span id="transcriptToggleText">[Show text transcript]</span>
+<span class="material-symbols-outlined text-[18px]">expand_more</span>
+</button>
+<div class="hidden mt-2 p-3 bg-surface-container-low rounded-xl border border-border-subtle text-ink font-ui-body text-[14px] space-y-2" id="transcriptContent">
+<p><strong>1. Brief:</strong> Define the practical problem without prompting the LLM yet. Pin down the audience and raw information source.</p>
+<p><strong>2. Prompt:</strong> Construct the four structural boundaries: Task, Context, Constraints, and Format.</p>
+<p><strong>3. Response:</strong> Allow the model to generate candidates strictly within the established bounds.</p>
+<p><strong>4. Check:</strong> Audit the output sentence by sentence against source facts and length criteria.</p>
+</div>
+</div>
+</section>
+<!-- WORKED EXAMPLE SECTION: RIVER CAFE FAQ -->
+<section aria-labelledby="worked-example-heading" class="space-y-space-md mb-space-lg">
+<div class="flex items-baseline justify-between">
+<h2 class="font-section-heading-mobile text-section-heading-mobile text-ink tracking-tight" id="worked-example-heading">
+          Worked Example: River Cafe FAQ
+        </h2>
+<span class="text-[12px] font-metadata text-ink-muted">Annotated</span>
+</div>
+<!-- Source Grounding Box -->
+<div class="bg-review-surface border border-review-ink/30 rounded-xl p-space-md">
+<div class="flex items-center gap-1.5 text-review-ink font-metadata text-metadata font-bold uppercase text-[11px] tracking-wider mb-1">
+<span class="material-symbols-outlined text-[16px]">menu_book</span>
+<span>Source Grounding Material (Facts only)</span>
+</div>
+<blockquote class="font-ui-body text-ui-body italic text-ink pl-3 border-l-2 border-review-ink/40">
+          “River Cafe facts: Opens Mon–Sat 08:00–17:00. Vegetarian lunch daily. Walk-ins only; no table bookings. No delivery or takeaway services.”
+        </blockquote>
+</div>
+<!-- The 4-Part Prompt Anatomy Card -->
+<div class="bg-surface rounded-card border-2 border-border-control p-space-md shadow-sm">
+<div class="flex items-center justify-between border-b border-border-subtle pb-2.5 mb-space-md">
+<span class="font-card-heading text-card-heading text-ink">The 4-Part Prompt Anatomy</span>
+<span class="px-2 py-0.5 rounded bg-learning-surface text-secondary font-metadata text-[12px] font-semibold">Copy-ready</span>
+</div>
+<div class="space-y-space-md">
+<!-- 1. Task -->
+<div class="flex items-start gap-space-sm">
+<span class="w-6 h-6 rounded-md bg-secondary text-surface flex items-center justify-center font-bold text-[12px] shrink-0 mt-0.5">1</span>
+<div>
+<div class="font-metadata text-metadata font-bold text-ink">Task</div>
+<div class="font-ui-body text-ui-body text-ink bg-surface-container-low p-2 rounded-lg mt-1 border border-border-subtle">
+                “Draft 4 concise customer FAQ entries.”
+              </div>
+</div>
+</div>
+<!-- 2. Context -->
+<div class="flex items-start gap-space-sm">
+<span class="w-6 h-6 rounded-md bg-secondary text-surface flex items-center justify-center font-bold text-[12px] shrink-0 mt-0.5">2</span>
+<div>
+<div class="font-metadata text-metadata font-bold text-ink">Context</div>
+<div class="font-ui-body text-ui-body text-ink bg-surface-container-low p-2 rounded-lg mt-1 border border-border-subtle">
+                “You are an information desk assistant for River Cafe, a local daytime eatery.”
+              </div>
+</div>
+</div>
+<!-- 3. Constraints -->
+<div class="flex items-start gap-space-sm">
+<span class="w-6 h-6 rounded-md bg-secondary text-surface flex items-center justify-center font-bold text-[12px] shrink-0 mt-0.5">3</span>
+<div>
+<div class="font-metadata text-metadata font-bold text-ink">Constraints</div>
+<div class="font-ui-body text-ui-body text-ink bg-surface-container-low p-2 rounded-lg mt-1 border border-border-subtle">
+                “Rely exclusively on the supplied cafe facts above. Do not invent evening hours, reservation links, or menu items.”
+              </div>
+</div>
+</div>
+<!-- 4. Format -->
+<div class="flex items-start gap-space-sm">
+<span class="w-6 h-6 rounded-md bg-secondary text-surface flex items-center justify-center font-bold text-[12px] shrink-0 mt-0.5">4</span>
+<div>
+<div class="font-metadata text-metadata font-bold text-ink">Format</div>
+<div class="font-ui-body text-ui-body text-ink bg-surface-container-low p-2 rounded-lg mt-1 border border-border-subtle">
+                “Four bulleted Q&amp;As, each answer strictly under 35 words.”
+              </div>
+</div>
+</div>
+</div>
+</div>
+<!-- Audited Model Response Card -->
+<div class="bg-surface rounded-card border border-border-control p-space-md shadow-sm">
+<div class="flex items-center justify-between border-b border-border-subtle pb-2.5 mb-space-md">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-success-ink text-[20px]">fact_check</span>
+<span class="font-card-heading text-card-heading text-ink">Audited Model Response</span>
+</div>
+<span class="px-2 py-0.5 rounded-full bg-success-surface text-success-ink text-[11px] font-semibold">Passed</span>
+</div>
+<ul class="space-y-space-sm font-ui-body text-ui-body text-ink mb-space-md pl-1 list-none">
+<li class="flex items-start gap-2">
+<span class="text-ink font-bold">•</span>
+<div><strong>Q: What are your opening hours?</strong><br/><span class="text-ink-muted">A: River Cafe is open Monday through Saturday from 08:00 to 17:00. We are closed Sundays.</span></div>
+</li>
+<li class="flex items-start gap-2">
+<span class="text-ink font-bold">•</span>
+<div><strong>Q: Can I book a table in advance?</strong><br/><span class="text-ink-muted">A: We are walk-in only and do not take table reservations.</span></div>
+</li>
+<li class="flex items-start gap-2">
+<span class="text-ink font-bold">•</span>
+<div><strong>Q: Do you offer vegetarian food?</strong><br/><span class="text-ink-muted">A: Yes, we serve a fresh vegetarian lunch daily.</span></div>
+</li>
+<li class="flex items-start gap-2">
+<span class="text-ink font-bold">•</span>
+<div><strong>Q: Do you offer takeaway or home delivery?</strong><br/><span class="text-ink-muted">A: No, we do not provide delivery or takeaway services.</span></div>
+</li>
+</ul>
+<!-- Audit Checklist Criteria -->
+<div class="bg-surface-container-low rounded-xl p-space-sm border border-border-subtle">
+<div class="text-[12px] font-metadata font-bold text-ink uppercase tracking-wide mb-2">Audit Criteria Check</div>
+<div class="space-y-1.5 font-metadata text-metadata">
+<div class="flex items-center justify-between text-success-ink">
+<span class="flex items-center gap-1.5"><span class="material-symbols-outlined text-[18px]">check_circle</span> Word count met (&lt;35 words/answer)</span>
+<span class="font-bold text-[12px] bg-success-surface px-1.5 py-0.5 rounded">Met</span>
+</div>
+<div class="flex items-center justify-between text-success-ink">
+<span class="flex items-center gap-1.5"><span class="material-symbols-outlined text-[18px]">check_circle</span> Zero ungrounded facts</span>
+<span class="font-bold text-[12px] bg-success-surface px-1.5 py-0.5 rounded">Met</span>
+</div>
+<div class="flex items-center justify-between text-success-ink">
+<span class="flex items-center gap-1.5"><span class="material-symbols-outlined text-[18px]">check_circle</span> Tone consistent (Daytime eatery)</span>
+<span class="font-bold text-[12px] bg-success-surface px-1.5 py-0.5 rounded">Met</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- STICKY BOTTOM ACTION BAR -->
+<div class="fixed bottom-16 left-0 w-full bg-canvas/95 backdrop-blur-sm border-t border-border-subtle px-gutter py-2.5 z-30 flex flex-col gap-2">
+<div class="max-w-[390px] mx-auto w-full flex flex-col gap-2">
+<button class="w-full min-h-[44px] px-space-md py-space-sm bg-action hover:bg-action-hover text-ink font-metadata text-metadata font-bold rounded-xl flex items-center justify-center gap-2 active:scale-[0.98] transition-all shadow-sm" type="button">
+<span>Try independent practice workspace</span>
+<span class="material-symbols-outlined text-[20px]">arrow_forward</span>
+</button>
+<button class="w-full min-h-[40px] px-space-md py-space-xs bg-surface border border-border-control hover:bg-surface-container text-ink font-metadata text-metadata font-medium rounded-xl flex items-center justify-center active:scale-[0.98] transition-all" type="button">
+<span>Review Module 1 notes</span>
+</button>
+</div>
+</div>
+</main>
+<!-- BOTTOM NAVIGATION BAR (from Shared Components JSON: Learn [active], My courses, Evidence) -->
+<nav aria-label="Main Navigation" class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center h-16 px-gutter border-t border-border-subtle bg-canvas pb-safe">
+<!-- Tab 1: Learn (ACTIVE) -->
+<button class="flex flex-col items-center justify-center min-w-[44px] min-h-[44px] bg-learning-surface text-ink rounded-xl px-space-md py-space-xs font-semibold active:scale-[0.98] transition-transform duration-150" type="button">
+<span class="material-symbols-outlined text-[24px]">menu_book</span>
+<span class="font-metadata text-[12px] leading-tight">Learn</span>
+</button>
+<!-- Tab 2: My courses (INACTIVE) -->
+<button class="flex flex-col items-center justify-center min-w-[44px] min-h-[44px] text-ink-muted px-space-md py-space-xs hover:text-ink transition-colors active:scale-[0.98]" type="button">
+<span class="material-symbols-outlined text-[24px]">auto_stories</span>
+<span class="font-metadata text-[12px] leading-tight">My courses</span>
+</button>
+<!-- Tab 3: Evidence (INACTIVE) -->
+<button class="flex flex-col items-center justify-center min-w-[44px] min-h-[44px] text-ink-muted px-space-md py-space-xs hover:text-ink transition-colors active:scale-[0.98]" type="button">
+<span class="material-symbols-outlined text-[24px]">fact_check</span>
+<span class="font-metadata text-[12px] leading-tight">Evidence</span>
+</button>
+</nav>
+</body></html>

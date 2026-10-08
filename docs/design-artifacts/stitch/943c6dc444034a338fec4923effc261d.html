@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+
+<html class="h-full" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>CuriousNext - Magic Link Sign In / Sign Up</title>
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght,wdth@600,100&amp;family=Inter:wght@400;500;600;700&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "canvas-paper": "#F5F0E5",
+            "ink": "#171717",
+            "ink-muted": "#59564F",
+            "surface-clean": "#FFFFFF",
+            "lavender-container": "#F0E8FA",
+            "lime-action": "#C8EF45",
+            "border-control": "#71828D",
+            "border-subtle": "#D6DFE3",
+            "brand-ring": "#285F85",
+            
+            /* Design System Tokens */
+            "tertiary-container": "#d1e1ff",
+            "on-tertiary-container": "#54647d",
+            "surface-tint": "#516600",
+            "on-surface": "#1a1d12",
+            "secondary-container": "#d7eb97",
+            "tertiary-fixed": "#d5e3ff",
+            "on-primary": "#ffffff",
+            "inverse-surface": "#2f3226",
+            "outline": "#757963",
+            "outline-variant": "#c5c9af",
+            "on-secondary": "#ffffff",
+            "inverse-on-surface": "#f1f2e1",
+            "surface-container-lowest": "#ffffff",
+            "tertiary": "#505f78",
+            "on-tertiary-fixed-variant": "#384760",
+            "surface-bright": "#fafbe9",
+            "secondary": "#556520",
+            "error-container": "#ffdad6",
+            "on-secondary-container": "#5a6b26",
+            "surface-container": "#eeefde",
+            "on-tertiary": "#ffffff",
+            "on-error-container": "#93000a",
+            "on-secondary-fixed-variant": "#3d4c08",
+            "surface-container-high": "#e8e9d8",
+            "on-primary-container": "#556b00",
+            "on-error": "#ffffff",
+            "primary": "#516600",
+            "on-secondary-fixed": "#171e00",
+            "surface-container-low": "#f4f5e4",
+            "tertiary-fixed-dim": "#b7c7e4",
+            "inverse-primary": "#afd52a",
+            "surface-dim": "#dadbcb",
+            "on-background": "#1a1d12",
+            "on-surface-variant": "#454935",
+            "on-primary-fixed-variant": "#3d4d00",
+            "surface-variant": "#e3e4d3",
+            "primary-fixed-dim": "#afd52a",
+            "on-tertiary-fixed": "#0b1c32",
+            "primary-fixed": "#caf247",
+            "error": "#ba1a1a",
+            "primary-container": "#c8ef45",
+            "on-primary-fixed": "#171e00",
+            "surface": "#fafbe9",
+            "background": "#fafbe9",
+            "surface-container-highest": "#e3e4d3",
+            "secondary-fixed-dim": "#bccf7e",
+            "secondary-fixed": "#d7eb97"
+          },
+          borderRadius: {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "2xl": "1rem",
+            "full": "9999px"
+          },
+          spacing: {
+            "space-lg": "1.5rem",
+            "margin": "1.5rem",
+            "space-2xl": "4rem",
+            "gutter": "1rem",
+            "space-xl": "3rem",
+            "space-sm": "0.5rem",
+            "space-md": "0.75rem",
+            "space-xs": "0.25rem"
+          },
+          fontFamily: {
+            "brand": ["Fredoka", "sans-serif"],
+            "ui-body": ["Inter", "sans-serif"],
+            "page-title-mobile": ["Inter", "sans-serif"],
+            "page-title": ["Inter", "sans-serif"],
+            "card-heading": ["Inter", "sans-serif"],
+            "section-heading-mobile": ["Inter", "sans-serif"],
+            "lesson-body": ["Inter", "sans-serif"],
+            "section-heading": ["Inter", "sans-serif"],
+            "metadata": ["Inter", "sans-serif"]
+          },
+          fontSize: {
+            "ui-body": ["16px", { "lineHeight": "1.5", "fontWeight": "400" }],
+            "page-title-mobile": ["28px", { "lineHeight": "1.2", "fontWeight": "700" }],
+            "page-title": ["36px", { "lineHeight": "1.2", "fontWeight": "700" }],
+            "card-heading": ["20px", { "lineHeight": "1.35", "fontWeight": "600" }],
+            "section-heading-mobile": ["22px", { "lineHeight": "1.3", "fontWeight": "600" }],
+            "lesson-body": ["18px", { "lineHeight": "1.65", "fontWeight": "400" }],
+            "section-heading": ["24px", { "lineHeight": "1.3", "fontWeight": "600" }],
+            "metadata": ["14px", { "lineHeight": "1.5", "fontWeight": "500" }]
+          }
+        }
+      }
+    };
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      display: inline-block;
+      vertical-align: middle;
+      line-height: 1;
+    }
+    .font-brand-heading {
+      font-family: 'Fredoka', sans-serif;
+      font-weight: 600;
+    }
+  </style>
+<style>h1{font-family:Fredoka,"Noto Sans",system-ui,sans-serif!important;font-weight:600!important}h2,h3,h4{font-family:Inter,"Noto Sans",system-ui,sans-serif!important}a,button,input{min-height:44px}body{background:#F5F0E5!important;color:#171717}header{background:#F5F0E5!important}nav{flex-wrap:wrap}input{max-width:100%;min-width:0}*{overflow-wrap:break-word}a:focus-visible,button:focus-visible,input:focus-visible{outline:3px solid #285F85;outline-offset:2px}</style></head>
+<body class="bg-canvas-paper text-ink min-h-screen flex flex-col antialiased selection:bg-secondary-container selection:text-ink"><div style="padding:12px 16px;background:#fff4d6;border-bottom:1px solid #71828d;font-family:Inter,sans-serif">Design preview · Draft pilot · No email is sent</div>
+<!-- 1. Top Bar -->
+<header class="w-full bg-surface-clean/80 backdrop-blur border-b border-border-subtle sticky top-0 z-40">
+<div class="max-w-7xl mx-auto px-margin py-3 flex items-center justify-between">
+<!-- Back Link -->
+<a class="inline-flex items-center gap-2 h-11 px-3 -ml-3 rounded-xl text-ink font-metadata text-metadata hover:bg-canvas-paper focus:outline-none focus:ring-2 focus:ring-brand-ring focus:ring-offset-2 transition-colors" href="97431bce4b0f40b7b54d9c79dba8e2b3.html">
+<span class="material-symbols-outlined text-[18px]">arrow_back</span>
+<span>Back to home</span>
+</a>
+<!-- Brand Logo -->
+<div class="flex items-center gap-2">
+<span class="font-brand-heading text-[22px] tracking-tight text-ink">CuriousNext</span>
+</div>
+<!-- Subtle Prototype Badge -->
+<div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-canvas-paper border border-border-subtle text-ink-muted text-xs font-metadata tracking-wide">
+<span class="inline-block w-2 h-2 rounded-full bg-secondary"></span>
+<span class="hidden sm:inline">Design Specification • Non-functional prototype</span>
+<span class="sm:hidden">Spec Prototype</span>
+</div>
+</div>
+</header>
+<!-- Main Content Area -->
+<main class="flex-1 w-full max-w-7xl mx-auto px-margin py-8 md:py-12">
+<!-- 2. Centred Auth Panel -->
+<section aria-labelledby="auth-heading" class="max-w-[560px] mx-auto bg-surface-clean rounded-2xl border border-border-subtle p-8 md:p-10 shadow-sm">
+<!-- Category / Kicker -->
+<div class="text-center mb-3">
+<span class="font-metadata text-xs font-bold uppercase tracking-wider text-ink-muted">
+          LEARNING WORKSPACE AUTHENTICATION
+        </span>
+</div>
+<!-- H1 Title -->
+<h1 class="font-brand-heading text-[32px] md:text-[34px] text-ink text-center tracking-tight leading-tight mb-4" id="auth-heading">
+        Your next step starts here.
+      </h1>
+<!-- Verbatim Explanation Paragraph -->
+<p class="font-ui-body text-ui-body text-ink-muted text-center max-w-md mx-auto mb-8">
+        Enter your email. We will send a secure sign-in link. New here? The same link creates your account after you verify your email.
+      </p>
+<!-- Auth Form (EMAIL MAGIC LINK ONLY: No Passwords, No Social OAuth, No OTP) -->
+<form class="space-y-5" id="magic-link-form" onsubmit="event.preventDefault()">
+<div>
+<label class="block font-medium text-ink mb-2 text-sm md:text-base" for="email">
+            Email address
+          </label>
+<div class="relative">
+<input autocomplete="email" class="w-full px-4 py-3 rounded-xl border border-border-control bg-surface-clean text-ink placeholder:text-ink-muted/60 text-base focus:outline-none focus:ring-[3px] focus:ring-brand-ring focus:ring-offset-2 transition-all" id="email" name="email" placeholder="name@example.com" required="" type="email"/>
+</div>
+</div>
+<!-- Primary CTA Button -->
+<button class="w-full min-h-[44px] py-3.5 px-6 rounded-xl bg-lime-action text-ink font-semibold text-base flex items-center justify-center gap-2 hover:brightness-95 active:scale-[0.99] focus:outline-none focus:ring-[3px] focus:ring-brand-ring focus:ring-offset-2 transition-all shadow-sm cursor-pointer" id="send-button" type="submit">
+<span>Send me a magic link</span>
+<span class="material-symbols-outlined text-[20px]">arrow_forward</span>
+</button>
+<!-- Clarifying Caption -->
+<p class="text-center font-metadata text-xs text-ink-muted">
+          Static prototype mockup — no actual email will be transmitted.
+        </p>
+</form><section class="mt-6 p-4 bg-[#F0E8FA] rounded-xl"><h2>Confirm sign-in</h2><p>After opening the email link, confirm that you requested access before creating a session.</p><button type="button" class="mt-3 p-3 bg-[#C8EF45] rounded-xl">Confirm and continue</button><p>State preview only. This button does not create an account.</p></section>
+<!-- Feedback Banner on Submission (Dynamic Prototype feedback) -->
+<div class="hidden mt-6 p-4 rounded-xl bg-secondary-container/40 border border-secondary text-ink text-sm" id="inline-alert">
+<div class="flex items-start gap-3">
+<span class="material-symbols-outlined text-secondary shrink-0 mt-0.5">mark_email_read</span>
+<div>
+<p class="font-semibold text-ink">Simulated Magic Link Dispatched</p>
+<p class="text-ink-muted text-xs mt-0.5">Please observe State A below to preview how learner confirmation renders.</p>
+</div>
+</div>
+</div>
+<!-- Honest Security & Identity Guarantees Box -->
+<div class="mt-8 pt-7 border-t border-border-subtle">
+<div class="bg-lavender-container border border-border-subtle rounded-xl p-5 md:p-6">
+<div class="flex items-center gap-2 mb-3 text-ink">
+<span class="material-symbols-outlined text-[20px] text-tertiary">verified_user</span>
+<span class="font-card-heading text-sm font-semibold tracking-tight">Identity &amp; Privacy Guarantees</span>
+</div>
+<ul class="space-y-3 font-metadata text-xs md:text-sm text-ink-muted leading-relaxed">
+<li class="flex items-start gap-2.5">
+<span class="material-symbols-outlined text-[18px] text-tertiary shrink-0 mt-0.5">shield</span>
+<span><strong>Never leaks account existence:</strong> We never disclose whether an address is already registered or new.</span>
+</li>
+<li class="flex items-start gap-2.5">
+<span class="material-symbols-outlined text-[18px] text-tertiary shrink-0 mt-0.5">mark_email_unread</span>
+<span><strong>Unverified emails never create accounts:</strong> Accounts are created only when the magic link in your inbox is verified.</span>
+</li>
+<li class="flex items-start gap-2.5">
+<span class="material-symbols-outlined text-[18px] text-tertiary shrink-0 mt-0.5">route</span>
+<span><strong>Seamless context handoff:</strong> Returning learners return directly to confirmed work; new learners proceed to goal setup.</span>
+</li>
+<li class="flex items-start gap-2.5">
+<span class="material-symbols-outlined text-[18px] text-tertiary shrink-0 mt-0.5">save</span>
+<span><strong>Session expiration protection:</strong> Re-verifying a link returns you safely to the last confirmed saved work.</span>
+</li>
+</ul>
+</div>
+</div>
+</section>
+<p class="text-base px-6 py-3 bg-[#F0E8FA]">After opening your email link, confirm sign-in explicitly. New learners continue to goal setup. Returning learners resume their authorised path.</p><!-- 3. Interactive Prototype State Previews Section -->
+<section aria-labelledby="states-heading" class="mt-16 max-w-5xl mx-auto">
+<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-border-subtle pb-4 mb-8">
+<div>
+<div class="inline-flex items-center gap-2 px-2.5 py-1 rounded bg-secondary-container/40 text-on-secondary-container font-metadata text-xs font-semibold uppercase tracking-wider mb-2">
+<span>Specification inspection</span>
+</div>
+<h2 class="font-brand-heading text-2xl text-ink" id="states-heading">
+            Authentication Flow &amp; State Previews
+          </h2>
+<p class="font-ui-body text-sm text-ink-muted mt-1 max-w-2xl">
+            Inspect how CuriousNext handles magic link dispatch, rate limits, link expiration, and network pauses without leaking account registration status.
+          </p>
+</div>
+</div>
+<!-- 4 Distinct State Preview Cards (Bento Grid) -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<!-- State A: 'Check your email' -->
+<article class="bg-surface-clean rounded-2xl border border-border-subtle p-6 flex flex-col justify-between shadow-sm relative overflow-hidden">
+<div class="absolute top-0 right-0 w-24 h-24 bg-tertiary-container/20 rounded-bl-full pointer-events-none"></div>
+<div>
+<div class="flex items-center justify-between mb-4">
+<span class="text-xs font-bold font-metadata tracking-wider text-ink-muted uppercase">State A • Dispatched</span>
+<span class="material-symbols-outlined text-tertiary text-[20px]">outgoing_mail</span>
+</div>
+<h3 class="font-brand-heading text-xl text-ink mb-2">Check your email</h3>
+<p class="font-ui-body text-sm text-ink-muted mb-4">
+              If the request is accepted, check your inbox for a sign-in link.
+            </p>
+<div class="p-3.5 bg-lavender-container/50 border border-border-subtle rounded-xl mb-6">
+<p class="font-metadata text-xs text-ink-muted flex items-start gap-2">
+<span class="material-symbols-outlined text-ink text-[16px] shrink-0 mt-0.5">lock</span>
+<span><strong>Privacy callout:</strong> Identical message shown whether email is newly created or existing.</span>
+</p>
+</div>
+</div>
+<div class="flex flex-wrap items-center gap-3 pt-3 border-t border-border-subtle">
+<button class="min-h-[44px] px-4 py-2.5 rounded-xl border border-border-control font-metadata text-xs md:text-sm font-medium text-ink hover:bg-canvas-paper focus:outline-none focus:ring-2 focus:ring-brand-ring focus:ring-offset-1 transition-all" type="button">
+              Change email
+            </button>
+<button class="min-h-[44px] px-4 py-2.5 rounded-xl bg-canvas-paper text-ink-muted font-metadata text-xs md:text-sm font-medium border border-border-subtle hover:text-ink focus:outline-none focus:ring-2 focus:ring-brand-ring focus:ring-offset-1 transition-all" type="button">
+              Resend link (cooldown preview)
+            </button>
+</div>
+</article>
+<!-- State B: 'Expired or already used link' -->
+<article class="bg-surface-clean rounded-2xl border border-border-subtle p-6 flex flex-col justify-between shadow-sm relative overflow-hidden">
+<div>
+<div class="flex items-center justify-between mb-4">
+<span class="text-xs font-bold font-metadata tracking-wider text-error uppercase">State B • Link Stale</span>
+<span class="material-symbols-outlined text-error text-[20px]">link_off</span>
+</div>
+<h3 class="font-brand-heading text-xl text-ink mb-2">Expired or already used link</h3>
+<p class="font-ui-body text-sm text-ink-muted mb-4">
+              This magic link has expired or was already used to sign in.
+            </p>
+<p class="font-metadata text-xs text-ink-muted mb-6 leading-relaxed">
+              Magic tokens invalidate immediately after single-use authentication or after a 15-minute time window for your security.
+            </p>
+</div>
+<div class="pt-3 border-t border-border-subtle">
+<button class="w-full min-h-[44px] px-4 py-2.5 rounded-xl bg-lime-action text-ink font-metadata text-sm font-semibold flex items-center justify-center gap-2 hover:brightness-95 focus:outline-none focus:ring-2 focus:ring-brand-ring focus:ring-offset-1 transition-all" type="button">
+<span>Request a new magic link</span>
+<span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+</button>
+</div>
+</article>
+<!-- State C: 'Unavailable network / Offline pause' -->
+<article class="bg-surface-clean rounded-2xl border border-border-subtle p-6 flex flex-col justify-between shadow-sm relative overflow-hidden">
+<div>
+<div class="flex items-center justify-between mb-4">
+<span class="text-xs font-bold font-metadata tracking-wider text-ink-muted uppercase">State C • Connection Pause</span>
+<span class="material-symbols-outlined text-ink-muted text-[20px]">wifi_off</span>
+</div>
+<h3 class="font-brand-heading text-xl text-ink mb-2">Unavailable network</h3>
+<p class="font-ui-body text-sm text-ink-muted mb-4">
+              Unable to reach the authentication service. Your entered email remains in this form while you retry.
+            </p>
+<div class="p-3.5 bg-canvas-paper border border-border-subtle rounded-xl mb-6">
+<p class="font-metadata text-xs text-ink-muted flex items-start gap-2">
+<span class="material-symbols-outlined text-ink text-[16px] shrink-0 mt-0.5">info</span>
+<span>No account existence details leaked during connection errors.</span>
+</p>
+</div>
+</div>
+<div class="pt-3 border-t border-border-subtle">
+<button class="w-full min-h-[44px] px-4 py-2.5 rounded-xl border border-border-control font-metadata text-sm font-semibold text-ink hover:bg-canvas-paper flex items-center justify-center gap-2 focus:outline-none focus:ring-2 focus:ring-brand-ring focus:ring-offset-1 transition-all" type="button">
+<span class="material-symbols-outlined text-[18px]">refresh</span>
+<span>Try again</span>
+</button>
+</div>
+</article>
+<!-- State D: 'Session expired during active practice' -->
+<article class="bg-surface-clean rounded-2xl border border-border-subtle p-6 flex flex-col justify-between shadow-sm relative overflow-hidden">
+<div>
+<div class="flex items-center justify-between mb-4">
+<span class="text-xs font-bold font-metadata tracking-wider text-secondary uppercase">State D • Session Pause</span>
+<span class="material-symbols-outlined text-secondary text-[20px]">history_toggle_off</span>
+</div>
+<h3 class="font-brand-heading text-xl text-ink mb-2">Session expired during active practice</h3>
+<p class="font-ui-body text-sm text-ink-muted mb-4">
+              Your active session expired after inactivity. Your practice draft is preserved.
+            </p>
+<p class="font-metadata text-xs text-ink-muted mb-6 leading-relaxed">
+              Upon verifying the new magic link, CuriousNext seamlessly resumes exactly where you paused without losing typed notes or code playground states.
+            </p>
+</div>
+<div class="pt-3 border-t border-border-subtle">
+<button class="w-full min-h-[44px] px-4 py-2.5 rounded-xl bg-lime-action text-ink font-metadata text-sm font-semibold flex items-center justify-center gap-2 hover:brightness-95 focus:outline-none focus:ring-2 focus:ring-brand-ring focus:ring-offset-1 transition-all" type="button">
+<span>Send link to restore active session</span>
+<span class="material-symbols-outlined text-[18px]">restart_alt</span>
+</button>
+</div>
+</article>
+</div>
+</section>
+</main>
+<!-- 4. Footer Note -->
+<footer class="w-full border-t border-border-subtle py-8 px-margin bg-surface-clean/50 mt-12">
+<div class="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-left">
+<p class="font-metadata text-xs md:text-sm text-ink-muted">
+        CuriousNext Draft Prototype • Designed authentication specification only. No real accounts or credentials stored.
+      </p>
+<div class="flex items-center gap-6 font-metadata text-xs text-ink-muted">
+<a class="hover:text-ink transition-colors" href="#">Security Disclosure</a>
+<a class="hover:text-ink transition-colors" href="#">Privacy Principles</a>
+</div>
+</div>
+</footer>
+
+</body></html>
