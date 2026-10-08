@@ -8,7 +8,7 @@ CN-DESIGN-001, M1.5 design preparation. Version 0.2, 2026-10-08. [Stitch project
 
 These are static design artifacts with simulated data and placeholder interactions. They are not application code, working enrollment, model calls, draft persistence, assessment, or evidence exports. Generated HTML uses external font/icon/style dependencies. Do not promote it directly into production. The repository design system and product contract remain authoritative when generated content disagrees.
 
-M1 remains pending. The user authorized early visual preparation. M1.5 stays in progress until design findings, user review, and handoff acceptance are complete. Stack-dependent interaction details still require M1 decisions. No runtime accessibility, font coverage, language review, or participant testing is claimed.
+M1 is in progress with the accepted stack and a local authentication integration spike. The user authorized early visual preparation. M1.5 stays in progress until design findings, user review, and handoff acceptance are complete. Limited runtime reflow/keyboard checks are recorded in [authentication review](authentication-review.md). Complete accessibility, language glyph coverage and participant testing remain pending.
 
 ## Flow and screen inventory
 
@@ -48,7 +48,7 @@ M1 remains pending. The user authorized early visual preparation. M1.5 stays in 
 
 ## Interaction handoff
 
-Public homepage and email-only magic-link entry extend the selected onboarding designs. Sign-up and login share the same email form, new accounts are created only after verification. Verification uses explicit confirmation, followed by goal setup or an authorised return destination. No password, social-provider or code-entry alternative is offered. Check-email, resend limits, expired/used links and network failures require neutral messages without account-existence disclosure. Production authentication is not implemented.
+Public homepage and email-only magic-link entry extend the selected onboarding designs. Sign-up and login share the same email form, new accounts are created only after verification. Verification uses explicit confirmation, followed by goal setup or an authorised return destination in M2. The local M1 spike ends at an authenticated preview. No password, social-provider or code-entry alternative is offered. Check-email, resend limits, expired/used links and network failures require neutral messages without account-existence disclosure. Hosted production authentication remains unverified.
 
 Typography now uses Fredoka 600 for hero/h1 titles and Inter for supporting headings, reading and controls, verified from the supplied screenshot reference. All existing repository mockups have been rerendered. Actual multilingual glyph and readability review remains pending.
 

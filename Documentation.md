@@ -5,9 +5,9 @@
 | ID | Status | Evidence |
 |---|---|---|
 | M0 | completed | Governance documents, local checker and regression tests. Validation commands recorded below. |
-| M1 | in_progress | Next.js, Neon, Drizzle, Better Auth, Resend and Vercel accepted. [Stack decision](docs/design-docs/decisions/002-neon-pilot-stack.md), API and deployment drafts prepared. Integration tests, operational choices, reference and rubric review pending. |
-| M1.5 | in_progress | Stitch desktop/mobile mockups and [design handoff](docs/design-docs/screen-handoff.md). Locally corrected static previews prepared. User review pending. Runtime accessibility remains untested. |
-| M2 | pending | No application screens or learner journeys implemented. |
+| M1 | in_progress | Accepted stack and constrained framework bridges implemented for the authentication spike. [Authentication evidence](docs/design-docs/authentication-review.md): 18 local integration/configuration tests, type check and build pass. Live Neon/Resend verification, operational choices and reference/rubric review remain pending. |
+| M1.5 | in_progress | Stitch desktop/mobile mockups and [design handoff](docs/design-docs/screen-handoff.md). Authentication shell checked at 320px/1440px with keyboard focus. User design review and assistive-technology usability remain pending. |
+| M2 | pending | Only the authorised M1 authentication shell exists. Public homepage, goal setting, course entry and learner journeys remain unimplemented. |
 | M3 | pending | Logical contracts only, no runtime persistence or model integration. |
 | M4 | pending | Misconception/recall/transfer specifications only. |
 | M5 | pending | Draft syllabuses and reference modules, no working export. |
@@ -75,4 +75,12 @@ Validation: mobile homepage header login navigated to the blank magic-link form 
 
 ## Implementation execution configuration
 
-2026-10-08: user selected GPT-6.1-Sol with X-High reasoning, replacing the earlier GPT-5.2-Codex request in Implement.md. The current agent has no tool to change this chat model or verify its selected execution configuration. Application implementation remains pending the app model selection. No claim is made that the requested model has run. Authentication proof of concept and framework bridge enforcement remain next.
+2026-10-08: user selected GPT-6.1-Sol with X-High reasoning, replacing the earlier GPT-5.2-Codex request in Implement.md. The current agent has no tool to change this chat model or verify its selected execution configuration. Work proceeds under the user's authorisation, without claiming independent verification of the selected model.
+
+## Authentication integration spike
+
+2026-10-08: CN-AUTH-001 / THE-13 implements email-only authentication, an explicit non-consuming GET confirmation flow, session validation, durable abuse limits and a synthetic ownership probe. ADR-003 constrains src/app to bootstrap re-exports, with regression checks for provider, external, same-layer and reverse-import bypasses. Node.js 24 application checks are added to both CI workflows. Fonts are self-hosted with their licence notices retained.
+
+Validation: 18 authentication/configuration tests passed using real Better Auth and disposable PGlite, TypeScript passed and Next.js production build succeeded. Dependency audit returned zero vulnerabilities after fixing the optional build-tool dependency resolution. Mobile/desktop checks and limitations are recorded in [authentication review](docs/design-docs/authentication-review.md). Live Neon/Resend, screen-reader review and screen approval remain pending. M1 and M1.5 remain in progress, M2 remains pending.
+
+Governance validation, all 21 checker/PR-metadata regression tests and all 31 static design artifact checks passed. A clean locked dependency installation succeeded. The manual PR workflow now accepts the intended base branch for stacked unmerged slices.

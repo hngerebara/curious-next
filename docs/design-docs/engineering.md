@@ -2,7 +2,7 @@
 
 ## Commands and documentation freshness
 
-Run `python3 scripts/validate_repo.py` and `python3 -m unittest discover -s tests`. No third-party dependencies are required for these checks. CI runs both on pull requests and pushes.
+Run `python3 scripts/validate_repo.py`, `python3 -m unittest discover -s tests`, and `python3 scripts/validate_design_artifacts.py`. These governance checks use Python's standard library. With Node.js 24, run `npm ci`, `npm run check`, and `npm audit --audit-level=high`. Application checks generate route types, type-check, test the authentication boundary and build. Both CI workflows run these checks. No live service credentials are required.
 
 `docs/doc-state.json` fingerprints governed documents. After reviewing affected documentation, run `python3 scripts/validate_repo.py --refresh` and commit the resulting state. Refresh does not repair errors or certify truth. The checker requires valid links, required headings, milestone rows, registered Markdown files, matching document hashes, and dependency/taste rules.
 
@@ -24,7 +24,7 @@ At each milestone and weekly during active development, inspect stale plans, unl
 
 After each slice, use a short-lived codex/ branch, update milestone evidence, run governance and relevant application tests, commit, push, and create or reuse the branch's PR. Inspect the complete diff for correctness, security, architecture, test gaps and spec compliance. Fix findings, rerun affected tests, and check the latest commit's CI results. Attach the PR to the chat and report validation and outstanding findings. Leave the PR open. Do not merge or enable auto-merge after any slice.
 
-[Slice workflow](../../.github/workflows/slice-pr.yml) supports manual dispatch with branch, title and plan ID. It tests an existing branch before creating/reusing a PR and posts a validation comment. This is not a semantic AI review. GitHub settings must allow Actions to create PRs. PRs created using GITHUB_TOKEN do not trigger ordinary PR workflows, so the dispatch job runs required tests itself. Dispatch again after fixes to validate the latest head. Run this workflow from trusted reviewed code only, never from forks with elevated permissions.
+[Slice workflow](../../.github/workflows/slice-pr.yml) supports manual dispatch with head/base branches, title, description and plan ID. Use the intended predecessor as base for stacked unmerged slices. It tests an existing branch against that base before creating/reusing a PR and posts a validation comment. This is not a semantic AI review. GitHub settings must allow Actions to create PRs. PRs created using GITHUB_TOKEN do not trigger ordinary PR workflows, so the dispatch job runs required tests itself. Dispatch again after fixes to validate the latest head. Run this workflow from trusted reviewed code only, never from forks with elevated permissions.
 
 [PR template](../../.github/pull_request_template.md) records the review checklist. Application tests must be added to both CI workflows as implementation proceeds. Initial publication uses an empty main commit as the base, with all substantive work in a reviewable PR.
 

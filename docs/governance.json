@@ -356,6 +356,7 @@
         "# CuriousNext API specification",
         "## Status and authority",
         "## Shared conventions",
+        "## Implemented M1 authentication spike",
         "## Public authentication, M2",
         "## Course entry, M2",
         "## Attempt and evidence boundary, M3 onward",
@@ -378,6 +379,30 @@
         "## Plan lifecycle",
         "## Deliverables",
         "## Validation and remaining decisions"
+      ]
+    },
+    "docs/design-docs/decisions/003-framework-entry-boundary.md": {
+      "required_headings": [
+        "# ADR-003: Framework entry boundary and authentication spike",
+        "## Status",
+        "## Decision",
+        "## Consequences"
+      ]
+    },
+    "docs/exec-plans/active/authentication.md": {
+      "required_headings": [
+        "# CN-AUTH-001: Magic-link authentication proof of concept",
+        "## Plan lifecycle",
+        "## Deliverables",
+        "## Validation"
+      ]
+    },
+    "docs/design-docs/authentication-review.md": {
+      "required_headings": [
+        "# Authentication proof of concept: validation",
+        "## Scope and evidence",
+        "## Mobile and keyboard walkthrough",
+        "## Reproduce and remaining gates"
       ]
     }
   },
@@ -405,6 +430,9 @@
       "adapters",
       "domain",
       "contracts"
+    ],
+    "app": [
+      "bootstrap"
     ]
   },
   "max_source_lines": 300,
@@ -412,5 +440,6 @@
   "external_allowlist": {
     "domain": [],
     "contracts": []
-  }
+  },
+  "framework_entry_layer": "app"
 }
