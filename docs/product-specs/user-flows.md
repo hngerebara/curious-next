@@ -67,3 +67,7 @@ Exports contain only the learner's authorised records. Expired authentication re
 All journeys support keyboard and screen-reader operation and equivalent text for visuals. Language switching preserves work and original-language submissions. Assistive access needs no disability disclosure. Authentication expiry and network interruption preserve the last confirmed state and show clear recovery actions. Validate V10 and language parity at M6, with accessibility testing beginning at M2.
 
 [Acceptance scenario definitions](pilot-design.md#7-validation-scenarios-and-release-gates).
+
+## Public entry and email verification
+
+Before UF1, the public homepage explains the learning loop and the two pilot courses. Set your goal begins new-learner setup. Log in opens the shared magic-link sign-up/login entry. Enter email → submit → neutral accepted-request/check-email screen → open link → explicit verification confirmation → verified session. A new verified account proceeds to UF1. A returning learner resumes a validated authorised learning destination. Expired/used links offer a new request. Network failure and resend limits preserve entered email without revealing whether an account exists. Session expiry returns to confirmed work after verification. Authentication is specified, not implemented.

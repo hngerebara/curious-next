@@ -3,9 +3,11 @@
   "documents": {
     ".github/pull_request_template.md": {
       "required_headings": [
-        "## Plan and slice",
-        "## Behavior and changes",
-        "## Validation and review"
+        "### What does this PR do?",
+        "### Related tickets",
+        "### Screenshots",
+        "### How to test",
+        "### Additional notes"
       ]
     },
     "AGENTS.md": {
@@ -31,7 +33,10 @@
         "## Documentation simplification",
         "## Slice PR publication",
         "## Design specification slice",
-        "## Foundation specification slice"
+        "## Foundation specification slice",
+        "## PR quality workflow",
+        "## Screen design milestone",
+        "## Linear integration preparation"
       ]
     },
     "Implement.md": {
@@ -219,7 +224,9 @@
         "## Commands and documentation freshness",
         "## Small PRs and minimal blocking gates",
         "## Cleanup and changes to enforcement",
-        "## Per-slice PR workflow"
+        "## Per-slice PR workflow",
+        "## PR description and review standard",
+        "## Linear ticket per PR"
       ]
     },
     "docs/design-docs/index.md": {
@@ -313,6 +320,24 @@
         "# Reference index",
         "## Current references",
         "## Future reference snapshots"
+      ]
+    },
+    "docs/exec-plans/active/screen-design.md": {
+      "required_headings": [
+        "# CN-DESIGN-001: Screen design",
+        "## Plan lifecycle",
+        "## Deliverables",
+        "## Review and validation"
+      ]
+    },
+    "docs/design-docs/screen-handoff.md": {
+      "required_headings": [
+        "# CuriousNext screen design handoff",
+        "## Status and artifacts",
+        "## Flow and screen inventory",
+        "## Interaction handoff",
+        "## Review findings and acceptance",
+        "## Validation and regeneration"
       ]
     }
   },

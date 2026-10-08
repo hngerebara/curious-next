@@ -35,3 +35,7 @@ Language switches preserve drafts and original-language evidence. Unavailable va
 ## Acceptance and interfaces
 
 Validate V1-V12 and accessible keyboard/screen-reader navigation on actual rendered screens. Use reviewed language examples for long labels, accents and code-switching. Current logical operations live in the [data model](design-docs/data-model.md). M1 produces transport-specific API schemas and errors before frontend/backend integration. No real API or frontend stack exists yet.
+
+## Public entry and authentication
+
+Public homepage introduces the pilot courses and leads to goal setup, with a separate Log in action. Sign-up and login both use a single labelled email field and Send me a magic link. Do not offer password entry, password reset, social providers or numeric code entry. Submission, neutral request acceptance, check-email, change-email, rate-limited resend, expired/used links, network failure and session-expiry return require accessible states. Responses must not reveal account existence. Verification success sends new learners to goal setup and returning learners to a validated saved destination. Design previews never send email or create an account.

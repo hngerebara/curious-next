@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>CuriousNext - Assessment Status</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "inverse-surface": "#323029",
+            "secondary-container": "#d7bafd",
+            "on-error-container": "#93000a",
+            "error-surface": "#FCEEEF",
+            "on-tertiary-fixed-variant": "#384760",
+            "on-secondary-container": "#5f4781",
+            "link": "#285F85",
+            "review-ink": "#81530B",
+            "on-tertiary-container": "#54647d",
+            "action": "#C8EF45",
+            "primary-container": "#c8ef45",
+            "tertiary-fixed": "#d5e3ff",
+            "success-ink": "#226347",
+            "outline-variant": "#c5c9af",
+            "tertiary": "#505f78",
+            "primary": "#516600",
+            "tertiary-fixed-dim": "#b7c7e4",
+            "on-primary-fixed-variant": "#3d4d00",
+            "surface-container-high": "#ede8dd",
+            "on-surface": "#1d1c15",
+            "highlight": "#C9ACEE",
+            "ink": "#171717",
+            "surface-container": "#f2ede2",
+            "on-tertiary-fixed": "#0b1c32",
+            "inverse-primary": "#afd52a",
+            "action-hover": "#B5DB32",
+            "surface": "#FFFFFF",
+            "on-background": "#1d1c15",
+            "on-secondary": "#ffffff",
+            "learning-surface": "#F0E8FA",
+            "tertiary-container": "#d1e1ff",
+            "primary-fixed": "#caf247",
+            "on-error": "#ffffff",
+            "surface-container-highest": "#e7e2d7",
+            "secondary-fixed-dim": "#d7bafd",
+            "on-surface-variant": "#454935",
+            "review-surface": "#FFF4D6",
+            "on-primary": "#ffffff",
+            "outline": "#757963",
+            "secondary": "#6c538e",
+            "error-ink": "#A52A32",
+            "border-control": "#71828D",
+            "ink-muted": "#59564F",
+            "on-primary-fixed": "#171e00",
+            "surface-dim": "#dedacf",
+            "surface-bright": "#fef9ee",
+            "inverse-on-surface": "#f5f0e5",
+            "surface-container-lowest": "#ffffff",
+            "secondary-fixed": "#eddcff",
+            "background": "#fef9ee",
+            "canvas": "#F5F0E5",
+            "surface-tint": "#516600",
+            "on-tertiary": "#ffffff",
+            "border-subtle": "#D6DFE3",
+            "on-primary-container": "#556b00",
+            "error-container": "#ffdad6",
+            "on-secondary-fixed-variant": "#533b74",
+            "on-secondary-fixed": "#260c46",
+            "error": "#ba1a1a",
+            "surface-container-low": "#f8f3e8",
+            "success-surface": "#EAF5EE",
+            "surface-variant": "#e7e2d7",
+            "primary-fixed-dim": "#afd52a"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.125rem",
+            "lg": "0.25rem",
+            "xl": "0.5rem",
+            "full": "0.75rem",
+            "card": "1.25rem",
+            "btn": "0.75rem"
+          },
+          "spacing": {
+            "space-md": "0.75rem",
+            "gutter": "1rem",
+            "space-xl": "3rem",
+            "margin": "1.5rem",
+            "space-sm": "0.5rem",
+            "space-lg": "1.5rem",
+            "space-2xl": "4rem",
+            "space-xs": "0.25rem"
+          },
+          "fontFamily": {
+            "card-heading": ["Inter"],
+            "page-title-mobile": ["Inter"],
+            "page-title": ["Inter"],
+            "ui-body": ["Inter"],
+            "section-heading": ["Inter"],
+            "metadata": ["Inter"],
+            "section-heading-mobile": ["Inter"],
+            "lesson-body": ["Inter"]
+          },
+          "fontSize": {
+            "card-heading": ["20px", { "lineHeight": "1.35", "fontWeight": "650" }],
+            "page-title-mobile": ["28px", { "lineHeight": "1.2", "fontWeight": "700" }],
+            "page-title": ["36px", { "lineHeight": "1.2", "fontWeight": "700" }],
+            "ui-body": ["16px", { "lineHeight": "1.5", "fontWeight": "400" }],
+            "section-heading": ["24px", { "lineHeight": "1.3", "fontWeight": "650" }],
+            "metadata": ["14px", { "lineHeight": "1.5", "fontWeight": "500" }],
+            "section-heading-mobile": ["22px", { "lineHeight": "1.3", "fontWeight": "650" }],
+            "lesson-body": ["18px", { "lineHeight": "1.65", "fontWeight": "400" }]
+          }
+        }
+      }
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      display: inline-block;
+      vertical-align: middle;
+      line-height: 1;
+    }
+    body {
+      font-family: 'Inter', sans-serif;
+      -webkit-font-smoothing: antialiased;
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@600&amp;display=swap" rel="stylesheet"/><style>h1{font-family:Fredoka,"Noto Sans",system-ui,sans-serif!important;font-weight:600!important;line-height:1.2}</style></head>
+<body class="bg-canvas text-ink min-h-screen flex flex-col items-center"><div style="padding:10px 16px;background:#FFF4D6;color:#171717;font:14px/1.5 Inter,system-ui,sans-serif">Design preview · Fictional sample data · Draft curriculum</div>
+<!-- Mobile Container Emulation for Dedicated Screen Flow (Max 430px for standard mobile viewport) -->
+<div class="w-full max-w-md min-h-screen flex flex-col bg-canvas pb-24 relative selection:bg-action selection:text-ink">
+<!-- TopAppBar (from Shared Components JSON) -->
+<header class="sticky top-0 z-40 bg-canvas flex justify-between items-center w-full px-margin h-16 max-w-full border-b border-border-subtle">
+<div class="flex items-center gap-2">
+<button aria-label="CuriousNext Navigation School Hub" class="min-h-[44px] min-w-[44px] flex items-center justify-center hover:bg-surface-container active:scale-[0.98] transition-transform duration-150 rounded-xl" type="button">
+<span class="material-symbols-outlined text-ink" data-icon="school">school</span>
+</button>
+<span class="text-section-heading-mobile font-section-heading-mobile font-bold text-ink tracking-tight">CuriousNext</span>
+</div>
+<button aria-label="Menu" class="min-h-[44px] min-w-[44px] flex items-center justify-center hover:bg-surface-container active:scale-[0.98] transition-transform duration-150 rounded-xl" type="button">
+<span class="material-symbols-outlined text-ink" data-icon="menu">menu</span>
+</button>
+</header>
+<!-- Sub-header Breadcrumb Context -->
+<div class="px-margin pt-4 pb-2">
+<div class="inline-flex items-center gap-1.5 px-3 py-1 bg-surface rounded-full border border-border-subtle text-metadata font-metadata text-ink-muted">
+<span class="material-symbols-outlined text-[16px] text-tertiary" data-icon="task_alt">task_alt</span>
+<span>Assessment Status · Module AI-2</span>
+</div>
+</div>
+<!-- Main Content Canvas -->
+<main class="flex-1 px-margin space-y-4 pt-1">
+<!-- Primary Status Heading & Objective Feedback -->
+<section class="space-y-1">
+<h1 class="text-page-title-mobile font-page-title-mobile text-ink tracking-tight">Assessment Inconclusive</h1>
+<p class="text-ui-body font-ui-body text-ink-muted">
+          We paused automated rubric evaluation rather than providing uncertain feedback.
+        </p>
+</section>
+<!-- Preserved Work Notice (Editorial Paper Metaphor) -->
+<div class="bg-surface rounded-card p-4 border border-border-subtle shadow-none">
+<div class="flex items-start gap-3">
+<div class="w-10 h-10 rounded-xl bg-success-surface flex items-center justify-center shrink-0 border border-border-subtle">
+<span class="material-symbols-outlined text-success-ink" data-icon="verified_user">verified_user</span>
+</div>
+<div class="space-y-1">
+<div class="flex items-center justify-between">
+<span class="text-metadata font-metadata font-semibold text-ink">Submission Preserved</span>
+<span class="text-xs px-2 py-0.5 rounded bg-surface-container font-mono text-ink-muted">10:14 AM</span>
+</div>
+<p class="text-metadata font-metadata text-ink-muted">
+              Your submitted work is preserved intact (<strong class="text-ink font-semibold">Attempt ID #SUB-8402</strong>). Nothing has been lost.
+            </p>
+</div>
+</div>
+</div>
+<!-- Breakdown Panels Group -->
+<div class="space-y-3.5">
+<!-- Panel A: Technical service interruption -->
+<div class="bg-error-surface rounded-card p-4 border border-border-control/20 space-y-3">
+<div class="flex items-start gap-2.5">
+<div class="w-7 h-7 rounded-lg bg-white flex items-center justify-center shrink-0 mt-0.5 border border-error-ink/20">
+<span class="material-symbols-outlined text-error-ink text-[18px]" data-icon="sync_problem">sync_problem</span>
+</div>
+<div>
+<h2 class="text-card-heading font-card-heading text-error-ink text-[18px]">Technical service interruption</h2>
+<p class="text-metadata font-metadata text-ink mt-0.5">
+                A network timeout occurred during automated verification rubrics while parsing code logic blocks.
+              </p>
+</div>
+</div>
+<div class="pt-1.5 space-y-2">
+<button class="w-full bg-action hover:bg-action-hover active:scale-[0.98] transition-transform duration-150 text-ink font-semibold py-3 px-4 rounded-btn min-h-[44px] flex items-center justify-center gap-2 border border-ink/10" type="button">
+<span class="material-symbols-outlined text-[20px]" data-icon="refresh">refresh</span>
+<span class="text-metadata font-metadata font-bold">Retry assessment</span>
+</button>
+<p class="text-xs text-ink-muted px-1 flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[15px] text-tertiary shrink-0" data-icon="info">info</span>
+<span>Retrying runs your exact saved submission against the objective criteria.</span>
+</p>
+</div>
+</div>
+<!-- Panel B: Uncertain interpretation -->
+<div class="bg-review-surface rounded-card p-4 border border-review-ink/20 space-y-2.5">
+<div class="flex items-start gap-2.5">
+<div class="w-7 h-7 rounded-lg bg-white flex items-center justify-center shrink-0 mt-0.5 border border-review-ink/20">
+<span class="material-symbols-outlined text-review-ink text-[18px]" data-icon="help_center">help_center</span>
+</div>
+<div>
+<h2 class="text-card-heading font-card-heading text-review-ink text-[18px]">Uncertain interpretation</h2>
+<p class="text-metadata font-metadata text-ink mt-0.5 leading-relaxed">
+                The automated evaluator flagged ambiguous phrasing in the custom constraint clause.
+              </p>
+</div>
+</div>
+<div class="bg-white/80 rounded-xl p-3 border border-border-subtle">
+<p class="text-metadata font-metadata text-ink-muted">
+              Automated check reached an inconclusive confidence threshold. CuriousNext never assigns a guessed grade or arbitrary completion score.
+            </p>
+</div>
+</div>
+</div>
+<!-- Human Educator Review Card -->
+<section class="bg-surface rounded-card p-4 border border-border-subtle space-y-3">
+<div class="flex items-start gap-3">
+<div class="w-9 h-9 rounded-xl bg-learning-surface flex items-center justify-center shrink-0 border border-secondary-container">
+<span class="material-symbols-outlined text-secondary text-[20px]" data-icon="person_search">person_search</span>
+</div>
+<div class="space-y-1">
+<h3 class="text-card-heading font-card-heading text-ink text-[18px]">Request optional human educator review</h3>
+<p class="text-metadata font-metadata text-ink-muted leading-relaxed">
+              Optional human review does not delay your learning. You can proceed immediately while a mentor inspects the evaluation rubric.
+            </p>
+</div>
+</div>
+<button class="w-full bg-surface hover:bg-surface-container active:scale-[0.98] transition-transform duration-150 text-ink font-semibold py-2.5 px-4 rounded-btn min-h-[44px] flex items-center justify-center gap-2 border border-border-control" type="button">
+<span class="material-symbols-outlined text-[18px] text-tertiary" data-icon="assignment_ind">assignment_ind</span>
+<span class="text-metadata font-metadata">Request educator review</span>
+</button>
+</section>
+<!-- Unblocked Next Action (Pale Lavender learning-surface Next-Action Pattern) -->
+<section class="bg-learning-surface rounded-card p-4 border border-secondary-container/40 space-y-3">
+<div class="flex items-center justify-between">
+<span class="text-xs uppercase tracking-wider font-semibold text-secondary px-2 py-0.5 bg-white/70 rounded">Unblocked Pathway</span>
+<span class="text-xs text-ink-muted">Always forward</span>
+</div>
+<div>
+<h3 class="text-card-heading font-card-heading text-ink text-[18px]">Ready to keep exploring?</h3>
+<p class="text-metadata font-metadata text-ink-muted mt-0.5">
+            You don't need to wait for assessment resolution to advance your knowledge.
+          </p>
+</div>
+<button class="w-full bg-ink hover:bg-ink/90 active:scale-[0.98] transition-transform duration-150 text-white font-medium py-3 px-4 rounded-btn min-h-[44px] flex items-center justify-center gap-2" type="button">
+<span class="text-metadata font-metadata font-semibold">Continue learning (Module 3 or Sandbox)</span>
+<span class="material-symbols-outlined text-[18px] text-action" data-icon="arrow_forward">arrow_forward</span>
+</button>
+</section>
+</main>
+<!-- BottomNavBar (from Shared Components JSON: Learn, My Courses, Evidence) -->
+<!-- Active State Logic: Context is "Module AI-2 Independent Task evaluation", which maps to "Learn" pathway -->
+<nav aria-label="Bottom Navigation" class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-gutter h-16 pb-safe bg-canvas dark:bg-inverse-surface border-t border-border-subtle dark:border-outline-variant max-w-md mx-auto right-0">
+<!-- Learn (Active) -->
+<a class="flex flex-col items-center justify-center bg-action dark:bg-action text-ink dark:text-ink rounded-xl px-4 py-1 min-h-[44px] min-w-[44px] font-semibold active:scale-[0.98] transition-transform duration-150" href="#">
+<span class="material-symbols-outlined text-[20px]" data-icon="menu_book">menu_book</span>
+<span class="text-metadata font-metadata">Learn</span>
+</a>
+<!-- My Courses (Inactive) -->
+<a class="flex flex-col items-center justify-center text-ink-muted dark:text-on-surface-variant px-4 py-1 min-h-[44px] min-w-[44px] hover:bg-surface-container-high dark:hover:bg-surface-variant active:scale-[0.98] transition-transform duration-150 rounded-xl" href="#">
+<span class="material-symbols-outlined text-[20px]" data-icon="collections_bookmark">collections_bookmark</span>
+<span class="text-metadata font-metadata">My Courses</span>
+</a>
+<!-- Evidence (Inactive) -->
+<a class="flex flex-col items-center justify-center text-ink-muted dark:text-on-surface-variant px-4 py-1 min-h-[44px] min-w-[44px] hover:bg-surface-container-high dark:hover:bg-surface-variant active:scale-[0.98] transition-transform duration-150 rounded-xl" href="#">
+<span class="material-symbols-outlined text-[20px]" data-icon="verified">verified</span>
+<span class="text-metadata font-metadata">Evidence</span>
+</a>
+</nav>
+</div>
+</body></html>

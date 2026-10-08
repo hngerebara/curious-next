@@ -46,6 +46,11 @@ class GovernanceTests(unittest.TestCase):
         p.write_text('\n'.join(l for l in p.read_text().splitlines() if not l.startswith('| M3 |')))
         self.assertTrue(any('status rows' in e for e in checker.validate(self.root)))
 
+    def test_missing_fractional_milestone(self):
+        p = self.root / 'Documentation.md'
+        p.write_text('\n'.join(l for l in p.read_text().splitlines() if not l.startswith('| M1.5 |')))
+        self.assertTrue(any('status rows' in e for e in checker.validate(self.root)))
+
     def test_valid_dependencies(self):
         self.source('application/use-case.ts', 'import { rule } from "../domain/rule"\n')
         self.source('domain/rule.ts', 'export const rule = true\n')

@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=390, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport"/>
+<title>CuriousNext — Goal &amp; Teaching Preferences Setup</title>
+<!-- Google Fonts: Inter -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols Outlined -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS CDN with forms & container queries -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "success-ink": "#226347",
+            "action": "#C8EF45",
+            "error-container": "#ffdad6",
+            "outline": "#757963",
+            "primary-container": "#c8ef45",
+            "on-surface": "#1d1c15",
+            "background": "#fef9ee",
+            "tertiary-fixed": "#d5e3ff",
+            "tertiary": "#505f78",
+            "primary": "#516600",
+            "on-tertiary-fixed-variant": "#384760",
+            "learning-surface": "#F0E8FA",
+            "secondary-fixed-dim": "#d7bafd",
+            "on-secondary": "#ffffff",
+            "surface-container-high": "#ede8dd",
+            "primary-fixed-dim": "#afd52a",
+            "on-background": "#1d1c15",
+            "surface": "#FFFFFF",
+            "review-surface": "#FFF4D6",
+            "outline-variant": "#c5c9af",
+            "surface-dim": "#dedacf",
+            "on-error-container": "#93000a",
+            "on-primary-container": "#556b00",
+            "review-ink": "#81530B",
+            "secondary": "#6c538e",
+            "surface-tint": "#516600",
+            "surface-bright": "#fef9ee",
+            "surface-container-low": "#f8f3e8",
+            "link": "#285F85",
+            "tertiary-container": "#d1e1ff",
+            "secondary-fixed": "#eddcff",
+            "on-primary-fixed": "#171e00",
+            "inverse-primary": "#afd52a",
+            "inverse-on-surface": "#f5f0e5",
+            "ink-muted": "#59564F",
+            "error-ink": "#A52A32",
+            "border-control": "#71828D",
+            "surface-container-highest": "#e7e2d7",
+            "on-tertiary-container": "#54647d",
+            "surface-container": "#f2ede2",
+            "on-primary-fixed-variant": "#3d4d00",
+            "inverse-surface": "#323029",
+            "on-secondary-fixed": "#260c46",
+            "on-error": "#ffffff",
+            "on-tertiary": "#ffffff",
+            "ink": "#171717",
+            "surface-variant": "#e7e2d7",
+            "primary-fixed": "#caf247",
+            "on-primary": "#ffffff",
+            "on-secondary-fixed-variant": "#533b74",
+            "on-surface-variant": "#454935",
+            "action-hover": "#B5DB32",
+            "surface-container-lowest": "#ffffff",
+            "secondary-container": "#d7bafd",
+            "canvas": "#F5F0E5",
+            "border-subtle": "#D6DFE3",
+            "tertiary-fixed-dim": "#b7c7e4",
+            "success-surface": "#EAF5EE",
+            "error": "#ba1a1a",
+            "on-tertiary-fixed": "#0b1c32",
+            "on-secondary-container": "#5f4781",
+            "highlight": "#C9ACEE",
+            "error-surface": "#FCEEEF"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.125rem",
+            "lg": "0.25rem",
+            "xl": "0.5rem",
+            "full": "0.75rem",
+            "card": "1.25rem"
+          },
+          "spacing": {
+            "space-md": "0.75rem",
+            "space-xs": "0.25rem",
+            "space-2xl": "4rem",
+            "margin": "1.5rem",
+            "space-sm": "0.5rem",
+            "space-lg": "1.5rem",
+            "space-xl": "3rem",
+            "gutter": "1rem"
+          },
+          "fontFamily": {
+            "page-title-mobile": ["Inter", "sans-serif"],
+            "page-title": ["Inter", "sans-serif"],
+            "lesson-body": ["Inter", "sans-serif"],
+            "section-heading": ["Inter", "sans-serif"],
+            "section-heading-mobile": ["Inter", "sans-serif"],
+            "ui-body": ["Inter", "sans-serif"],
+            "metadata": ["Inter", "sans-serif"],
+            "card-heading": ["Inter", "sans-serif"]
+          },
+          "fontSize": {
+            "page-title-mobile": ["28px", { "lineHeight": "1.2", "fontWeight": "700" }],
+            "page-title": ["36px", { "lineHeight": "1.2", "fontWeight": "700" }],
+            "lesson-body": ["18px", { "lineHeight": "1.65", "fontWeight": "400" }],
+            "section-heading": ["24px", { "lineHeight": "1.3", "fontWeight": "650" }],
+            "section-heading-mobile": ["22px", { "lineHeight": "1.3", "fontWeight": "650" }],
+            "ui-body": ["16px", { "lineHeight": "1.5", "fontWeight": "400" }],
+            "metadata": ["14px", { "lineHeight": "1.5", "fontWeight": "500" }],
+            "card-heading": ["20px", { "lineHeight": "1.35", "fontWeight": "650" }]
+          }
+        }
+      }
+    };
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      display: inline-block;
+      vertical-align: middle;
+      line-height: 1;
+    }
+    textarea:focus, input:focus {
+      outline: 3px solid #285F85 !important;
+      outline-offset: 2px !important;
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@600&amp;display=swap" rel="stylesheet"/><style>h1{font-family:Fredoka,"Noto Sans",system-ui,sans-serif!important;font-weight:600!important;line-height:1.2}</style></head>
+<body class="bg-canvas text-ink antialiased min-h-screen flex justify-center selection:bg-highlight selection:text-ink"><div style="padding:10px 16px;background:#FFF4D6;color:#171717;font:14px/1.5 Inter,system-ui,sans-serif">Design preview · Fictional sample data · Draft curriculum</div>
+<!-- Mobile Viewport Shell (390px portrait frame) -->
+<div class="w-full max-w-[390px] min-h-screen bg-canvas flex flex-col relative shadow-md">
+<!-- Top Mobile App Bar (Shared Component Execution: TopAppBar) -->
+<header class="w-full h-16 px-gutter flex items-center justify-between border-b border-border-subtle bg-canvas sticky top-0 z-40">
+<div class="flex items-center gap-space-xs">
+<button aria-label="Open menu" class="min-h-[44px] min-w-[44px] flex items-center justify-center text-ink hover:bg-surface-container transition-colors rounded-xl active:scale-[0.98]">
+<span class="material-symbols-outlined" data-icon="menu">menu</span>
+</button>
+<span class="font-section-heading-mobile text-section-heading-mobile font-bold tracking-tight text-ink">CuriousNext</span>
+</div>
+<!-- Trailing Action Cluster: Language switcher & Account label -->
+<div class="flex items-center gap-space-xs">
+<div class="flex items-center gap-1 px-space-sm py-1 bg-surface rounded-xl border border-border-subtle">
+<span class="material-symbols-outlined text-ink-muted text-[18px]" data-icon="translate">translate</span>
+<span class="font-metadata text-metadata text-ink">English</span>
+</div>
+<button class="min-h-[44px] px-space-sm flex items-center justify-center font-metadata text-metadata text-ink hover:bg-surface-container transition-colors rounded-xl active:scale-[0.98]">
+          Account
+        </button>
+</div>
+</header>
+<!-- Contextual Step Indicator Sub-header -->
+<div class="w-full px-gutter pt-space-md pb-space-xs bg-canvas flex items-center justify-between">
+<div class="inline-flex items-center gap-1.5 px-2.5 py-1 bg-surface-container rounded-full border border-border-subtle text-ink">
+<span class="w-2 h-2 rounded-full bg-action"></span>
+<span class="font-metadata text-metadata font-semibold text-ink">Step 1 of 2: Setup</span>
+</div>
+<span class="font-metadata text-metadata text-ink-muted">Workspace initialisation</span>
+</div>
+<!-- Main Content Canvas -->
+<main class="flex-1 px-gutter pt-space-sm pb-40 space-y-space-lg">
+<!-- Primary Heading -->
+<section class="space-y-space-xs">
+<h1 class="font-page-title-mobile text-page-title-mobile text-ink tracking-tight">
+          Set up your learning workspace
+        </h1>
+<p class="font-ui-body text-ui-body text-ink-muted">
+          Configure an honest, quiet environment tailored to your reading goals. No automated grading or performance timers.
+        </p>
+</section>
+<!-- Section 1: Practical Goal -->
+<section class="bg-surface rounded-card border border-border-subtle p-space-md space-y-space-sm shadow-none">
+<div class="space-y-1">
+<label class="font-card-heading text-card-heading text-ink block" for="learner-goal">
+            What practical goal brings you here?
+          </label>
+<p class="font-metadata text-metadata text-ink-muted" id="learner-goal-hint">
+            Be specific in your own words — e.g. summarizing reports, checking messages, or study notes.
+          </p>
+</div>
+<div class="relative pt-space-xs">
+<textarea aria-describedby="learner-goal-hint" class="w-full rounded-[12px] border border-border-control bg-canvas/30 p-space-md font-ui-body text-ui-body text-ink resize-none focus:bg-surface transition-all placeholder:text-ink-muted" id="learner-goal" rows="3">Use AI to prepare clear study notes</textarea>
+<div class="mt-space-xs flex items-center justify-between">
+<span class="inline-flex items-center gap-1.5 text-success-ink bg-success-surface px-2.5 py-1 rounded-full font-metadata text-[12px] font-semibold">
+<span class="material-symbols-outlined text-[14px]" data-icon="check_circle">check_circle</span>
+              Auto-saved to device
+            </span>
+<span class="font-metadata text-[12px] text-ink-muted">Private to this browser</span>
+</div>
+</div>
+</section>
+<!-- Section 2: Explanation Depth & Tone -->
+<section class="bg-surface rounded-card border border-border-subtle p-space-md space-y-space-md">
+<div>
+<h2 class="font-card-heading text-card-heading text-ink">Explanation depth &amp; tone</h2>
+<p class="font-metadata text-metadata text-ink-muted">Select how definitions and examples are delivered.</p>
+</div>
+<div aria-label="Explanation depth and tone" class="space-y-space-xs" role="radiogroup">
+<!-- Option 1: Selected (Beginner-friendly) -->
+<label class="block cursor-pointer">
+<input checked="" class="sr-only peer" name="depth-tone" type="radio" value="beginner"/>
+<div class="p-space-md rounded-xl border-2 border-action bg-surface transition-all peer-checked:border-ink peer-checked:bg-learning-surface/40 flex items-start gap-space-sm">
+<span class="mt-1 w-4 h-4 rounded-full border-2 border-ink flex items-center justify-center flex-shrink-0">
+<span class="w-2 h-2 rounded-full bg-ink"></span>
+</span>
+<div class="space-y-0.5">
+<div class="flex items-center gap-space-xs">
+<span class="font-ui-body text-ui-body font-semibold text-ink">Beginner-friendly</span>
+<span class="px-2 py-0.5 rounded-full bg-primary-container text-on-primary-fixed-variant font-metadata text-[11px] font-semibold">Active choice</span>
+</div>
+<p class="font-metadata text-metadata text-ink-muted">
+                  Plain everyday explanations, annotated step-by-step breakdowns, no jargon.
+                </p>
+</div>
+</div>
+</label>
+<!-- Option 2: Standard -->
+<label class="block cursor-pointer">
+<input class="sr-only peer" name="depth-tone" type="radio" value="standard"/>
+<div class="p-space-md rounded-xl border border-border-subtle bg-surface transition-all peer-checked:border-ink hover:bg-surface-container-low flex items-start gap-space-sm">
+<span class="mt-1 w-4 h-4 rounded-full border border-border-control flex items-center justify-center flex-shrink-0"></span>
+<div class="space-y-0.5">
+<span class="font-ui-body text-ui-body font-semibold text-ink">Standard</span>
+<p class="font-metadata text-metadata text-ink-muted">
+                  Balanced depth with key technical concepts explained at first use.
+                </p>
+</div>
+</div>
+</label>
+<!-- Option 3: Technical -->
+<label class="block cursor-pointer">
+<input class="sr-only peer" name="depth-tone" type="radio" value="technical"/>
+<div class="p-space-md rounded-xl border border-border-subtle bg-surface transition-all peer-checked:border-ink hover:bg-surface-container-low flex items-start gap-space-sm">
+<span class="mt-1 w-4 h-4 rounded-full border border-border-control flex items-center justify-center flex-shrink-0"></span>
+<div class="space-y-0.5">
+<span class="font-ui-body text-ui-body font-semibold text-ink">Technical</span>
+<p class="font-metadata text-metadata text-ink-muted">
+                  Direct conceptual definitions, architectural context, and systems-level detail.
+                </p>
+</div>
+</div>
+</label>
+</div>
+</section>
+<!-- Section 3: Interface & Study Language -->
+<section class="bg-surface rounded-card border border-border-subtle p-space-md space-y-space-md">
+<div>
+<div class="flex items-center justify-between">
+<h2 class="font-card-heading text-card-heading text-ink">Preferred interface &amp; study language</h2>
+</div>
+<p class="font-metadata text-metadata text-ink-muted mt-0.5">Language names only, no flags</p>
+</div>
+<!-- Language Items -->
+<div aria-label="Preferred interface and study language" class="space-y-space-xs" role="radiogroup">
+<!-- English (Pilot active) -->
+<label class="block cursor-pointer">
+<input checked="" class="sr-only peer" name="study-language" type="radio" value="english"/>
+<div class="p-space-md rounded-xl border-2 border-action bg-learning-surface/30 flex items-center justify-between peer-checked:border-ink">
+<div class="flex items-center gap-space-sm">
+<span class="w-4 h-4 rounded-full border-2 border-ink flex items-center justify-center flex-shrink-0">
+<span class="w-2 h-2 rounded-full bg-ink"></span>
+</span>
+<span class="font-ui-body text-ui-body font-semibold text-ink">English</span>
+</div>
+<span class="inline-flex items-center px-2 py-0.5 rounded-full bg-success-surface text-success-ink font-metadata text-[12px] font-semibold border border-success-ink/20">
+                Available in pilot
+              </span>
+</div>
+</label>
+<!-- Nigerian Pidgin -->
+<label class="block cursor-pointer">
+<input class="sr-only peer" name="study-language" type="radio" value="pidgin"/>
+<div class="p-space-md rounded-xl border border-border-subtle bg-surface hover:bg-surface-container-low flex items-center justify-between peer-checked:border-ink">
+<div class="flex items-center gap-space-sm">
+<span class="w-4 h-4 rounded-full border border-border-control flex items-center justify-center flex-shrink-0"></span>
+<span class="font-ui-body text-ui-body text-ink">Nigerian Pidgin</span>
+</div>
+<span class="inline-flex items-center px-2 py-0.5 rounded-full bg-review-surface text-review-ink font-metadata text-[11px] font-medium border border-outline-variant">
+                Review pending — draft only
+              </span>
+</div>
+</label>
+<!-- Igbo -->
+<label class="block cursor-pointer">
+<input class="sr-only peer" name="study-language" type="radio" value="igbo"/>
+<div class="p-space-md rounded-xl border border-border-subtle bg-surface hover:bg-surface-container-low flex items-center justify-between peer-checked:border-ink">
+<div class="flex items-center gap-space-sm">
+<span class="w-4 h-4 rounded-full border border-border-control flex items-center justify-center flex-shrink-0"></span>
+<span class="font-ui-body text-ui-body text-ink">Igbo</span>
+</div>
+<span class="inline-flex items-center px-2 py-0.5 rounded-full bg-review-surface text-review-ink font-metadata text-[11px] font-medium border border-outline-variant">
+                Review pending — draft only
+              </span>
+</div>
+</label>
+<!-- Yoruba -->
+<label class="block cursor-pointer">
+<input class="sr-only peer" name="study-language" type="radio" value="yoruba"/>
+<div class="p-space-md rounded-xl border border-border-subtle bg-surface hover:bg-surface-container-low flex items-center justify-between peer-checked:border-ink">
+<div class="flex items-center gap-space-sm">
+<span class="w-4 h-4 rounded-full border border-border-control flex items-center justify-center flex-shrink-0"></span>
+<span class="font-ui-body text-ui-body text-ink">Yoruba</span>
+</div>
+<span class="inline-flex items-center px-2 py-0.5 rounded-full bg-review-surface text-review-ink font-metadata text-[11px] font-medium border border-outline-variant">
+                Review pending — draft only
+              </span>
+</div>
+</label>
+<!-- Hausa -->
+<label class="block cursor-pointer">
+<input class="sr-only peer" name="study-language" type="radio" value="hausa"/>
+<div class="p-space-md rounded-xl border border-border-subtle bg-surface hover:bg-surface-container-low flex items-center justify-between peer-checked:border-ink">
+<div class="flex items-center gap-space-sm">
+<span class="w-4 h-4 rounded-full border border-border-control flex items-center justify-center flex-shrink-0"></span>
+<span class="font-ui-body text-ui-body text-ink">Hausa</span>
+</div>
+<span class="inline-flex items-center px-2 py-0.5 rounded-full bg-review-surface text-review-ink font-metadata text-[11px] font-medium border border-outline-variant">
+                Review pending — draft only
+              </span>
+</div>
+</label>
+</div>
+<!-- Note Box -->
+<div class="p-space-md rounded-xl bg-review-surface/60 border border-outline-variant flex gap-space-sm items-start">
+<span class="material-symbols-outlined text-review-ink text-[20px] mt-0.5" data-icon="info">info</span>
+<p class="font-metadata text-metadata text-review-ink">
+            CuriousNext does not claim release readiness for languages currently in consultant review.
+          </p>
+</div>
+</section>
+<!-- Section 4: Typical Session Time Estimate -->
+<section class="bg-surface rounded-card border border-border-subtle p-space-md space-y-space-md">
+<div>
+<h2 class="font-card-heading text-card-heading text-ink">Typical session time estimate</h2>
+<p class="font-metadata text-metadata text-ink-muted">Pacing estimate, not a countdown timer.</p>
+</div>
+<div aria-label="Session time estimate" class="grid grid-cols-3 gap-space-xs" role="radiogroup">
+<!-- 10 min -->
+<label class="cursor-pointer">
+<input class="sr-only peer" name="session-time" type="radio" value="10"/>
+<div class="p-space-sm rounded-xl border border-border-subtle text-center bg-surface hover:bg-surface-container-low peer-checked:border-ink peer-checked:bg-learning-surface/50 transition-all flex flex-col justify-between h-full">
+<span class="font-section-heading-mobile text-section-heading-mobile font-bold text-ink">10m</span>
+<span class="font-metadata text-[13px] text-ink-muted mt-1">Quick bite</span>
+</div>
+</label>
+<!-- 20 min (Recommended) -->
+<label class="cursor-pointer">
+<input checked="" class="sr-only peer" name="session-time" type="radio" value="20"/>
+<div class="p-space-sm rounded-xl border-2 border-action bg-surface text-center peer-checked:border-ink peer-checked:bg-learning-surface/50 transition-all relative flex flex-col justify-between h-full shadow-sm">
+<span class="absolute -top-2.5 left-1/2 -translate-x-1/2 bg-ink text-surface text-[10px] font-semibold px-2 py-0.5 rounded-full whitespace-nowrap">
+                Recommended
+              </span>
+<span class="font-section-heading-mobile text-section-heading-mobile font-bold text-ink mt-1">20m</span>
+<span class="font-metadata text-[13px] text-ink font-medium mt-1">Standard session</span>
+</div>
+</label>
+<!-- 40 min -->
+<label class="cursor-pointer">
+<input class="sr-only peer" name="session-time" type="radio" value="40"/>
+<div class="p-space-sm rounded-xl border border-border-subtle text-center bg-surface hover:bg-surface-container-low peer-checked:border-ink peer-checked:bg-learning-surface/50 transition-all flex flex-col justify-between h-full">
+<span class="font-section-heading-mobile text-section-heading-mobile font-bold text-ink">40m</span>
+<span class="font-metadata text-[13px] text-ink-muted mt-1">Deep practice</span>
+</div>
+</label>
+</div>
+</section>
+</main>
+<!-- Persistent Bottom Action & Task Flow Bar -->
+<div class="fixed bottom-16 left-0 right-0 max-w-[390px] mx-auto z-40 bg-canvas/95 backdrop-blur-md px-gutter py-space-sm flex items-center gap-space-sm">
+<button class="min-h-[44px] px-space-md py-space-sm rounded-xl border border-border-control bg-surface font-metadata text-metadata font-semibold text-ink hover:bg-surface-container active:scale-[0.98] transition-all flex items-center justify-center" type="button">
+        Cancel
+      </button>
+<button class="flex-1 min-h-[44px] px-space-md py-space-sm rounded-xl bg-action hover:bg-action-hover font-ui-body text-ui-body font-bold text-ink shadow-sm active:scale-[0.98] transition-all flex items-center justify-center gap-1.5" type="button">
+<span>Save and choose course</span>
+<span class="material-symbols-outlined text-[18px]" data-icon="arrow_forward">arrow_forward</span>
+</button>
+</div>
+<!-- Bottom Navigation Bar (Shared Component Execution: BottomNavBar) -->
+<!-- Destination count: 3 | Labels: Learn, My courses, Evidence -->
+<!-- Active Tab: Learn (Primary Setup/Learning ecosystem destination) -->
+<nav aria-label="Global application navigation" class="fixed bottom-0 left-0 right-0 max-w-[390px] mx-auto z-50 flex justify-around items-center h-16 px-gutter bg-canvas pb-safe">
+<!-- Tab 1: Learn (ACTIVE) -->
+<a aria-current="page" class="flex flex-col items-center justify-center min-w-[44px] min-h-[44px] bg-learning-surface text-ink rounded-xl px-space-md py-space-xs font-semibold active:scale-[0.98] transition-transform duration-150" href="#learn">
+<span class="material-symbols-outlined text-[20px]" data-icon="menu_book" data-weight="fill" style="font-variation-settings: 'FILL' 1;">menu_book</span>
+<span class="font-metadata text-[12px] tracking-tight">Learn</span>
+</a>
+<!-- Tab 2: My courses (INACTIVE) -->
+<a class="flex flex-col items-center justify-center min-w-[44px] min-h-[44px] text-ink-muted hover:text-ink px-space-md py-space-xs rounded-xl active:scale-[0.98] transition-all duration-150" href="#courses">
+<span class="material-symbols-outlined text-[20px]" data-icon="auto_stories">auto_stories</span>
+<span class="font-metadata text-[12px] tracking-tight">My courses</span>
+</a>
+<!-- Tab 3: Evidence (INACTIVE) -->
+<a class="flex flex-col items-center justify-center min-w-[44px] min-h-[44px] text-ink-muted hover:text-ink px-space-md py-space-xs rounded-xl active:scale-[0.98] transition-all duration-150" href="#evidence">
+<span class="material-symbols-outlined text-[20px]" data-icon="fact_check">fact_check</span>
+<span class="font-metadata text-[12px] tracking-tight">Evidence</span>
+</a>
+</nav>
+</div>
+</body></html>

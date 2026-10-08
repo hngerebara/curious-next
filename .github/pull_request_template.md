@@ -1,17 +1,19 @@
-## Plan and slice
+### What does this PR do?
 
-Plan ID:
-Milestone:
+Explain the problem, why it matters, and the resulting behavior. Group related changes.
 
-## Behavior and changes
+### Related tickets
 
-Describe the final change and any limitations.
+Link the verified Linear issue, related PRs, and execution plan. Example format: `[THE-number](https://linear.app/the-curious-tech-girl/issue/THE-number/slug)`.
 
-## Validation and review
+### Screenshots
 
-- [ ] Repository governance and checker tests pass.
-- [ ] Relevant behavior, authorization, and accessibility tests pass, or are explicitly unavailable.
-- [ ] Complete diff reviewed and findings fixed or recorded as nonblocking debt.
-- [ ] Documentation.md contains honest milestone evidence.
+Include screenshots for visible changes. Otherwise state why they are not applicable.
 
-Leave this PR open for the user. Do not merge or enable auto-merge.
+### How to test
+
+Give reproducible steps and distinguish checks actually run from checks still pending.
+
+### Additional notes
+
+Record relevant limitations or risks. Omit filler. Leave the PR open without merging or auto-merge.
