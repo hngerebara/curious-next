@@ -2,7 +2,7 @@
 
 ## Status and scope
 
-Security requirements for the two-course adult pilot. No application security controls have been implemented or verified yet. Authentication, provider configuration, data retention and deployment choices require M1 decisions. This document owns threat boundaries and verification requirements, not invented endpoints.
+Security requirements for the two-course adult pilot. The M1 authentication spike implements origin/CSRF checks, hashed single-use links, durable limits, session validation and a synthetic ownership boundary. [Local validation](authentication-review.md) uses Better Auth and PGlite. Live provider configuration, hosted logging, retention and deployment validation remain pending. This document owns threat boundaries and verification requirements, not a claim of production security acceptance.
 
 ## Assets and trust boundaries
 

@@ -4,7 +4,7 @@ CuriousNext helps adult beginners choose a useful learning pathway and demonstra
 
 ## Current state
 
-This repository contains product, curriculum, design and engineering specifications with documentation validation tooling. There is no working learner application, database, authentication service or deployment yet. Curriculum and language review remain pending. See [milestone status](Documentation.md) for actual evidence.
+This repository contains product, curriculum and design specifications plus an M1 authentication proof of concept. Email-only access, explicit link confirmation and session checks are implemented locally. Goal setting, courses and learning are not yet implemented. No hosted environment or live Neon/Resend integration has been verified. Curriculum, language and user design review remain pending. See [milestone status](Documentation.md) for evidence.
 
 ## Start here
 
@@ -15,11 +15,15 @@ This repository contains product, curriculum, design and engineering specificati
 
 ## Run repository checks
 
-Use Python 3.12, matching CI. The current checks require only its standard library.
+Use Python 3.12 and Node.js 24, matching CI. Python governance checks use the standard library. Application dependencies are locked in package-lock.json.
 
 ```sh
 python3 scripts/validate_repo.py
 python3 -m unittest discover -s tests -v
+python3 scripts/validate_design_artifacts.py
+npm ci
+npm run check
+npm audit --audit-level=high
 ```
 
 After reviewing documentation changes, run `python3 scripts/validate_repo.py --refresh` and commit the updated fingerprints. See [engineering workflow](docs/design-docs/engineering.md). Each slice is tested, reviewed and proposed through a PR. PRs are left open without merging or auto-merge.
@@ -30,4 +34,20 @@ Accessibility is required from the first screen. Teaching-language release targe
 
 ## Application setup and deployment
 
-M1 must select and document the stack, authentication, storage and model provider. Actual API and deployment specifications follow those decisions before frontend/backend integration and hosted learner use. No installation, environment secrets, demo credentials or running URL are available yet.
+The accepted stack uses Next.js, Neon PostgreSQL, Drizzle, Better Auth, Resend and Vercel. See the [stack decision](docs/design-docs/decisions/002-neon-pilot-stack.md) and [deployment runbook](docs/design-docs/deployment.md). No service account, credentials or paid resource is created by installation or startup.
+
+```sh
+npm ci
+cp .env.example .env.local
+npm run dev
+```
+
+Open http://127.0.0.1:3000/access for the email shell. Without service configuration it displays honest unavailable feedback. To test real delivery, configure a synthetic-data Neon database, a verified Resend sender, a random server secret of at least 32 characters and an exact BETTER_AUTH_URL origin matching your browser URL. Use HTTPS and TLS database connections on hosted environments. Keep secrets outside Git and screenshots.
+
+Apply the [reviewed SQL migration](migrations/0001-access.sql) once to a new isolated test database before enabling access. Use a schema-owner migration role and a separate application role. Application startup never migrates the database.
+
+```sh
+psql "$DATABASE_URL_UNPOOLED" --single-transaction --set ON_ERROR_STOP=1 --file migrations/0001-access.sql
+```
+
+The integration suite uses real Better Auth with a disposable PGlite PostgreSQL engine and captured test-only mail. It does not contact Neon or Resend. The [API specification](docs/design-docs/api-spec.md) separates implemented spike routes from later course-entry contracts. The [mobile review](docs/design-docs/authentication-review.md) records the checks and their limits.
