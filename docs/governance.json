@@ -339,6 +339,46 @@
         "## Review findings and acceptance",
         "## Validation and regeneration"
       ]
+    },
+    "docs/design-docs/decisions/002-neon-pilot-stack.md": {
+      "required_headings": [
+        "# ADR-002: Accepted Neon pilot stack",
+        "## Status",
+        "## Decision",
+        "## Authentication adoption conditions",
+        "## Architecture and implementation gate",
+        "## Consequences and acceptance",
+        "## References"
+      ]
+    },
+    "docs/design-docs/api-spec.md": {
+      "required_headings": [
+        "# CuriousNext API specification",
+        "## Status and authority",
+        "## Shared conventions",
+        "## Public authentication, M2",
+        "## Course entry, M2",
+        "## Attempt and evidence boundary, M3 onward",
+        "## Validation before implementation acceptance"
+      ]
+    },
+    "docs/design-docs/deployment.md": {
+      "required_headings": [
+        "# CuriousNext deployment specification",
+        "## Status",
+        "## Environments and secrets",
+        "## Build and release",
+        "## Reliability and recovery",
+        "## Acceptance checklist"
+      ]
+    },
+    "docs/exec-plans/active/foundation.md": {
+      "required_headings": [
+        "# CN-FOUNDATION-001: Pilot foundation decisions",
+        "## Plan lifecycle",
+        "## Deliverables",
+        "## Validation and remaining decisions"
+      ]
     }
   },
   "layers": {

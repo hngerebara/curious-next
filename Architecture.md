@@ -25,4 +25,4 @@ The initial checker intentionally supports a narrow TypeScript/JavaScript module
 
 Server-side auth, storage, and model adapters implement ports. UI cannot access providers directly. Model secrets never enter client bundles. Submitted text is inert and untrusted. Enforce ownership for nested reads/writes/exports. Log event IDs and outcome codes without learner messages, credentials or model keys.
 
-Stack selection and retention policy remain M1 decisions. See [data model](docs/design-docs/data-model.md), [golden principles](docs/design-docs/core-beliefs.md), [enforcement configuration](docs/governance.json), and [plan](Plans.md).
+The application stack is accepted in [ADR-002](docs/design-docs/decisions/002-neon-pilot-stack.md). Integration validation, AI provider selection and retention policy remain M1 decisions. See [data model](docs/design-docs/data-model.md), [golden principles](docs/design-docs/core-beliefs.md), [enforcement configuration](docs/governance.json), and [plan](Plans.md).

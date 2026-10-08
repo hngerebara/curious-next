@@ -88,3 +88,7 @@ Use manifest source IDs with Stitch get_screen/edit_screens. After an edit, refr
 
 [Active plan](../exec-plans/active/screen-design.md), [milestone status](../../Documentation.md), [roadmap](../../Plans.md).
 
+
+2026-10-08 entry review: mobile homepage header Log In had no action. Local HTML now links to the mobile magic-link screen. This fixes static navigation only. Auth designs remain state previews, not working delivery or redemption. Full state-transition and assistive-technology checks await implementation.
+
+Entry review also aligned both public homepage module lists with the approved planning syllabuses and removed unsupported claims that translations are already in community review. Curriculum remains draft pending subject review.

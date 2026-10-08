@@ -15,7 +15,7 @@
 
 ## Execution and validation
 
-Work in milestone order: M1 → M1.5 → M2 onward. M2 screen implementation requires the M1.5 design handoff. M1 records implementation choices before code, rather than pretending the current documentation chooses a stack. M6 language work can prepare earlier, but accessibility is required from M2 onward. English release and each additional language have separate review gates. Do not wait until M6 to fix access barriers.
+Work in milestone order: M1 → M1.5 → M2 onward. M2 screen implementation requires the M1.5 design handoff. M1 records accepted implementation choices before code. [Foundation preparation](docs/exec-plans/active/foundation.md) contains the accepted Neon stack and draft API/deployment specifications. M6 language work can prepare earlier, but accessibility is required from M2 onward. English release and each additional language have separate review gates. Do not wait until M6 to fix access barriers.
 
 Screen design deliverables and review criteria live in [CN-DESIGN-001](docs/exec-plans/active/screen-design.md). Design review is not proof of implemented accessibility.
 

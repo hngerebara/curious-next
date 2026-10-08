@@ -16,3 +16,5 @@
 
 - [Domain model](domain-model.md)
 - [Security](security.md)
+
+- [API specification](api-spec.md) and [deployment specification](deployment.md): proposed M1 contracts and operational requirements.
