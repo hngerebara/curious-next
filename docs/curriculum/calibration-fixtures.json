@@ -1,0 +1,480 @@
+{
+  "format_version": 1,
+  "release_status": "draft",
+  "rubrics": {
+    "AI-2-v2": {
+      "path": "docs/curriculum/practical-ai/reference-module.md",
+      "heading": "## Rubric AI-2 v2",
+      "criteria": [
+        "A1",
+        "A2",
+        "A3",
+        "A4",
+        "A5",
+        "A6"
+      ],
+      "sha256": "bbb0ac3f9550e2a03421831c7194b9984b6374b8fccfc5659661fc8cfdd97d16"
+    },
+    "CY-2-v2": {
+      "path": "docs/curriculum/cybersecurity-essentials/reference-module.md",
+      "heading": "## Rubric CY-2 v2",
+      "criteria": [
+        "C1",
+        "C2",
+        "C3",
+        "C4",
+        "C5",
+        "C6"
+      ],
+      "sha256": "d74dc9a58ace721451afe21c0cb05453b46415e41e29eac40706c2a772af6c9e"
+    }
+  },
+  "cases": [
+    {
+      "id": "AI-complete",
+      "rubric_version": "AI-2-v2",
+      "policy_version": "reference-evidence-v1",
+      "evidence_kind": "initial",
+      "assistance": "none",
+      "assessment_status": "succeeded",
+      "submission": {
+        "prompt": "Use the supplied source pack to create three question-and-answer FAQ entries for prospective members: meeting time/location, duration/fee and recording policy. Use source facts only. Keep each answer under 30 words. Say when the recording policy is unspecified.",
+        "response": [
+          {
+            "question": "When and where do we meet?",
+            "answer": "We meet online on Tuesdays at 18:00."
+          },
+          {
+            "question": "How long does it last and what does it cost?",
+            "answer": "Sessions last 45 minutes and are free."
+          },
+          {
+            "question": "Are sessions recorded?",
+            "answer": "The supplied information does not state a recording policy."
+          }
+        ],
+        "checklist": "Three FAQ pairs. Each answer has fewer than 30 words. The time, location, duration and fee match the source. Recording is explicitly unspecified. No unsupported claims.",
+        "explanation": "The task names the audience and three topics. Source facts supply context. Source-only and length rules constrain answers. Question-and-answer pairs set the format. I still check the response because a clear prompt does not guarantee accuracy.",
+        "practice_ai_used": true
+      },
+      "expected": {
+        "criteria": {"A1": "met", "A2": "met", "A3": "met", "A4": "met", "A5": "met", "A6": "met"},
+        "outcome": "demonstrated",
+        "misconception": "none"
+      },
+      "note": "Synthetic author-assigned expectation, not an assessor run or learner evidence."
+    },
+    {
+      "id": "AI-model-error-detected",
+      "rubric_version": "AI-2-v2",
+      "policy_version": "reference-evidence-v1",
+      "evidence_kind": "initial",
+      "assistance": "none",
+      "assessment_status": "succeeded",
+      "submission": {
+        "prompt": "Use the supplied source pack to create three question-and-answer FAQ entries for prospective members: meeting time/location, duration/fee and recording policy. Use source facts only. Keep each answer under 30 words. Say when the recording policy is unspecified.",
+        "response": [
+          {
+            "question": "When and where do we meet?",
+            "answer": "We meet online on Tuesdays at 18:00."
+          },
+          {
+            "question": "How long does it last and what does it cost?",
+            "answer": "Sessions last 45 minutes and are free."
+          },
+          {
+            "question": "Are sessions recorded?",
+            "answer": "Yes, recordings are available for all members."
+          }
+        ],
+        "checklist": "Three FAQ pairs and all answers under 30 words. The model invented a recording policy. The source does not say whether recording happens. That answer is unsupported.",
+        "explanation": "The task names the audience and three topics. Source facts supply context. Source-only and length rules constrain answers. Question-and-answer pairs set the format. I still check the response because a clear prompt does not guarantee accuracy.",
+        "practice_ai_used": true
+      },
+      "expected": {
+        "criteria": {"A1": "met", "A2": "met", "A3": "met", "A4": "met", "A5": "met", "A6": "met"},
+        "outcome": "demonstrated",
+        "misconception": "none"
+      },
+      "note": "Synthetic author-assigned expectation, not an assessor run or learner evidence."
+    },
+    {
+      "id": "AI-model-error-missed",
+      "rubric_version": "AI-2-v2",
+      "policy_version": "reference-evidence-v1",
+      "evidence_kind": "initial",
+      "assistance": "none",
+      "assessment_status": "succeeded",
+      "submission": {
+        "prompt": "Use the supplied source pack to create three question-and-answer FAQ entries for prospective members: meeting time/location, duration/fee and recording policy. Use source facts only. Keep each answer under 30 words. Say when the recording policy is unspecified.",
+        "response": [
+          {
+            "question": "When and where do we meet?",
+            "answer": "We meet online on Tuesdays at 18:00."
+          },
+          {
+            "question": "How long does it last and what does it cost?",
+            "answer": "Sessions last 45 minutes and are free."
+          },
+          {
+            "question": "Are sessions recorded?",
+            "answer": "Yes, recordings are available for all members."
+          }
+        ],
+        "checklist": "Everything is correct. A detailed prompt guarantees a correct answer.",
+        "explanation": "A detailed prompt guarantees a correct answer.",
+        "practice_ai_used": true
+      },
+      "expected": {
+        "criteria": {"A1": "met", "A2": "met", "A3": "met", "A4": "met", "A5": "unmet", "A6": "unmet"},
+        "outcome": "developing",
+        "misconception": "candidate"
+      },
+      "note": "Synthetic author-assigned expectation, not an assessor run or learner evidence."
+    },
+    {
+      "id": "AI-missing-constraints",
+      "rubric_version": "AI-2-v2",
+      "policy_version": "reference-evidence-v1",
+      "evidence_kind": "initial",
+      "assistance": "none",
+      "assessment_status": "succeeded",
+      "submission": {
+        "prompt": "Use the supplied source pack to write three question-and-answer FAQs for prospective members about time/location, duration/fee and recording.",
+        "response": [
+          {
+            "question": "When and where do we meet?",
+            "answer": "We meet online on Tuesdays at 18:00."
+          },
+          {
+            "question": "How long does it last and what does it cost?",
+            "answer": "Sessions last 45 minutes and are free."
+          },
+          {
+            "question": "Are sessions recorded?",
+            "answer": "The supplied information does not state a recording policy."
+          }
+        ],
+        "checklist": "Three FAQ pairs. Each answer has fewer than 30 words. The time, location, duration and fee match the source. Recording is explicitly unspecified. No unsupported claims.",
+        "explanation": "The prompt names the audience and topics, supplies the source pack and requests FAQ pairs. I omitted the length, source-only and missing-policy constraints. Those should be explicit. I still need to check the response against the brief.",
+        "practice_ai_used": true
+      },
+      "expected": {
+        "criteria": {"A1": "met", "A2": "met", "A3": "unmet", "A4": "met", "A5": "met", "A6": "met"},
+        "outcome": "developing",
+        "misconception": "none"
+      },
+      "note": "Synthetic author-assigned expectation, not an assessor run or learner evidence."
+    },
+    {
+      "id": "AI-substantive-help",
+      "rubric_version": "AI-2-v2",
+      "policy_version": "reference-evidence-v1",
+      "evidence_kind": "initial",
+      "assistance": "substantive",
+      "assessment_status": "succeeded",
+      "submission": {
+        "prompt": "Use the supplied source pack to create three question-and-answer FAQ entries for prospective members: meeting time/location, duration/fee and recording policy. Use source facts only. Keep each answer under 30 words. Say when the recording policy is unspecified.",
+        "response": [
+          {
+            "question": "When and where do we meet?",
+            "answer": "We meet online on Tuesdays at 18:00."
+          },
+          {
+            "question": "How long does it last and what does it cost?",
+            "answer": "Sessions last 45 minutes and are free."
+          },
+          {
+            "question": "Are sessions recorded?",
+            "answer": "The supplied information does not state a recording policy."
+          }
+        ],
+        "checklist": "Three FAQ pairs. Each answer has fewer than 30 words. The time, location, duration and fee match the source. Recording is explicitly unspecified. No unsupported claims.",
+        "explanation": "The task names the audience and three topics. Source facts supply context. Source-only and length rules constrain answers. Question-and-answer pairs set the format. I still check the response because a clear prompt does not guarantee accuracy.",
+        "practice_ai_used": true
+      },
+      "expected": {
+        "criteria": {"A1": "met", "A2": "met", "A3": "met", "A4": "met", "A5": "met", "A6": "met"},
+        "outcome": "developing",
+        "misconception": "none"
+      },
+      "note": "Synthetic author-assigned expectation, not an assessor run or learner evidence."
+    },
+    {
+      "id": "AI-accessible-presentation",
+      "rubric_version": "AI-2-v2",
+      "policy_version": "reference-evidence-v1",
+      "evidence_kind": "initial",
+      "assistance": "accessibility",
+      "assessment_status": "succeeded",
+      "submission": {
+        "prompt": "Use the supplied source pack to create three question-and-answer FAQ entries for prospective members: meeting time/location, duration/fee and recording policy. Use source facts only. Keep each answer under 30 words. Say when the recording policy is unspecified.",
+        "response": [
+          {
+            "question": "When and where do we meet?",
+            "answer": "We meet online on Tuesdays at 18:00."
+          },
+          {
+            "question": "How long does it last and what does it cost?",
+            "answer": "Sessions last 45 minutes and are free."
+          },
+          {
+            "question": "Are sessions recorded?",
+            "answer": "The supplied information does not state a recording policy."
+          }
+        ],
+        "checklist": "Three FAQ pairs. Each answer has fewer than 30 words. The time, location, duration and fee match the source. Recording is explicitly unspecified. No unsupported claims.",
+        "explanation": "The task names the audience and three topics. Source facts supply context. Source-only and length rules constrain answers. Question-and-answer pairs set the format. I still check the response because a clear prompt does not guarantee accuracy.",
+        "practice_ai_used": true
+      },
+      "expected": {
+        "criteria": {"A1": "met", "A2": "met", "A3": "met", "A4": "met", "A5": "met", "A6": "met"},
+        "outcome": "demonstrated",
+        "misconception": "none"
+      },
+      "note": "Synthetic author-assigned expectation, not an assessor run or learner evidence."
+    },
+    {
+      "id": "AI-assessment-failed",
+      "rubric_version": "AI-2-v2",
+      "policy_version": "reference-evidence-v1",
+      "evidence_kind": "initial",
+      "assistance": "none",
+      "assessment_status": "failed",
+      "submission": {
+        "prompt": "Use the supplied source pack to create three question-and-answer FAQ entries for prospective members: meeting time/location, duration/fee and recording policy. Use source facts only. Keep each answer under 30 words. Say when the recording policy is unspecified.",
+        "response": [
+          {
+            "question": "When and where do we meet?",
+            "answer": "We meet online on Tuesdays at 18:00."
+          },
+          {
+            "question": "How long does it last and what does it cost?",
+            "answer": "Sessions last 45 minutes and are free."
+          },
+          {
+            "question": "Are sessions recorded?",
+            "answer": "The supplied information does not state a recording policy."
+          }
+        ],
+        "checklist": "Three FAQ pairs. Each answer has fewer than 30 words. The time, location, duration and fee match the source. Recording is explicitly unspecified. No unsupported claims.",
+        "explanation": "The task names the audience and three topics. Source facts supply context. Source-only and length rules constrain answers. Question-and-answer pairs set the format. I still check the response because a clear prompt does not guarantee accuracy.",
+        "practice_ai_used": true
+      },
+      "expected": {
+        "criteria": {"A1": "uncertain", "A2": "uncertain", "A3": "uncertain", "A4": "uncertain", "A5": "uncertain", "A6": "uncertain"},
+        "outcome": "unavailable",
+        "misconception": "none"
+      },
+      "note": "Synthetic author-assigned expectation, not an assessor run or learner evidence."
+    },
+    {
+      "id": "CY-safe-branch",
+      "rubric_version": "CY-2-v2",
+      "policy_version": "reference-evidence-v1",
+      "evidence_kind": "initial",
+      "assistance": "none",
+      "assessment_status": "succeeded",
+      "submission": {
+        "actions": {
+          "closure": [
+            "verify",
+            "report-known"
+          ],
+          "reminder": [
+            "continue-routine"
+          ]
+        },
+        "rationale": "The sign-in demand is unexpected and threatens immediate closure. I open my existing official app independently, not the supplied link. If suspicion persists I use Help then Report suspicious message in that app. A logo does not authenticate the sender. These cues support suspicion, not proof. The reminder matches my planned session and asks for no sensitive action. I continue without claiming its sender is proven genuine."
+      },
+      "expected": {
+        "criteria": {"C1": "met", "C2": "met", "C3": "met", "C4": "met", "C5": "met", "C6": "met"},
+        "outcome": "demonstrated",
+        "misconception": "none"
+      },
+      "note": "Synthetic author-assigned expectation, not an assessor run or learner evidence."
+    },
+    {
+      "id": "CY-dangerous-choice",
+      "rubric_version": "CY-2-v2",
+      "policy_version": "reference-evidence-v1",
+      "evidence_kind": "initial",
+      "assistance": "none",
+      "assessment_status": "uncertain",
+      "submission": {
+        "actions": {
+          "closure": [
+            "verify",
+            "report-known",
+            "use-link"
+          ],
+          "reminder": [
+            "continue-routine"
+          ]
+        },
+        "rationale": "The sign-in demand is unexpected and threatens immediate closure. I open my existing official app independently, not the supplied link. If suspicion persists I use Help then Report suspicious message in that app. A logo does not authenticate the sender. These cues support suspicion, not proof. The reminder matches my planned session and asks for no sensitive action. I continue without claiming its sender is proven genuine."
+      },
+      "expected": {
+        "criteria": {"C1": "met", "C2": "unmet", "C3": "met", "C4": "met", "C5": "uncertain", "C6": "met"},
+        "outcome": "pending",
+        "misconception": "none"
+      },
+      "note": "Synthetic author-assigned expectation, not an assessor run or learner evidence."
+    },
+    {
+      "id": "CY-delete-not-verification",
+      "rubric_version": "CY-2-v2",
+      "policy_version": "reference-evidence-v1",
+      "evidence_kind": "initial",
+      "assistance": "none",
+      "assessment_status": "succeeded",
+      "submission": {
+        "actions": {
+          "closure": [
+            "delete"
+          ],
+          "reminder": [
+            "continue-routine"
+          ]
+        },
+        "rationale": "The closure demand is unexpected and urgent. I delete the message. If suspicion persists I report through the existing app Help route. A logo does not establish authenticity and suspicion is not proof. The routine reminder matches my session, but its sender is not proven genuine."
+      },
+      "expected": {
+        "criteria": {"C1": "met", "C2": "met", "C3": "unmet", "C4": "met", "C5": "met", "C6": "met"},
+        "outcome": "developing",
+        "misconception": "none"
+      },
+      "note": "Synthetic author-assigned expectation, not an assessor run or learner evidence."
+    },
+    {
+      "id": "CY-overgeneralisation",
+      "rubric_version": "CY-2-v2",
+      "policy_version": "reference-evidence-v1",
+      "evidence_kind": "initial",
+      "assistance": "none",
+      "assessment_status": "succeeded",
+      "submission": {
+        "actions": {
+          "closure": [
+            "verify",
+            "report-known"
+          ],
+          "reminder": [
+            "continue-routine"
+          ]
+        },
+        "rationale": "I verify the closure demand through my existing app and report through its Help route. The unexpected sign-in request and urgent closure are suspicious. All messages are definitely phishing, including the routine reminder. A logo does not establish authenticity."
+      },
+      "expected": {
+        "criteria": {"C1": "met", "C2": "met", "C3": "met", "C4": "met", "C5": "unmet", "C6": "unmet"},
+        "outcome": "developing",
+        "misconception": "none"
+      },
+      "note": "Synthetic author-assigned expectation, not an assessor run or learner evidence."
+    },
+    {
+      "id": "CY-substantive-help",
+      "rubric_version": "CY-2-v2",
+      "policy_version": "reference-evidence-v1",
+      "evidence_kind": "initial",
+      "assistance": "substantive",
+      "assessment_status": "succeeded",
+      "submission": {
+        "actions": {
+          "closure": [
+            "verify",
+            "report-known"
+          ],
+          "reminder": [
+            "continue-routine"
+          ]
+        },
+        "rationale": "The sign-in demand is unexpected and threatens immediate closure. I open my existing official app independently, not the supplied link. If suspicion persists I use Help then Report suspicious message in that app. A logo does not authenticate the sender. These cues support suspicion, not proof. The reminder matches my planned session and asks for no sensitive action. I continue without claiming its sender is proven genuine."
+      },
+      "expected": {
+        "criteria": {"C1": "met", "C2": "met", "C3": "met", "C4": "met", "C5": "met", "C6": "met"},
+        "outcome": "developing",
+        "misconception": "none"
+      },
+      "note": "Synthetic author-assigned expectation, not an assessor run or learner evidence."
+    },
+    {
+      "id": "CY-assessment-failed",
+      "rubric_version": "CY-2-v2",
+      "policy_version": "reference-evidence-v1",
+      "evidence_kind": "initial",
+      "assistance": "none",
+      "assessment_status": "failed",
+      "submission": {
+        "actions": {
+          "closure": [
+            "verify",
+            "report-known"
+          ],
+          "reminder": [
+            "continue-routine"
+          ]
+        },
+        "rationale": "The sign-in demand is unexpected and threatens immediate closure. I open my existing official app independently, not the supplied link. If suspicion persists I use Help then Report suspicious message in that app. A logo does not authenticate the sender. These cues support suspicion, not proof. The reminder matches my planned session and asks for no sensitive action. I continue without claiming its sender is proven genuine."
+      },
+      "expected": {
+        "criteria": {"C1": "uncertain", "C2": "uncertain", "C3": "uncertain", "C4": "uncertain", "C5": "uncertain", "C6": "uncertain"},
+        "outcome": "unavailable",
+        "misconception": "none"
+      },
+      "note": "Synthetic author-assigned expectation, not an assessor run or learner evidence."
+    },
+    {
+      "id": "CY-recall-policy",
+      "rubric_version": "CY-2-v2",
+      "policy_version": "reference-evidence-v1",
+      "evidence_kind": "recall",
+      "assistance": "none",
+      "assessment_status": "succeeded",
+      "submission": {
+        "actions": {
+          "closure": [
+            "verify",
+            "report-known"
+          ],
+          "reminder": [
+            "continue-routine"
+          ]
+        },
+        "rationale": "The sign-in demand is unexpected and threatens immediate closure. I open my existing official app independently, not the supplied link. If suspicion persists I use Help then Report suspicious message in that app. A logo does not authenticate the sender. These cues support suspicion, not proof. The reminder matches my planned session and asks for no sensitive action. I continue without claiming its sender is proven genuine."
+      },
+      "expected": {
+        "criteria": {"C1": "met", "C2": "met", "C3": "met", "C4": "met", "C5": "met", "C6": "met"},
+        "outcome": "recall-recorded",
+        "misconception": "none"
+      },
+      "note": "Synthetic author-assigned expectation, not an assessor run or learner evidence. Reused text isolates evidence routing only. A real recall/transfer task requires a fresh scenario."
+    },
+    {
+      "id": "CY-transfer-policy",
+      "rubric_version": "CY-2-v2",
+      "policy_version": "reference-evidence-v1",
+      "evidence_kind": "transfer",
+      "assistance": "none",
+      "assessment_status": "succeeded",
+      "submission": {
+        "actions": {
+          "closure": [
+            "verify",
+            "report-known"
+          ],
+          "reminder": [
+            "continue-routine"
+          ]
+        },
+        "rationale": "The sign-in demand is unexpected and threatens immediate closure. I open my existing official app independently, not the supplied link. If suspicion persists I use Help then Report suspicious message in that app. A logo does not authenticate the sender. These cues support suspicion, not proof. The reminder matches my planned session and asks for no sensitive action. I continue without claiming its sender is proven genuine."
+      },
+      "expected": {
+        "criteria": {"C1": "met", "C2": "met", "C3": "met", "C4": "met", "C5": "met", "C6": "met"},
+        "outcome": "transfer-recorded",
+        "misconception": "none"
+      },
+      "note": "Synthetic author-assigned expectation, not an assessor run or learner evidence. Reused text isolates evidence routing only. A real recall/transfer task requires a fresh scenario."
+    }
+  ]
+}

@@ -2,6 +2,7 @@
 import argparse
 import hashlib
 import json
+import os
 from pathlib import Path
 import re
 import subprocess
@@ -11,7 +12,11 @@ SKIP = {'.git', 'node_modules', '.next', '.venv', '__pycache__', 'dist'}
 
 
 def paths(root):
-    return [p for p in root.rglob('*') if p.is_file() and not SKIP.intersection(p.relative_to(root).parts)]
+    found = []
+    for directory, folders, files in os.walk(root):
+        folders[:] = [name for name in folders if name not in SKIP]
+        found.extend(Path(directory) / name for name in files)
+    return found
 
 
 def source_errors(root, config):
@@ -27,6 +32,12 @@ def source_errors(root, config):
         if layer not in config['layers']:
             fail('unknown source layer')
             continue
+        if layer == config.get('framework_entry_layer'):
+            bridge = r'\s*export\s+\{[\w,\s]+\}\s+from\s+[\"\'][^\"\']+[\"\'];?\s*'
+            runtime = r'\s*export const runtime = [\"\']nodejs[\"\'];?\s*'
+            for line in text.splitlines():
+                if line.strip() and not (re.fullmatch(bridge, line) or re.fullmatch(runtime, line)):
+                    fail('framework entries must only re-export bootstrap')
         if not re.fullmatch(r'[a-z0-9]+(?:-[a-z0-9]+)*', p.stem):
             fail('use kebab-case filenames')
         if len(text.splitlines()) > config['max_source_lines']:
@@ -36,7 +47,7 @@ def source_errors(root, config):
                 fail(f'forbidden taste pattern {pattern}')
         # Import declarations must be single-line. Check re-exports and literal calls too.
         for line in text.splitlines():
-            if re.match(r'\s*(?:import|export)\s', line) and ('from' in line or re.match(r'\s*import\s', line)):
+            if re.match(r'\s*(?:import\s|export\s+(?:type\s+)?[\{*])', line):
                 if not re.search(r'[\"\'][^\"\']+[\"\']', line):
                     fail('unsupported multiline import or re-export')
         for call in re.finditer(r'\b(?:import|require)\s*\((.*?)\)', text, re.S):
@@ -45,6 +56,8 @@ def source_errors(root, config):
         imports = re.findall(r'\b(?:from\s*|import\s*(?:\(\s*)?|require\s*\(\s*)[\"\']([^\"\']+)[\"\']', text)
         for target in imports:
             if not target.startswith('.'):
+                if layer == config.get('framework_entry_layer'):
+                    fail('framework entries must only re-export bootstrap')
                 if target.startswith(('@/', 'src/')) or (layer in ('contracts', 'domain') and target not in config['external_allowlist'][layer]):
                     fail(f'forbidden external or alias import {target}')
                 continue
@@ -55,6 +68,8 @@ def source_errors(root, config):
                 fail(f'import escapes source boundary: {target}')
                 continue
             destination = parts[0]
+            if layer == config.get('framework_entry_layer') and destination != 'bootstrap':
+                fail('framework entries must only re-export bootstrap')
             if destination != layer and destination not in config['layers'][layer]:
                 fail(f'forbidden dependency {layer} -> {destination}')
             if resolved.suffix in {'.css', '.svg', '.png'} and layer != 'ui':

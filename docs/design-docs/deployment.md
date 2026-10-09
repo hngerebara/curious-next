@@ -1,0 +1,40 @@
+# CuriousNext deployment specification
+
+## Status
+
+Draft M1 runbook, no environment provisioned or application deployed. [ADR-002](decisions/002-neon-pilot-stack.md) records the accepted stack. Owner: engineering. Billing, region, retention and recovery targets remain open. [Security](security.md) owns privacy controls.
+
+## Environments and secrets
+
+Use separate development/test, staging and production databases and credentials. Preview deployments use synthetic data only. Do not branch production learner data into previews. Restrict preview access and email recipients. Automated tests use a fake email adapter by default.
+
+Server-only configuration: DATABASE_URL (pooled application connection), DATABASE_URL_UNPOOLED (migration connection), BETTER_AUTH_SECRET, BETTER_AUTH_URL, RESEND_API_KEY and EMAIL_FROM. No secrets in NEXT_PUBLIC variables, source, screenshots or CI output. Migration credentials belong only to controlled deployment jobs. The application database role must not own schema changes. Document rotation and revocation during provisioning.
+
+Use Node.js 24 and Drizzle's node-postgres driver with Neon pooled application connections. Hosted HTTPS origins require a PostgreSQL URL with sslmode=require, verify-ca or verify-full. Connection, query and statement timeouts are bounded. Synthetic PGlite tests establish local token-redemption behavior, the exact Neon driver/concurrency test remains pending. Choose database and hosting regions together after latency and data-handling review. Check current provider limits, commercial terms and combined database/email/hosting cost before purchasing.
+
+## Build and release
+
+Both CI and the manual slice workflow install locked dependencies under Node.js 24, generate route types, type-check, run authentication integration/configuration tests and build the application. They also check dependency advisories, repository structure, documentation freshness, checker tests, static artifacts and PR metadata. Neither workflow provisions services or sends real email.
+
+Future release order: validate the exact commit, apply reviewed backward-compatible migrations, deploy staging, exercise magic links and learner isolation with synthetic accounts, then obtain release approval. PRs remain open and unmerged under the per-slice workflow. Provisioning and deployment are separate from creating a PR.
+
+## Reliability and recovery
+
+Use versioned SQL migrations and expand/contract changes. Keep the prior application compatible during migration. Never run destructive schema changes automatically from application startup. Rollback application code separately from data migration. Test restore into an isolated database and verify learner evidence before declaring recovery ready. Define retention and recovery objectives with the owner before first learner use.
+
+The initial migration is migrations/0001-access.sql, applied once through a controlled migration role. See [setup commands](../../README.md#application-setup-and-deployment). Track applied migration checksums in the eventual deployment job before adding incremental migrations. No hosted migration or restore was executed in this slice.
+
+Use durable assessment jobs before M3. Bound provider timeouts, retries and spend. Observe outcome codes and queue age without logging learner content. Monitor link delivery failures, invalid/redemption rates and database failures. Show honest interrupted-session and unavailable-assessment states. No demonstration award on infrastructure failure.
+
+The Resend call aborts after 10 seconds. An ambiguous delivery timeout does not trigger an automatic duplicate send. The learner receives retry feedback and the durable cooldown applies. Application logs suppress submitted content and Better Auth logs. Next development request logging excludes the token-bearing confirmation route. Hosting access logs, monitoring and third-party email-link tracking require inspection before real link delivery. Do not enable analytics or click tracking on authentication links. Define expired token/session/abuse-window cleanup with retention before learner release.
+
+## Acceptance checklist
+
+- Stack accepted. Budget, regions and retention require approval.
+- Sender domain verified, email authentication configured and delivery tested.
+- Secrets scoped, rotation documented and session revocation tested.
+- Transaction, migration and restore tests passed.
+- Staging keyboard/screen-reader entry journey and cross-learner tests passed.
+- Runtime logging reviewed for credentials, tokens and learner text.
+
+These steps are planned, not completed. [Status](../../Documentation.md), [foundation plan](../exec-plans/active/foundation.md).

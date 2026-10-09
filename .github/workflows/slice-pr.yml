@@ -6,6 +6,11 @@ on:
         description: Existing codex/ branch for the completed slice
         required: true
         type: string
+      base:
+        description: Target branch, including an unmerged predecessor
+        required: true
+        default: main
+        type: string
       title:
         description: Pull request title
         required: true
@@ -31,9 +36,11 @@ jobs:
       - name: Validate branch input
         env:
           SLICE_BRANCH: ${{ inputs.branch }}
+          SLICE_BASE: ${{ inputs.base }}
         run: |
           case "$SLICE_BRANCH" in codex/*) ;; *) echo 'Expected a codex/ branch'; exit 1 ;; esac
           git check-ref-format --branch "$SLICE_BRANCH"
+          git check-ref-format --branch "$SLICE_BASE"
       - uses: actions/checkout@v4
         with:
           ref: ${{ inputs.branch }}
@@ -42,24 +49,39 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
-      - name: Run required checks
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+          cache: npm
+      - name: Check application and dependencies
         run: |
           set -eu
-          python3 scripts/validate_repo.py --base origin/main
+          npm ci
+          npm run check
+          npm audit --audit-level=high
+      - name: Run required checks
+        env:
+          SLICE_BASE: ${{ inputs.base }}
+        run: |
+          set -eu
+          python3 scripts/validate_repo.py --base "origin/$SLICE_BASE"
           python3 -m unittest discover -s tests -v
-          git diff --check origin/main...HEAD
+          python3 scripts/validate_calibration.py
+          python3 scripts/validate_design_artifacts.py
+          git diff --check "origin/$SLICE_BASE...HEAD"
       - name: Open or reuse PR and post validation review
         env:
           GH_TOKEN: ${{ github.token }}
           GH_REPO: ${{ github.repository }}
           SLICE_BRANCH: ${{ inputs.branch }}
+          SLICE_BASE: ${{ inputs.base }}
           SLICE_TITLE: ${{ inputs.title }}
           PLAN_ID: ${{ inputs.plan_id }}
           SLICE_BODY: ${{ inputs.description }}
         run: |
           set -eu
           export VALIDATED_SHA=$(git rev-parse HEAD)
-          pr_url=$(gh pr list --head "$SLICE_BRANCH" --base main --state open --json url --jq '.[0].url // empty')
+          pr_url=$(gh pr list --head "$SLICE_BRANCH" --base "$SLICE_BASE" --state open --json url --jq '.[0].url // empty')
           python3 - <<'PY'
           import os
           from pathlib import Path
@@ -67,7 +89,7 @@ jobs:
           PY
           python3 scripts/validate_pr.py --title "$SLICE_TITLE" --body-file /tmp/slice-body.md
           if [ -z "$pr_url" ]; then
-            pr_url=$(gh pr create --base main --head "$SLICE_BRANCH" --title "$SLICE_TITLE" --body-file /tmp/slice-body.md)
+            pr_url=$(gh pr create --base "$SLICE_BASE" --head "$SLICE_BRANCH" --title "$SLICE_TITLE" --body-file /tmp/slice-body.md)
           else
             gh pr edit "$pr_url" --title "$SLICE_TITLE" --body-file /tmp/slice-body.md
           fi

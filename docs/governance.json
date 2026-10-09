@@ -130,7 +130,7 @@
         "## Visual specification",
         "## Guided practice",
         "## Independent assessment",
-        "## Rubric CY-2 v1",
+        "## Rubric CY-2 v2",
         "## Review status"
       ]
     },
@@ -156,7 +156,7 @@
         "## Visual specification",
         "## Guided practice",
         "## Independent assessment",
-        "## Rubric AI-2 v1",
+        "## Rubric AI-2 v2",
         "## Review status"
       ]
     },
@@ -339,6 +339,110 @@
         "## Review findings and acceptance",
         "## Validation and regeneration"
       ]
+    },
+    "docs/design-docs/decisions/002-neon-pilot-stack.md": {
+      "required_headings": [
+        "# ADR-002: Accepted Neon pilot stack",
+        "## Status",
+        "## Decision",
+        "## Authentication adoption conditions",
+        "## Architecture and implementation gate",
+        "## Consequences and acceptance",
+        "## References"
+      ]
+    },
+    "docs/design-docs/api-spec.md": {
+      "required_headings": [
+        "# CuriousNext API specification",
+        "## Status and authority",
+        "## Shared conventions",
+        "## Implemented M1 authentication spike",
+        "## Public authentication, M2",
+        "## Course entry, M2",
+        "## Attempt and evidence boundary, M3 onward",
+        "## Validation before implementation acceptance"
+      ]
+    },
+    "docs/design-docs/deployment.md": {
+      "required_headings": [
+        "# CuriousNext deployment specification",
+        "## Status",
+        "## Environments and secrets",
+        "## Build and release",
+        "## Reliability and recovery",
+        "## Acceptance checklist"
+      ]
+    },
+    "docs/exec-plans/active/foundation.md": {
+      "required_headings": [
+        "# CN-FOUNDATION-001: Pilot foundation decisions",
+        "## Plan lifecycle",
+        "## Deliverables",
+        "## Validation and remaining decisions"
+      ]
+    },
+    "docs/design-docs/decisions/003-framework-entry-boundary.md": {
+      "required_headings": [
+        "# ADR-003: Framework entry boundary and authentication spike",
+        "## Status",
+        "## Decision",
+        "## Consequences"
+      ]
+    },
+    "docs/exec-plans/active/authentication.md": {
+      "required_headings": [
+        "# CN-AUTH-001: Magic-link authentication proof of concept",
+        "## Plan lifecycle",
+        "## Deliverables",
+        "## Validation"
+      ]
+    },
+    "docs/design-docs/authentication-review.md": {
+      "required_headings": [
+        "# Authentication proof of concept: validation",
+        "## Scope and evidence",
+        "## Mobile and keyboard walkthrough",
+        "## Reproduce and remaining gates"
+      ]
+    },
+    "docs/curriculum/practical-ai/reference-module-v1.md": {
+      "required_headings": [
+        "# Reference module: AI-2, Write clear prompts",
+        "## Lesson text",
+        "## Visual specification",
+        "## Guided practice",
+        "## Independent assessment",
+        "## Rubric AI-2 v1",
+        "## Review status"
+      ]
+    },
+    "docs/curriculum/cybersecurity-essentials/reference-module-v1.md": {
+      "required_headings": [
+        "# Reference module: CY-2, Recognise phishing",
+        "## Lesson text",
+        "## Visual specification",
+        "## Guided practice",
+        "## Independent assessment",
+        "## Rubric CY-2 v1",
+        "## Review status"
+      ]
+    },
+    "docs/curriculum/rubric-calibration.md": {
+      "required_headings": [
+        "# Reference rubric calibration pack",
+        "## Scope and status",
+        "## Case coverage and expected judgments",
+        "## Reviewer procedure and release gates",
+        "## Validation"
+      ]
+    },
+    "docs/exec-plans/active/curriculum-review.md": {
+      "required_headings": [
+        "# CN-CURRICULUM-001: Reference and rubric review",
+        "## Plan lifecycle",
+        "## Deliverables",
+        "## Validation and remaining gates"
+      ]
     }
   },
   "layers": {
@@ -365,6 +469,9 @@
       "adapters",
       "domain",
       "contracts"
+    ],
+    "app": [
+      "bootstrap"
     ]
   },
   "max_source_lines": 300,
@@ -372,5 +479,6 @@
   "external_allowlist": {
     "domain": [],
     "contracts": []
-  }
+  },
+  "framework_entry_layer": "app"
 }

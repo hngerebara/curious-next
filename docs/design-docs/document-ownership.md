@@ -19,6 +19,9 @@
 | Project entry and setup | [README](../../README.md) |
 | Screen behavior and interaction states | [Frontend](../FRONTEND.md) |
 | Visual appearance and components | [Design](../DESIGN.md) |
+| Concrete HTTP interfaces | [API specification](api-spec.md) |
+| Authentication spike validation and captures | [Authentication review](authentication-review.md) |
+| Environments and operational release | [Deployment](deployment.md) |
 | Persistence and logical interfaces | [Data model](data-model.md) |
 | Source provenance and approvals | [Reference register](../references/curriculum-sources.md) |
 | Active work details and completed-plan history | [Execution plans](../exec-plans/index.md) |
