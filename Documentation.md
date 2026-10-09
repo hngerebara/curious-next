@@ -110,3 +110,9 @@ Combined local validation passed: Node.js 24 type generation/typechecking, 18 ap
 Rendered checks passed across 48 state/viewport combinations (320px, 390px, 1280px), with heading focus, help/save/review transitions and doubled body text at 320px. Visually inspected mobile/desktop assistance captures. Artifact fingerprint and state-copy checks are added to existing CI validation. These are preview checks, not implemented persistence or screen-reader conformance. User acceptance, prior-screen content audit, reviewed language/glyph examples and production accessibility checks remain open. M1.5 stays in progress.
 
 Repository governance, all 28 Python regression tests and the expanded artifact validation passed locally. Application source is unchanged in this slice. Full application checks run in required CI.
+
+## Homepage course discovery revision
+
+2026-10-09: CN-DESIGN-001 / THE-11. Renamed homepage discovery to Explore our courses and removed syllabus/module breakdowns from desktop/mobile course cards. Preserved links to course details. Checked both course cards, link counts and absence of syllabus lists at 320px, 390px and 1280px. Refreshed and visually inspected captures. This updates static repository designs, not the application homepage or remote Stitch originals. M1.5 remains in progress.
+
+Governance, all 28 Python regression tests and artifact integrity checks passed. No application source changed. Full application checks run in CI.

@@ -23,12 +23,12 @@
       "title": "CuriousNext - Public Homepage (Desktop)",
       "width": "1280",
       "html": "97431bce4b0f40b7b54d9c79dba8e2b3.html",
-      "sha256": "77cd4b09d924ca93e558b2d99cfe673de62441ab9a32231cd7c22c3668fe1d13",
+      "sha256": "345f9ed8eeb9dab311b015d19d6992176af6151d077267ce7ffee7a6281149e7",
       "originalExportSha256": "99814effb7ce6433489779732b21e11f20755f1aaa5fc0e8c3f95280ed1c5bd9",
       "screenshot": "97431bce4b0f40b7b54d9c79dba8e2b3.jpg",
       "screenshotProvenance": "Browser render of locally corrected HTML",
-      "derivation": "Local draft-status, neutral auth-copy, typography and navigation correction. No authentication backend.",
-      "screenshotSha256": "1cb1da8f97dcb8b0e1957edfb171696196dedd14c1e5518804e2aa766d532df2"
+      "derivation": "Local draft-status, neutral auth-copy, typography and navigation correction. No authentication backend. 2026-10-09: course-discovery cards only, no homepage syllabus lists.",
+      "screenshotSha256": "c4e45f52335852d0406eefb2aa90ee906b3b9d6f4371126da5c46c3b8f6c966d"
     },
     {
       "id": "6f5b8702213a4338b4bec1f00a994d7c",
@@ -36,12 +36,12 @@
       "title": "CuriousNext - Public Homepage (Mobile)",
       "width": "390",
       "html": "6f5b8702213a4338b4bec1f00a994d7c.html",
-      "sha256": "e695c3e85bc986f4321ce18d6327b69efd2b1de79a860396c6e80f7296de0fea",
+      "sha256": "a13a49f68247b3453df1bdba60823985f0ba04c9c08228119762581d66eb3c7c",
       "originalExportSha256": "6e95573aabf90d156cf358c0410cfbf52ed8915195caad75bfb6ded8456d5372",
       "screenshot": "6f5b8702213a4338b4bec1f00a994d7c.jpg",
       "screenshotProvenance": "Browser render of locally corrected HTML",
-      "derivation": "Local draft-status, neutral auth-copy, typography and navigation correction. No authentication backend.",
-      "screenshotSha256": "986a38f73a0737ff147df4db1ca26959c989e3bf51ea93c9a613ddef0244e99f"
+      "derivation": "Local draft-status, neutral auth-copy, typography and navigation correction. No authentication backend. 2026-10-09: course-discovery cards only, no homepage syllabus lists.",
+      "screenshotSha256": "bcdb6dc483224d096ef77d1ea5d016f1a9707b08ddf8f530ae3610b21559e9f0"
     },
     {
       "id": "c6bac46ce7234c46b54124b720472dbc",

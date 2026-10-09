@@ -94,3 +94,5 @@ Use manifest source IDs with Stitch get_screen/edit_screens. After an edit, refr
 Entry review also aligned both public homepage module lists with the approved planning syllabuses and removed unsupported claims that translations are already in community review. Curriculum remains draft pending subject review.
 
 2026-10-09: added 16 repository-native responsive recovery/transition previews, separate from the 31 Stitch exports. [Contract and review evidence](recovery-states.md). User acceptance, all-screen content audit, language/glyph review and runtime assistive-technology testing remain pending.
+
+2026-10-09 homepage revision: course discovery now says Explore our courses and shows only titles, short outcomes, beginner/self-paced labels and course links. Removed module/syllabus lists on desktop and mobile. Course detail designs retain curriculum information. Repository previews refreshed and inspected at 320px, 390px and 1280px without horizontal overflow. Remote Stitch originals are not updated by this repository edit.
