@@ -2,6 +2,8 @@
 
 ## Active
 
+- [CN-ENTRY-001](active/course-entry.md): complete M2 entry and acceptance checks.
+
 - [CN-CURRICULUM-001](active/curriculum-review.md): M1 source mappings and reference rubric calibration.
 
 - [CN-DESIGN-001](active/screen-design.md): M1.5 screen design, before M2.

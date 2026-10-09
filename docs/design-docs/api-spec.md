@@ -60,3 +60,5 @@ A successful validated assessment commits assessment, criterion-linked evidence,
 ## Validation before implementation acceptance
 
 Test request limits, invalid enums, missing/expired sessions, cross-learner access, same-key retries, different-payload conflicts and concurrent updates. Test the complete magic-link flow including automated GET scans and cross-device use. Trace diagnostic skip through a saved recommendation. Replace this draft with tested route schemas and compatibility rules as code is added.
+
+M2 entry uses [versioned scenario placement, saved enrollment preferences and owned recommendations](course-entry-acceptance.md). Placement never creates achievement evidence. Enrollment preferences remain separate from immutable accepted plan input.

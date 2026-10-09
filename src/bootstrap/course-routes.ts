@@ -7,3 +7,7 @@ export async function planRoute(request: Request, context: { params: Promise<{ i
 export async function enrollmentsRoute(request: Request) { try { return await courseRuntime()(request, "enrollments"); } catch { return unavailable(); } }
 export async function enrollmentRoute(request: Request, context: { params: Promise<{ id: string }> }) { try { return await courseRuntime()(request, "enrollments", (await context.params).id); } catch { return unavailable(); } }
 export async function placementRoute(request: Request, context: { params: Promise<{ id: string }> }) { try { return await courseRuntime()(request, "enrollments", (await context.params).id, "placement"); } catch { return unavailable(); } }
+
+export async function diagnosticRoute(request: Request, context: { params: Promise<{ id: string }> }) { try { return await courseRuntime()(request, "enrollments", (await context.params).id, "diagnostic"); } catch { return unavailable(); } }
+export async function preferencesRoute(request: Request, context: { params: Promise<{ id: string }> }) { try { return await courseRuntime()(request, "enrollments", (await context.params).id, "preferences"); } catch { return unavailable(); } }
+export async function recommendationRoute(request: Request) { try { return await courseRuntime()(request, "recommendation", new URL(request.url).searchParams.get("enrollmentId") ?? undefined); } catch { return unavailable(); } }

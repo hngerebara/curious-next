@@ -1,7 +1,8 @@
 "use client";
 import { useEffect, useRef, useState } from "react";
-import type { Goal, GoalInput, Plan, Enrollment } from "../contracts/course-plan";
+import type { Goal, GoalInput, Plan, Enrollment, DiagnosticPacket, EntryRecommendation, EntryPreferences } from "../contracts/course-plan";
 import { CoursePlanView } from "./course-plan-view";
+import { EntryGuidanceView } from "./entry-guidance-view";
 import { PlacementView } from "./placement-view";
 
 const defaults: GoalInput = { goalText: "", explanationLevel: "beginner", teachingLanguage: "en", sessionMinutes: 20 };
@@ -10,6 +11,9 @@ export function OnboardingView() {
   const [goal, setGoal] = useState<Goal | null>(null);
   const [plan, setPlan] = useState<Plan | null>(null);
   const [enrollment, setEnrollment] = useState<Enrollment | null>(null);
+  const [resumeId, setResumeId] = useState<string | null>(null);
+  const [packet, setPacket] = useState<DiagnosticPacket | null>(null);
+  const [recommendation, setRecommendation] = useState<EntryRecommendation | null>(null);
   const [busy, setBusy] = useState(true);
   const [message, setMessage] = useState("Loading your saved goal…");
   const [expired, setExpired] = useState(false);
@@ -19,21 +23,24 @@ export function OnboardingView() {
   async function request<T>(url: string, method = "GET", body?: unknown, key?: string): Promise<T> {
     const response = await fetch(url, { method, headers: { "Content-Type": "application/json", ...(key ? { "Idempotency-Key": key } : {}) }, ...(body ? { body: JSON.stringify(body) } : {}) });
     const result = await response.json();
-    if (!response.ok) { if (response.status === 401) setExpired(true); throw new Error(result.error?.code === "CONFIGURATION_CHANGED" ? "Generation settings changed. Create an updated course plan to use the current model. Previous work is saved." : result.error?.code === "REVISION_CONFLICT" ? "This goal changed in another session. Reload the saved goal before editing." : response.status === 401 ? "Your session ended. Confirmed work is saved. Sign in again." : "This request could not be completed. Your input is still here. Try again."); }
+    if (!response.ok) { if (response.status === 401) setExpired(true); throw new Error(result.error?.code === "CONFIGURATION_CHANGED" ? "Generation settings changed. Create an updated course plan to use the current model. Previous work is saved." : ["PREFERENCE_CONFLICT", "DIAGNOSTIC_CHANGED"].includes(result.error?.code) ? "Your saved preferences or starting questions changed. Reload saved work before trying again." : result.error?.code === "REVISION_CONFLICT" ? "This goal changed in another session. Reload the saved goal before editing." : response.status === 401 ? "Your session ended. Confirmed work is saved. Sign in again." : "This request could not be completed. Your input is still here. Try again."); }
     return result.data as T;
   }
   async function run(work: () => Promise<void>) { setBusy(true); setMessage(""); try { await work(); } catch (error) { setMessage(error instanceof Error ? error.message : "Request failed. Your input is still here."); } finally { setBusy(false); heading.current?.focus(); } }
+  async function showEnrollment(item: Enrollment | null) {
+    setEnrollment(item); setPacket(null); setRecommendation(null); setRecommendation(item ? await request<EntryRecommendation>(`/api/recommendation?enrollmentId=${item.id}`) : null);
+  }
   async function restore() {
-    const saved = await request<{ goal: Goal | null; plan: Plan | null }>("/api/profile/goal");
-    setGoal(saved.goal); setInput(saved.goal?.input ?? defaults); setPlan(saved.plan); setEnrollment(null);
+    const saved = await request<{ goal: Goal | null; plan: Plan | null; enrollment: Enrollment | null; latestEnrollmentId: string | null }>("/api/profile/goal");
+    setResumeId(saved.latestEnrollmentId !== saved.enrollment?.id ? saved.latestEnrollmentId : null); setGoal(saved.goal); setInput(saved.goal?.input ?? defaults); setPlan(saved.plan); await showEnrollment(saved.enrollment);
     if (saved.plan) planKey.current = saved.plan.requestKey;
     const enrollmentId = new URL(window.location.href).searchParams.get("enrollment");
-    if (enrollmentId) { const item = await request<Enrollment>(`/api/enrollments/${encodeURIComponent(enrollmentId)}`); setEnrollment(item); setPlan(item.plan); }
+    if (enrollmentId) { const item = await request<Enrollment>(`/api/enrollments/${encodeURIComponent(enrollmentId)}`); await showEnrollment(item); setPlan(item.plan); }
   }
   useEffect(() => { run(restore); }, []);
   async function generate() {
     const saved = await request<Goal>("/api/profile/goal", "PUT", { ...input, version: goal?.version ?? 0 });
-    setGoal(saved); setEnrollment(null); setPlan(null); planKey.current = crypto.randomUUID(); acceptKey.current = "";
+    setGoal(saved); if (enrollment) setResumeId(enrollment.id); await showEnrollment(null); setPlan(null); planKey.current = crypto.randomUUID(); acceptKey.current = "";
     setMessage("Building a course plan for your goal…");
     try { const result = await request<Plan>("/api/course-plans", "POST", { goalId: saved.id }, planKey.current); setPlan(result); setMessage(""); }
     catch { throw new Error("Your goal is saved. Reload the saved goal and plan to recover an interrupted generation."); }
@@ -47,16 +54,17 @@ export function OnboardingView() {
   async function accept() {
     if (!plan) return;
     acceptKey.current ||= crypto.randomUUID();
-    const item = await request<Enrollment>("/api/enrollments", "POST", { planId: plan.id }, acceptKey.current); setEnrollment(item);
+    const item = await request<Enrollment>("/api/enrollments", "POST", { planId: plan.id }, acceptKey.current); await showEnrollment(item);
     window.history.replaceState(null, "", `/onboarding?enrollment=${encodeURIComponent(item.id)}`);
   }
-  async function place(mode: "skip" | "diagnostic" | "beginning", answers?: string[]) {
+  async function place(mode: "skip" | "diagnostic" | "beginning", answers?: string[], diagnosticVersion?: string) {
     if (!enrollment) return;
-    setEnrollment(await request<Enrollment>(`/api/enrollments/${enrollment.id}/placement`, "POST", { mode, ...(answers ? { answers } : {}) }));
+    await showEnrollment(await request<Enrollment>(`/api/enrollments/${enrollment.id}/placement`, "POST", { mode, ...(answers ? { answers, diagnosticVersion } : {}) }));
   }
   return <main id="main" className="onboarding-shell" aria-busy={busy}>
     <p className="eyebrow">Goal-based course preview</p><h1 ref={heading} tabIndex={-1}>What would you like to achieve?</h1><p>We’ll propose a personalised plan within Practical AI or Cybersecurity. English preview only. Draft content is awaiting review.</p>
     <p role="status" className="status">{message}</p>{expired && <a href="/access">Sign in with a magic link</a>}
+    {resumeId && <a href={`/onboarding?enrollment=${encodeURIComponent(resumeId)}`}>Resume your earlier accepted course</a>}
     <form className="card" onSubmit={(e) => { e.preventDefault(); run(generate); }}>
       <label htmlFor="goal">Your learning goal</label><textarea id="goal" required minLength={10} maxLength={1000} value={input.goalText} onChange={(e) => { setInput({ ...input, goalText: e.target.value, clarification: undefined }); if (plan?.result?.state === "clarification") setPlan(null); }} placeholder="For example, use AI to write clearer customer emails" />
       <label htmlFor="explanation">How should explanations feel?</label><select id="explanation" value={input.explanationLevel} onChange={(e) => setInput({ ...input, explanationLevel: e.target.value as GoalInput["explanationLevel"] })}><option value="very-simple">Very simple</option><option value="beginner">Beginner-friendly</option><option value="standard">Standard</option><option value="technical">Technical</option></select>
@@ -67,6 +75,7 @@ export function OnboardingView() {
       <button type="button" className="secondary-button" disabled={busy} onClick={() => run(restore)}>Reload saved goal and plan</button>
     </form>
     {plan && <CoursePlanView plan={plan} enrollment={enrollment} accept={() => run(accept)} retry={() => run(retry)} busy={busy} />}
-    {enrollment && <PlacementView enrollment={enrollment} place={(mode, answers) => run(() => place(mode, answers))} busy={busy} />}
+    {enrollment && <PlacementView key={enrollment.id} enrollment={enrollment} packet={packet} diagnose={() => run(async () => setPacket(await request<DiagnosticPacket>(`/api/enrollments/${enrollment.id}/diagnostic`)))} place={(mode, answers, version) => run(() => place(mode, answers, version))} busy={busy} />}
+    {enrollment && recommendation && <EntryGuidanceView key={`${enrollment.id}-${enrollment.preferences.version}`} enrollment={enrollment} recommendation={recommendation} beginning={() => run(() => place("beginning"))} busy={busy} save={(preferences: EntryPreferences) => run(async () => showEnrollment(await request<Enrollment>(`/api/enrollments/${enrollment.id}/preferences`, "PATCH", preferences)))} />}
   </main>;
 }

@@ -14,21 +14,30 @@ export function courseHttp(auth: Pick<AuthPort, "session">, store: CourseStore, 
     const bytes = new Uint8Array(length); let offset = 0; for (const value of chunks) { bytes.set(value, offset); offset += value.length; }
     const result: unknown = JSON.parse(new TextDecoder().decode(bytes)); if (!record(result)) throw new Error("INVALID_BODY"); return result;
   }
-  return async function handle(request: Request, resource: "goal" | "plans" | "enrollments", id?: string, action?: string) {
+  return async function handle(request: Request, resource: "goal" | "plans" | "enrollments" | "recommendation", id?: string, action?: string) {
     try {
       const learner = await auth.session(request.headers);
       if (!learner) return reply(401, "SESSION_REQUIRED", true);
       if (request.method !== "GET" && request.headers.get("origin") !== origin) return reply(403, "ORIGIN_REJECTED", true);
-      if (resource === "goal" && request.method === "GET") { const goal = await store.goal(learner.id); return reply(200, { goal, plan: goal ? await store.latestPlan(learner.id, goal.id) : null }); }
+      if (resource === "goal" && request.method === "GET") {
+        const goal = await store.goal(learner.id); const plan = goal ? await store.latestPlan(learner.id, goal.id) : null;
+        return reply(200, { goal, plan, enrollment: plan ? await store.latestEnrollment(learner.id, plan.id) : null, latestEnrollmentId: (await store.latestEnrollment(learner.id))?.id ?? null });
+      }
+      if (resource === "recommendation" && request.method === "GET") return reply(200, await service.recommendation(learner.id, id));
+      if (resource === "enrollments" && id && action === "diagnostic" && request.method === "GET") return reply(200, await service.diagnostic(learner.id, id));
       if (resource === "plans" && id && request.method === "GET") { const plan = await store.readPlan(learner.id, id); return plan ? reply(200, plan) : reply(404, "NOT_FOUND", true); }
       if (resource === "enrollments" && id && !action && request.method === "GET") { const item = await store.enrollment(learner.id, id); return item ? reply(200, item) : reply(404, "NOT_FOUND", true); }
-      if (!((resource === "goal" && request.method === "PUT") || (request.method === "POST" && ["plans", "enrollments"].includes(resource)))) return reply(405, "METHOD_NOT_ALLOWED", true);
+      if (!((resource === "enrollments" && id && action === "preferences" && request.method === "PATCH") || (resource === "goal" && request.method === "PUT") || (request.method === "POST" && ["plans", "enrollments"].includes(resource)))) return reply(405, "METHOD_NOT_ALLOWED", true);
       const data = await body(request);
       if (resource === "goal") {
         const input = goalInput(data);
         if (data.teachingLanguage !== "en") return reply(400, "LANGUAGE_UNAVAILABLE", true);
         if (!input || !Number.isSafeInteger(data.version) || Number(data.version) < 0) return reply(400, "INVALID_GOAL", true);
         return reply(200, await store.saveGoal(learner.id, input, Number(data.version)));
+      }
+      if (resource === "enrollments" && id && action === "preferences") {
+        if (Object.keys(data).sort().join() !== "explanationLevel,sessionMinutes,teachingLanguage,version" || !Number.isSafeInteger(data.version) || Number(data.version) < 0 || !["very-simple", "beginner", "standard", "technical"].includes(String(data.explanationLevel)) || data.teachingLanguage !== "en" || typeof data.sessionMinutes !== "number" || ![10, 20, 40].includes(data.sessionMinutes)) return reply(400, "INVALID_PREFERENCES", true);
+        return reply(200, await store.preferences(learner.id, id, { explanationLevel: data.explanationLevel as "very-simple" | "beginner" | "standard" | "technical", teachingLanguage: "en", sessionMinutes: data.sessionMinutes as 10 | 20 | 40 }, Number(data.version)));
       }
       if (resource === "plans" && !id) {
         if (Object.keys(data).join() !== "goalId" || !boundedText(data.goalId, 1, 80)) return reply(400, "INVALID_BODY", true);
@@ -42,16 +51,16 @@ export function courseHttp(auth: Pick<AuthPort, "session">, store: CourseStore, 
       if (resource === "enrollments" && id && action === "placement") {
         if (data.mode === "beginning" && Object.keys(data).join() === "mode") return reply(200, await service.place(learner.id, id, "beginning"));
         if (data.mode === "skip" && Object.keys(data).join() === "mode") return reply(200, await service.place(learner.id, id, "skip"));
-        if (data.mode === "diagnostic" && Object.keys(data).sort().join() === "answers,mode" && Array.isArray(data.answers) && data.answers.length === 4 && data.answers.every((a) => ["yes", "no"].includes(a))) return reply(200, await service.place(learner.id, id, "diagnostic", data.answers));
+        if (data.mode === "diagnostic" && Object.keys(data).sort().join() === "answers,diagnosticVersion,mode" && boundedText(data.diagnosticVersion, 1, 80) && Array.isArray(data.answers) && data.answers.length <= 5 && data.answers.every((a) => ["a", "b", "c", "unsure"].includes(a))) return reply(200, await service.place(learner.id, id, "diagnostic", data.answers, data.diagnosticVersion));
         return reply(400, "INVALID_PLACEMENT", true);
       }
       return reply(404, "NOT_FOUND", true);
     } catch (error) {
       const code = error instanceof Error ? error.message : "UNAVAILABLE";
       if (["NOT_FOUND"].includes(code)) return reply(404, code, true);
-      if (["REVISION_CONFLICT", "REQUEST_CONFLICT", "PLACEMENT_CONFLICT", "PLAN_NOT_READY", "CONFIGURATION_CHANGED"].includes(code)) return reply(409, code, true);
+      if (["REVISION_CONFLICT", "REQUEST_CONFLICT", "PLACEMENT_CONFLICT", "PLAN_NOT_READY", "CONFIGURATION_CHANGED", "DIAGNOSTIC_CHANGED", "PREFERENCE_CONFLICT"].includes(code)) return reply(409, code, true);
       if (code === "BODY_TOO_LARGE") return reply(413, code, true);
-      if (["INVALID_KEY", "INVALID_BODY"].includes(code) || error instanceof SyntaxError) return reply(400, "INVALID_BODY", true);
+      if (["INVALID_KEY", "INVALID_BODY", "INVALID_PLACEMENT"].includes(code) || error instanceof SyntaxError) return reply(400, "INVALID_BODY", true);
       return reply(503, "UNAVAILABLE", true);
     }
   };

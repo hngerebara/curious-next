@@ -129,3 +129,5 @@ LanguageAvailability identifies reviewed course/module versions per language. Un
 ## 8. Generated course-plan preview
 
 Goal revisions are immutable owned snapshots. CoursePlan pins a goal revision, catalogue version, generation configuration, request key, lease/attempt state, validation result and timestamps. Module selections refer only to catalogue objectives with immutable reference/rubric versions. A generated plan does not publish curriculum or award evidence. PreviewEnrollment pins the accepted plan and stores diagnostic choice separately. [Concrete contract](course-generation.md).
+
+M2 entry uses [versioned scenario placement, saved enrollment preferences and owned recommendations](course-entry-acceptance.md). Placement never creates achievement evidence. Enrollment preferences remain separate from immutable accepted plan input.

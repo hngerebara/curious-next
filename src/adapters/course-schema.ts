@@ -13,7 +13,7 @@ export const coursePlan = pgTable("course_plan", {
 }, (t) => [uniqueIndex("course_plan_owner_key").on(t.learnerId, t.requestKey)]);
 export const previewEnrollment = pgTable("preview_enrollment", {
   id: text("id").primaryKey(), learnerId: text("learner_id").notNull().references(() => user.id, { onDelete: "cascade" }), planId: text("plan_id").notNull().unique().references(() => coursePlan.id, { onDelete: "cascade" }),
-  placement: jsonb("placement").$type<Enrollment["placement"]>(), startObjectiveId: text("start_objective_id"), createdAt: timestamp("created_at", { withTimezone: true }).defaultNow().notNull(),
+  preferences: jsonb("preferences").$type<Enrollment["preferences"]>(), placement: jsonb("placement").$type<Enrollment["placement"]>(), startObjectiveId: text("start_objective_id"), createdAt: timestamp("created_at", { withTimezone: true }).defaultNow().notNull(),
 });
 export const enrollmentRequest = pgTable("enrollment_request", {
   learnerId: text("learner_id").notNull().references(() => user.id, { onDelete: "cascade" }), requestKey: text("request_key").notNull(), planId: text("plan_id").notNull().references(() => coursePlan.id, { onDelete: "cascade" }),

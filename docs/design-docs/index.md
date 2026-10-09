@@ -23,3 +23,5 @@
 - [Recovery and transition screens](recovery-states.md)
 
 - [Course generation](course-generation.md)
+
+- [M2 acceptance](course-entry-acceptance.md): completion gates, placement/guidance and real-service proof.

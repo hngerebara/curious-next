@@ -1,6 +1,7 @@
 import { headers } from "next/headers";
 import { redirect } from "next/navigation";
 import { AccessView, ConfirmView, VerifiedView } from "../ui/access-view";
+import { HomeView } from "../ui/home-view";
 import { runtime } from "./runtime";
 
 export async function AccessPage({ searchParams }: { searchParams: Promise<{ state?: string }> }) {
@@ -8,7 +9,7 @@ export async function AccessPage({ searchParams }: { searchParams: Promise<{ sta
   return <AccessView state={state} />;
 }
 export function HomePage() {
-  redirect("/access");
+  return <HomeView />;
 }
 export async function ConfirmPage({ searchParams }: { searchParams: Promise<{ state?: string }> }) {
   const { state } = await searchParams;
