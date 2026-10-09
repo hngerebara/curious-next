@@ -1,6 +1,6 @@
 import { and, desc, eq, sql } from "drizzle-orm";
 import { randomUUID } from "node:crypto";
-import type { CourseStore, Goal, Plan, Enrollment } from "../contracts/course-plan";
+import type { CourseStore, Goal, Plan, Enrollment, EntryPreferences } from "../contracts/course-plan";
 import type { AccessDatabase } from "./access-repositories";
 import { user } from "./auth-schema";
 import { learnerGoal, coursePlan, previewEnrollment, enrollmentRequest } from "./course-schema";
@@ -20,14 +20,35 @@ export function courseStore(db: AccessDatabase): CourseStore {
     const [row] = await db.select().from(coursePlan).where(and(eq(coursePlan.id, id), eq(coursePlan.learnerId, owner)));
     return row ? toPlan(row) : null;
   };
+  const defaults = (plan: Plan): EntryPreferences => ({ version: 0, explanationLevel: plan.goal.input.explanationLevel, teachingLanguage: "en", sessionMinutes: plan.goal.input.sessionMinutes });
   const enrollment = async (owner: string, id: string): Promise<Enrollment | null> => {
     const [row] = await db.select().from(previewEnrollment).where(and(eq(previewEnrollment.id, id), eq(previewEnrollment.learnerId, owner)));
     if (!row) return null;
     const plan = await readPlan(owner, row.planId);
-    return plan ? { id: row.id, plan, placement: row.placement, startObjectiveId: row.startObjectiveId } : null;
+    return plan ? { id: row.id, plan, placement: row.placement, startObjectiveId: row.startObjectiveId, preferences: row.preferences ?? defaults(plan) } : null;
   };
   return {
     ownedGoal, readPlan, enrollment,
+    async latestEnrollment(owner, planId) {
+      const [row] = await db.select().from(previewEnrollment).where(and(eq(previewEnrollment.learnerId, owner), planId ? eq(previewEnrollment.planId, planId) : undefined)).orderBy(desc(previewEnrollment.createdAt), desc(previewEnrollment.id)).limit(1);
+      return row ? enrollment(owner, row.id) : null;
+    },
+    async preferences(owner, id, input, version) {
+      const written = await db.transaction(async (tx) => {
+        await tx.execute(sql`select id from ${previewEnrollment} where id = ${id} and learner_id = ${owner} for update`);
+        const [row] = await tx.select().from(previewEnrollment).where(and(eq(previewEnrollment.id, id), eq(previewEnrollment.learnerId, owner)));
+        if (!row) throw new Error("NOT_FOUND");
+        const currentVersion = row.preferences?.version ?? 0;
+        if (row.preferences && currentVersion === version + 1 && row.preferences.explanationLevel === input.explanationLevel && row.preferences.teachingLanguage === input.teachingLanguage && row.preferences.sessionMinutes === input.sessionMinutes) return row.preferences;
+        if (currentVersion !== version) throw new Error("PREFERENCE_CONFLICT");
+        const updated = { ...input, version: version + 1 };
+        await tx.update(previewEnrollment).set({ preferences: updated }).where(eq(previewEnrollment.id, id));
+        return updated;
+      });
+      const saved = await enrollment(owner, id);
+      if (!saved) throw new Error("NOT_FOUND");
+      return { ...saved, preferences: written };
+    },
     async goal(owner) { const [row] = await db.select().from(learnerGoal).where(eq(learnerGoal.learnerId, owner)).orderBy(desc(learnerGoal.version)).limit(1); return row ? toGoal(row) : null; },
     async saveGoal(owner, input, expectedVersion) {
       return db.transaction(async (tx) => {
@@ -68,7 +89,7 @@ export function courseStore(db: AccessDatabase): CourseStore {
         await tx.insert(previewEnrollment).values({ id: randomUUID(), learnerId: owner, planId: plan.id }).onConflictDoNothing();
       });
       const [row] = await db.select().from(previewEnrollment).where(and(eq(previewEnrollment.learnerId, owner), eq(previewEnrollment.planId, plan.id)));
-      return { id: row.id, plan, placement: row.placement, startObjectiveId: row.startObjectiveId };
+      return { id: row.id, plan, placement: row.placement, startObjectiveId: row.startObjectiveId, preferences: row.preferences ?? defaults(plan) };
     },
     async start(owner, id, objectiveId) {
       await db.update(previewEnrollment).set({ startObjectiveId: objectiveId }).where(and(eq(previewEnrollment.id, id), eq(previewEnrollment.learnerId, owner), sql`${previewEnrollment.placement} is not null`));

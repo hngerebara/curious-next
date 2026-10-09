@@ -22,7 +22,7 @@ Future release order: validate the exact commit, apply reviewed backward-compati
 
 Use versioned SQL migrations and expand/contract changes. Keep the prior application compatible during migration. Never run destructive schema changes automatically from application startup. Rollback application code separately from data migration. Test restore into an isolated database and verify learner evidence before declaring recovery ready. Define retention and recovery objectives with the owner before first learner use.
 
-The migrations are migrations/0001-access.sql followed by migrations/0002-course-plans.sql, each applied once through a controlled migration role. See [setup commands](../../README.md#application-setup-and-deployment). Track applied migration checksums in the eventual deployment job before adding incremental migrations. No hosted migration or restore was executed in this slice.
+The migrations are migrations/0001-access.sql followed by migrations/0002-course-plans.sql and migrations/0003-enrollment-preferences.sql, each applied once through a controlled migration role. See [setup commands](../../README.md#application-setup-and-deployment). Track applied migration checksums in the eventual deployment job before adding incremental migrations. No hosted migration or restore was executed in this slice.
 
 Use durable assessment jobs before M3. Bound provider timeouts, retries and spend. Observe outcome codes and queue age without logging learner content. Monitor link delivery failures, invalid/redemption rates and database failures. Show honest interrupted-session and unavailable-assessment states. No demonstration award on infrastructure failure.
 

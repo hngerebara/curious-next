@@ -20,7 +20,7 @@ export function request(path: string, method = "GET", body?: unknown, key = "syn
 }
 export async function courseHarness(generate: CourseGenerator["generate"] = async () => output("customer-emails", "customer emails")) {
   const sql = new PGlite();
-  for (const migration of ["0001-access.sql", "0002-course-plans.sql"]) await sql.exec(await readFile(new URL(`../migrations/${migration}`, import.meta.url), "utf8"));
+  for (const migration of ["0001-access.sql", "0002-course-plans.sql", "0003-enrollment-preferences.sql"]) await sql.exec(await readFile(new URL(`../migrations/${migration}`, import.meta.url), "utf8"));
   const db = drizzle(sql, { schema: authSchema });
   for (const id of ["learner-a", "learner-b"]) await db.insert(authSchema.user).values({ id, name: "Synthetic learner", email: `${id}@example.test`, emailVerified: true, createdAt: new Date(), updatedAt: new Date() });
   const store = courseStore(db);

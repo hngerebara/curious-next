@@ -169,10 +169,10 @@ describe("authenticated HTTP entry", { timeout: 15000 }, () => {
     const plan = await (await h.handler(request("/api/course-plans", "POST", { goalId: saved.data.id }), "plans")).json();
     expect(plan.data.state).toBe("ready-preview");
     const accepted = await (await h.handler(request("/api/enrollments", "POST", { planId: plan.data.id }), "enrollments")).json();
-    const placed = await (await h.handler(request(`/api/enrollments/${accepted.data.id}/placement`, "POST", { mode: "diagnostic", answers: ["yes", "yes", "yes", "no"] }), "enrollments", accepted.data.id, "placement")).json();
-    expect(placed.data.placement.objectiveId).toBe("AI-2"); expect(placed.data.placement.reason).toContain("self-reported");
+    const placed = await (await h.handler(request(`/api/enrollments/${accepted.data.id}/placement`, "POST", { mode: "diagnostic", diagnosticVersion: "entry-diagnostic-v1", answers: ["b", "a", "a", "b"] }), "enrollments", accepted.data.id, "placement")).json();
+    expect(placed.data.placement.objectiveId).toBe("AI-2"); expect(placed.data.placement.reason).toContain("provisional");
     const restored = await (await h.handler(request("/api/profile/goal"), "goal")).json(); expect(restored.data.plan.id).toBe(plan.data.id);
-    const override = await h.service.place("learner-a", accepted.data.id, "beginning"); expect(override.startObjectiveId).toBe("AI-1"); expect(override.placement?.objectiveId).toBe("AI-2"); expect(override.placement?.answers).toEqual(["yes", "yes", "yes", "no"]);
+    const override = await h.service.place("learner-a", accepted.data.id, "beginning"); expect(override.startObjectiveId).toBe("AI-1"); expect(override.placement?.objectiveId).toBe("AI-2"); expect(override.placement?.answers).toEqual(["b", "a", "a", "b"]);
     expect(placed.data).not.toHaveProperty("evidence"); expect(placed.data).not.toHaveProperty("capability");
   });
 });

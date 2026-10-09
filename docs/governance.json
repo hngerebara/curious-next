@@ -469,6 +469,23 @@
         "## Deliverables",
         "## Validation and remaining gates"
       ]
+    },
+    "docs/exec-plans/active/course-entry.md": {
+      "required_headings": [
+        "# CN-ENTRY-001: Complete M2 course entry",
+        "## Plan lifecycle",
+        "## Deliverables",
+        "## Validation and remaining gates"
+      ]
+    },
+    "docs/design-docs/course-entry-acceptance.md": {
+      "required_headings": [
+        "# M2 course-entry acceptance",
+        "## Scope and completion",
+        "## Diagnostic and recommendation policy",
+        "## Interfaces and persistence",
+        "## Validation and open boundaries"
+      ]
     }
   },
   "layers": {

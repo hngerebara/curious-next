@@ -21,3 +21,5 @@ Follow milestone order in Plans.md. Complete reference slices before expansion, 
 ## Slice completion requirement
 
 After every implementation slice, follow the per-slice workflow in engineering.md: passing checks, a complete diff review, fixes, then a created or updated PR with validation evidence. Leave every slice PR open. Never merge or enable auto-merge. Check remote CI for the latest commit before declaring it green.
+
+Every milestone progress/final report names what completes that milestone, what passed and what remains. Never equate merged code or synthetic tests with real-service or accessibility acceptance.
