@@ -1,7 +1,7 @@
 import { describe, expect, it, vi } from "vitest";
 import { courseCatalogue } from "../src/domain/course-catalogue";
 import { goalInput, validateGeneration } from "../src/domain/course-policy";
-import { openaiCourseGenerator } from "../src/adapters/openai-course-generator";
+import { groqCourseGenerator } from "../src/adapters/groq-course-generator";
 import { courseHarness, input, output, request } from "./course-harness";
 import type { Intent } from "../src/contracts/course-plan";
 
@@ -46,30 +46,37 @@ describe("bounded curriculum composition", () => {
     const clarification = { ...base, state: "clarification", question: "Would you like to focus on AI writing or account protection?" };
     expect(validateGeneration(clarification, { ...input, goalText: "Help me with work and security" }, courseCatalogue).state).toBe("clarification");
     expect(validateGeneration(clarification, { ...input, clarification: "AI writing" }, courseCatalogue).state).toBe("failed");
+    const mixed = { ...input, goalText: "Use AI for study notes and protect my accounts" };
+    expect(validateGeneration(output("study-notes", "study notes"), mixed, courseCatalogue).state).toBe("clarification");
+    expect(validateGeneration(output("study-notes", "study notes"), { ...mixed, clarification: "Focus on AI for study notes" }, courseCatalogue).state).toBe("ready-preview");
+    expect(validateGeneration(output("accounts", "accounts"), { ...mixed, clarification: "Focus on AI for study notes" }, courseCatalogue).state).toBe("failed");
     expect(goalInput({ ...input, teachingLanguage: "ig" })).toBeNull();
   });
 });
 
 describe("provider boundary", () => {
-  const completed = (raw: unknown) => Response.json({ status: "completed", output: [{ type: "message", content: [{ type: "output_text", text: JSON.stringify(raw) }] }] });
-  it("sends only relevant inputs, pins explicit model/schema and disables provider storage", async () => {
+  const completed = (raw: unknown) => Response.json({ choices: [{ finish_reason: "stop", message: { content: JSON.stringify(raw) } }] });
+  it("sends only relevant inputs, pins explicit model/schema and uses the Groq strict schema endpoint", async () => {
     const transport = vi.fn(async (_url: string | URL | Request, _options?: RequestInit) => completed(output("customer-emails", "customer emails")));
-    const generator = openaiCourseGenerator("synthetic-key", "synthetic-model", transport);
+    const generator = groqCourseGenerator("synthetic-key", "synthetic-model", transport);
     await generator.generate(input, courseCatalogue);
     const options = transport.mock.calls[0][1] as RequestInit;
     const body = JSON.parse(options.body as string);
-    expect(body.model).toBe("synthetic-model"); expect(body.store).toBe(false); expect(body.text.format.strict).toBe(true);
-    expect(JSON.parse(body.input).learner).toEqual(input); expect(body.input).not.toMatch(/learner-a|emailVerified|assessmentHistory/);
+    expect(body.model).toBe("synthetic-model"); expect(body.response_format.json_schema.strict).toBe(true); expect(body.response_format.json_schema.schema.properties.intent.enum).toEqual(["customer-emails"]); expect(transport.mock.calls[0][0]).toBe("https://api.groq.com/openai/v1/chat/completions");
+    expect(JSON.parse(body.messages[1].content).learner).toEqual(input); expect(body.messages[1].content).not.toMatch(/learner-a|emailVerified|assessmentHistory/);
   });
   it("fails before a call without key/model, and handles refusal/incomplete/failure", async () => {
     const transport = vi.fn(async () => completed({}));
-    await expect(openaiCourseGenerator(undefined, "model", transport).generate(input, courseCatalogue)).rejects.toThrow("NOT_CONFIGURED");
-    await expect(openaiCourseGenerator("key", undefined, transport).generate(input, courseCatalogue)).rejects.toThrow("NOT_CONFIGURED"); expect(transport).not.toHaveBeenCalled();
+    await expect(groqCourseGenerator(undefined, "model", transport).generate(input, courseCatalogue)).rejects.toThrow("NOT_CONFIGURED");
+    await expect(groqCourseGenerator("key", undefined, transport).generate(input, courseCatalogue)).rejects.toThrow("NOT_CONFIGURED"); expect(transport).not.toHaveBeenCalled();
     for (const [response, error] of [
-      [Response.json({ status: "completed", output: [{ content: [{ type: "refusal" }] }] }), "GENERATOR_REFUSED"],
-      [Response.json({ status: "incomplete", output: [] }), "GENERATOR_INCOMPLETE"],
+      [Response.json({ choices: [{ finish_reason: "stop", message: { refusal: "Not allowed" } }] }), "GENERATOR_REFUSED"],
+      [Response.json({ choices: [{ finish_reason: "length", message: { content: "{}" } }] }), "GENERATOR_INCOMPLETE"],
       [new Response("outage", { status: 503 }), "GENERATOR_UNAVAILABLE"],
-    ] as const) await expect(openaiCourseGenerator("key", "model", async () => response).generate(input, courseCatalogue)).rejects.toThrow(error);
+      [new Response("quota", { status: 429 }), "GENERATOR_RATE_LIMITED"],
+      [Response.json({ choices: [] }), "GENERATOR_INCOMPLETE"],
+      [Response.json({ choices: [{ finish_reason: "content_filter", message: {} }] }), "GENERATOR_REFUSED"],
+    ] as const) await expect(groqCourseGenerator("key", "model", async () => response).generate(input, courseCatalogue)).rejects.toThrow(error);
   });
 });
 
@@ -97,6 +104,17 @@ describe("durable private plans", { timeout: 15000 }, () => {
     expect((await h.service.place("learner-a", a.id, "skip")).id).toBe(a.id);
     await expect(h.service.place("learner-b", a.id, "skip")).rejects.toThrow("NOT_FOUND");
     const rows = await h.sql.query("select count(*) as count from preview_enrollment"); expect(Number((rows.rows[0] as { count: number }).count)).toBe(1);
+  });
+  it("preserves validated plans across provider changes and rejects stale failed retries", async () => {
+    const h = await setup(); const goal = await h.goal(); const readyKey = h.key();
+    const ready = await h.service.generate("learner-a", goal.id, readyKey);
+    const restored = await h.store.reserve("learner-a", goal, readyKey, "changed-provider", courseCatalogue.version);
+    expect(restored.plan.result).toEqual(ready.result); expect(restored.lease).toBeNull();
+    const failedKey = h.key();
+    const reserved = await h.store.reserve("learner-a", goal, failedKey, "old-provider", courseCatalogue.version);
+    await h.store.finish("learner-a", reserved.plan.id, reserved.lease!, { state: "failed", code: "GENERATOR_NOT_CONFIGURED" });
+    await expect(h.store.reserve("learner-a", goal, failedKey, "changed-provider", courseCatalogue.version)).rejects.toThrow("CONFIGURATION_CHANGED");
+    expect((await h.store.reserve("learner-a", goal, h.key(), "changed-provider", courseCatalogue.version)).lease).not.toBeNull();
   });
   it("claims only one lease under concurrent generation and preserves terminal results", async () => {
     let release!: () => void; let begun!: () => void;

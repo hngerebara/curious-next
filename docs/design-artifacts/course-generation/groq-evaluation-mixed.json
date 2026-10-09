@@ -1,0 +1,24 @@
+{
+  "evaluatedAt": "2026-10-09T04:59:27.560Z",
+  "configuration": "groq:openai/gpt-oss-20b:prompt-99ae399002b9a65413e78b3c491c249164a081612632343a147b5a03bf94930c",
+  "catalogueVersion": "demo-objectives-v1",
+  "scope": "1 fictional goals. One sample each, domain checks plus manual semantic review required. No hosted auth, Neon or learner release.",
+  "results": [
+    {
+      "status": 200,
+      "id": "mixed",
+      "input": {
+        "goalText": "Use AI for study notes and protect my accounts",
+        "explanationLevel": "beginner",
+        "teachingLanguage": "en",
+        "sessionMinutes": 20
+      },
+      "expectedState": "clarification",
+      "pass": true,
+      "result": {
+        "state": "clarification",
+        "question": "Which goal should we focus on first: using AI for work or study, or protecting your accounts and recognising threats?"
+      }
+    }
+  ]
+}

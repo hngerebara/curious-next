@@ -6,7 +6,7 @@ Active M2 preview, explicitly authorised before remaining M1/M1.5 release gates.
 
 ## Deliverables
 
-[Generation contract](../../design-docs/course-generation.md): bounded OpenAI interpretation, pure curriculum validation, owned Neon persistence, idempotent generation/enrollment and accessible onboarding/placement preview. Preserve draft curricula, standards and historical evidence. General homepage discovery remains separate.
+[Generation contract](../../design-docs/course-generation.md): bounded Groq interpretation, pure curriculum validation, owned Neon persistence, idempotent generation/enrollment and accessible onboarding/placement preview. Preserve draft curricula, standards and historical evidence. General homepage discovery remains separate.
 
 ## Validation and remaining gates
 

@@ -15,7 +15,7 @@ export function courseService(store: CourseStore, generator: CourseGenerator, ab
         if (!await abuse.allow(`course:${owner}`, 5, 600)) result = { state: "failed", code: "GENERATION_LIMITED" };
         else result = validateGeneration(await generator.generate(goal.input, courseCatalogue), goal.input, courseCatalogue);
       } catch (error) {
-        const code = error instanceof Error && ["GENERATOR_NOT_CONFIGURED", "GENERATOR_REFUSED", "GENERATOR_INCOMPLETE"].includes(error.message) ? error.message : "GENERATOR_UNAVAILABLE";
+        const code = error instanceof Error && ["GENERATOR_NOT_CONFIGURED", "GENERATOR_REFUSED", "GENERATOR_INCOMPLETE", "GENERATOR_RATE_LIMITED"].includes(error.message) ? error.message : "GENERATOR_UNAVAILABLE";
         result = { state: "failed", code };
       }
       events.emit("course_generation", result.state);

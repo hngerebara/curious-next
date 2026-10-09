@@ -9,15 +9,33 @@ export function goalInput(value: unknown): GoalInput | null {
   if (value.clarification !== undefined && !boundedText(value.clarification, 1, 500)) return null;
   return { goalText: value.goalText.trim(), explanationLevel: value.explanationLevel as GoalInput["explanationLevel"], teachingLanguage: "en", sessionMinutes: value.sessionMinutes as GoalInput["sessionMinutes"], ...(value.clarification ? { clarification: value.clarification as string } : {}) };
 }
+const aiGoal = /\b(ai|chatgpt|prompts?|study notes|customer emails)\b/i;
+const securityGoal = /\b(cybersecurity|phishing|scams?|accounts?|passwords?|mfa|passkeys?)\b/i;
+export function eligibleIntent(input: GoalInput): Intent | null {
+  const text = input.clarification || input.goalText;
+  if (aiGoal.test(text) && securityGoal.test(text)) return null;
+  if (aiGoal.test(text) && /\b(emails?|customers?)\b/i.test(text)) return "customer-emails";
+  if (aiGoal.test(text) && /\b(study|notes|summari[sz]e)\b/i.test(text)) return "study-notes";
+  if (!aiGoal.test(text) && /\b(phishing|scams?)\b/i.test(text)) return "phishing";
+  if (!aiGoal.test(text) && /\b(accounts?|passwords?|mfa|passkeys?)\b/i.test(text) && /\b(protect|secure|passwords?|mfa|passkeys?)\b/i.test(text)) return "accounts";
+  return null;
+}
 const prohibitedClaims = /\b(guarantee[d]?|certif(?:ied|ication)|accredit(?:ed|ation)|expert|professional qualification|hack(?:ing)?|exploit|diagnos(?:e|is)|treat(?:ment)?|cure|investment returns)\b/i;
 export function validateGeneration(raw: unknown, input: GoalInput, catalogue: Catalogue): GenerationResult {
   const fail = (): GenerationResult => ({ state: "failed", code: "INVALID_GENERATION" });
   if (!record(raw) || Object.keys(raw).sort().join() !== ["state", "subject", "intent", "title", "reason", "goalEvidence", "context", "modules", "question"].sort().join()) return fail();
+  if (!input.clarification && aiGoal.test(input.goalText) && securityGoal.test(input.goalText)) return { state: "clarification", question: "Which goal should we focus on first: using AI for work or study, or protecting your accounts and recognising threats?" };
   if (raw.state === "unsupported") return { state: "unsupported", message: "This preview supports introductory Practical AI and Cybersecurity. Choose a related goal or revise yours." };
   if (raw.state === "clarification") return input.clarification || !boundedText(raw.question, 10, 250) || prohibitedClaims.test(raw.question) ? fail() : { state: "clarification", question: raw.question };
   if (raw.state !== "ready-preview" || typeof raw.intent !== "string" || !Object.hasOwn(intentRules, raw.intent)) return fail();
   const intent = raw.intent as Intent;
   const rule = intentRules[intent];
+  const expected = eligibleIntent(input);
+  if (expected && intent !== expected) return fail();
+  if (input.clarification) {
+    const wantsAI = aiGoal.test(input.clarification); const wantsSecurity = securityGoal.test(input.clarification);
+    if ((wantsAI && !wantsSecurity && rule.subject !== "practical-ai") || (wantsSecurity && !wantsAI && rule.subject !== "cybersecurity")) return fail();
+  }
   const goal = `${input.goalText} ${input.clarification ?? ""}`;
   if (raw.subject !== rule.subject || !boundedText(raw.goalEvidence, 3, 150) || !goal.toLowerCase().includes(raw.goalEvidence.toLowerCase()) || !rule.terms.test(raw.goalEvidence)) return fail();
   if (!boundedText(raw.title, 8, 100) || !boundedText(raw.reason, 15, 400) || !boundedText(raw.context, 10, 400) || prohibitedClaims.test(`${raw.title} ${raw.reason} ${raw.context}`) || !Array.isArray(raw.modules)) return fail();
