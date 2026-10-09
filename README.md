@@ -4,7 +4,7 @@ CuriousNext helps adult beginners choose a useful learning pathway and demonstra
 
 ## Current state
 
-This repository contains product, curriculum and design specifications plus an M1 authentication proof of concept. Email-only access, explicit link confirmation and session checks are implemented locally. Goal setting, courses and learning are not yet implemented. No hosted environment or live Neon/Resend integration has been verified. Curriculum, language and user design review remain pending. See [milestone status](Documentation.md) for evidence.
+This repository contains product, curriculum and design specifications plus an M1 authentication proof of concept and an authorised M2 course-plan preview. Email-only access, explicit link confirmation and session checks are implemented locally. Goal setting, bounded plan generation, saved acceptance and provisional readiness placement are implemented locally. Lessons and assessment remain unimplemented. No hosted environment or live Neon/Resend integration has been verified. Curriculum, language and user design review remain pending. See [milestone status](Documentation.md) for evidence.
 
 ## Start here
 
@@ -44,10 +44,13 @@ npm run dev
 
 Open http://127.0.0.1:3000/access for the email shell. Without service configuration it displays honest unavailable feedback. To test real delivery, configure a synthetic-data Neon database, a verified Resend sender, a random server secret of at least 32 characters and an exact BETTER_AUTH_URL origin matching your browser URL. Use HTTPS and TLS database connections on hosted environments. Keep secrets outside Git and screenshots.
 
-Apply the [reviewed SQL migration](migrations/0001-access.sql) once to a new isolated test database before enabling access. Use a schema-owner migration role and a separate application role. Application startup never migrates the database.
+Apply [authentication](migrations/0001-access.sql) and [course-plan](migrations/0002-course-plans.sql) migrations in order, once each to a new isolated test database before enabling access. Use a schema-owner migration role and a separate application role. Application startup never migrates the database.
 
 ```sh
 psql "$DATABASE_URL_UNPOOLED" --single-transaction --set ON_ERROR_STOP=1 --file migrations/0001-access.sql
+psql "$DATABASE_URL_UNPOOLED" --single-transaction --set ON_ERROR_STOP=1 --file migrations/0002-course-plans.sql
 ```
 
-The integration suite uses real Better Auth with a disposable PGlite PostgreSQL engine and captured test-only mail. It does not contact Neon or Resend. The [API specification](docs/design-docs/api-spec.md) separates implemented spike routes from later course-entry contracts. The [mobile review](docs/design-docs/authentication-review.md) records the checks and their limits.
+The integration suite uses real Better Auth with a disposable PGlite PostgreSQL engine and captured test-only mail. It does not contact Neon or Resend. The [API specification](docs/design-docs/api-spec.md) documents implemented authentication/course-preview routes and future learning contracts. The [mobile review](docs/design-docs/authentication-review.md) records the checks and their limits.
+
+After magic-link verification, open /onboarding. Set AI_PROVIDER=groq, server-only GROQ_API_KEY and an explicit GROQ_MODEL to enable live generation. Groq access, quotas and billing are managed separately from a ChatGPT subscription. No model fallback is used. Without these values, your goal remains saved and generation reports unavailable. [Generation contract](docs/design-docs/course-generation.md) records synthetic checks and live evaluation gates.

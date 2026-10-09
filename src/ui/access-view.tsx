@@ -29,7 +29,8 @@ export function ConfirmView({ csrf, state }: { csrf: string; state?: string }) {
 export function VerifiedView() {
   return <main id="main" tabIndex={-1} className="access-shell">
     <p className="eyebrow">Email verified</p><h1>You’re signed in.</h1>
-    <p>This authentication preview confirms your access. Goal setting and course entry are the next implementation slice.</p>
+    <p>Your email is verified. Set a goal to preview a personalised course plan.</p>
+    <a className="secondary" href="/onboarding">Set your learning goal</a>
     <form action="/api/access/logout" method="post"><button type="submit">Log out</button></form>
   </main>;
 }

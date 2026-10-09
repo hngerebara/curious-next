@@ -1,0 +1,91 @@
+{
+  "evaluatedAt": "2026-10-09T05:03:39.588Z",
+  "configuration": "groq:openai/gpt-oss-20b:prompt-be45a6a27cebe62ad8c1f0722e35016e005b94739463f5dddc103f72c3fe0ffa",
+  "catalogueVersion": "demo-objectives-v1",
+  "scope": "1 fictional goals. One sample each, domain checks plus manual semantic review required. No hosted auth, Neon or learner release.",
+  "results": [
+    {
+      "status": 200,
+      "id": "customer-email",
+      "input": {
+        "goalText": "Use AI to write clearer customer emails",
+        "explanationLevel": "beginner",
+        "teachingLanguage": "en",
+        "sessionMinutes": 20
+      },
+      "expectedState": "ready-preview",
+      "expectedObjectives": [
+        "AI-1",
+        "AI-2",
+        "AI-3",
+        "AI-4"
+      ],
+      "pass": true,
+      "result": {
+        "state": "ready-preview",
+        "proposal": {
+          "subject": "practical-ai",
+          "intent": "customer-emails",
+          "title": "AI-Enhanced Customer Email Drafting",
+          "outcome": "Draft customer emails with AI and check them against supplied facts.",
+          "reason": "This plan builds your confidence in drafting clear, professional customer emails with AI support, covering prompt creation, iterative refinement, and data safety. It is ideal for beginners wanting to improve communication efficiency and accuracy.",
+          "goalEvidence": "Use AI to write clearer customer emails",
+          "context": "Imagine you are a customer support representative at a SaaS startup, fielding hundreds of daily queries. Your goal is to reply swiftly yet clearly, using AI to craft concise, helpful emails that reflect your brand voice.",
+          "modules": [
+            {
+              "objective": {
+                "id": "AI-1",
+                "title": "Understand strengths and limits",
+                "prerequisites": [],
+                "rubricVersion": "AI-1-draft-v1",
+                "references": [
+                  "R-AI-2"
+                ]
+              },
+              "introduction": "Begin by exploring how AI tools can assist with email drafting, recognizing their strengths and the boundaries they present. This foundation will guide your prompt creation and iteration skills."
+            },
+            {
+              "objective": {
+                "id": "AI-2",
+                "title": "Write clear prompts",
+                "prerequisites": [
+                  "AI-1"
+                ],
+                "rubricVersion": "AI-2-v2",
+                "references": [
+                  "R-AI-1",
+                  "R-AI-2"
+                ]
+              },
+              "introduction": "Learn techniques to formulate precise prompts that yield clear, relevant responses from AI. Focus on specifying tone, audience, and key information for effective email drafts."
+            },
+            {
+              "objective": {
+                "id": "AI-3",
+                "title": "Improve through iteration",
+                "prerequisites": [
+                  "AI-2"
+                ],
+                "rubricVersion": "AI-3-draft-v1",
+                "references": []
+              },
+              "introduction": "Practice refining AI-generated drafts by providing feedback and making incremental edits. This iterative cycle helps produce polished, customer‑friendly messages."
+            },
+            {
+              "objective": {
+                "id": "AI-4",
+                "title": "Verify and protect information",
+                "prerequisites": [
+                  "AI-1"
+                ],
+                "rubricVersion": "AI-4-draft-v1",
+                "references": []
+              },
+              "introduction": "Understand how to check AI outputs for accuracy and maintain confidentiality, ensuring that sensitive details are handled appropriately in your communications."
+            }
+          ]
+        }
+      }
+    }
+  ]
+}
