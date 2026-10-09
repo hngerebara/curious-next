@@ -125,3 +125,7 @@ Curriculum and rubric review remain release gates. Tests specified here are not 
 TeachingProfile adds teaching_language independent of explanation preference and presentation settings. LessonVariant adds locale, translation version, glossary version and approval reference. ReferenceApproval also supports language/content review records. Submission preserves original-language text and code-switching. Assessment records input/output language and the approved rubric variant. Translation does not replace the original artifact.
 
 LanguageAvailability identifies reviewed course/module versions per language. Unsupported content returns an explicit unavailable state and language choices, never an undisclosed fallback. Accessibility support events remain non-substantive. Structured visual alternatives expose equivalent task evidence without leaking the answer. Store no disability diagnosis to enable accessibility preferences.
+
+## 8. Generated course-plan preview
+
+Goal revisions are immutable owned snapshots. CoursePlan pins a goal revision, catalogue version, generation configuration, request key, lease/attempt state, validation result and timestamps. Module selections refer only to catalogue objectives with immutable reference/rubric versions. A generated plan does not publish curriculum or award evidence. PreviewEnrollment pins the accepted plan and stores diagnostic choice separately. [Concrete contract](course-generation.md).

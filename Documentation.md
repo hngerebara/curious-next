@@ -7,7 +7,7 @@
 | M0 | completed | Governance documents, local checker and regression tests. Validation commands recorded below. |
 | M1 | in_progress | Accepted stack and constrained framework bridges implemented for the authentication spike. [Authentication evidence](docs/design-docs/authentication-review.md): 18 local integration/configuration tests, type check and build pass. Scoped source review and draft v2 rubric fixtures are prepared. Live Neon/Resend verification, operational choices, subject approval and actual assessor calibration remain pending. |
 | M1.5 | in_progress | Stitch desktop/mobile mockups and [design handoff](docs/design-docs/screen-handoff.md). Authentication shell checked at 320px/1440px with keyboard focus. 16 supplemental recovery-state previews checked at mobile/desktop widths. User design review and assistive-technology usability remain pending. |
-| M2 | pending | Only the authorised M1 authentication shell exists. Public homepage, goal setting, course entry and learner journeys remain unimplemented. |
+| M2 | in_progress | Authorised goal-based course-plan preview implements goal revisions, validated proposals, owned persistence, acceptance and provisional placement. Synthetic checks are recorded below. Live generation, hosted verification and full learning journeys remain pending. |
 | M3 | pending | Logical contracts only, no runtime persistence or model integration. |
 | M4 | pending | Misconception/recall/transfer specifications only. |
 | M5 | pending | Draft syllabuses and reference modules, no working export. |
@@ -116,3 +116,11 @@ Repository governance, all 28 Python regression tests and the expanded artifact 
 2026-10-09: CN-DESIGN-001 / THE-11. Renamed homepage discovery to Explore our courses and removed syllabus/module breakdowns from desktop/mobile course cards. Preserved links to course details. Checked both course cards, link counts and absence of syllabus lists at 320px, 390px and 1280px. Refreshed and visually inspected captures. This updates static repository designs, not the application homepage or remote Stitch originals. M1.5 remains in progress.
 
 Governance, all 28 Python regression tests and artifact integrity checks passed. No application source changed. Full application checks run in CI.
+
+## Goal-based course generation implementation
+
+2026-10-09: CN-COURSE-001 / THE-16 authorised bounded M2 preview while M1/M1.5 remain in progress. Product and transport/persistence contracts updated before code. Generated proposals remain draft, English only. No content approval, live model evaluation or learner release is implied. Validation results follow with the slice.
+
+Local implementation: versioned objective catalogue, server-side OpenAI structured output, domain validation, bounded generation leases/retries, immutable owned goals/plans and transactional preview enrollment. Diagnostic readiness and learner-selected start remain separate, neither awards evidence. Rendered React previews passed mobile/desktop, reload continuity, changed course coverage, enrollment/skip, keyboard focus and text-resize checks using synthetic generation and PGlite. No OpenAI, Neon or Resend calls were made. Live API configuration/evaluation, reviewed content, participant and screen-reader validation remain pending.
+
+Validation passed: Node.js 24 typecheck, 35 application tests and production build, 28 Python governance regression tests, 15 calibration fixtures and static artifact checks. Build confirms /onboarding is dynamic after fixing a configuration-dependent prerender redirect found in self-review. Local npm audit could not reach the registry even outside the sandbox, remote CI audit must pass before this slice is accepted.

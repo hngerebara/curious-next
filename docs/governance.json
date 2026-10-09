@@ -452,6 +452,23 @@
         "## Focus, announcements and data",
         "## Validation and remaining review"
       ]
+    },
+    "docs/design-docs/course-generation.md": {
+      "required_headings": [
+        "# Goal-based course generation contract",
+        "## Scope and status",
+        "## Generation and integrity",
+        "## HTTP and persistence",
+        "## Preview UX and acceptance"
+      ]
+    },
+    "docs/exec-plans/active/course-generation.md": {
+      "required_headings": [
+        "# CN-COURSE-001: Goal-based course generation",
+        "## Plan lifecycle",
+        "## Deliverables",
+        "## Validation and remaining gates"
+      ]
     }
   },
   "layers": {

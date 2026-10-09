@@ -2,13 +2,13 @@
 
 ## Status and authority
 
-The M1 authentication spike below is implemented and integration-tested locally. M2 course-entry routes remain proposed contracts. [Accepted stack](decisions/002-neon-pilot-stack.md), [security](security.md), [domain](domain-model.md), [data model](data-model.md) own their respective policies. Live Neon/Resend and deployment validation remain pending. Owner: engineering.
+The M1 authentication spike below is implemented and integration-tested locally. M2 goal/course-plan preview routes are implemented locally. Recommendations, lessons and assessment remain proposed. [Accepted stack](decisions/002-neon-pilot-stack.md), [security](security.md), [domain](domain-model.md), [data model](data-model.md) own their respective policies. Live Neon/Resend and deployment validation remain pending. Owner: engineering.
 
 ## Shared conventions
 
 JSON requests are validated with bounded body sizes. Successful JSON responses use `{ data, requestId }`. Errors use `{ error: { code }, requestId }`, without stack traces or private provider details. UI code maps stable error codes to accessible text. Use 400 for malformed input, 401 for missing session, 404 for inaccessible resources, 409 for future version/idempotency conflicts, 429 for abuse limits and 503 for unavailability. Private responses use no-store. Every private operation derives learner identity from a verified server session. Never accept a client-supplied learner ID as authority.
 
-Mutations validate exact origin. Link confirmation additionally validates an unpredictable CSRF value against an authenticated encrypted HttpOnly cookie. Idempotency keys and optimistic concurrency apply to future learner-resource writes, which this spike does not implement. Reusing a future key with a different payload returns 409. Logs contain event IDs and outcome codes, not submitted content or tokens.
+Mutations validate exact origin. Link confirmation additionally validates an unpredictable CSRF value against an authenticated encrypted HttpOnly cookie. Idempotency keys and optimistic concurrency apply to course-plan preview writes. Reusing a key with a different payload returns 409. Logs contain event IDs and outcome codes, not submitted content or tokens.
 
 ## Implemented M1 authentication spike
 
@@ -26,7 +26,7 @@ Policy v1: magic links expire in 10 minutes and database token identifiers are h
 
 ## Public authentication, M2
 
-Planned extension of the spike to the onboarding/learning destinations. These course destinations are not available in the current proof of concept.
+Planned extension of the spike to the onboarding/learning destinations. The verified page links to /onboarding, but destination-aware email links and learning routes remain deferred.
 
 | Route | Input | Behavior |
 |---|---|---|
@@ -42,11 +42,14 @@ Provider-specific error translation and delivery recovery must not reveal whethe
 
 | Route | Input | Output |
 |---|---|---|
-| PUT /api/profile/goal | `{ goalText, explanationLevel, teachingLanguage, sessionMinutes, version }` | Saved goal/preferences and new version. Minutes: 10, 20 or 40. Language selection respects reviewed availability. |
-| GET /api/courses/suggestions | Session | Two supported courses with relevance and prerequisites. Unsupported goals receive an honest boundary. |
-| POST /api/enrollments | `{ courseVersionId }`, idempotency key | Owned enrollment and optional diagnostic choice. |
-| POST /api/enrollments/:id/placement | `{ mode: "skip" }` or diagnostic answers, version | Beginning or provisional recommended module and reason. No achievement/evidence award. |
-| GET /api/recommendation | Session and enrollment | One primary action, at most two alternatives, time estimate and evidence-based reason. |
+| GET /api/profile/goal | Session | Current immutable goal revision and latest saved plan. |
+| PUT /api/profile/goal | `{ goalText, explanationLevel, teachingLanguage, sessionMinutes, version, clarification? }` | Saved goal/preferences and new version. Minutes: 10, 20 or 40. Language selection respects reviewed availability. |
+| POST /api/course-plans | Owned goal revision ID, idempotency key | Validated personalised proposal, clarification, unsupported or explicit generation/failure state. See [course generation](course-generation.md). |
+| GET /api/course-plans/:id | Session | Owned saved plan, no new model call. |
+| POST /api/enrollments | `{ planId }`, idempotency key | Owned immutable preview enrollment and optional diagnostic choice. |
+| GET /api/enrollments/:id | Session | Owned saved enrollment and placement. |
+| POST /api/enrollments/:id/placement | `{ mode: "skip" }`, `{ mode: "beginning" }` or `{ mode: "diagnostic", answers: [four yes/no strings] } | Beginning or provisional recommended module and reason. No achievement/evidence award. |
+| GET /api/recommendation (planned) | Session and enrollment | One primary action, at most two alternatives, time estimate and evidence-based reason. |
 
 ## Attempt and evidence boundary, M3 onward
 

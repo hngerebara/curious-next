@@ -31,12 +31,12 @@ Preserve useful existing functionality and learner data when extending the proje
 
 ## 3. Strict pilot scope
 
-Audience: adult beginners. Offer two distinct introductory courses:
+Audience: adult beginners. Support two introductory subject areas, with general discovery courses and goal-specific generated course plans:
 
 - **Practical AI:** use AI for a small work or study task, verify its output, and explain decisions.
 - **Cybersecurity Essentials:** recognise common digital threats, choose protective actions, and explain reasoning in simulations.
 
-Each course contains five modules defined in [curriculum](docs/curriculum/index.md). Use a shared, versioned syllabus with personalised pathways and explanations. Do not generate unrestricted syllabuses. Personalisation changes context and support, not objectives or assessment standards.
+Each subject catalogue contains five modules defined in [curriculum](docs/curriculum/index.md). Use versioned subject objective catalogues to generate goal-specific course plans with personalised pathways and explanations. Course plans select relevant objectives and prerequisite closure, rather than always presenting five modules. Do not generate unrestricted syllabuses or new assessment standards. Personalisation changes context and support, not objectives or assessment standards.
 
 The pilot must provide complete learning loops for writing clear prompts and recognising phishing, with the remaining modules following the same requirements. Practical AI uses an integrated text-based practice environment with one configured model. Cybersecurity uses fictional messages and simulated settings. Never request real passwords or recovery codes.
 
@@ -48,7 +48,7 @@ Deliverables include maintained product/curriculum specifications and a validate
 
 Ask what the learner wants to be able to do, rather than which course they want to consume. Clarify vague goals into a measurable supported destination. For goals beyond the pilot, explain the boundary and offer the supported goal rather than inventing a complete pathway.
 
-After goal and explanation preference capture, suggest the two courses with goal relevance and prerequisites. Let the learner choose. Offer an optional course-specific diagnostic or Start from the beginning. Never require a diagnostic to unlock learning. Capture relevant background, self-reported experience, available study time, and an explanation preference. Allow updates later. Avoid a lengthy entrance exam.
+After goal and explanation preference capture, generate one goal-specific course proposal within Practical AI or Cybersecurity, explaining fit and prerequisites. Vague or mixed goals receive one clarification. Unsupported goals receive supported alternatives. Let the learner choose. Offer an optional course-specific diagnostic or Start from the beginning. Never require a diagnostic to unlock learning. Capture relevant background, self-reported experience, available study time, and an explanation preference. Allow updates later. Avoid a lengthy entrance exam.
 
 Offer clear explanation choices:
 

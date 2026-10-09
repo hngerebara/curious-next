@@ -21,3 +21,5 @@ See [milestones](../../Plans.md) and [status](../../Documentation.md).
 - [CN-FOUNDATION-001](active/foundation.md): Neon stack, API and deployment preparation.
 
 - [CN-AUTH-001](active/authentication.md): M1 authentication proof of concept.
+
+- [CN-COURSE-001](active/course-generation.md): authorised M2 course-plan preview.

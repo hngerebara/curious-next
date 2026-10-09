@@ -7,7 +7,7 @@ This document owns end-to-end learner journeys and recovery routes. [Pilot desig
 ## UF1: Set a goal and choose a course
 
 1. Learner sets a goal, teaching language, explanation level and available time. Language and explanation level are independent.
-2. CuriousNext clarifies a supported outcome and suggests the two pilot courses with relevance and prerequisites. Unsupported goals show the boundary and offer supported options.
+2. CuriousNext generates one goal-specific proposal within a supported subject, with relevant objectives, prerequisite closure and fit reasons. Vague/mixed goals receive one clarification. Unsupported goals show the boundary and offer supported options.
 3. Learner chooses a course. Back navigation preserves entered preferences and does not enroll twice.
 4. Learner chooses an optional diagnostic or Start from the beginning.
 5. Diagnostic answers recommend a provisional starting module with reasons. Skip starts module one. Neither route fabricates achievement.
