@@ -1,0 +1,182 @@
+[
+  {
+    "id": "session",
+    "flow": "UF7",
+    "title": "Sign in to continue",
+    "body": "Your session ended. Sign in with an email magic link to return to this task.",
+    "detail": "Last confirmed draft: saved. Recent unsaved edits remain in this preview only. On a shared device, do not display private task text before verification.",
+    "actions": [
+      "Preview email entry",
+      "Return to gallery"
+    ]
+  },
+  {
+    "id": "email",
+    "flow": "UF7",
+    "title": "Send yourself a magic link",
+    "body": "Sign-up and login use the same email-only flow.",
+    "detail": "Production must validate a same-origin return destination and restore only the verified learner\u2019s work.",
+    "actions": [
+      "Preview check-email",
+      "Back to task"
+    ]
+  },
+  {
+    "id": "check-email",
+    "flow": "UF7",
+    "title": "Check your email",
+    "body": "If the request is accepted, a sign-in link will arrive shortly.",
+    "detail": "This preview sends no email. In production, preserve the authorised return path through explicit confirmation.",
+    "actions": [
+      "Preview verified return",
+      "Change email"
+    ]
+  },
+  {
+    "id": "unsupported",
+    "flow": "UF1",
+    "title": "Let\u2019s find a supported goal",
+    "body": "The pilot does not offer your requested course yet. Choose a supported goal or revise yours.",
+    "detail": "Your original goal stays available for editing. No course is enrolled by viewing suggestions.",
+    "actions": [
+      "Use Practical AI goal",
+      "Use Cybersecurity goal",
+      "Edit my goal"
+    ]
+  },
+  {
+    "id": "empty",
+    "flow": "UF1",
+    "title": "We could not load course suggestions",
+    "body": "Your saved goal and preferences are still here. Try again when your connection is ready.",
+    "detail": "A failed request is different from an unsupported goal. Do not invent a course or erase input.",
+    "actions": [
+      "Retry suggestions",
+      "Edit my goal"
+    ]
+  },
+  {
+    "id": "no-fit",
+    "flow": "UF5",
+    "title": "This task needs more time",
+    "body": "Your next independent task is estimated at 20 minutes. You selected 10 minutes.",
+    "detail": "Choose a short refresher, or return when you have more time. A refresher does not replace the independent task or lower its criteria.",
+    "actions": [
+      "Start a 10-minute refresher",
+      "Choose 20 minutes",
+      "Keep my plan"
+    ]
+  },
+  {
+    "id": "assist",
+    "flow": "UF3",
+    "title": "Get help with this task?",
+    "body": "A learning-assistant hint will make this attempt assisted. It will count as practice, not independent demonstration.",
+    "detail": "Screen readers, zoom and equivalent text do not make an attempt assisted. Practice AI remains a permitted tool in Practical AI.",
+    "actions": [
+      "Get a hint as practice",
+      "Continue independently"
+    ]
+  },
+  {
+    "id": "assisted",
+    "flow": "UF3",
+    "title": "You\u2019re practising with support",
+    "body": "Assisted attempt. Your work is still here and you can continue learning.",
+    "detail": "Production records assistance before delivering the hint. Use a fresh task later to demonstrate independently. No worked solution is included in this design.",
+    "actions": [
+      "Continue assisted practice",
+      "Return to plan"
+    ]
+  },
+  {
+    "id": "unsaved",
+    "flow": "UF2",
+    "title": "Save your work before leaving",
+    "body": "Some edits have not been saved. Stay to continue editing or retry saving before you leave.",
+    "detail": "Never show a successful-save message until the server confirms it. If you discard unsaved edits, keep the last confirmed draft.",
+    "actions": [
+      "Stay and keep editing",
+      "Retry saving",
+      "Discard unsaved edits"
+    ]
+  },
+  {
+    "id": "conflict",
+    "flow": "UF2",
+    "title": "There\u2019s a newer saved draft",
+    "body": "This task changed in another session. Choose what to inspect before saving.",
+    "detail": "Keep both revisions recoverable. Do not silently overwrite newer work. Production shows timestamps and lets you compare authorised revisions.",
+    "actions": [
+      "Inspect latest saved draft",
+      "Keep this local draft",
+      "Return to task"
+    ]
+  },
+  {
+    "id": "review",
+    "flow": "UF3",
+    "title": "Request an optional review?",
+    "body": "A reviewer will receive this submitted attempt, its criterion feedback and assistance history.",
+    "detail": "Review does not delay learning or practice. No new demonstration is awarded while the assessment is uncertain. Show privacy scope before submission.",
+    "actions": [
+      "Request review",
+      "Keep learning without review"
+    ]
+  },
+  {
+    "id": "review-sent",
+    "flow": "UF3",
+    "title": "Review request recorded",
+    "body": "Your submitted attempt stays unchanged. Continue learning while the request is pending.",
+    "detail": "Preview only. Production reuses the same request identity to prevent duplicates. A reviewer response is not promised immediately.",
+    "actions": [
+      "Continue learning",
+      "View submitted attempt"
+    ]
+  },
+  {
+    "id": "diagnostic",
+    "flow": "UF1",
+    "title": "Choose your starting point",
+    "body": "Optional starting questions help suggest a module. They do not award achievement.",
+    "detail": "Course selected: Practical AI. Production uses four to six reviewed questions with saved answers and an always-visible skip. This design illustrates the response transition, not a complete diagnostic.",
+    "actions": [
+      "Preview placement result",
+      "Start from the beginning"
+    ]
+  },
+  {
+    "id": "placement",
+    "flow": "UF1",
+    "title": "A suggested starting point",
+    "body": "Illustrative placement: start with Write clear prompts. You can choose module one instead.",
+    "detail": "Reason: the example response identifies a task but omits an output constraint. This is a provisional placement, not demonstrated ability. All diagnostic answers remain inspectable.",
+    "actions": [
+      "Start suggested module",
+      "Start from the beginning",
+      "Review starting answers"
+    ]
+  },
+  {
+    "id": "language",
+    "flow": "UF7",
+    "title": "Choose an available teaching language",
+    "body": "Igbo lesson content is awaiting review. Your draft and language preference stay unchanged.",
+    "detail": "English is available in this design example only. No real language release is claimed. Do not silently switch the default or translate an assessment with unreviewed content.",
+    "actions": [
+      "Use English for this lesson",
+      "Keep my preference and return"
+    ]
+  },
+  {
+    "id": "task",
+    "flow": "UF2",
+    "title": "Your task is ready to continue",
+    "body": "Your confirmed draft has been restored in this illustrative preview.",
+    "detail": "Production must verify ownership before restoring work. No real learner draft or achievement is loaded here.",
+    "actions": [
+      "Return to recovery states"
+    ]
+  }
+]

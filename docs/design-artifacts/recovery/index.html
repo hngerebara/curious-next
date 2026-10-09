@@ -1,0 +1,197 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>CuriousNext recovery states</title>
+<style>
+@font-face{font-family:Fredoka;src:url(../../../node_modules/@fontsource/fredoka/files/fredoka-latin-600-normal.woff2);font-weight:600}
+@font-face{font-family:Inter;src:url(../../../node_modules/@fontsource/inter/files/inter-latin-400-normal.woff2);font-weight:400}
+*{box-sizing:border-box}body{margin:0;background:#F5F0E5;color:#171717;font:18px/1.65 Inter,system-ui,sans-serif}header,main{max-width:1120px;margin:auto;padding:24px}header{border-bottom:1px solid #71828D}nav{display:flex;flex-wrap:wrap;gap:12px}a{color:#285F85}a,button,select,input{min-height:44px}a{display:inline-flex;align-items:center}button,select,input{font:inherit;border:1px solid #71828D;border-radius:12px;padding:10px 16px;max-width:100%}button{cursor:pointer;background:white;color:#171717;white-space:normal;text-align:left}button.primary{background:#C8EF45;border-color:#171717}:focus-visible{outline:3px solid #285F85;outline-offset:3px}h1{font:600 clamp(28px,4vw,36px)/1.2 Fredoka,system-ui,sans-serif;margin:16px 0}h2{font-size:22px}p{margin:16px 0}.eyebrow{font-size:14px;color:#59564F}.layout{display:grid;grid-template-columns:260px minmax(0,1fr);gap:32px}.panel{background:white;border:1px solid #71828D;border-radius:20px;padding:24px;overflow-wrap:anywhere}.notice{background:#F0E8FA;border-radius:12px;padding:16px}.actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:24px}label{display:block}select{width:100%;background:white;color:#171717}.simulation{font-size:14px;color:#59564F}#email-field{width:100%}[hidden]{display:none!important}@media(max-width:760px){header,main{padding:16px}.layout{grid-template-columns:1fr;gap:16px}.panel{padding:16px}.actions button{width:100%}}
+</style></head><body>
+<header><nav aria-label="Design navigation"><a href="../stitch/index.html">All screen designs</a><a href="../../design-docs/screen-handoff.md">Design handoff</a></nav><p class="simulation">CuriousNext · Interaction design preview. Fictional data. No emails, saves, enrollment, hints or review requests are sent.</p></header>
+<main><div class="layout"><aside><label for="state">Inspect a recovery state</label><select id="state"></select><p class="simulation">Use the buttons to inspect transitions. Production requirements remain subject to review.</p></aside><section class="panel" aria-labelledby="heading"><p id="flow" class="eyebrow"></p><h1 id="heading" tabindex="-1"></h1><p id="body"></p><div id="email-group" hidden><label for="email-field">Email address</label><input id="email-field" type="email" autocomplete="email" placeholder="you@example.com"></div><div id="diagnostic-group" hidden><label for="diagnostic-response">What would you include in an instruction asking AI to draft a short message?</label><textarea id="diagnostic-response" rows="4" style="width:100%;font:inherit;border:1px solid #71828D;border-radius:12px" aria-describedby="diagnostic-note"></textarea><p id="diagnostic-note" class="simulation">Blank illustrative response field. This preview does not score your answer.</p></div><p id="detail" class="notice"></p><div id="actions" class="actions"></div><p id="status" class="simulation" role="status" aria-live="polite"></p></section></div></main>
+<script>
+const states=[
+  {
+    "id": "session",
+    "flow": "UF7",
+    "title": "Sign in to continue",
+    "body": "Your session ended. Sign in with an email magic link to return to this task.",
+    "detail": "Last confirmed draft: saved. Recent unsaved edits remain in this preview only. On a shared device, do not display private task text before verification.",
+    "actions": [
+      "Preview email entry",
+      "Return to gallery"
+    ]
+  },
+  {
+    "id": "email",
+    "flow": "UF7",
+    "title": "Send yourself a magic link",
+    "body": "Sign-up and login use the same email-only flow.",
+    "detail": "Production must validate a same-origin return destination and restore only the verified learner’s work.",
+    "actions": [
+      "Preview check-email",
+      "Back to task"
+    ]
+  },
+  {
+    "id": "check-email",
+    "flow": "UF7",
+    "title": "Check your email",
+    "body": "If the request is accepted, a sign-in link will arrive shortly.",
+    "detail": "This preview sends no email. In production, preserve the authorised return path through explicit confirmation.",
+    "actions": [
+      "Preview verified return",
+      "Change email"
+    ]
+  },
+  {
+    "id": "unsupported",
+    "flow": "UF1",
+    "title": "Let’s find a supported goal",
+    "body": "The pilot does not offer your requested course yet. Choose a supported goal or revise yours.",
+    "detail": "Your original goal stays available for editing. No course is enrolled by viewing suggestions.",
+    "actions": [
+      "Use Practical AI goal",
+      "Use Cybersecurity goal",
+      "Edit my goal"
+    ]
+  },
+  {
+    "id": "empty",
+    "flow": "UF1",
+    "title": "We could not load course suggestions",
+    "body": "Your saved goal and preferences are still here. Try again when your connection is ready.",
+    "detail": "A failed request is different from an unsupported goal. Do not invent a course or erase input.",
+    "actions": [
+      "Retry suggestions",
+      "Edit my goal"
+    ]
+  },
+  {
+    "id": "no-fit",
+    "flow": "UF5",
+    "title": "This task needs more time",
+    "body": "Your next independent task is estimated at 20 minutes. You selected 10 minutes.",
+    "detail": "Choose a short refresher, or return when you have more time. A refresher does not replace the independent task or lower its criteria.",
+    "actions": [
+      "Start a 10-minute refresher",
+      "Choose 20 minutes",
+      "Keep my plan"
+    ]
+  },
+  {
+    "id": "assist",
+    "flow": "UF3",
+    "title": "Get help with this task?",
+    "body": "A learning-assistant hint will make this attempt assisted. It will count as practice, not independent demonstration.",
+    "detail": "Screen readers, zoom and equivalent text do not make an attempt assisted. Practice AI remains a permitted tool in Practical AI.",
+    "actions": [
+      "Get a hint as practice",
+      "Continue independently"
+    ]
+  },
+  {
+    "id": "assisted",
+    "flow": "UF3",
+    "title": "You’re practising with support",
+    "body": "Assisted attempt. Your work is still here and you can continue learning.",
+    "detail": "Production records assistance before delivering the hint. Use a fresh task later to demonstrate independently. No worked solution is included in this design.",
+    "actions": [
+      "Continue assisted practice",
+      "Return to plan"
+    ]
+  },
+  {
+    "id": "unsaved",
+    "flow": "UF2",
+    "title": "Save your work before leaving",
+    "body": "Some edits have not been saved. Stay to continue editing or retry saving before you leave.",
+    "detail": "Never show a successful-save message until the server confirms it. If you discard unsaved edits, keep the last confirmed draft.",
+    "actions": [
+      "Stay and keep editing",
+      "Retry saving",
+      "Discard unsaved edits"
+    ]
+  },
+  {
+    "id": "conflict",
+    "flow": "UF2",
+    "title": "There’s a newer saved draft",
+    "body": "This task changed in another session. Choose what to inspect before saving.",
+    "detail": "Keep both revisions recoverable. Do not silently overwrite newer work. Production shows timestamps and lets you compare authorised revisions.",
+    "actions": [
+      "Inspect latest saved draft",
+      "Keep this local draft",
+      "Return to task"
+    ]
+  },
+  {
+    "id": "review",
+    "flow": "UF3",
+    "title": "Request an optional review?",
+    "body": "A reviewer will receive this submitted attempt, its criterion feedback and assistance history.",
+    "detail": "Review does not delay learning or practice. No new demonstration is awarded while the assessment is uncertain. Show privacy scope before submission.",
+    "actions": [
+      "Request review",
+      "Keep learning without review"
+    ]
+  },
+  {
+    "id": "review-sent",
+    "flow": "UF3",
+    "title": "Review request recorded",
+    "body": "Your submitted attempt stays unchanged. Continue learning while the request is pending.",
+    "detail": "Preview only. Production reuses the same request identity to prevent duplicates. A reviewer response is not promised immediately.",
+    "actions": [
+      "Continue learning",
+      "View submitted attempt"
+    ]
+  },
+  {
+    "id": "diagnostic",
+    "flow": "UF1",
+    "title": "Choose your starting point",
+    "body": "Optional starting questions help suggest a module. They do not award achievement.",
+    "detail": "Course selected: Practical AI. Production uses four to six reviewed questions with saved answers and an always-visible skip. This design illustrates the response transition, not a complete diagnostic.",
+    "actions": [
+      "Preview placement result",
+      "Start from the beginning"
+    ]
+  },
+  {
+    "id": "placement",
+    "flow": "UF1",
+    "title": "A suggested starting point",
+    "body": "Illustrative placement: start with Write clear prompts. You can choose module one instead.",
+    "detail": "Reason: the example response identifies a task but omits an output constraint. This is a provisional placement, not demonstrated ability. All diagnostic answers remain inspectable.",
+    "actions": [
+      "Start suggested module",
+      "Start from the beginning",
+      "Review starting answers"
+    ]
+  },
+  {
+    "id": "language",
+    "flow": "UF7",
+    "title": "Choose an available teaching language",
+    "body": "Igbo lesson content is awaiting review. Your draft and language preference stay unchanged.",
+    "detail": "English is available in this design example only. No real language release is claimed. Do not silently switch the default or translate an assessment with unreviewed content.",
+    "actions": [
+      "Use English for this lesson",
+      "Keep my preference and return"
+    ]
+  },
+  {
+    "id": "task",
+    "flow": "UF2",
+    "title": "Your task is ready to continue",
+    "body": "Your confirmed draft has been restored in this illustrative preview.",
+    "detail": "Production must verify ownership before restoring work. No real learner draft or achievement is loaded here.",
+    "actions": [
+      "Return to recovery states"
+    ]
+  }
+];
+const transitions={session:['email','task'],email:['check-email','session'],'check-email':['task','email'],unsupported:['diagnostic','diagnostic','unsupported'],empty:['diagnostic','unsupported'],'no-fit':['task','task','task'],assist:['assisted','task'],assisted:['task','task'],unsaved:['task','unsaved','task'],conflict:['task','conflict','task'],review:['review-sent','task'],'review-sent':['task','task'],diagnostic:['placement','task'],placement:['task','task','diagnostic'],language:['task','task'],task:['session']};
+const chooser=document.getElementById('state');states.forEach(s=>{const o=document.createElement('option');o.value=s.id;o.textContent=s.title;chooser.append(o)});
+function render(id,focus=false){const s=states.find(s=>s.id===id)||states[0];chooser.value=s.id;document.getElementById('heading').textContent=s.title;document.getElementById('body').textContent=s.body;document.getElementById('detail').textContent=s.detail;document.getElementById('flow').textContent=s.flow+' · State '+s.id;document.getElementById('email-group').hidden=s.id!=='email';document.getElementById('diagnostic-group').hidden=s.id!=='diagnostic';document.getElementById('status').textContent='';const actions=document.getElementById('actions');actions.replaceChildren();s.actions.forEach((label,index)=>{const b=document.createElement('button');b.type='button';b.textContent=label;if(index===0)b.className='primary';b.addEventListener('click',()=>{if(s.id==='unsaved'&&index===1){document.getElementById('status').textContent='Preview save failed. Your unsaved edits remain available.';return}if(s.id==='conflict'&&index===1){document.getElementById('status').textContent='Preview local revision retained. No server draft was overwritten.';return}render(transitions[s.id][index],true)});actions.append(b)});if(focus)document.getElementById('heading').focus();history.replaceState(null,'','#'+s.id)}
+chooser.addEventListener('change',()=>render(chooser.value,true));render(location.hash.slice(1));
+</script></body></html>

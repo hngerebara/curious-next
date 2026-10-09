@@ -2,7 +2,7 @@
 
 ## Boundaries
 
-UI imports application and contracts, never provider/storage adapters. Bootstrap composes implementations. The frontend stack remains an M1 decision. Do not treat this document as evidence of an implemented UI.
+UI imports application and contracts, never provider/storage adapters. Bootstrap composes implementations. Next.js/React is accepted in ADR-002. Do not treat this document as evidence of an implemented UI.
 
 ## Required behavior
 
@@ -34,7 +34,7 @@ Language switches preserve drafts and original-language evidence. Unavailable va
 
 ## Acceptance and interfaces
 
-Validate V1-V12 and accessible keyboard/screen-reader navigation on actual rendered screens. Use reviewed language examples for long labels, accents and code-switching. Current logical operations live in the [data model](design-docs/data-model.md). M1 produces transport-specific API schemas and errors before frontend/backend integration. No real API or frontend stack exists yet.
+Validate V1-V12 and accessible keyboard/screen-reader navigation on actual rendered screens. Use reviewed language examples for long labels, accents and code-switching. Current logical operations live in the [data model](design-docs/data-model.md). M1 produces transport-specific API schemas and errors before frontend/backend integration. A limited authentication shell exists. Course and learning APIs remain specifications, not implemented journeys.
 
 ## Public entry and authentication
 

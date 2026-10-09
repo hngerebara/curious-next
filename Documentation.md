@@ -6,7 +6,7 @@
 |---|---|---|
 | M0 | completed | Governance documents, local checker and regression tests. Validation commands recorded below. |
 | M1 | in_progress | Accepted stack and constrained framework bridges implemented for the authentication spike. [Authentication evidence](docs/design-docs/authentication-review.md): 18 local integration/configuration tests, type check and build pass. Scoped source review and draft v2 rubric fixtures are prepared. Live Neon/Resend verification, operational choices, subject approval and actual assessor calibration remain pending. |
-| M1.5 | in_progress | Stitch desktop/mobile mockups and [design handoff](docs/design-docs/screen-handoff.md). Authentication shell checked at 320px/1440px with keyboard focus. User design review and assistive-technology usability remain pending. |
+| M1.5 | in_progress | Stitch desktop/mobile mockups and [design handoff](docs/design-docs/screen-handoff.md). Authentication shell checked at 320px/1440px with keyboard focus. 16 supplemental recovery-state previews checked at mobile/desktop widths. User design review and assistive-technology usability remain pending. |
 | M2 | pending | Only the authorised M1 authentication shell exists. Public homepage, goal setting, course entry and learner journeys remain unimplemented. |
 | M3 | pending | Logical contracts only, no runtime persistence or model integration. |
 | M4 | pending | Misconception/recall/transfer specifications only. |
@@ -102,3 +102,11 @@ Local validation passed: 28 governance/calibration regression tests, 18 applicat
 M1 remains in progress: live Neon/Resend checks, unresolved operational/provider choices, subject approval and configured-assessor calibration remain. M1.5 remains in progress: user design acceptance and remaining interaction/accessibility/language handoff findings remain. M2 has not started. Merging this consolidation is delivery, not milestone acceptance or learner-release approval.
 
 Combined local validation passed: Node.js 24 type generation/typechecking, 18 application tests and production build. Repository governance, all 28 Python regression tests, 15 synthetic fixture checks and 31 static design checks passed. Live services, LLM grading and complete learner flows were not exercised. Latest-head CI is recorded in the consolidation PR.
+
+## Recovery design preparation
+
+2026-10-09: CN-DESIGN-001 / THE-11 adds [16 responsive recovery/transition previews](docs/design-artifacts/recovery/index.html) and a [transition contract](docs/design-docs/recovery-states.md). Covers session-expiry return, unsupported goal, empty suggestions, no fitting session, assistance confirmation, unsaved/conflicting draft, optional review, diagnostic entry/placement and unavailable language. No application runtime is changed.
+
+Rendered checks passed across 48 state/viewport combinations (320px, 390px, 1280px), with heading focus, help/save/review transitions and doubled body text at 320px. Visually inspected mobile/desktop assistance captures. Artifact fingerprint and state-copy checks are added to existing CI validation. These are preview checks, not implemented persistence or screen-reader conformance. User acceptance, prior-screen content audit, reviewed language/glyph examples and production accessibility checks remain open. M1.5 stays in progress.
+
+Repository governance, all 28 Python regression tests and the expanded artifact validation passed locally. Application source is unchanged in this slice. Full application checks run in required CI.

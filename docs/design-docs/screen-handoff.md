@@ -71,9 +71,9 @@ Critical generation drift found and corrected in repository mockups: fabricated 
 Required review before M2:
 
 1. Inspect every selected screen against exact course facts, six criteria and draft status. Resolve any remaining generated terminology or rule drift. Confirm neutral independent-message representations and initially blank answers.
-2. Review both desktop and mobile journeys with the user. Check long-page density, action hierarchy and transitions. Diagnostic response-entry and result views need explicit transition treatment beyond the single illustrative snapshot.
+2. Review both desktop and mobile journeys with the user. Check long-page density, action hierarchy and transitions. Diagnostic response-entry and provisional result transitions now have supplemental previews, their course-specific reviewed question set and production integration remain pending.
 3. Check mobile 320px reflow and zoom intent, labels, focus order and text alternatives. Static JPEGs cannot prove keyboard support, contrast in every state or screen-reader behavior.
-4. Complete missing shared patterns: session-expiry return integration, unsupported-goal and no-fitting-session recovery, explicit assisted-status transition, unsaved navigation, empty suggestions and optional-review confirmation. Existing recovery screens establish the pattern but do not replace full state coverage.
+4. Review the new [recovery-state preview](../design-artifacts/recovery/index.html) and [transition contract](recovery-states.md). It specifies the previously missing shared patterns. Production integration and complete reference-flow state coverage still require verification.
 5. Verify actual font glyphs and reviewed long-language examples. Non-English content availability remains pending, not implemented translations.
 
 Remaining findings are tracked here and in milestone evidence. User design approval and runtime accessibility testing remain outstanding. Do not mark M1.5 complete or begin M2 solely because Stitch produced screenshots.
@@ -92,3 +92,5 @@ Use manifest source IDs with Stitch get_screen/edit_screens. After an edit, refr
 2026-10-08 entry review: mobile homepage header Log In had no action. Local HTML now links to the mobile magic-link screen. This fixes static navigation only. Auth designs remain state previews, not working delivery or redemption. Full state-transition and assistive-technology checks await implementation.
 
 Entry review also aligned both public homepage module lists with the approved planning syllabuses and removed unsupported claims that translations are already in community review. Curriculum remains draft pending subject review.
+
+2026-10-09: added 16 repository-native responsive recovery/transition previews, separate from the 31 Stitch exports. [Contract and review evidence](recovery-states.md). User acceptance, all-screen content audit, language/glyph review and runtime assistive-technology testing remain pending.
