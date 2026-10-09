@@ -1,6 +1,7 @@
 """Check static design integrity and magic-link form boundaries."""
 import hashlib
 import json
+import re
 from html.parser import HTMLParser
 from pathlib import Path
 
@@ -39,7 +40,21 @@ def main():
             assert not field.get("value"), "Auth must start blank"
             assert "Send me a magic link" in source.decode()
     assert auth_count == 2, "Desktop and mobile auth designs required"
-    print(f"PASS: {len(seen)} static artifacts and magic-link form boundaries")
+    recovery = root.parent / "recovery"
+    record = json.loads((recovery / "manifest.json").read_text())
+    for name, fingerprint in record["files"].items():
+        content = (recovery / name).read_bytes()
+        assert hashlib.sha256(content).hexdigest() == fingerprint, "Stale recovery artifact"
+        if name.endswith(".png"):
+            assert content.startswith(b"\x89PNG\r\n\x1a\n"), "Invalid recovery capture"
+    states = json.loads((recovery / "states.json").read_text())
+    embedded = re.search(r"const states=(.*?);\nconst transitions=", (recovery / "index.html").read_text(), re.S)
+    assert embedded and json.loads(embedded.group(1)) == states, "Preview copy drift"
+    identifiers = [state["id"] for state in states]
+    assert len(identifiers) == len(set(identifiers)), "Duplicate recovery state"
+    required = {"session", "email", "check-email", "unsupported", "empty", "no-fit", "assist", "assisted", "unsaved", "conflict", "review", "review-sent", "diagnostic", "placement", "language", "task"}
+    assert set(identifiers) == required, "Incomplete recovery coverage"
+    print(f"PASS: {len(seen)} static artifacts, magic-link forms and {len(states)} recovery states")
 
 
 if __name__ == "__main__":

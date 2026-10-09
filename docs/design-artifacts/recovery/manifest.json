@@ -1,0 +1,12 @@
+{
+  "kind": "repository-native design preview",
+  "capturedAt": "2026-10-09",
+  "files": {
+    "index.html": "83d7c7585cf7ec2f40e5ea7e9198547ceb08d70963d149d88b765433eefaa706",
+    "states.json": "aa0dbd83e3747ddf5e521afdf91ee810ef86a48f3705e626517c23cc5005a41b",
+    "assistance-320.png": "570efd8f86b6ba101b2f524d918bb3b63bb1057b71cd5a7fe55d50b8d87e19d6",
+    "assistance-390.png": "0727f0ef2af58e2e5126c32c4c9dc6ebfacf8a21a5d4780ea7b9c2add47108c5",
+    "assistance-1280.png": "cff9df07828c8338db5ab992ceb1aba09a97125e2b780ad60ed7e997f96815a3"
+  },
+  "validation": "48 state/viewport combinations, heading focus, help/save/review transitions, doubled body text at 320px. No screen-reader or production-service test."
+}

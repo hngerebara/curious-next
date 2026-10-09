@@ -21,3 +21,5 @@ Review against [user flows](../../product-specs/user-flows.md), [design system](
 Record review findings, resolve blocking design decisions and present reviewable mockups to the user before M2 implementation. These artifacts must specify interaction states, not only static happy paths. Do not require a particular proprietary design tool. Repository-accessible exports and handoff links are required.
 
 Design review does not establish runtime screen-reader support or WCAG conformance. M2 onward validates rendered accessibility and behavior, with participant evaluation before release. Move this plan to completed only when artifacts and review outcomes have recorded evidence.
+
+2026-10-09: prepared [recovery-state contract](../../design-docs/recovery-states.md) and 16 responsive interaction previews for the missing shared patterns. User acceptance and remaining full-screen/accessibility/language review are still open.

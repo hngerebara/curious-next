@@ -443,6 +443,15 @@
         "## Deliverables",
         "## Validation and remaining gates"
       ]
+    },
+    "docs/design-docs/recovery-states.md": {
+      "required_headings": [
+        "# Recovery and transition screen contract",
+        "## Scope and preview",
+        "## Transition and acceptance matrix",
+        "## Focus, announcements and data",
+        "## Validation and remaining review"
+      ]
     }
   },
   "layers": {
