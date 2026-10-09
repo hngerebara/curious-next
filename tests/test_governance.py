@@ -20,6 +20,9 @@ class GovernanceTests(unittest.TestCase):
             shutil.copy(p, self.root / p.name)
         shutil.copytree(ROOT / 'docs', self.root / 'docs')
         shutil.copytree(ROOT / '.github', self.root / '.github')
+        for folder in ('src', 'migrations', 'tests'):
+            if (ROOT / folder).exists():
+                shutil.copytree(ROOT / folder, self.root / folder, ignore=shutil.ignore_patterns('__pycache__'))
         self.config = json.loads((self.root / 'docs/governance.json').read_text())
 
     def tearDown(self):
@@ -66,6 +69,32 @@ class GovernanceTests(unittest.TestCase):
         self.assertTrue(any('external' in e for e in errors))
         self.assertTrue(any('computed' in e for e in errors))
         self.assertTrue(any('multiline' in e for e in errors))
+
+    def test_framework_bridge(self):
+        self.source('app/page.tsx', 'export { HomePage as default } from "../bootstrap/home"\n')
+        self.assertEqual(checker.source_errors(self.root, self.config), [])
+
+    def test_framework_rejects_logic_and_provider_bypass(self):
+        self.source('app/api/route.ts', 'export { GET } from "../../adapters/auth"\nexport const secret = process.env.SECRET\n')
+        errors = checker.source_errors(self.root, self.config)
+        self.assertTrue(any('app -> adapters' in e for e in errors))
+        self.assertTrue(any('only re-export' in e for e in errors))
+
+    def test_framework_rejects_external_and_reverse_imports(self):
+        self.source('app/page.tsx', 'export { handler } from "better-auth"\n')
+        self.source('ui/page.tsx', 'import page from "../app/page"\n')
+        errors = checker.source_errors(self.root, self.config)
+        self.assertTrue(any('only re-export' in e for e in errors))
+        self.assertTrue(any('ui -> app' in e for e in errors))
+
+    def test_framework_rejects_same_layer_bypass(self):
+        self.source('app/page.tsx', 'export { handler } from "./other-page"\n')
+        self.assertTrue(any('only re-export' in e for e in checker.source_errors(self.root, self.config)))
+
+    def test_ignored_dependencies_are_not_governed(self):
+        (self.root / 'node_modules/unused').mkdir(parents=True)
+        (self.root / 'node_modules/unused/README.md').write_text('# Dependency\n')
+        self.assertEqual(checker.validate(self.root), [])
 
     def test_taste_and_size(self):
         self.source('ui/BadName.ts', 'console.log("private")\ntry {} catch {}\n' + '\n' * 301)

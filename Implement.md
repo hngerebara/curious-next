@@ -2,7 +2,7 @@
 
 ## Requested execution configuration
 
-Use GPT-5.2-Codex with X-High reasoning when the execution host offers that model and setting. This file records the requested configuration, it does not change the current chat model. If unavailable, report the mismatch and obtain a model choice before that configured run. Do not silently claim the requested model ran.
+Use GPT-6.1-Sol (`gpt-6.1-sol`) with X-High (`xhigh`) reasoning, as selected by the user on 2026-10-08, when the execution host offers that model and setting. This file records the requested configuration, it does not change the current chat model. If unavailable, report the mismatch and obtain a model choice before that configured run. Do not silently claim the requested model ran.
 
 ## Implementation instructions
 

@@ -23,12 +23,12 @@
       "title": "CuriousNext - Public Homepage (Desktop)",
       "width": "1280",
       "html": "97431bce4b0f40b7b54d9c79dba8e2b3.html",
-      "sha256": "8921e1c40977fa08cbca89abfbe4428920f46b0febd328a4ac0cd1f93b2c8837",
+      "sha256": "77cd4b09d924ca93e558b2d99cfe673de62441ab9a32231cd7c22c3668fe1d13",
       "originalExportSha256": "99814effb7ce6433489779732b21e11f20755f1aaa5fc0e8c3f95280ed1c5bd9",
       "screenshot": "97431bce4b0f40b7b54d9c79dba8e2b3.jpg",
       "screenshotProvenance": "Browser render of locally corrected HTML",
       "derivation": "Local draft-status, neutral auth-copy, typography and navigation correction. No authentication backend.",
-      "screenshotSha256": "6c6c266c8e087c0718e3b8d3378de488593958399127ed4023bc27fdc8bd3f1c"
+      "screenshotSha256": "1cb1da8f97dcb8b0e1957edfb171696196dedd14c1e5518804e2aa766d532df2"
     },
     {
       "id": "6f5b8702213a4338b4bec1f00a994d7c",
@@ -36,12 +36,12 @@
       "title": "CuriousNext - Public Homepage (Mobile)",
       "width": "390",
       "html": "6f5b8702213a4338b4bec1f00a994d7c.html",
-      "sha256": "9e6a783d13e9f18ba2fc4a1a8fab17cc09d3543c80e85486d28f96f95db694e0",
+      "sha256": "e695c3e85bc986f4321ce18d6327b69efd2b1de79a860396c6e80f7296de0fea",
       "originalExportSha256": "6e95573aabf90d156cf358c0410cfbf52ed8915195caad75bfb6ded8456d5372",
       "screenshot": "6f5b8702213a4338b4bec1f00a994d7c.jpg",
       "screenshotProvenance": "Browser render of locally corrected HTML",
       "derivation": "Local draft-status, neutral auth-copy, typography and navigation correction. No authentication backend.",
-      "screenshotSha256": "acc93058b6fdb39df92d9753c42935e64f2077262b3f0b317eeca479116d45d8"
+      "screenshotSha256": "986a38f73a0737ff147df4db1ca26959c989e3bf51ea93c9a613ddef0244e99f"
     },
     {
       "id": "c6bac46ce7234c46b54124b720472dbc",

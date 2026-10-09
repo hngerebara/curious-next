@@ -15,6 +15,16 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+          cache: npm
+      - name: Install pinned application dependencies
+        run: npm ci
+      - name: Check application
+        run: npm run check
+      - name: Audit dependency security
+        run: npm audit --audit-level=high
       - name: Validate repository
         run: python3 scripts/validate_repo.py
       - name: Validate PR documentation update
@@ -27,5 +37,7 @@ jobs:
         run: python3 scripts/validate_pr.py --event "$GITHUB_EVENT_PATH"
       - name: Test governance enforcement
         run: python3 -m unittest discover -s tests -v
+      - name: Validate curriculum calibration fixtures
+        run: python3 scripts/validate_calibration.py
       - name: Validate static design artifacts
         run: python3 scripts/validate_design_artifacts.py
