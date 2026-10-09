@@ -67,7 +67,7 @@ Core flows reflow at 320 CSS pixels and remain usable at 200% text resize and 40
 
 Navigation contains Learn, My courses and Evidence. Course detail exposes modules and relevant review/misconceptions contextually. Preferences and language are labelled in the account area. Keep study tools contextual rather than adding separate destinations for every feature.
 
-Public homepage: explain the learning loop, introduce Practical AI and Cybersecurity Essentials, and lead to goal setup. Offer a separate Log in entry. Do not fabricate pilot usage, testimonials, pricing or certification.
+Public homepage: explain the learning loop, introduce Practical AI and Cybersecurity Essentials, and lead to goal setup. Offer a separate Log in entry. Show course cards with titles, short outcomes and course links. Keep module and syllabus lists on course detail screens. Label the section Explore our courses, without implying the initial courses are permanent core tracks. Do not fabricate pilot usage, testimonials, pricing or certification.
 
 Authentication: one email magic-link flow for sign-up and login. No password, social-provider or code-entry controls. Show email entry, submitting, check-email, change-email, rate-limited resend, expired/used link and network recovery. New accounts enter goal setup only after verification. Returning learners resume their authorised destination.
 
