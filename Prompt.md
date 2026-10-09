@@ -226,3 +226,5 @@ Separate teaching language, explanation level, and presentation preferences. Pla
 Follow [Plans.md](Plans.md) for milestones, [Architecture.md](Architecture.md) for dependency principles, and [Documentation.md](Documentation.md) for status. [Implement.md](Implement.md) is the implementation entry prompt. Deeper product truth remains in docs/. Run repository validation before submitting a short-lived PR. Never mark milestones complete without evidence.
 
 M2 entry uses [versioned scenario placement, saved enrollment preferences and owned recommendations](docs/design-docs/course-entry-acceptance.md). Placement never creates achievement evidence. Enrollment preferences remain separate from immutable accepted plan input.
+
+Local-only preview access uses [captured test mail](docs/design-docs/decisions/004-local-email-preview.md) by user decision. It does not prove mailbox ownership and is prohibited in deployment. Real delivered magic links remain required before learner release.
