@@ -144,3 +144,19 @@ it("ignores incompatible objectives and policies when deriving capability and re
  await h.sql.query("update learning_evidence set payload=jsonb_set(jsonb_set(payload,'{objectiveId}','\"AI-2\"'::jsonb),'{policyVersion}','\"other\"'::jsonb)");
  expect((await h.loop.learning("learner-a",h.enrollment.id)).capability.state).toBe("not_assessed");
 });
+
+it("recovers a rejected provider packet on the same frozen submission without duplicate evidence",{timeout:20000},async()=>{
+ let calls=0;
+ const {groqAttemptModels}=await import("../src/adapters/groq-attempt-models");
+ const model=groqAttemptModels("synthetic-key","test",async()=>{
+  calls++;
+  if(calls===1)return Response.json({error:{code:"json_validate_failed",failed_generation:"private rejected output"}},{status:400});
+  return Response.json({choices:[{finish_reason:"stop",message:{content:JSON.stringify({rubricVersion:"AI-2-v2",policyVersion:"pilot-v1",status:"succeeded",criteria:Object.fromEntries(["A1","A2","A3","A4","A5","A6"].map(id=>[id,{result:"met",reason:"complete",evidenceIds:[id==="A5"?"checklist-0":id==="A6"?"explanation-0":"prompt-0"],responseEvidenceId:id==="A5"?"response-0":"not_applicable"}]))})}}]});
+ });
+ const h=await harness(model.assessor.assess);const a=await h.submitted();const frozen=a.submission!.hash;
+ const failed=await h.loop.assess("learner-a",a.id);expect(failed.submission!.assessments[0].decision.code).toBe("MODEL_INVALID");
+ expect((await h.loop.learning("learner-a",h.enrollment.id)).evidence).toHaveLength(0);
+ const recovered=await h.loop.assess("learner-a",a.id);expect(recovered.submission!.hash).toBe(frozen);expect(recovered.submission!.job.claims).toBe(2);expect(recovered.submission!.job.state).toBe("succeeded");
+ expect(recovered.submission!.assessments[1].decision.criteria.find(c=>c.id==="A5")!.feedback).toContain("Saved response: 3 explicit Q:/A: pairs.");
+ await h.loop.assess("learner-a",a.id);expect(calls).toBe(2);expect((await h.loop.learning("learner-a",h.enrollment.id)).evidence).toHaveLength(1);
+});

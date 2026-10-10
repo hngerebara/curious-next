@@ -20,3 +20,6 @@ Validate V3/V6/V7/V8/V12 and lesson-variant V9 using real PostgreSQL semantics, 
 
 
 Final v5 continuation: 15/16 live calls produced valid matching assessments (90/90 matching criteria), one HTTP 400 remained unavailable. Two simulated failure cases passed, no unexpected demonstration occurred. Current-profile Neon/Groq fresh proof, replay and variant restoration passed. All earlier samples remain inspectable. One A5 feedback sample miscounted four response pairs as five despite the correct rejection. Independent calibration, factual feedback accuracy, provider availability and hosted processing remain open, no milestone completion is claimed.
+
+
+Completion request after PR #20 merge: implement constrained reason-code feedback, conservative count publication and a smaller pinned completion allowance. [Acceptance map](../../design-docs/attempt-loop-acceptance.md) separates M3 implementation from M1 calibration and pre-deployment D7. Preserve v6/partial-v7 studies and the confirmed 200,000-token daily quota diagnostic. Final configured-profile validation is pending capacity, do not complete the milestone or archive this plan until it passes. No model fallback or billing change is authorised.

@@ -25,3 +25,5 @@
 - [Course generation](course-generation.md)
 
 - [M2 acceptance](course-entry-acceptance.md): completion gates, placement/guidance and real-service proof.
+
+- [M3 attempt acceptance](attempt-loop-acceptance.md): reference-preview implementation checks and separate release gates.

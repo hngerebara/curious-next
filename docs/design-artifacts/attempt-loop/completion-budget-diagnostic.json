@@ -1,0 +1,12 @@
+{
+  "date": "2026-10-10",
+  "scope": "One fictional request with the final reason protocol but the former 4000-token completion allowance overridden for diagnosis. No learner data, database writes or evidence. Provider prose and rejected generation are not stored.",
+  "requestedCompletionTokens": 4000,
+  "httpStatus": 429,
+  "providerCode": "rate_limit_exceeded",
+  "quotaKind": "tokens_per_day",
+  "limit": 200000,
+  "requested": 4568,
+  "used": 198632,
+  "result": "unavailable"
+}

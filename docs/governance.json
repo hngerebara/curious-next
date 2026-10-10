@@ -510,6 +510,15 @@
         "## Deliverables and sequence",
         "## Recovery and validation"
       ]
+    },
+    "docs/design-docs/attempt-loop-acceptance.md": {
+      "required_headings": [
+        "# M3 durable-attempt acceptance",
+        "## Scope and completion",
+        "## Acceptance evidence",
+        "## Feedback integrity and recovery",
+        "## Reproduction and remaining release gates"
+      ]
     }
   },
   "layers": {
