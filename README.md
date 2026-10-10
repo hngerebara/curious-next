@@ -87,3 +87,12 @@ node /tmp/cn-attempt-evaluation.mjs --live
 ```
 
 It loads ignored local Groq configuration and makes two bounded calls, 30 seconds apart. It records all outcomes, including provider failures, in docs/design-artifacts/attempt-loop/assessor-evaluation.json. Existing recorded initial results are preserved separately. Agent-authored expectations and one sample per case are not assessor calibration. No real learner data or database is used by this script.
+
+For repeated AI-2 fixture agreement, preserve each study under a new output filename:
+
+```sh
+node_modules/.bin/esbuild scripts/evaluate-attempt-calibration.mts --bundle --platform=node --format=esm --outfile=/tmp/cn-attempt-calibration.mjs
+node /tmp/cn-attempt-calibration.mjs --live --output=docs/design-artifacts/attempt-loop/calibration-new-study.json
+```
+
+This makes sixteen Groq calls, one minute apart, plus two explicitly simulated infrastructure failures. It checks six AI-2 fixtures and two adversarial cases twice. CY-2 fixtures are reported as unrun until its assessor exists. It refuses to overwrite a prior study, saves each result immediately and keeps expected labels out of model input. A nonzero exit reports a disagreement or unavailable assessment, with results retained. Agreement with agent-assigned labels is not independent calibration approval.

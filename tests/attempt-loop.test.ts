@@ -54,6 +54,19 @@ describe("durable AI-2 loop",{timeout:20000},()=>{
     await expect(h.loop.assess("learner-a",a.id)).rejects.toThrow();
     const after=await h.attempts.read("learner-a",a.id);expect(after.submission!.job.state).toBe("pending");expect(after.submission!.assessments).toHaveLength(0);expect((await h.loop.learning("learner-a",h.enrollment.id)).evidence).toHaveLength(0);
   });
+  it("pins pending practice and assessment configuration without rewriting frozen work",async()=>{
+    const h=await harness();const a=await h.submitted();const snapshot=a.submission!.hash;
+    await h.attempts.claim("learner-a",a.id,"assessor-test-v1");
+    await h.sql.query("update assessment_job set lease_until=now()-interval '1 second' where submission_id=$1",[a.submission!.id]);
+    await expect(h.attempts.claim("learner-a",a.id,"assessor-test-v2")).rejects.toThrow("CONFIGURATION_CHANGED");
+    const saved=await h.attempts.read("learner-a",a.id);
+    expect(saved.submission!.hash).toBe(snapshot);expect(saved.submission!.job.claims).toBe(1);expect(saved.submission!.assessments).toHaveLength(0);
+    const practice=await h.prepared("practice");const key=h.key();
+    const claim=await h.attempts.reservePractice("learner-a",practice.id,key,practice.revision,"practice-test-v1");
+    await h.sql.query("update practice_request set lease_until=now()-interval '1 second' where id=$1",[claim.request.id]);
+    await expect(h.attempts.reservePractice("learner-a",practice.id,key,practice.revision,"practice-test-v2")).rejects.toThrow("CONFIGURATION_CHANGED");
+    expect((await h.loop.learning("learner-a",h.enrollment.id)).evidence).toHaveLength(0);
+  });
   it("V8 denies nested work, conversations, help, submission and assessment across learners",async()=>{
     const h=await harness();const a=await h.prepared();
     expect((await h.http(request(`/api/attempts/${a.id}`,"GET",undefined,h.key(),"learner-b"),a.id)).status).toBe(404);

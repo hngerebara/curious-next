@@ -5,7 +5,7 @@ import { validateAssessment } from "../src/domain/assessment-policy";
 import { draft, response } from "./attempt-harness";
 import type { Frozen } from "../src/contracts/attempt";
 const frozen:Frozen={task:promptTask("independent"),draft,response,mode:"independent",assisted:false,practice:[],help:[],variant:{id:"variant-private",version:"AI-2-lesson-v2",explanationLevel:"beginner",content:"private variant",hash:"hash",objectiveId:"AI-2",rubricVersion:"AI-2-v2",locale:"en"}};
-const providerDecision={rubricVersion:"AI-2-v2",policyVersion:"pilot-v1",status:"succeeded",criteria:Object.fromEntries(["A1","A2","A3","A4","A5","A6"].map(id=>[id,{result:"met",feedback:"Literal evidence supports the criterion.",evidenceIds:[id === "A5" ? "checklist-0" : id === "A6" ? "explanation-0" : "prompt-0"],...(id === "A5" ? {responseEvidenceId:"response-0"} : {})}]))};
+const providerDecision={rubricVersion:"AI-2-v2",policyVersion:"pilot-v1",status:"succeeded",criteria:Object.fromEntries(["A1","A2","A3","A4","A5","A6"].map(id=>[id,{result:"met",feedback:"Literal evidence supports the criterion.",evidenceIds:[id === "A5" ? "checklist-0" : id === "A6" ? "explanation-0" : "prompt-0"],responseEvidenceId:id === "A5" ? "response-0" : "not_applicable"}]))};
 const result=(content:string,finish="stop")=>Response.json({choices:[{message:{content},finish_reason:finish}]});
 describe("separate configured provider roles",()=>{
   it("minimises assessor data, pins standards and sends injection as data",async()=>{
@@ -52,4 +52,25 @@ it("resolves several literal excerpts and bounds excessive citation lists",async
  const excessive={...raw,criteria:{...raw.criteria,A5:{...raw.criteria.A5,evidenceIds:Array(9).fill("checklist-0")}}};
  const invalid=groqAttemptModels("synthetic-key","test",async()=>result(JSON.stringify(excessive)));
  expect(validateAssessment(await invalid.assessor.assess(work),work).status).toBe("failed");
+});
+
+it("requires both A5 fields and rejects IDs outside each criterion field",async()=>{
+ for(const [id,ids] of [["A5",["response-0"]],["A1",["explanation-0"]]]){
+  const raw={...providerDecision,criteria:{...providerDecision.criteria,[id as string]:{...(providerDecision.criteria as Record<string,object>)[id as string],evidenceIds:ids}}};
+  const model=groqAttemptModels("synthetic-key","test",async()=>result(JSON.stringify(raw)));
+  expect(validateAssessment(await model.assessor.assess(frozen),frozen).status).toBe("failed");
+ }
+});
+
+it("reports rejected structured output without accepting or leaking failed generation",async()=>{
+ let calls=0;const model=groqAttemptModels("synthetic-key","test",async()=>{calls++;return Response.json({error:{code:"json_validate_failed",message:"private diagnostic",failed_generation:JSON.stringify(providerDecision)}},{status:400});});
+ await expect(model.assessor.assess(frozen)).rejects.toThrow("MODEL_INVALID");expect(calls).toBe(1);
+});
+
+it("rejects missing/foreign A5 response evidence and non-applicable field overrides",async()=>{
+ for(const [id,value] of [["A5",undefined],["A5","checklist-0"],["A1","response-0"]]){
+  const raw={...providerDecision,criteria:{...providerDecision.criteria,[id!]:{...(providerDecision.criteria as Record<string,object>)[id!],responseEvidenceId:value}}};
+  const model=groqAttemptModels("synthetic-key","test",async()=>result(JSON.stringify(raw)));
+  expect(validateAssessment(await model.assessor.assess(frozen),frozen).status).toBe("failed");
+ }
 });

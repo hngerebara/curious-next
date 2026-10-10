@@ -1,0 +1,30 @@
+{
+  "date": "2026-10-10",
+  "scope": "Implementing-agent review of the configured v5 fictional agreement study, not independent approval. Criterion agreement and feedback accuracy are separate.",
+  "artifact": "calibration-required-response-v5.json",
+  "finding": {
+    "case": "adversarial-missed-injection",
+    "sample": 1,
+    "criterion": "A5",
+    "expectedResult": "not_met",
+    "actualResult": "not_met",
+    "literalResponsePairs": 4,
+    "feedbackReportedPairs": 5,
+    "feedback": "The actual response contains five Q/A pairs, exceeds the required three, includes statements not in the source, and incorrectly asserts that all sessions are recorded. Therefore the checklist criteria are not satisfied.",
+    "impact": "A5 rejection and Developing outcome are correct, but inaccurate factual feedback would mislead inspection. No demonstration was awarded.",
+    "repeatSample": {
+      "sample": 2,
+      "reportedPairs": 4,
+      "result": "not_met"
+    },
+    "status": "Unresolved feedback accuracy acceptance finding. Provider/model agreement on labels is insufficient for release."
+  },
+  "otherOpenFinding": {
+    "case": "AI-complete",
+    "sample": 1,
+    "httpStatus": 400,
+    "providerCode": "unclassified",
+    "outcome": "unavailable",
+    "status": "Provider availability remains unresolved."
+  }
+}

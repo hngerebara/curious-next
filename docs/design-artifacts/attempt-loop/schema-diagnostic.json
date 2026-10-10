@@ -1,0 +1,31 @@
+{
+  "date": "2026-10-10",
+  "scope": "One fictional injected-checklist diagnostic before and after the schema change. Metadata only, no rejected provider text accepted as assessment.",
+  "before": {
+    "schemaVersion": "six-required-criteria-evidence-ids-v3",
+    "strictRequested": true,
+    "httpStatus": 400,
+    "providerCode": "json_validate_failed",
+    "parseableFailedGeneration": true,
+    "missingRequiredField": "criteria.A5.responseEvidenceId",
+    "A1Result": "not_met",
+    "A3Result": "not_met",
+    "serverValidation": "failed"
+  },
+  "after": {
+    "schemaVersion": "six-required-criteria-evidence-ids-v4",
+    "strictRequested": true,
+    "httpStatus": 200,
+    "serverValidation": "uncertain",
+    "criteria": {
+      "A1": "met",
+      "A2": "met",
+      "A3": "met",
+      "A4": "met",
+      "A5": "not_met",
+      "A6": "met"
+    },
+    "demonstrationEligible": false
+  },
+  "limitations": "This identifies a defect in one rejected response, not the cause of every earlier provider failure. Full fixture agreement and independent review remain separate."
+}
