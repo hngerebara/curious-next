@@ -19,7 +19,7 @@ export interface OwnedRecordPort {
   read(id: string, learnerId: string): Promise<{ id: string; label: string } | null>;
 }
 export interface EventPort {
-  emit(event: "access_request" | "access_confirm" | "session_read" | "course_generation", outcome: string): void;
+  emit(event: "access_request" | "access_confirm" | "session_read" | "course_generation" | "practice_generation" | "attempt_assessment", outcome: string): void;
 }
 
 export type LocalEmailEnvironment = { nodeEnv?: string; origin?: string; vercel?: string; netlify?: string; aws?: string; ci?: string };

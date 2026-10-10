@@ -1,0 +1,28 @@
+{
+  "date": "2026-10-10",
+  "database": "Neon",
+  "model": "configured-groq",
+  "mode": "fictional-preview",
+  "checks": {
+    "practice_live_loop": true,
+    "independent_live_loop": true,
+    "live_idempotency": true,
+    "reflow_320_1440_and_text_resize": true,
+    "keyboard_focus": true,
+    "real_session_cross_learner_denial": true,
+    "saved_variant_restore": true,
+    "frozen_submission_assessment_after_server_restart": true,
+    "migration_ledger_repeat_skips_all_four": true
+  },
+  "not_validated": [
+    "screen_reader",
+    "subject_approval",
+    "assessor_calibration",
+    "learner_release",
+    "hosted_worker"
+  ],
+  "capture_sha256": {
+    "feedback-320.png": "3e7ef39bc80e98f5619f6ce48f4f23afd67dde0d79589e31dfd8e5ccb9708327",
+    "feedback-1440.png": "1fb36a4b6d670c7475d387b9437836421918b4098003d8b33066aeb2447e128e"
+  }
+}

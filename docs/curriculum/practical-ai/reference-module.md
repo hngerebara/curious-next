@@ -61,3 +61,7 @@ Delayed check: next-day short task reconstructing a prompt from a new brief, wit
 ## Review status
 
 Agent source review completed for the scoped mappings on 2026-10-08. Subject-expert approval, configured-assessor calibration and language parity remain pending. [Calibration pack](../rubric-calibration.md), [syllabus](syllabus.md), [source register](../../references/curriculum-sources.md), [pilot rules](../../product-specs/pilot-design.md). No learner publication is approved.
+
+## Runtime preview task variants
+
+CN-ATTEMPT-001 uses a bounded River Cafe practice brief: three FAQ entries covering opening times, lunch/walk-ins and delivery uncertainty, with answers below 30 words and source-only facts. This prepares the same six criteria while keeping Northstar proof separate. Additional fictional study-club source packs vary meeting/day/time/location, duration and fee, retaining the three topics, recording uncertainty, counting rule and all six standards. Each is pinned to a distinct task version and never treated as transfer. Fresh independent attempts do not reuse a source pack across the learner’s enrollments. All variants are draft preview, subject review remains pending.

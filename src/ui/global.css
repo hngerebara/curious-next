@@ -39,3 +39,8 @@ fieldset { border: 1px solid #71828d; border-radius: 12px; margin: 20px 0; paddi
 @media (max-width: 480px) { .onboarding-shell { padding: 0 16px; } }
 
 .primary-button { display: inline-block; background: var(--lime); color: var(--ink); border: 1px solid var(--ink); border-radius: 10px; padding: 12px 20px; min-height: 48px; font-weight: 600; }
+.preserve-text { white-space: pre-wrap; overflow-wrap: anywhere; }
+.message-history { padding-left: 24px; }
+blockquote { margin: 12px 0; padding-left: 16px; border-left: 3px solid #71828d; }
+cite, summary { overflow-wrap: anywhere; }
+summary { cursor: pointer; padding: 12px 0; min-height: 44px; }

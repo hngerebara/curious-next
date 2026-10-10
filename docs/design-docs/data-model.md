@@ -1,6 +1,6 @@
 # CuriousNext data model and interfaces
 
-Version: 0.1. Date: 2026-10-07. Status: logical implementation contract, not an applied database schema. Refer to [pilot design](../product-specs/pilot-design.md) for curriculum, rubrics, and policy pilot-v1. No migrations or runtime services exist yet.
+Version: 0.2. Date: 2026-10-09. Authentication/course entry have migrations 0001-0003. CN-ATTEMPT-001 adds the AI-2 preview contract below. Later milestone records remain logical specifications. [Pilot design](../product-specs/pilot-design.md) owns progression.
 
 The [domain model](domain-model.md) owns conceptual invariants. This document owns records, persistence and logical service operations. The [security specification](security.md) owns threat controls.
 
@@ -114,7 +114,7 @@ If an active decision is superseded, rebuild the affected summary and schedules 
 
 ## 6. Validation, migration, and limitations
 
-No database exists to migrate. Later implementation chooses the storage stack and uses migrations for these entities. Transaction and learner-scoping guarantees are required regardless of stack. Rebuild projections from versioned evidence to validate consistency.
+Migrations are explicit setup operations and never run at startup. Existing authentication/course data and applied checksums are preserved. Transaction and learner-scoping guarantees are required regardless of stack. Rebuild projections from versioned evidence to validate consistency.
 
 Validate V1-V12 from pilot-design.md, particularly idempotency under concurrent retries, atomic evidence/state updates, assistance races, changed payload conflicts, assessor failures, review supersession, schedule duplication, and cross-owner nested references/exports. Never use a universal numeric pass threshold in place of required criteria.
 
@@ -131,3 +131,13 @@ LanguageAvailability identifies reviewed course/module versions per language. Un
 Goal revisions are immutable owned snapshots. CoursePlan pins a goal revision, catalogue version, generation configuration, request key, lease/attempt state, validation result and timestamps. Module selections refer only to catalogue objectives with immutable reference/rubric versions. A generated plan does not publish curriculum or award evidence. PreviewEnrollment pins the accepted plan and stores diagnostic choice separately. [Concrete contract](course-generation.md).
 
 M2 entry uses [versioned scenario placement, saved enrollment preferences and owned recommendations](course-entry-acceptance.md). Placement never creates achievement evidence. Enrollment preferences remain separate from immutable accepted plan input.
+
+## 9. M3 reference-loop persistence
+
+Migration 0004 stores owned attempts and immutable draft revisions, authored lesson variants, separately keyed practice requests and instructional assistance, frozen submissions, durable assessment jobs, immutable assessment runs, unique evidence, capability changes/projection, owned recommendations and optional review requests. Snapshots carry task/source/rubric/policy versions and hashes. Submission and job commit before provider access.
+
+Attempt locking serialises draft/help/conversation/submission mutations. One active conversation call per attempt preserves order and blocks submission while pending. Help persists with the irreversible assistance flag before content is returned. Frozen snapshots retain all practice request/results and delivered help. Read foreign IDs through owned parents.
+
+Unique learner/key constraints cover attempt creation, practice/help and submissions. One submission/job per attempt, evidence per submission and review request per submission prevent duplication. Assessment claims increment a bounded count with an unpredictable lease. Expiry permits recovery, stale results cannot commit. Assessment runs remain in history. Successful feedback, evidence, capability change/projection and recommendation commit atomically under learner locking. AI-2 evidence carries across goal enrollments with the same pinned rubric. Enrollment snapshots are rebuildable caches, reads fold all owned version-compatible evidence and adapt the recommendation to current preferences. Failure/uncertainty retains prior valid capability/evidence. Initial independent success anchors next-day recall and separate transfer availability, neither is verified retention/transfer. M4 implements those activities.
+
+English variants are immutable authored content identified by explanation level and lesson version, with pinned hash/task/rubric. Selection does not change the default or award evidence. Subject approval remains pending. M5 export and M4 misconception/review supersession are outside this reference slice.
