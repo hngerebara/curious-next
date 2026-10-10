@@ -3,7 +3,7 @@ import pg from "pg";
 import { readFile } from "node:fs/promises";
 import { createHash } from "node:crypto";
 
-const files = ["0001-access.sql", "0002-course-plans.sql", "0003-enrollment-preferences.sql"];
+const files = ["0001-access.sql", "0002-course-plans.sql", "0003-enrollment-preferences.sql", "0004-attempt-loop.sql"];
 let pool;
 try {
   const origin = new URL(process.env.BETTER_AUTH_URL ?? "invalid:");

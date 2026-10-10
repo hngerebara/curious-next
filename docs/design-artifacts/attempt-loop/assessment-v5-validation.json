@@ -1,0 +1,21 @@
+{
+  "date": "2026-10-10",
+  "database": "Neon",
+  "model": "configured-groq",
+  "mode": "fictional-preview",
+  "checks": {
+    "independent_live_loop": true,
+    "live_idempotency": true,
+    "saved_variant_restore": true
+  },
+  "configuration": "groq:openai/gpt-oss-20b:assessor:3e223def9d37591d9ccbcec5e53fb4815c42224f08c836a24bce35d3ff109c8d",
+  "rubricVersion": "AI-2-v2",
+  "policyVersion": "pilot-v1",
+  "not_validated": [
+    "screen_reader",
+    "subject_approval",
+    "assessor_calibration",
+    "learner_release",
+    "hosted_worker"
+  ]
+}

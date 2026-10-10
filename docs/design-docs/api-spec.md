@@ -55,8 +55,26 @@ Provider-specific error translation and delivery recovery must not reveal whethe
 
 ## Attempt and evidence boundary, M3 onward
 
-Persist practice-AI interactions separately from assistant assistance. Draft-saving, assistance events, submit, assessment retry, recall and transfer receive concrete schemas when their milestone starts. Submission freezes task/rubric/policy versions and records the idempotency key before calling the assessor. Assessment jobs must survive process interruption through a durable queue/outbox, not unawaited background promises.
+CN-ATTEMPT-001 implements English AI-2 v2 preview only. Every route requires a verified session. Mutations require exact Origin. Idempotency-Key is 16-80 ASCII letters/digits/underscore/hyphen. Bodies are bounded to 32 KiB with exact fields. Inaccessible nested records return 404, conflicts return 409. Private results use no-store.
 
+| Route | Input and behavior |
+|---|---|
+| GET /api/learning?enrollmentId=... | Owned enrollment, AI-2 history, saved capability/evidence/next action. No writes or model calls. |
+| POST /api/learning | `{ enrollmentId, mode: practice/independent }` plus key. Create/reuse a pinned AI-2 attempt. New work uses a new key and attempt. Independent tasks rotate through twelve pinned fictional source packs with identical requirements, without reuse across the learner’s enrollments. After twelve, practice stays available and additional fresh proof needs reviewed content. |
+| GET /api/attempts/:id | Owned draft, variant, conversation, help, frozen submission/job/history. |
+| PATCH /api/attempts/:id | `{ revision, draft: { prompt, checklist, explanation } }`. Optimistic revision, identical retry, preserved revision history. |
+| POST /api/attempts/:id/variant | `{ explanationLevel }`. Reuse/save authored English variant and hash, same objective/task/rubric, no default change. |
+| POST /api/attempts/:id/practice | `{ revision }` plus key. Persist saved prompt/source before model call, one live lease per attempt, bounded retries. No instructional assistance. |
+| POST /api/attempts/:id/help | `{ kind: hint/worked_solution, confirm: true }` plus key. Store authored support before delivery, irreversibly mark assisted. Reject after submission. |
+| POST /api/attempts/:id/submit | `{ revision }` plus key. Freeze saved work, complete conversation and assistance, task/rubric/policy snapshots and create durable job. Requires completed practice response and no pending generation. |
+| POST /api/attempts/:id/assess | `{}`. Claim/reclaim a 45-second durable job lease, await assessment, max three claims. Failed/uncertain retries use the frozen snapshot. Terminal success reuses result. Stale completions cannot commit. |
+| POST /api/attempts/:id/review | `{}`. Record an idempotent optional request without a promise of a reviewer or blocked learning. |
+
+Prompt limit 4,000 characters, checklist/explanation 2,000 each, 12 practice requests per attempt, three calls per request and ten calls per learner per ten minutes. Assessment has three claims per job and six calls per learner per ten minutes. Providers use 25-second timeouts and bounded response parsing. Expired final leases persist explicit failure. No scheduler is configured in this preview, returning learners explicitly resume processing. An autonomous hosted worker is a deployment gate.
+
+Assessment structured output pins rubricVersion/policyVersion, status succeeded/uncertain and six required keyed criterion results (A1-A6), bounded feedback and evidence IDs selected from server-enumerated frozen prompt/checklist/explanation/response excerpts (one to eight IDs per criterion, with A5 restricted to checklist IDs). Every criterion also requires responseEvidenceId: an actual response ID for A5 and not_applicable for the other criteria. The server resolves IDs to literal nonempty quotes and stored spans. A5 requires checklist and response evidence. Missing coverage, invalid citations or inconsistent uncertainty fail closed. Feedback cannot award progression. Failed/uncertain assessment adds no evidence. Practice and assisted work produce Developing evidence only. Initial independent demonstration requires all six criteria without instructional help. These are visibly labelled preview projections until review passes.
+
+Submission and durable job commit before provider access. No detached promises.
 A successful validated assessment commits assessment, criterion-linked evidence, capability projection and recommendation atomically. Failure retains the attempt without a new demonstration. Export and nested-resource queries verify ownership. Diagnostic placement, independent demonstration, recall and transfer stay distinct. The [logical interfaces](data-model.md) remain authoritative until the next contract slice specifies these routes.
 
 ## Validation before implementation acceptance

@@ -4,7 +4,7 @@ CuriousNext helps adult beginners choose a useful learning pathway and demonstra
 
 ## Current state
 
-This repository contains product, curriculum and design specifications plus an M1 authentication proof of concept and an authorised M2 course-plan preview. Email-only access, explicit link confirmation and session checks are implemented locally. Goal setting, bounded plan generation, saved acceptance and objective-based provisional placement are implemented locally. Lessons and assessment remain unimplemented. No application is deployed. Live Neon validation is recorded in the milestone ledger. Real email delivery is deferred until deployment. Curriculum, language and user design review remain pending. See [milestone status](Documentation.md) for evidence.
+This repository contains product, curriculum and design specifications plus an M1 authentication proof of concept and an authorised M2 course-plan preview. Email-only access, explicit link confirmation and session checks are implemented locally. Goal setting, bounded plan generation, saved acceptance and objective-based provisional placement are implemented locally. The authorised M3 AI-2 preview now has saved lessons/drafts, separate practice AI and instructional help, frozen submissions, durable assessment retries and evidence-based guidance. No application is deployed. Live Neon validation is recorded in the milestone ledger. Real email delivery is deferred until deployment. Curriculum, language and user design review remain pending. See [milestone status](Documentation.md) for evidence.
 
 ## Start here
 
@@ -44,15 +44,16 @@ npm run dev
 
 Open http://127.0.0.1:3000/access for the email shell. Without service configuration it displays honest unavailable feedback. To test real delivery, configure a synthetic-data Neon database, a verified Resend sender, a random server secret of at least 32 characters and an exact BETTER_AUTH_URL origin matching your browser URL. Use HTTPS and TLS database connections on hosted environments. Keep secrets outside Git and screenshots.
 
-Apply [authentication](migrations/0001-access.sql), [course-plan](migrations/0002-course-plans.sql), and [enrollment preferences](migrations/0003-enrollment-preferences.sql) migrations in order, once each to a new isolated test database before enabling access. Use a schema-owner migration role and a separate application role. Application startup never migrates the database.
+Apply [authentication](migrations/0001-access.sql), [course-plan](migrations/0002-course-plans.sql), [enrollment preferences](migrations/0003-enrollment-preferences.sql), and [attempt loop](migrations/0004-attempt-loop.sql) migrations in order, once each to a new isolated test database before enabling access. Use a schema-owner migration role and a separate application role. Application startup never migrates the database.
 
 ```sh
 psql "$DATABASE_URL_UNPOOLED" --single-transaction --set ON_ERROR_STOP=1 --file migrations/0001-access.sql
 psql "$DATABASE_URL_UNPOOLED" --single-transaction --set ON_ERROR_STOP=1 --file migrations/0002-course-plans.sql
 psql "$DATABASE_URL_UNPOOLED" --single-transaction --set ON_ERROR_STOP=1 --file migrations/0003-enrollment-preferences.sql
+psql "$DATABASE_URL_UNPOOLED" --single-transaction --set ON_ERROR_STOP=1 --file migrations/0004-attempt-loop.sql
 ```
 
-The integration suite uses real Better Auth with a disposable PGlite PostgreSQL engine and captured test-only mail. It does not contact Neon or Resend. The [API specification](docs/design-docs/api-spec.md) documents implemented authentication/course-preview routes and future learning contracts. The [mobile review](docs/design-docs/authentication-review.md) records the checks and their limits.
+The integration suite uses real Better Auth with a disposable PGlite PostgreSQL engine and captured test-only mail. It does not contact Neon or Resend. The [API specification](docs/design-docs/api-spec.md) documents implemented authentication/course-preview/AI-2 routes and later learning contracts. The [mobile review](docs/design-docs/authentication-review.md) records the checks and their limits.
 
 After magic-link verification, open /onboarding. Set AI_PROVIDER=groq, server-only GROQ_API_KEY and an explicit GROQ_MODEL to enable live generation. Groq access, quotas and billing are managed separately from a ChatGPT subscription. No model fallback is used. Without these values, your goal remains saved and generation reports unavailable. [Generation contract](docs/design-docs/course-generation.md) records synthetic checks and live evaluation gates.
 
@@ -67,3 +68,31 @@ Open /access, enter a fictional email such as learner@example.test, request a li
 The private .local-mail/ directory is ignored by Git. Links expire after ten minutes and are removed on inbox reads. Local inbox access requires development mode and loopback origin/Host with same-origin navigation. It is blocked on production or hosted environments. Do not expose the dev server through tunnels or proxies. Delete local test emails after testing and keep test accounts separate from production learner data. Missing real email credentials never fall back to local mode.
 
 Before deployment, choose/configure actual email delivery, test inbox receipt, inspect logging/tracking, use isolated environments and repeat access/ownership tests. [Local decision and completion gates](docs/design-docs/decisions/004-local-email-preview.md).
+
+## Clear-prompts reference preview
+
+Accept a Practical AI preview containing AI-2, choose your starting point, then open the clear-prompts link in /onboarding. The reference preview is available separately from the provisional pathway. AI-1 readiness is not treated as achievement. English draft curriculum and assessor calibration remain unapproved. Practice uses fictional River Cafe, fresh independent tasks use distinct pinned study-club packs with the same rubric. Twelve proof contexts per learner are available. Repeating a context is not transfer.
+
+Save your prompt, run Practice AI, inspect its actual response, then write the checklist and explanation. The separate Learning assistant records accepted substantive help before delivery. It prevents independent demonstration for that attempt. Explanation variants preserve the draft and rubric, without changing your course default.
+
+Freeze the submission, then choose Assess saved submission. Assessment processing is an awaited authenticated request backed by a durable job. Return/retry after an interruption, using the same snapshot and bounded lease. Failed/uncertain feedback adds no evidence. Earlier evidence remains inspectable. Optional review is recorded without a promise of a reviewer. Production worker scheduling, reviewed content, real email delivery and assistive-technology acceptance remain gates. M4 recall/transfer execution and M5 export are not implemented.
+
+The configured GROQ_MODEL serves separate practice/assessment roles using the same server key. No provider fallback or autonomous background process runs. Database setup explicitly applies 0004 and retains the checksum ledger. Synthetic integration tests use PGlite, live-service evidence is recorded separately in Documentation.md.
+
+Run the explicit fictional assessor evaluation separately from CI:
+
+```sh
+node_modules/.bin/esbuild scripts/evaluate-attempt-assessment.mts --bundle --platform=node --format=esm --outfile=/tmp/cn-attempt-evaluation.mjs
+node /tmp/cn-attempt-evaluation.mjs --live
+```
+
+It loads ignored local Groq configuration and makes two bounded calls, 30 seconds apart. It records all outcomes, including provider failures, in docs/design-artifacts/attempt-loop/assessor-evaluation.json. Existing recorded initial results are preserved separately. Agent-authored expectations and one sample per case are not assessor calibration. No real learner data or database is used by this script.
+
+For repeated AI-2 fixture agreement, preserve each study under a new output filename:
+
+```sh
+node_modules/.bin/esbuild scripts/evaluate-attempt-calibration.mts --bundle --platform=node --format=esm --outfile=/tmp/cn-attempt-calibration.mjs
+node /tmp/cn-attempt-calibration.mjs --live --output=docs/design-artifacts/attempt-loop/calibration-new-study.json
+```
+
+This makes sixteen Groq calls, one minute apart, plus two explicitly simulated infrastructure failures. It checks six AI-2 fixtures and two adversarial cases twice. CY-2 fixtures are reported as unrun until its assessor exists. It refuses to overwrite a prior study, saves each result immediately and keeps expected labels out of model input. A nonzero exit reports a disagreement or unavailable assessment, with results retained. Agreement with agent-assigned labels is not independent calibration approval.
