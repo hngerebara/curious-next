@@ -96,3 +96,5 @@ node /tmp/cn-attempt-calibration.mjs --live --output=docs/design-artifacts/attem
 ```
 
 This makes sixteen Groq calls, one minute apart, plus two explicitly simulated infrastructure failures. It checks six AI-2 fixtures and two adversarial cases twice. CY-2 fixtures are reported as unrun until its assessor exists. It refuses to overwrite a prior study, saves each result immediately and keeps expected labels out of model input. A nonzero exit reports a disagreement or unavailable assessment, with results retained. Agreement with agent-assigned labels is not independent calibration approval.
+
+Assessor feedback uses criterion-specific reason codes and server-owned wording. Numeric A5 feedback comes from complete explicit Q:/A: pairs, alternative formats remain eligible and are reviewed without automatic counts. Unknown or contradictory reasons are unavailable assessments. Previous frozen results retain their original feedback and profile.

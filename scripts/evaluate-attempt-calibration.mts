@@ -27,15 +27,16 @@ fixtures.push(
 const selected = process.argv.find(a => a.startsWith("--case="))?.slice(7);
 if (selected && !fixtures.some((f:any)=>f.id === selected)) throw new Error("Unknown AI-2 fixture.");
 const studyFixtures = fixtures.filter((f:any)=>!selected || f.id === selected);
-const output = process.argv.find(a => a.startsWith("--output="))?.slice(9) ?? "docs/design-artifacts/attempt-loop/calibration-required-response-v5.json";
+const output = process.argv.find(a => a.startsWith("--output="))?.slice(9) ?? "docs/design-artifacts/attempt-loop/calibration-reasons-v7.json";
 if (!/^docs\/design-artifacts\/attempt-loop\/[a-z0-9-]+\.json$/.test(output)) throw new Error("Output must be a named agreement artifact.");
 try { await readFile(output); throw new Error("Preserve existing results, choose a new output filename."); } catch (e: any) { if (e.code !== "ENOENT") throw e; }
 let providerStatus: number | null = null, providerCode: string | null = null;
 let rateBudget:Record<string,string|null> = {};
+let quotaDiagnostic: {limit:number|null;requested:number|null}|null = null;
 const models = groqAttemptModels(process.env.GROQ_API_KEY, process.env.GROQ_MODEL, async (url, init) => {
   const r = await fetch(url, init); providerStatus = r.status; rateBudget=Object.fromEntries(["x-ratelimit-remaining-tokens","x-ratelimit-reset-tokens","x-ratelimit-remaining-requests","x-ratelimit-reset-requests"].map(key=>[key,r.headers.get(key)]));
   // Diagnostics store only an allowlisted code, never provider error text or failed generation.
-  if (!r.ok) { const body = await r.clone().json().catch(() => ({})); providerCode = ["json_validate_failed","rate_limit_exceeded"].includes(body?.error?.code) ? body.error.code : "unavailable"; }
+  if (!r.ok) { const body = await r.clone().json().catch(() => ({})); providerCode = ["json_validate_failed","rate_limit_exceeded"].includes(body?.error?.code) ? body.error.code : "unavailable"; if(providerCode === "rate_limit_exceeded"){const message=typeof body?.error?.message === "string" ? body.error.message : "";quotaDiagnostic={limit:Number(/Limit[: ]+(\d+)/i.exec(message)?.[1])||null,requested:Number(/Requested[: ]+(\d+)/i.exec(message)?.[1])||null};} }
   return r;
 });
 const results: any[] = [];
@@ -45,7 +46,7 @@ async function persist(exclusive = false) {
 }
 await persist(true);
 for (let sample = 1; sample <= 2; sample++) for (const fixture of studyFixtures) {
-  providerStatus = null; providerCode = null; rateBudget={};
+  providerStatus = null; providerCode = null; rateBudget={};quotaDiagnostic=null;
   let decision: Decision; let structuredInput: unknown = null;
   try {
     if (fixture.simulatedFailure) throw new Error("MODEL_UNAVAILABLE");
@@ -56,7 +57,7 @@ for (let sample = 1; sample <= 2; sample++) for (const fixture of studyFixtures)
   const differences = fixture.simulatedFailure ? [] : Object.entries(fixture.expected.criteria).filter(([id, value]) => decision.criteria.find(c => c.id === id)?.result !== (value === "unmet" ? "not_met" : value)).map(([id,value]) => ({ id, expected:value, actual:decision.criteria.find(c => c.id === id)?.result ?? "unavailable" }));
   const unsafeDemonstration = outcome === "demonstrated" && fixture.expected.outcome !== "demonstrated";
   const pass = outcome === fixture.expected.outcome && differences.length === 0;
-  const record = { id:fixture.id, sample, providerStatus, providerCode, rateBudget, simulatedFailure:fixture.simulatedFailure, outcome, expectedOutcome:fixture.expected.outcome, unsafeDemonstration, differences, pass, decision, structuredInput };
+  const record = { id:fixture.id, sample, providerStatus, providerCode, rateBudget, quotaDiagnostic, simulatedFailure:fixture.simulatedFailure, outcome, expectedOutcome:fixture.expected.outcome, unsafeDemonstration, differences, pass, decision, structuredInput };
   results.push(record); await persist();
   console.log(JSON.stringify({ id:fixture.id, sample, providerStatus, providerCode, status:decision.status, outcome, unsafeDemonstration, differences, pass }));
   if (!fixture.simulatedFailure && (sample !== 2 || fixture !== studyFixtures.at(-1))) await new Promise(resolve => setTimeout(resolve, 60000));

@@ -1,0 +1,36 @@
+{
+  "date": "2026-10-10",
+  "scope": "Agent review of fictional studies. No independent label approval or reliability claim.",
+  "v6": {
+    "plannedResults": 18,
+    "completedResults": 18,
+    "summary": {
+      "completed": 18,
+      "liveCalls": 16,
+      "agreement": 6,
+      "unsafeDemonstrations": 0,
+      "providerFailures": 11,
+      "uncertain": 0
+    },
+    "findings": [
+      "AI-missing-constraints sample 1 falsely failed A1 and A6. Criteria instructions revised to separate A3 omissions.",
+      "11 provider HTTP 429 failures. Diagnostic confirms tokens-per-day rather than a requests-per-minute problem."
+    ]
+  },
+  "v7": {
+    "plannedResults": 18,
+    "completedResults": 9,
+    "summary": {
+      "completed": 9,
+      "liveCalls": 8,
+      "agreement": 2,
+      "unsafeDemonstrations": 0,
+      "providerFailures": 7,
+      "uncertain": 0
+    },
+    "stoppedEarly": true,
+    "reason": "Configured 200000-token daily allowance nearly exhausted. Stop repeated rejected requests, user chose to retain this model and retry after quota replenishes.",
+    "acceptedSample": "AI-complete sample 1, all six criteria met with grounded server feedback."
+  },
+  "remainingAcceptance": "Repeat full final-profile study and configured browser/recovery validation when capacity is available. No completion or calibration claim."
+}
