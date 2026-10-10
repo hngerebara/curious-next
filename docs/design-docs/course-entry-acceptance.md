@@ -13,7 +13,7 @@
 | First action | One primary action, at most two alternatives, estimates within 10/20/40-minute budget. Unreviewed lessons remain unavailable. |
 | Trust and recovery | Real-session isolation, duplicate/concurrent operations, outage/expired-session recovery and preserved confirmed work. |
 | Accessible entry | Mobile 320px, keyboard, text resizing, labelled controls, state announcements and actual screen-reader walkthrough. Automated semantics alone do not complete this gate. |
-| Real services | Synthetic learner journey using the Neon PostgreSQL driver and verified Resend sender, actual email confirmation, persistence after restart and cross-learner denial. |
+| Real services | Synthetic learner journey using the Neon PostgreSQL driver and local captured mail, confirmation, persistence after restart and cross-learner denial. Actual inbox delivery is a deployment gate per ADR-004. |
 
 ## Diagnostic and recommendation policy
 
@@ -35,4 +35,4 @@ Apply additive migration 0003 after 0001/0002 through a migration role. Existing
 
 V1/V2 are M2 placement checks. M2 validates V9 preference persistence and first-action pacing, M3 validates its lesson-variant behavior. Lessons, independent tasks and grading belong to M3. M6 still requires participant usability and reviewed language parity. M1/M1.5 approval remains required before learner release.
 
-Local end-to-end tests use real Better Auth and PGlite with captured email and synthetic generation. Hosted acceptance must use real Neon/Resend and the already selected Groq configuration. No mocked test is labelled real-service acceptance. Service configuration is currently absent except Groq. Add secrets locally or in deployment settings, never in chat or Git.
+Local end-to-end tests use real Better Auth and PGlite with captured email and synthetic generation. Local acceptance uses real Neon, captured test mail and the already selected Groq configuration. Real delivered email is deferred to deployment per [ADR-004](decisions/004-local-email-preview.md). No mocked test is labelled real-service acceptance. Neon/local capture acceptance passed in CN-LOCAL-AUTH-001, actual screen-reader validation remains pending. Add secrets locally or in deployment settings, never in chat or Git.

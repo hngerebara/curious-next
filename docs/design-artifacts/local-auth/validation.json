@@ -1,0 +1,31 @@
+{
+  "date": "2026-10-09",
+  "mode": "local-test-email",
+  "database": "real-neon-postgresql-driver",
+  "neon_connected": true,
+  "migrations_applied": [
+    "0001-access.sql",
+    "0002-course-plans.sql",
+    "0003-enrollment-preferences.sql"
+  ],
+  "migration_repeat": "no-new-migrations",
+  "checks": {
+    "local_capture": true,
+    "explicit_confirmation": true,
+    "no_session_before_confirmation": true,
+    "live_groq_proposal": true,
+    "saved_enrollment_and_preferences": true,
+    "cross_learner_denial": true,
+    "server_restart_continuity": true,
+    "mobile_320_and_keyboard": true,
+    "production_inbox_denied": true,
+    "production_local_send_denied": true,
+    "deployment_trace_privacy": true
+  },
+  "not_validated": [
+    "real_mailbox_delivery",
+    "actual_screen_reader",
+    "learner_release",
+    "hosted_deployment"
+  ]
+}

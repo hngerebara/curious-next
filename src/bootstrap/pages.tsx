@@ -1,12 +1,13 @@
 import { headers } from "next/headers";
 import { redirect } from "next/navigation";
 import { AccessView, ConfirmView, VerifiedView } from "../ui/access-view";
+import { localEmailMode } from "./email-delivery";
 import { HomeView } from "../ui/home-view";
 import { runtime } from "./runtime";
 
 export async function AccessPage({ searchParams }: { searchParams: Promise<{ state?: string }> }) {
   const { state } = await searchParams;
-  return <AccessView state={state} />;
+  return <AccessView state={state} local={localEmailMode()} />;
 }
 export function HomePage() {
   return <HomeView />;
@@ -32,5 +33,5 @@ export async function VerifiedPage() {
     redirect("/access?state=unavailable");
   }
   if (!learner) redirect("/access");
-  return <VerifiedView />;
+  return <VerifiedView local={localEmailMode()} />;
 }

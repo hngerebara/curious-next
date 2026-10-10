@@ -2,7 +2,7 @@
 
 ## Status
 
-Draft M1 runbook, no environment provisioned or application deployed. [ADR-002](decisions/002-neon-pilot-stack.md) records the accepted stack. Owner: engineering. Billing, region, retention and recovery targets remain open. [Security](security.md) owns privacy controls.
+Draft M1 runbook. A user-provided Neon test database is configured and locally validated, no application is deployed. [ADR-002](decisions/002-neon-pilot-stack.md) records the accepted stack. Owner: engineering. Billing, region, retention and recovery targets remain open. [Security](security.md) owns privacy controls.
 
 ## Environments and secrets
 
@@ -10,7 +10,7 @@ Use separate development/test, staging and production databases and credentials.
 
 Server-only configuration: DATABASE_URL (pooled application connection), DATABASE_URL_UNPOOLED (migration connection), BETTER_AUTH_SECRET, BETTER_AUTH_URL, RESEND_API_KEY, EMAIL_FROM, AI_PROVIDER, GROQ_API_KEY and GROQ_MODEL. Course generation requires explicit model configuration, separate API billing and a recorded live evaluation. No purchases were made. Live evaluation results are recorded in the milestone ledger. No secrets in NEXT_PUBLIC variables, source, screenshots or CI output. Migration credentials belong only to controlled deployment jobs. The application database role must not own schema changes. Document rotation and revocation during provisioning.
 
-Use Node.js 24 and Drizzle's node-postgres driver with Neon pooled application connections. Hosted HTTPS origins require a PostgreSQL URL with sslmode=require, verify-ca or verify-full. Connection, query and statement timeouts are bounded. Synthetic PGlite tests establish local token-redemption behavior, the exact Neon driver/concurrency test remains pending. Choose database and hosting regions together after latency and data-handling review. Check current provider limits, commercial terms and combined database/email/hosting cost before purchasing.
+Use Node.js 24 and Drizzle's node-postgres driver with Neon pooled application connections. Hosted HTTPS origins require a PostgreSQL URL with sslmode=require, verify-ca or verify-full. Connection, query and statement timeouts are bounded. Synthetic PGlite tests establish local token-redemption behavior, the actual Neon driver passed local confirmation, persistence, restart and ownership checks in CN-LOCAL-AUTH-001. Hosted concurrency/restore acceptance remains pending. Choose database and hosting regions together after latency and data-handling review. Check current provider limits, commercial terms and combined database/email/hosting cost before purchasing.
 
 ## Build and release
 
@@ -38,3 +38,5 @@ The Resend call aborts after 10 seconds. An ambiguous delivery timeout does not 
 - Runtime logging reviewed for credentials, tokens and learner text.
 
 These steps are planned, not completed. [Status](../../Documentation.md), [foundation plan](../exec-plans/active/foundation.md).
+
+Local development uses [ADR-004](decisions/004-local-email-preview.md) and EMAIL_DELIVERY=local. It is blocked in production. Real email delivery remains a release gate, with no requirement to use Resend specifically.

@@ -486,6 +486,22 @@
         "## Interfaces and persistence",
         "## Validation and open boundaries"
       ]
+    },
+    "docs/design-docs/decisions/004-local-email-preview.md": {
+      "required_headings": [
+        "# ADR-004: Local email preview",
+        "## Status",
+        "## Decision",
+        "## Validation and deployment gate"
+      ]
+    },
+    "docs/exec-plans/active/local-auth.md": {
+      "required_headings": [
+        "# CN-LOCAL-AUTH-001: Local magic links",
+        "## Plan lifecycle",
+        "## Deliverables",
+        "## Validation and completion"
+      ]
     }
   },
   "layers": {

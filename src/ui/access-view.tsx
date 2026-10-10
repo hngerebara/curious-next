@@ -1,13 +1,14 @@
 import { AccessForm } from "./access-form";
 
-export function AccessView({ state }: { state?: string }) {
+export function AccessView({ state, local = false }: { state?: string; local?: boolean }) {
   return <main id="main" tabIndex={-1} className="access-shell">
     <p className="eyebrow">A useful next step</p>
     <h1>Your next step starts here.</h1>
     <p>Enter your email to sign in to CuriousNext. No password to remember.</p>
     {state === "invalid" && <p className="notice" role="status">This link has expired, was already used, or could not be confirmed. Request a new link below.</p>}
     {state === "unavailable" && <p className="notice" role="status">Sign-in is unavailable right now. Please try again later.</p>}
-    <section className="card" aria-label="Sign up or log in"><AccessForm /></section>
+    <section className="card" aria-label="Sign up or log in"><AccessForm local={local} /></section>
+    {local && <p className="notice">Local test access. No email will be sent. <a href="/dev/mail">Open the test email inbox</a>. Use fictional addresses only.</p>}
     <p className="muted">Practical AI and Cybersecurity Essentials are the planned pilot courses.</p>
   </main>;
 }
@@ -26,10 +27,10 @@ export function ConfirmView({ csrf, state }: { csrf: string; state?: string }) {
   </main>;
 }
 
-export function VerifiedView() {
+export function VerifiedView({ local = false }: { local?: boolean }) {
   return <main id="main" tabIndex={-1} className="access-shell">
-    <p className="eyebrow">Email verified</p><h1>You’re signed in.</h1>
-    <p>Your email is verified. Set a goal to preview a personalised course plan.</p>
+    <p className="eyebrow">{local ? "Local test session" : "Email verified"}</p><h1>You’re signed in.</h1>
+    <p>{local ? "Your test link was confirmed. This does not verify ownership of a real email address." : "Your email is verified."} Set a goal to preview a personalised course plan.</p>
     <a className="secondary" href="/onboarding">Set your learning goal</a>
     <form action="/api/access/logout" method="post"><button type="submit">Log out</button></form>
   </main>;

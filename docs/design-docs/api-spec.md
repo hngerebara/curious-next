@@ -47,9 +47,11 @@ Provider-specific error translation and delivery recovery must not reveal whethe
 | POST /api/course-plans | Owned goal revision ID, idempotency key | Validated personalised proposal, clarification, unsupported or explicit generation/failure state. See [course generation](course-generation.md). |
 | GET /api/course-plans/:id | Session | Owned saved plan, no new model call. |
 | POST /api/enrollments | `{ planId }`, idempotency key | Owned immutable preview enrollment and optional diagnostic choice. |
-| GET /api/enrollments/:id | Session | Owned saved enrollment and placement. |
-| POST /api/enrollments/:id/placement | `{ mode: "skip" }`, `{ mode: "beginning" }` or `{ mode: "diagnostic", answers: [four yes/no strings] } | Beginning or provisional recommended module and reason. No achievement/evidence award. |
-| GET /api/recommendation (planned) | Session and enrollment | One primary action, at most two alternatives, time estimate and evidence-based reason. |
+| GET /api/enrollments/:id | Session | Owned saved enrollment, placement and preferences. |
+| GET /api/enrollments/:id/diagnostic | Session | Draft scenario questions/options with version, no answer keys. |
+| PATCH /api/enrollments/:id/preferences | Session, expected version and explanation/language/time | Saved preferences with optimistic concurrency and retry safety. |
+| POST /api/enrollments/:id/placement | `{ mode: "skip" }`, `{ mode: "beginning" }` or `{ mode: "diagnostic", diagnosticVersion, answers: [one option ID per selected objective] } | Beginning or provisional recommended module and reason. No achievement/evidence award. |
+| GET /api/recommendation | Session and enrollment | One primary action, at most two alternatives, time estimate and evidence-based reason. |
 
 ## Attempt and evidence boundary, M3 onward
 
@@ -62,3 +64,5 @@ A successful validated assessment commits assessment, criterion-linked evidence,
 Test request limits, invalid enums, missing/expired sessions, cross-learner access, same-key retries, different-payload conflicts and concurrent updates. Test the complete magic-link flow including automated GET scans and cross-device use. Trace diagnostic skip through a saved recommendation. Replace this draft with tested route schemas and compatibility rules as code is added.
 
 M2 entry uses [versioned scenario placement, saved enrollment preferences and owned recommendations](course-entry-acceptance.md). Placement never creates achievement evidence. Enrollment preferences remain separate from immutable accepted plan input.
+
+GET /dev/mail is a development-only test inbox, not a learner API. It is disabled outside explicitly selected local mode. [ADR-004](decisions/004-local-email-preview.md) owns its boundaries.

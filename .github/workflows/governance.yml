@@ -23,6 +23,8 @@ jobs:
         run: npm ci
       - name: Check application
         run: npm run check
+      - name: Exclude private development files
+        run: python3 scripts/validate_build_privacy.py
       - name: Audit dependency security
         run: npm audit --audit-level=high
       - name: Validate repository

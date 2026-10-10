@@ -21,3 +21,6 @@ export interface OwnedRecordPort {
 export interface EventPort {
   emit(event: "access_request" | "access_confirm" | "session_read" | "course_generation", outcome: string): void;
 }
+
+export type LocalEmailEnvironment = { nodeEnv?: string; origin?: string; vercel?: string; netlify?: string; aws?: string; ci?: string };
+export type LocalMessage = { id: string; email: string; link: string; createdAt: string; expiresAt: string };

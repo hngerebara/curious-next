@@ -58,6 +58,7 @@ jobs:
           set -eu
           npm ci
           npm run check
+          python3 scripts/validate_build_privacy.py
           npm audit --audit-level=high
       - name: Run required checks
         env:

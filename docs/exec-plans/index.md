@@ -25,3 +25,5 @@ See [milestones](../../Plans.md) and [status](../../Documentation.md).
 - [CN-AUTH-001](active/authentication.md): M1 authentication proof of concept.
 
 - [CN-COURSE-001](active/course-generation.md): authorised M2 course-plan preview.
+
+- [CN-LOCAL-AUTH-001](active/local-auth.md): local magic-link inbox and Neon validation.

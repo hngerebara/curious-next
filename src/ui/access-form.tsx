@@ -3,7 +3,7 @@
 import { useState } from "react";
 import type { FormEvent } from "react";
 
-export function AccessForm() {
+export function AccessForm({ local = false }: { local?: boolean }) {
   const [email, setEmail] = useState("");
   const [state, setState] = useState<"idle" | "sending" | "sent" | "failed" | "limited">("idle");
   async function submit(event: FormEvent<HTMLFormElement>) {
@@ -25,7 +25,7 @@ export function AccessForm() {
     <p id="email-help" className="muted">The same link signs you in or creates your account after verification.</p>
     <button type="submit" disabled={state === "sending"}>{state === "sending" ? "Sending your link…" : state === "sent" ? "Send another link" : "Send me a magic link"}</button>
     <div id="access-status" role="status" aria-live="polite" className="status">
-      {state === "sent" && <p>Check your inbox for a sign-in link. Open it, then confirm that you requested access.</p>}
+      {state === "sent" && <p>{local ? <>Your link is in the <a href="/dev/mail">local test email inbox</a>. No email was sent.</> : "Check your inbox for a sign-in link."} Open it, then confirm that you requested access.</p>}
       {state === "failed" && <p className="error">We could not send your link. Your email is still here. Please try again.</p>}
       {state === "limited" && <p>Too many requests. Please wait and try again later.</p>}
     </div>

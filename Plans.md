@@ -28,3 +28,5 @@ Run `python3 scripts/validate_repo.py` and `python3 -m unittest discover -s test
 Small, short-lived PRs include plan ID, behavior changed, evidence, risks, and status/debt updates. Required gates are repository validation and relevant behavioral/security tests once code exists. Optional review does not excuse failed safety checks. Do not weaken a test to merge. Follow [engineering workflow](docs/design-docs/engineering.md).
 
 The user authorised the bounded M2 course-plan preview on 2026-10-09 while M1/M1.5 acceptance remains open. This exception permits preview implementation, not learner release. [CN-COURSE-001](docs/exec-plans/active/course-generation.md).
+
+Per [ADR-004](docs/design-docs/decisions/004-local-email-preview.md), the user defers actual inbox delivery until deployment. Local M2 uses captured test mail with real Better Auth and Neon persistence/isolation, plus actual screen-reader validation. This does not establish ownership of real email addresses.

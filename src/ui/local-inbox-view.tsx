@@ -1,0 +1,5 @@
+import type { LocalMessage } from "../contracts/access";
+
+export function LocalInboxView({ messages }: { messages: LocalMessage[] }) {
+  return <main id="main" className="onboarding-shell"><p className="eyebrow">Local development only</p><h1>Test email inbox</h1><p className="notice">These links are captured on this machine. No email was sent. Use fictional test addresses. Anyone using this local inbox has access to all its links, so it does not verify ownership of real email addresses.</p><a href="/dev/mail">Refresh inbox</a><p><a href="/access">Request another test link</a></p>{messages.length === 0 && <p role="status">No active test messages. Request a magic link first. Expired messages are removed when the inbox is read.</p>}{messages.map(message => <article className="card" key={message.id}><h2>Your CuriousNext sign-in link</h2><p>To: {message.email}</p><p>Expires: <time dateTime={message.expiresAt}>{message.expiresAt}</time></p><a href={message.link}>Open test sign-in link</a><p>Then confirm that you requested it. Links work once.</p></article>)}</main>;
+}
