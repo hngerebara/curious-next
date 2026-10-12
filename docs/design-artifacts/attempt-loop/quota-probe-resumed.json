@@ -1,0 +1,431 @@
+{
+  "evaluatedAt": "2026-10-12T21:51:12.765Z",
+  "configuration": "groq:openai/gpt-oss-20b:assessor:dc77667dc339e39297bc4f0fd94cefbe697dea461cdfc9ddc1811c15a4001d67",
+  "rubricFingerprint": "76637ad498be0be00fb1fa829dda74156d13f59f90724de7823cad734fa514a0",
+  "scope": "AI-2 fixtures only, Single bounded fictional probe, not a repeated agreement study. Agent-assigned labels, no independent calibration approval. CY-2 assessor is not implemented. Fixture reference-evidence-v1 routing is explicitly mapped to runtime pilot-v1 for initial AI-2 evidence. No learner data or evidence writes.",
+  "plannedResults": 1,
+  "plannedLiveCalls": 1,
+  "selectedCase": "AI-complete",
+  "submissions": [
+    {
+      "id": "AI-complete",
+      "sourcePolicy": "reference-evidence-v1",
+      "runtimePolicy": "pilot-v1",
+      "simulatedFailure": false,
+      "frozen": {
+        "task": {
+          "version": "northstar-proof-v2",
+          "objectiveId": "AI-2",
+          "rubricVersion": "AI-2-v2",
+          "policyVersion": "pilot-v1",
+          "status": "preview",
+          "title": "Northstar Study Club proof",
+          "source": "Fictional Northstar Study Club meets Tuesdays at 18:00 online, welcomes adult beginners, runs 45-minute sessions and charges no fee. Recording policy is unspecified.",
+          "brief": "Create exactly three FAQ entries for prospective members, covering meeting time/location, duration/fee and whether sessions are recorded. Each answer must have fewer than 30 words. Use only the supplied source. State that the source does not provide the recording policy. Run your prompt in Practice AI, inspect the actual output, and explain your choices. Your checklist must check count, answer length, source fidelity and the missing policy. Model mistakes do not automatically fail your work when you accurately identify them.",
+          "criteria": [
+            {
+              "id": "A1",
+              "title": "Task",
+              "standard": "Requests three FAQ entries for the specified audience covering all three brief topics.",
+              "remediation": "Practise stating the task and audience."
+            },
+            {
+              "id": "A2",
+              "title": "Context",
+              "standard": "Includes or explicitly references the supplied task source pack.",
+              "remediation": "Practise supplying source context."
+            },
+            {
+              "id": "A3",
+              "title": "Constraints",
+              "standard": "Specifies fewer than 30 words per answer, source-only information and acknowledgement of the missing policy.",
+              "remediation": "Practise writing the missing constraint."
+            },
+            {
+              "id": "A4",
+              "title": "Format",
+              "standard": "Requests question-and-answer pairs, with no prescribed markup style.",
+              "remediation": "Practise specifying the output format."
+            },
+            {
+              "id": "A5",
+              "title": "Inspection",
+              "standard": "Checklist accurately checks count, answer length, source fidelity and uncertainty against the actual response. Accurate detection of model noncompliance meets this criterion.",
+              "remediation": "Compare the actual response with each requirement."
+            },
+            {
+              "id": "A6",
+              "title": "Reasoning",
+              "standard": "Explains how instructions meet the brief and why verification remains necessary.",
+              "remediation": "Explain why you must still verify the output."
+            }
+          ]
+        },
+        "response": "Q: When and where do we meet?\nA: We meet online on Tuesdays at 18:00.\nQ: How long does it last and what does it cost?\nA: Sessions last 45 minutes and are free.\nQ: Are sessions recorded?\nA: The supplied information does not state a recording policy.",
+        "mode": "independent",
+        "assisted": false,
+        "practice": [],
+        "help": [],
+        "variant": {
+          "id": "fictional-evaluation",
+          "version": "AI-2-lesson-v2",
+          "explanationLevel": "beginner",
+          "content": "A prompt is the instruction you give an AI system. State the task, supply relevant context, set constraints and specify a format. More words do not automatically make it better. Instructions do not guarantee compliance or accuracy. Check the actual response against the brief and source.\n\nTask means what to produce. Context means the useful facts. Constraints are limits, such as length and source-only claims. Format is the structure, such as question-and-answer pairs.\n\nExample: Using only the supplied fictional cafe facts, write four customer FAQ entries as question-and-answer pairs, each answer under 35 words. Flag questions the facts cannot answer. The example illustrates prompt structure, your task brief has its own requirements.",
+          "hash": "fictional",
+          "objectiveId": "AI-2",
+          "rubricVersion": "AI-2-v2",
+          "locale": "en"
+        },
+        "draft": {
+          "prompt": "Use the supplied source pack to create three question-and-answer FAQ entries for prospective members: meeting time/location, duration/fee and recording policy. Use source facts only. Keep each answer under 30 words. Say when the recording policy is unspecified.",
+          "checklist": "Three FAQ pairs. Each answer has fewer than 30 words. The time, location, duration and fee match the source. Recording is explicitly unspecified. No unsupported claims.",
+          "explanation": "The task names the audience and three topics. Source facts supply context. Source-only and length rules constrain answers. Question-and-answer pairs set the format. I still check the response because a clear prompt does not guarantee accuracy."
+        }
+      },
+      "expected": {
+        "criteria": {
+          "A1": "met",
+          "A2": "met",
+          "A3": "met",
+          "A4": "met",
+          "A5": "met",
+          "A6": "met"
+        },
+        "outcome": "demonstrated",
+        "misconception": "none"
+      }
+    }
+  ],
+  "skipped": [
+    {
+      "id": "CY-safe-branch",
+      "reason": "CY-2 assessor belongs to M4"
+    },
+    {
+      "id": "CY-dangerous-choice",
+      "reason": "CY-2 assessor belongs to M4"
+    },
+    {
+      "id": "CY-delete-not-verification",
+      "reason": "CY-2 assessor belongs to M4"
+    },
+    {
+      "id": "CY-overgeneralisation",
+      "reason": "CY-2 assessor belongs to M4"
+    },
+    {
+      "id": "CY-substantive-help",
+      "reason": "CY-2 assessor belongs to M4"
+    },
+    {
+      "id": "CY-assessment-failed",
+      "reason": "CY-2 assessor belongs to M4"
+    },
+    {
+      "id": "CY-recall-policy",
+      "reason": "CY-2 assessor belongs to M4"
+    },
+    {
+      "id": "CY-transfer-policy",
+      "reason": "CY-2 assessor belongs to M4"
+    }
+  ],
+  "summary": {
+    "completed": 1,
+    "liveCalls": 1,
+    "agreement": 1,
+    "unsafeDemonstrations": 0,
+    "providerFailures": 0,
+    "uncertain": 0
+  },
+  "results": [
+    {
+      "id": "AI-complete",
+      "sample": 1,
+      "providerStatus": 200,
+      "providerCode": null,
+      "rateBudget": {
+        "x-ratelimit-remaining-tokens": "4912",
+        "x-ratelimit-reset-tokens": "23.16s",
+        "x-ratelimit-remaining-requests": "999",
+        "x-ratelimit-reset-requests": "1m26.4s"
+      },
+      "quotaDiagnostic": null,
+      "simulatedFailure": false,
+      "outcome": "demonstrated",
+      "expectedOutcome": "demonstrated",
+      "unsafeDemonstration": false,
+      "differences": [],
+      "pass": true,
+      "decision": {
+        "status": "succeeded",
+        "rubricVersion": "AI-2-v2",
+        "policyVersion": "pilot-v1",
+        "criteria": [
+          {
+            "id": "A1",
+            "result": "met",
+            "feedback": "Your prompt states the task, audience and required topics.",
+            "citations": [
+              {
+                "field": "prompt",
+                "quote": "Use the supplied source pack to create three question-and-answer FAQ entries for prospective members: meeting time/location, duration/fee and recording policy.",
+                "start": 0,
+                "end": 159
+              }
+            ]
+          },
+          {
+            "id": "A2",
+            "result": "met",
+            "feedback": "Your prompt includes or explicitly references the supplied source pack.",
+            "citations": [
+              {
+                "field": "prompt",
+                "quote": "Use source facts only.",
+                "start": 160,
+                "end": 182
+              }
+            ]
+          },
+          {
+            "id": "A3",
+            "result": "met",
+            "feedback": "Your prompt specifies answer length, source-only claims and missing-policy uncertainty.",
+            "citations": [
+              {
+                "field": "prompt",
+                "quote": "Use source facts only.",
+                "start": 160,
+                "end": 182
+              },
+              {
+                "field": "prompt",
+                "quote": "Keep each answer under 30 words.",
+                "start": 183,
+                "end": 215
+              },
+              {
+                "field": "prompt",
+                "quote": "Say when the recording policy is unspecified.",
+                "start": 216,
+                "end": 261
+              }
+            ]
+          },
+          {
+            "id": "A4",
+            "result": "met",
+            "feedback": "Your prompt requests question-and-answer pairs.",
+            "citations": [
+              {
+                "field": "prompt",
+                "quote": "Use the supplied source pack to create three question-and-answer FAQ entries for prospective members: meeting time/location, duration/fee and recording policy.",
+                "start": 0,
+                "end": 159
+              }
+            ]
+          },
+          {
+            "id": "A5",
+            "result": "met",
+            "feedback": "Your checklist accurately inspects the saved response against the brief. Saved response: 3 explicit Q:/A: pairs. Answer word counts: 7, 7, 9. Required: exactly 3 pairs and fewer than 30 words per answer.",
+            "citations": [
+              {
+                "field": "checklist",
+                "quote": "Three FAQ pairs.",
+                "start": 0,
+                "end": 16
+              },
+              {
+                "field": "checklist",
+                "quote": "Each answer has fewer than 30 words.",
+                "start": 17,
+                "end": 53
+              },
+              {
+                "field": "checklist",
+                "quote": "The time, location, duration and fee match the source.",
+                "start": 54,
+                "end": 108
+              },
+              {
+                "field": "checklist",
+                "quote": "Recording is explicitly unspecified.",
+                "start": 109,
+                "end": 145
+              },
+              {
+                "field": "checklist",
+                "quote": "No unsupported claims.",
+                "start": 146,
+                "end": 168
+              },
+              {
+                "field": "response",
+                "quote": "Q: When and where do we meet?\nA: We meet online on Tuesdays at 18:00.\nQ: How long does it last and what does it cost?\nA: Sessions last 45 minutes and are free.\nQ: Are sessions recorded?\nA: The supplied information does not state a recording policy.",
+                "start": 0,
+                "end": 248
+              }
+            ]
+          },
+          {
+            "id": "A6",
+            "result": "met",
+            "feedback": "Your explanation connects prompt choices to the brief and explains why verification remains necessary.",
+            "citations": [
+              {
+                "field": "explanation",
+                "quote": "The task names the audience and three topics.",
+                "start": 0,
+                "end": 45
+              },
+              {
+                "field": "explanation",
+                "quote": "Source facts supply context.",
+                "start": 46,
+                "end": 74
+              },
+              {
+                "field": "explanation",
+                "quote": "Source-only and length rules constrain answers.",
+                "start": 75,
+                "end": 122
+              },
+              {
+                "field": "explanation",
+                "quote": "Question-and-answer pairs set the format.",
+                "start": 123,
+                "end": 164
+              },
+              {
+                "field": "explanation",
+                "quote": "I still check the response because a clear prompt does not guarantee accuracy.",
+                "start": 165,
+                "end": 243
+              }
+            ]
+          }
+        ],
+        "code": null
+      },
+      "structuredInput": {
+        "criteria": [
+          {
+            "id": "A1",
+            "result": "met",
+            "feedback": "Your prompt states the task, audience and required topics.",
+            "citations": [
+              {
+                "field": "prompt",
+                "quote": "Use the supplied source pack to create three question-and-answer FAQ entries for prospective members: meeting time/location, duration/fee and recording policy."
+              }
+            ]
+          },
+          {
+            "id": "A2",
+            "result": "met",
+            "feedback": "Your prompt includes or explicitly references the supplied source pack.",
+            "citations": [
+              {
+                "field": "prompt",
+                "quote": "Use source facts only."
+              }
+            ]
+          },
+          {
+            "id": "A3",
+            "result": "met",
+            "feedback": "Your prompt specifies answer length, source-only claims and missing-policy uncertainty.",
+            "citations": [
+              {
+                "field": "prompt",
+                "quote": "Use source facts only."
+              },
+              {
+                "field": "prompt",
+                "quote": "Keep each answer under 30 words."
+              },
+              {
+                "field": "prompt",
+                "quote": "Say when the recording policy is unspecified."
+              }
+            ]
+          },
+          {
+            "id": "A4",
+            "result": "met",
+            "feedback": "Your prompt requests question-and-answer pairs.",
+            "citations": [
+              {
+                "field": "prompt",
+                "quote": "Use the supplied source pack to create three question-and-answer FAQ entries for prospective members: meeting time/location, duration/fee and recording policy."
+              }
+            ]
+          },
+          {
+            "id": "A5",
+            "result": "met",
+            "feedback": "Your checklist accurately inspects the saved response against the brief. Saved response: 3 explicit Q:/A: pairs. Answer word counts: 7, 7, 9. Required: exactly 3 pairs and fewer than 30 words per answer.",
+            "citations": [
+              {
+                "field": "checklist",
+                "quote": "Three FAQ pairs."
+              },
+              {
+                "field": "checklist",
+                "quote": "Each answer has fewer than 30 words."
+              },
+              {
+                "field": "checklist",
+                "quote": "The time, location, duration and fee match the source."
+              },
+              {
+                "field": "checklist",
+                "quote": "Recording is explicitly unspecified."
+              },
+              {
+                "field": "checklist",
+                "quote": "No unsupported claims."
+              },
+              {
+                "field": "response",
+                "quote": "Q: When and where do we meet?\nA: We meet online on Tuesdays at 18:00.\nQ: How long does it last and what does it cost?\nA: Sessions last 45 minutes and are free.\nQ: Are sessions recorded?\nA: The supplied information does not state a recording policy."
+              }
+            ]
+          },
+          {
+            "id": "A6",
+            "result": "met",
+            "feedback": "Your explanation connects prompt choices to the brief and explains why verification remains necessary.",
+            "citations": [
+              {
+                "field": "explanation",
+                "quote": "The task names the audience and three topics."
+              },
+              {
+                "field": "explanation",
+                "quote": "Source facts supply context."
+              },
+              {
+                "field": "explanation",
+                "quote": "Source-only and length rules constrain answers."
+              },
+              {
+                "field": "explanation",
+                "quote": "Question-and-answer pairs set the format."
+              },
+              {
+                "field": "explanation",
+                "quote": "I still check the response because a clear prompt does not guarantee accuracy."
+              }
+            ]
+          }
+        ],
+        "policyVersion": "pilot-v1",
+        "rubricVersion": "AI-2-v2",
+        "status": "succeeded"
+      }
+    }
+  ]
+}

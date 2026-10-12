@@ -1,0 +1,28 @@
+{
+  "date": "2026-10-12T22:10:15.005Z",
+  "configuration": "groq:openai/gpt-oss-20b:assessor:dc77667dc339e39297bc4f0fd94cefbe697dea461cdfc9ddc1811c15a4001d67",
+  "database": "Neon",
+  "model": "configured-groq",
+  "scope": "Fictional current-profile browser retry after synthetic rejection. Existing valid evidence preserved.",
+  "checks": {
+    "same_account_authenticated": true,
+    "persisted_failure_visible": true,
+    "same_frozen_hash": true,
+    "configured_retry_succeeded": true,
+    "six_criteria_met": true,
+    "two_claims_two_assessments": true,
+    "one_new_evidence": true,
+    "replay_no_duplicates": true,
+    "replay_recall_anchor_unchanged": true,
+    "saved_variant_restore": true,
+    "reflow_320_1440_doubled_text": true,
+    "keyboard_focus": true
+  },
+  "not_validated": [
+    "screen_reader",
+    "subject_approval",
+    "independent_calibration",
+    "hosted_worker",
+    "learner_release"
+  ]
+}

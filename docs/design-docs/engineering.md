@@ -18,7 +18,7 @@ Require structural validation and checker tests now. Add affected domain/securit
 
 ## Cleanup and changes to enforcement
 
-At each milestone and weekly during active development, inspect stale plans, unlinked docs, unused exceptions, duplicated policy logic, excessive files, unsafe logs, weak tests, and unreviewed language variants. Create small repair PRs or tracked debt with an owner role and next review milestone. No scheduled automation is active. Every exception/change to dependency directions requires a linked decision, updated configuration and regression tests. Register new Markdown documents in docs/governance.json. Keep the active/completed plan indexes and status ledger coherent. Do not disable checks to make a PR green.
+At each milestone and weekly during active development, inspect stale plans, unlinked docs, unused exceptions, duplicated policy logic, excessive files, unsafe logs, weak tests, and unreviewed language variants. Create small repair PRs or tracked debt with an owner role and next review milestone. The authorised M3 quota-retry heartbeat is limited to validation and pauses when that work completes. Every exception/change to dependency directions requires a linked decision, updated configuration and regression tests. Register new Markdown documents in docs/governance.json. Keep the active/completed plan indexes and status ledger coherent. Do not disable checks to make a PR green.
 
 [Plan](../../Plans.md), [status](../../Documentation.md), [architecture](../../Architecture.md), [configuration](../governance.json).
 

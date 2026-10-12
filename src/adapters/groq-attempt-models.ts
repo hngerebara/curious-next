@@ -30,7 +30,7 @@ async function completion(key: string | undefined, model: string | undefined, me
   if (!key || !model) throw new Error("MODEL_NOT_CONFIGURED");
   const response = await transport("https://api.groq.com/openai/v1/chat/completions",{
     method:"POST",signal:AbortSignal.timeout(25000),headers:{Authorization:`Bearer ${key}`,"Content-Type":"application/json"},
-    body:JSON.stringify({model,max_completion_tokens:schema ? 1600 : 1500,messages,...(schema ? {response_format:{type:"json_schema",json_schema:{name:"attempt_assessment",strict:true,schema}}} : {})}),
+    body:JSON.stringify({model,max_completion_tokens:schema ? 3200 : 1500,messages,...(schema ? {response_format:{type:"json_schema",json_schema:{name:"attempt_assessment",strict:true,schema}}} : {})}),
   });
   if (!response.ok) {
     if (response.status === 400) {
@@ -44,7 +44,7 @@ async function completion(key: string | undefined, model: string | undefined, me
   return choice.message.content as string;
 }
 export function groqAttemptModels(key: string | undefined, model: string | undefined, transport: typeof fetch = fetch): {practice: PracticeModel; assessor: Assessor} {
-  const configuration = (role:string, instruction:string)=>`groq:${model ?? "unconfigured"}:${role}:${createHash("sha256").update(instruction+(role === "assessor" ? assessmentSchemaVersion+feedbackConfiguration+":max_completion_tokens=1600" : "")).digest("hex")}`;
+  const configuration = (role:string, instruction:string)=>`groq:${model ?? "unconfigured"}:${role}:${createHash("sha256").update(instruction+(role === "assessor" ? assessmentSchemaVersion+feedbackConfiguration+":max_completion_tokens=3200" : "")).digest("hex")}`;
   return {
     practice:{configuration:configuration("practice",practiceInstruction),async respond(task,history,prompt){
       const messages=[{role:"system",content:practiceInstruction+"\nSource pack: "+task.source}];

@@ -2,7 +2,7 @@
 
 ## Plan lifecycle
 
-Active M3 preview, [THE-19](https://linear.app/the-curious-tech-girl/issue/THE-19/implement-m3-clear-prompts-attempt-loop). The user explicitly authorised proceeding on 2026-10-09 while M2's actual screen-reader walkthrough remains pending. M2 is not complete. PR #20 now targets main after CN-LOCAL-AUTH-001 / PR #19 merged. No learner release is authorised.
+Completed authorised M3 preview engineering, [THE-19](https://linear.app/the-curious-tech-girl/issue/THE-19/implement-m3-clear-prompts-attempt-loop). The user explicitly authorised proceeding on 2026-10-09 while M2's actual screen-reader walkthrough remains pending. M2 is not complete. PR #20 now targets main after CN-LOCAL-AUTH-001 / PR #19 merged. No learner release is authorised.
 
 ## Deliverables and sequence
 
@@ -23,3 +23,6 @@ Final v5 continuation: 15/16 live calls produced valid matching assessments (90/
 
 
 Completion request after PR #20 merge: implement constrained reason-code feedback, conservative count publication and a smaller pinned completion allowance. [Acceptance map](../../design-docs/attempt-loop-acceptance.md) separates M3 implementation from M1 calibration and pre-deployment D7. Preserve v6/partial-v7 studies and the confirmed 200,000-token daily quota diagnostic. Final configured-profile validation is pending capacity, do not complete the milestone or archive this plan until it passes. No model fallback or billing change is authorised.
+
+
+Completion: current-profile configured browser failure/recovery/replay and actual local server restart pass. The final 3,200-token study preserves 15/16 valid matching calls and one unavailable provider result, the focused retry passes twice. V7 validates no evidence from failure and bounded recovery, no availability guarantee or calibration approval is claimed. All studies and earlier failures remain in Documentation.md. M1 independent review, M2 screen-reader acceptance and D7 hosted-worker deployment gates remain open. The completion slice is prepared for review. Leave its PR open and unmerged.

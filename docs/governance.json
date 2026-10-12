@@ -503,7 +503,7 @@
         "## Validation and completion"
       ]
     },
-    "docs/exec-plans/active/attempt-loop.md": {
+    "docs/exec-plans/completed/attempt-loop.md": {
       "required_headings": [
         "# CN-ATTEMPT-001: Durable clear-prompts loop",
         "## Plan lifecycle",
