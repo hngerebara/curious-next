@@ -1,0 +1,13 @@
+{
+  "date": "2026-10-12T22:19:57.474Z",
+  "database": "Neon",
+  "configuration": "groq:openai/gpt-oss-20b:assessor:e914e4b4a513b3a176f73e8944374081de15e3af31e3b7a22ac6bb486be04ba6",
+  "scope": "Actual local app process restart, same fictional authenticated account, no provider call",
+  "checks": {
+    "frozen_hash_restored": true,
+    "succeeded_job_restored": true,
+    "two_assessment_records_restored": true,
+    "assessor_profile_restored": true,
+    "technical_variant_restored": true
+  }
+}

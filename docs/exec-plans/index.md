@@ -2,8 +2,6 @@
 
 ## Active
 
-- [CN-ATTEMPT-001](active/attempt-loop.md): authorised M3 reference preview with M2 screen-reader work pending.
-
 - [CN-ENTRY-001](active/course-entry.md): complete M2 entry and acceptance checks.
 
 - [CN-CURRICULUM-001](active/curriculum-review.md): M1 source mappings and reference rubric calibration.
@@ -13,6 +11,8 @@
 - [CN-PILOT-001](active/pilot.md): M1-M6 application pilot, pending.
 
 ## Completed
+
+- [CN-ATTEMPT-001](completed/attempt-loop.md): authorised M3 preview engineering accepted, independent calibration and M2 screen-reader work remain open.
 
 - [CN-GOV-001](completed/governance.md): M0 repository governance.
 

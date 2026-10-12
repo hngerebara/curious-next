@@ -1,0 +1,16 @@
+{
+  "date": "2026-10-12T22:04:14.161Z",
+  "database": "Neon",
+  "configuration": "groq:openai/gpt-oss-20b:assessor:dc77667dc339e39297bc4f0fd94cefbe697dea461cdfc9ddc1811c15a4001d67",
+  "failure": "injected synthetic HTTP 400 json_validate_failed through real adapter/application/store",
+  "checks": {
+    "failed_job_persisted": true,
+    "frozen_hash_unchanged": true,
+    "no_evidence_from_failure": true,
+    "configured_browser_retry": true,
+    "replay_no_duplicates": true
+  },
+  "claimsAfterFailure": 1,
+  "remaining": null,
+  "claimsAfterSuccess": 2
+}

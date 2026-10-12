@@ -1,0 +1,65 @@
+{
+  "scope": "Agent review of fictional fixtures and preview engineering, not independent approval or statistical reliability",
+  "initialProfile": "groq:openai/gpt-oss-20b:assessor:dc77667dc339e39297bc4f0fd94cefbe697dea461cdfc9ddc1811c15a4001d67",
+  "initialStudy": {
+    "completed": 18,
+    "liveCalls": 16,
+    "agreement": 12,
+    "unsafeDemonstrations": 0,
+    "providerFailures": 6,
+    "uncertain": 0
+  },
+  "validCriterionJudgments": 60,
+  "validCriterionDisagreements": 0,
+  "rejectedDiagnostic": {
+    "providerCode": "json_validate_failed",
+    "failedGenerationLength": 431,
+    "endsInClosingBrace": true,
+    "rawGenerationRetained": false,
+    "cause": "Unconfirmed. Provider message mentioned schema and tokens. No rejected generation accepted."
+  },
+  "comparison": "Test doubled completion allowance with same model, instructions, reason protocol and strict schema. Fingerprint changes, successful old jobs retain their original profile.",
+  "remaining": null,
+  "browserComparison": {
+    "initialProfileRecovery": "passed",
+    "revisedProfileRecovery": "passed",
+    "actualRestartRestoration": "passed",
+    "scope": "Fictional local Better Auth/Neon/Groq, same frozen snapshot across injected failure and configured success. No hosted worker or screen-reader acceptance."
+  },
+  "semanticReview": {
+    "reviewer": "Agent self-review, not independent approval",
+    "checks": [
+      "Strict reason schema and domain validation unchanged",
+      "Reason/result and frozen citation integrity remain enforced",
+      "No rejected generation converted to assessment",
+      "One provider call per durable claim, maximum three claims unchanged",
+      "Practice allowance stays 1500 and its configuration stays unchanged",
+      "Assessor fingerprint pins revised 3200 allowance",
+      "Old successful frozen assessments preserve original configuration and feedback",
+      "Current-profile browser failure adds no evidence, recovery adds one record, replay and restart preserve history",
+      "320px and 1440px captures visually reviewed, no conformance claim",
+      "All 17 valid current-profile fixture feedback counts independently checked against literal saved answers"
+    ],
+    "remaining": null
+  },
+  "revisedProfile": "groq:openai/gpt-oss-20b:assessor:e914e4b4a513b3a176f73e8944374081de15e3af31e3b7a22ac6bb486be04ba6",
+  "revisedStudy": {
+    "completed": 18,
+    "liveCalls": 16,
+    "agreement": 17,
+    "unsafeDemonstrations": 0,
+    "providerFailures": 1,
+    "uncertain": 0
+  },
+  "focusedRetry": {
+    "completed": 2,
+    "liveCalls": 2,
+    "agreement": 2,
+    "unsafeDemonstrations": 0,
+    "providerFailures": 0,
+    "uncertain": 0
+  },
+  "revisedValidCriterionJudgments": 102,
+  "revisedValidCriterionDisagreements": 0,
+  "acceptanceDecision": "M3 preview engineering acceptance passed, including failure persistence, bounded recovery, replay and restart. The full study retains one unavailable HTTP 400 and exits nonzero, it is not reported as all-pass. Focused retry passed twice. Independent calibration and provider reliability remain unapproved M1 gates."
+}
