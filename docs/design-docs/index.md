@@ -27,3 +27,5 @@
 - [M2 acceptance](course-entry-acceptance.md): completion gates, placement/guidance and real-service proof.
 
 - [M3 attempt acceptance](attempt-loop-acceptance.md): reference-preview implementation checks and separate release gates.
+
+- [M4 adaptive acceptance](adaptive-loop-acceptance.md): measured cybersecurity/retention checks and pending final-profile acceptance.

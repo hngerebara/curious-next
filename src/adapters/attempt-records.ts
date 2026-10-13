@@ -1,15 +1,16 @@
 import { and, asc, eq, sql } from "drizzle-orm";
 import { createHash, randomUUID } from "node:crypto";
 import type { AccessDatabase } from "./access-repositories";
-import type { Attempt, Practice, Variant, ExplanationLevel, Submission } from "../contracts/attempt";
+import type { Attempt, Practice, Variant, ExplanationLevel, Submission, ObjectiveId } from "../contracts/attempt";
+import { phishingLesson } from "../domain/phishing-module";
 import { lessonText } from "../domain/prompt-module";
 import { learningAttempt, practiceRequest, assistanceEvent, attemptSubmission, assessmentJob, assessmentRun, optionalReview } from "./attempt-schema";
 
 export type AttemptExecutor = Pick<AccessDatabase, "select" | "insert" | "update" | "execute">;
 export const hash = (value: unknown) => createHash("sha256").update(typeof value === "string" ? value : JSON.stringify(value)).digest("hex");
-export function makeVariant(level: ExplanationLevel): Variant {
-  const content = lessonText(level);
-  return { id: randomUUID(), version: "AI-2-lesson-v2", explanationLevel: level, content, hash: hash(content), objectiveId: "AI-2", rubricVersion: "AI-2-v2", locale: "en" };
+export function makeVariant(level: ExplanationLevel, objective: ObjectiveId = "AI-2"): Variant {
+  const content = objective === "CY-2" ? phishingLesson(level) : lessonText(level);
+  return { id: randomUUID(), version: `${objective}-lesson-v2`, explanationLevel: level, content, hash: hash(content), objectiveId: objective, rubricVersion: objective === "CY-2" ? "CY-2-v2" : "AI-2-v2", locale: "en" };
 }
 export const practiceRecord = (r: typeof practiceRequest.$inferSelect): Practice => ({ id:r.id,key:r.key,revision:r.revision,prompt:r.prompt,response:r.response,state:r.state as Practice["state"],code:r.code,configuration:r.configuration,calls:r.calls,leaseUntil:r.leaseUntil?.toISOString() ?? null });
 export async function lockAttempt(tx: AttemptExecutor, owner: string, id: string) {

@@ -1,23 +1,25 @@
 import type { AttemptStore, Assessor, PracticeModel, Attempt, ExplanationLevel, Help, Decision } from "../contracts/attempt";
 import type { CourseStore } from "../contracts/course-plan";
 import type { AbusePort, EventPort } from "../contracts/access";
+import { phishingHelp } from "../domain/phishing-module";
 import { helpText } from "../domain/prompt-module";
 import { validateAssessment } from "../domain/assessment-policy";
 
 export function attemptService(store: AttemptStore, courses: CourseStore, practice: PracticeModel, assessor: Assessor, abuse: AbusePort, events: EventPort) {
   async function enrollment(owner:string,id:string) {
     const saved=await courses.enrollment(owner,id);
-    if(!saved || saved.plan.result?.state !== "ready-preview" || saved.plan.result.proposal.subject !== "practical-ai" || !saved.plan.result.proposal.modules.some(m=>m.objective.id === "AI-2")) throw new Error("NOT_FOUND");
+    const result = saved?.plan.result;
+    if (!saved || result?.state !== "ready-preview" || !result.proposal.modules.some(m=>m.objective.id === (result.proposal.subject === "cybersecurity" ? "CY-2" : "AI-2"))) throw new Error("NOT_FOUND");
     if(!saved.placement) throw new Error("PLACEMENT_REQUIRED");
     return saved;
   }
   const modelCode=(error:unknown)=>error instanceof Error && ["MODEL_NOT_CONFIGURED","MODEL_LIMITED","MODEL_INVALID"].includes(error.message) ? error.message : "MODEL_UNAVAILABLE";
   return {
-    async create(owner:string,id:string,mode:Attempt["mode"],key:string){const saved=await enrollment(owner,id);return store.create(owner,id,mode,key,saved.preferences.explanationLevel);},
+    async create(owner:string,id:string,mode:Attempt["mode"],key:string){const saved=await enrollment(owner,id);return store.create(owner,id,mode,key,saved.preferences.explanationLevel,saved.plan.result!.state === "ready-preview" && saved.plan.result!.proposal.subject === "cybersecurity" ? "CY-2" : "AI-2");},
     async learning(owner:string,id:string){const saved=await enrollment(owner,id);return store.learning(owner,id,saved.preferences.sessionMinutes);},
     read:(owner:string,id:string)=>store.read(owner,id),
     variant:(owner:string,id:string,level:ExplanationLevel)=>store.variant(owner,id,level),
-    async help(owner:string,id:string,key:string,kind:Help["kind"]){const saved=await store.read(owner,id);return store.help(owner,id,key,kind,helpText(kind,saved.task));},
+    async help(owner:string,id:string,key:string,kind:Help["kind"]){const saved=await store.read(owner,id);return store.help(owner,id,key,kind,saved.task.objectiveId === "CY-2" ? phishingHelp(kind) : helpText(kind,saved.task));},
     async practice(owner:string,id:string,key:string,revision:number){
       const claim=await store.reservePractice(owner,id,key,revision,practice.configuration);
       if(!claim.lease)return claim.attempt;
@@ -31,14 +33,16 @@ export function attemptService(store: AttemptStore, courses: CourseStore, practi
       return store.finishPractice(owner,id,claim.request.id,claim.lease,response,code);
     },
     async assess(owner:string,id:string){
-      const claim=await store.claim(owner,id,assessor.configuration);if(!claim.lease)return claim.attempt;
+      const saved = await store.read(owner,id);
+      const configuration = saved.submission && assessor.configurationFor ? assessor.configurationFor(saved.submission.frozen) : assessor.configuration;
+      const claim=await store.claim(owner,id,configuration);if(!claim.lease)return claim.attempt;
       const frozen=claim.attempt.submission!.frozen;
       let decision:Decision;
       try {
         decision=await abuse.allow(`assessment:${owner}`,6,600) ? validateAssessment(await assessor.assess(frozen),frozen) : {status:"failed",criteria:[],rubricVersion:frozen.task.rubricVersion,policyVersion:frozen.task.policyVersion,code:"MODEL_LIMITED"};
       }catch(error){decision={status:"failed",criteria:[],rubricVersion:frozen.task.rubricVersion,policyVersion:frozen.task.policyVersion,code:modelCode(error)};}
       events.emit("attempt_assessment",decision.status);
-      return store.finish(owner,id,claim.lease,decision,assessor.configuration);
+      return store.finish(owner,id,claim.lease,decision,configuration);
     },
   };
 }

@@ -10,6 +10,7 @@ export function practiceStore(db: AccessDatabase): Pick<AttemptStore,"reservePra
     async reservePractice(owner,id,key,revision,configuration) {
       const claim = await db.transaction(async tx=>{
         const row = await lockAttempt(tx,owner,id);
+        if (row.task.objectiveId === "CY-2") throw new Error("ACTIVITY_NOT_AVAILABLE");
         const [prior] = await tx.select().from(practiceRequest).where(and(eq(practiceRequest.learnerId,owner),eq(practiceRequest.key,key)));
         if (prior && (prior.attemptId !== id || prior.revision !== revision)) throw new Error("REQUEST_CONFLICT");
         if (prior?.state === "succeeded") return {request:practiceRecord(prior),lease:null};

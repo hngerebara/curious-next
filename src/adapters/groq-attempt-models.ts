@@ -1,4 +1,6 @@
 import { createHash } from "node:crypto";
+import { phishingPacket } from "./phishing-packet";
+import { phishingInstruction } from "./phishing-instruction";
 import { assessmentPacket, assessmentSchemaVersion } from "./assessment-packet";
 import { feedbackConfiguration } from "../domain/assessment-feedback";
 import { responseInspection } from "../domain/response-inspection";
@@ -53,10 +55,11 @@ export function groqAttemptModels(key: string | undefined, model: string | undef
       const response=await completion(key,model,messages,null,transport);
       if(response.length>8000)throw new Error("MODEL_INVALID");return response;
     }},
-    assessor:{configuration:configuration("assessor",assessmentInstruction),async assess(frozen: Frozen){
-      const packet=assessmentPacket(frozen);
+    assessor:{configuration:configuration("assessor",assessmentInstruction),configurationFor(frozen){return frozen.task.objectiveId === "CY-2" ? configuration("assessor",phishingInstruction+":cy-packet-v9:phishing-reasons-v2:cy-domain-v6:literal-branding-v1:literal-blanket-v1:retention-v1") : configuration("assessor",assessmentInstruction);},async assess(frozen: Frozen){
+      const cyber = frozen.task.objectiveId === "CY-2";
+      const packet=cyber ? phishingPacket(frozen) : assessmentPacket(frozen);
       const data={evidenceCatalogue:packet.evidence,task:frozen.task,draft:frozen.draft,response:frozen.response,deterministicAid:responseInspection(frozen.response),practiceHistory:frozen.practice.filter(p=>p.state === "succeeded").map(p=>({prompt:p.prompt,response:p.response}))};
-      return packet.resolve(JSON.parse(await completion(key,model,[{role:"system",content:assessmentInstruction},{role:"user",content:JSON.stringify(data)}],packet.schema,transport)));
+      return packet.resolve(JSON.parse(await completion(key,model,[{role:"system",content:cyber ? phishingInstruction : assessmentInstruction},{role:"user",content:JSON.stringify(data)}],packet.schema,transport)));
     }},
   };
 }

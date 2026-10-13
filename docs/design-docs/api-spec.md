@@ -84,3 +84,7 @@ Test request limits, invalid enums, missing/expired sessions, cross-learner acce
 M2 entry uses [versioned scenario placement, saved enrollment preferences and owned recommendations](course-entry-acceptance.md). Placement never creates achievement evidence. Enrollment preferences remain separate from immutable accepted plan input.
 
 GET /dev/mail is a development-only test inbox, not a learner API. It is disabled outside explicitly selected local mode. [ADR-004](decisions/004-local-email-preview.md) owns its boundaries.
+
+## M4 shared activity extensions
+
+POST /api/learning accepts practice, independent, recall or transfer for owned placed AI-2/CY-2 preview enrollments. Recall requires due compatible independent evidence, transfer requires initial proof and an unpassed transfer dimension. ACTIVITY_NOT_AVAILABLE is 409, ACTIVITY_ALREADY_STARTED directs the learner to saved history. CY-2 uses the existing bounded draft fields: prompt contains selected request/routine action IDs as JSON, checklist and explanation contain message rationales. Submission requires valid actions and both rationales, no Practice AI call. CY Practice AI requests are rejected. All ownership, origin, revision, frozen snapshot, assessment lease/retry and replay guarantees remain shared. GET /api/learning includes objectiveId, current recall availability, separate retention/transfer dimensions and evidence-linked misconception history. Migration 0005 is explicit setup, never startup.

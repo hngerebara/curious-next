@@ -1,0 +1,1454 @@
+{
+  "date": "2026-10-13T23:02:01.840Z",
+  "configuration": "groq:openai/gpt-oss-20b:assessor:6ef32269327d6e19de20e0a1757041b5713b6ff0f5dfa44ac88f9847d432dbde",
+  "rubricFingerprint": "d74dc9a58ace721451afe21c0cb05453b46415e41e29eac40706c2a772af6c9e",
+  "scope": "Fictional agent-labelled reference agreement only. No independent calibration or learner evidence. Reference-evidence-v1 initial/recall/transfer routing maps explicitly to pilot-v1. Combined reference rationale is partitioned into message-specific fields at the first reminder sentence. Transfer fixture wording adapts to recruitment. Simulated failure is labelled.",
+  "planned": 16,
+  "fixtures": [
+    {
+      "id": "CY-safe-branch",
+      "frozen": {
+        "task": {
+          "version": "account-security-0-v2",
+          "family": "account-security",
+          "objectiveId": "CY-2",
+          "rubricVersion": "CY-2-v2",
+          "policyVersion": "pilot-v1",
+          "status": "preview",
+          "title": "StudyHub 1: fictional message decisions",
+          "source": "Simulation only. You have an existing study-service account and expected a study reminder. You already use the official StudyHub 1 app. Its Help → Report suspicious message route is known. The sensitive request is unexpected. Neither message is conclusively authenticated. All destinations are inert fictional text.",
+          "brief": "Choose actions for both messages and explain each decision. Identify what the evidence supports, what remains unknown, an independent verification route and when/where you would report. Explain what familiar branding establishes. Do not enter real credentials or personal data. A fictional .example suffix is not a scored phishing cue.",
+          "messages": [
+            {
+              "id": "request",
+              "displayName": "StudyHub 1",
+              "sender": "notice@account-security-check.example",
+              "text": "Your account will close in 30 minutes. Sign in immediately using this message's link.",
+              "destination": "account-security-check.example"
+            },
+            {
+              "id": "routine",
+              "displayName": "StudyHub 1",
+              "sender": "reminders@account-security.example",
+              "text": "Your planned study session is today. No sign-in or sensitive information is requested.",
+              "destination": "No destination or sensitive action requested"
+            }
+          ],
+          "criteria": [
+            {
+              "id": "C1",
+              "title": "Evidence",
+              "standard": "Identify the unexpected sensitive request and urgency, threat or scenario mismatch. Suspicion is not conclusive proof.",
+              "remediation": "Inspect the request and context."
+            },
+            {
+              "id": "C2",
+              "title": "Safe action",
+              "standard": "Avoid the message link and sending sensitive information for both messages.",
+              "remediation": "Practise safer responses."
+            },
+            {
+              "id": "C3",
+              "title": "Verification",
+              "standard": "Verify the unexpected request through a pre-established independent trusted route.",
+              "remediation": "Practise independent-channel verification."
+            },
+            {
+              "id": "C4",
+              "title": "Reporting",
+              "standard": "Name the known in-app reporting route when suspicion persists.",
+              "remediation": "Review the known reporting route."
+            },
+            {
+              "id": "C5",
+              "title": "Reasoning",
+              "standard": "Explain why branding does not authenticate a sender and why suspicion is not proof.",
+              "remediation": "Compare appearance with evidence."
+            },
+            {
+              "id": "C6",
+              "title": "Generalisation",
+              "standard": "Treat the routine message according to its lower-risk context without claiming certainty.",
+              "remediation": "Compare contrasting messages."
+            }
+          ]
+        },
+        "mode": "independent",
+        "assisted": false,
+        "draft": {
+          "prompt": "{\"request\":[\"verify\",\"report-known\"],\"routine\":[\"continue-routine\"]}",
+          "checklist": "The sign-in demand is unexpected and threatens immediate closure. I open my existing official app independently, not the supplied link. If suspicion persists I use Help then Report suspicious message in that app. A logo does not authenticate the sender. These cues support suspicion, not proof.",
+          "explanation": "The reminder matches my planned session and asks for no sensitive action. I continue without claiming its sender is proven genuine."
+        },
+        "practice": [],
+        "help": [],
+        "response": "No Practice AI output. Fictional decisions.",
+        "variant": {
+          "id": "fictional-variant",
+          "version": "CY-2-lesson-v2",
+          "objectiveId": "CY-2",
+          "rubricVersion": "CY-2-v2",
+          "explanationLevel": "standard",
+          "content": "Fictional simulation. Phishing asks you to take an unsafe action while pretending to be trustworthy. Inspect the requested action and whether it matches your situation. Branding, polished wording and a secure connection do not authenticate the sender. Pause and verify unexpected sensitive requests through a route you already trust. Report persistent suspicion through the known service channel. An urgent message is not automatically fraudulent.\n\nSeparate suspicious cues from proof. Explain remaining uncertainty and select actions suited to each message's context.",
+          "hash": "6a94660292e801f59e283ce3c7ace86a958026a0c4cf0e967fc97130cce8f83d",
+          "locale": "en"
+        }
+      },
+      "expected": {
+        "criteria": {
+          "C1": "met",
+          "C2": "met",
+          "C3": "met",
+          "C4": "met",
+          "C5": "met",
+          "C6": "met"
+        },
+        "outcome": "demonstrated",
+        "misconception": "none"
+      }
+    },
+    {
+      "id": "CY-dangerous-choice",
+      "frozen": {
+        "task": {
+          "version": "account-security-0-v2",
+          "family": "account-security",
+          "objectiveId": "CY-2",
+          "rubricVersion": "CY-2-v2",
+          "policyVersion": "pilot-v1",
+          "status": "preview",
+          "title": "StudyHub 1: fictional message decisions",
+          "source": "Simulation only. You have an existing study-service account and expected a study reminder. You already use the official StudyHub 1 app. Its Help → Report suspicious message route is known. The sensitive request is unexpected. Neither message is conclusively authenticated. All destinations are inert fictional text.",
+          "brief": "Choose actions for both messages and explain each decision. Identify what the evidence supports, what remains unknown, an independent verification route and when/where you would report. Explain what familiar branding establishes. Do not enter real credentials or personal data. A fictional .example suffix is not a scored phishing cue.",
+          "messages": [
+            {
+              "id": "request",
+              "displayName": "StudyHub 1",
+              "sender": "notice@account-security-check.example",
+              "text": "Your account will close in 30 minutes. Sign in immediately using this message's link.",
+              "destination": "account-security-check.example"
+            },
+            {
+              "id": "routine",
+              "displayName": "StudyHub 1",
+              "sender": "reminders@account-security.example",
+              "text": "Your planned study session is today. No sign-in or sensitive information is requested.",
+              "destination": "No destination or sensitive action requested"
+            }
+          ],
+          "criteria": [
+            {
+              "id": "C1",
+              "title": "Evidence",
+              "standard": "Identify the unexpected sensitive request and urgency, threat or scenario mismatch. Suspicion is not conclusive proof.",
+              "remediation": "Inspect the request and context."
+            },
+            {
+              "id": "C2",
+              "title": "Safe action",
+              "standard": "Avoid the message link and sending sensitive information for both messages.",
+              "remediation": "Practise safer responses."
+            },
+            {
+              "id": "C3",
+              "title": "Verification",
+              "standard": "Verify the unexpected request through a pre-established independent trusted route.",
+              "remediation": "Practise independent-channel verification."
+            },
+            {
+              "id": "C4",
+              "title": "Reporting",
+              "standard": "Name the known in-app reporting route when suspicion persists.",
+              "remediation": "Review the known reporting route."
+            },
+            {
+              "id": "C5",
+              "title": "Reasoning",
+              "standard": "Explain why branding does not authenticate a sender and why suspicion is not proof.",
+              "remediation": "Compare appearance with evidence."
+            },
+            {
+              "id": "C6",
+              "title": "Generalisation",
+              "standard": "Treat the routine message according to its lower-risk context without claiming certainty.",
+              "remediation": "Compare contrasting messages."
+            }
+          ]
+        },
+        "mode": "independent",
+        "assisted": false,
+        "draft": {
+          "prompt": "{\"request\":[\"verify\",\"report-known\",\"use-link\"],\"routine\":[\"continue-routine\"]}",
+          "checklist": "The sign-in demand is unexpected and threatens immediate closure. I open my existing official app independently, not the supplied link. If suspicion persists I use Help then Report suspicious message in that app. A logo does not authenticate the sender. These cues support suspicion, not proof.",
+          "explanation": "The reminder matches my planned session and asks for no sensitive action. I continue without claiming its sender is proven genuine."
+        },
+        "practice": [],
+        "help": [],
+        "response": "No Practice AI output. Fictional decisions.",
+        "variant": {
+          "id": "fictional-variant",
+          "version": "CY-2-lesson-v2",
+          "objectiveId": "CY-2",
+          "rubricVersion": "CY-2-v2",
+          "explanationLevel": "standard",
+          "content": "Fictional simulation. Phishing asks you to take an unsafe action while pretending to be trustworthy. Inspect the requested action and whether it matches your situation. Branding, polished wording and a secure connection do not authenticate the sender. Pause and verify unexpected sensitive requests through a route you already trust. Report persistent suspicion through the known service channel. An urgent message is not automatically fraudulent.\n\nSeparate suspicious cues from proof. Explain remaining uncertainty and select actions suited to each message's context.",
+          "hash": "6a94660292e801f59e283ce3c7ace86a958026a0c4cf0e967fc97130cce8f83d",
+          "locale": "en"
+        }
+      },
+      "expected": {
+        "criteria": {
+          "C1": "met",
+          "C2": "unmet",
+          "C3": "met",
+          "C4": "met",
+          "C5": "uncertain",
+          "C6": "met"
+        },
+        "outcome": "pending",
+        "misconception": "none"
+      }
+    },
+    {
+      "id": "CY-delete-not-verification",
+      "frozen": {
+        "task": {
+          "version": "account-security-0-v2",
+          "family": "account-security",
+          "objectiveId": "CY-2",
+          "rubricVersion": "CY-2-v2",
+          "policyVersion": "pilot-v1",
+          "status": "preview",
+          "title": "StudyHub 1: fictional message decisions",
+          "source": "Simulation only. You have an existing study-service account and expected a study reminder. You already use the official StudyHub 1 app. Its Help → Report suspicious message route is known. The sensitive request is unexpected. Neither message is conclusively authenticated. All destinations are inert fictional text.",
+          "brief": "Choose actions for both messages and explain each decision. Identify what the evidence supports, what remains unknown, an independent verification route and when/where you would report. Explain what familiar branding establishes. Do not enter real credentials or personal data. A fictional .example suffix is not a scored phishing cue.",
+          "messages": [
+            {
+              "id": "request",
+              "displayName": "StudyHub 1",
+              "sender": "notice@account-security-check.example",
+              "text": "Your account will close in 30 minutes. Sign in immediately using this message's link.",
+              "destination": "account-security-check.example"
+            },
+            {
+              "id": "routine",
+              "displayName": "StudyHub 1",
+              "sender": "reminders@account-security.example",
+              "text": "Your planned study session is today. No sign-in or sensitive information is requested.",
+              "destination": "No destination or sensitive action requested"
+            }
+          ],
+          "criteria": [
+            {
+              "id": "C1",
+              "title": "Evidence",
+              "standard": "Identify the unexpected sensitive request and urgency, threat or scenario mismatch. Suspicion is not conclusive proof.",
+              "remediation": "Inspect the request and context."
+            },
+            {
+              "id": "C2",
+              "title": "Safe action",
+              "standard": "Avoid the message link and sending sensitive information for both messages.",
+              "remediation": "Practise safer responses."
+            },
+            {
+              "id": "C3",
+              "title": "Verification",
+              "standard": "Verify the unexpected request through a pre-established independent trusted route.",
+              "remediation": "Practise independent-channel verification."
+            },
+            {
+              "id": "C4",
+              "title": "Reporting",
+              "standard": "Name the known in-app reporting route when suspicion persists.",
+              "remediation": "Review the known reporting route."
+            },
+            {
+              "id": "C5",
+              "title": "Reasoning",
+              "standard": "Explain why branding does not authenticate a sender and why suspicion is not proof.",
+              "remediation": "Compare appearance with evidence."
+            },
+            {
+              "id": "C6",
+              "title": "Generalisation",
+              "standard": "Treat the routine message according to its lower-risk context without claiming certainty.",
+              "remediation": "Compare contrasting messages."
+            }
+          ]
+        },
+        "mode": "independent",
+        "assisted": false,
+        "draft": {
+          "prompt": "{\"request\":[\"delete\"],\"routine\":[\"continue-routine\"]}",
+          "checklist": "The closure demand is unexpected and urgent. I delete the message. If suspicion persists I report through the existing app Help route. A logo does not establish authenticity and suspicion is not proof.",
+          "explanation": "The routine reminder matches my session, but its sender is not proven genuine."
+        },
+        "practice": [],
+        "help": [],
+        "response": "No Practice AI output. Fictional decisions.",
+        "variant": {
+          "id": "fictional-variant",
+          "version": "CY-2-lesson-v2",
+          "objectiveId": "CY-2",
+          "rubricVersion": "CY-2-v2",
+          "explanationLevel": "standard",
+          "content": "Fictional simulation. Phishing asks you to take an unsafe action while pretending to be trustworthy. Inspect the requested action and whether it matches your situation. Branding, polished wording and a secure connection do not authenticate the sender. Pause and verify unexpected sensitive requests through a route you already trust. Report persistent suspicion through the known service channel. An urgent message is not automatically fraudulent.\n\nSeparate suspicious cues from proof. Explain remaining uncertainty and select actions suited to each message's context.",
+          "hash": "6a94660292e801f59e283ce3c7ace86a958026a0c4cf0e967fc97130cce8f83d",
+          "locale": "en"
+        }
+      },
+      "expected": {
+        "criteria": {
+          "C1": "met",
+          "C2": "met",
+          "C3": "unmet",
+          "C4": "met",
+          "C5": "met",
+          "C6": "met"
+        },
+        "outcome": "developing",
+        "misconception": "none"
+      }
+    },
+    {
+      "id": "CY-overgeneralisation",
+      "frozen": {
+        "task": {
+          "version": "account-security-0-v2",
+          "family": "account-security",
+          "objectiveId": "CY-2",
+          "rubricVersion": "CY-2-v2",
+          "policyVersion": "pilot-v1",
+          "status": "preview",
+          "title": "StudyHub 1: fictional message decisions",
+          "source": "Simulation only. You have an existing study-service account and expected a study reminder. You already use the official StudyHub 1 app. Its Help → Report suspicious message route is known. The sensitive request is unexpected. Neither message is conclusively authenticated. All destinations are inert fictional text.",
+          "brief": "Choose actions for both messages and explain each decision. Identify what the evidence supports, what remains unknown, an independent verification route and when/where you would report. Explain what familiar branding establishes. Do not enter real credentials or personal data. A fictional .example suffix is not a scored phishing cue.",
+          "messages": [
+            {
+              "id": "request",
+              "displayName": "StudyHub 1",
+              "sender": "notice@account-security-check.example",
+              "text": "Your account will close in 30 minutes. Sign in immediately using this message's link.",
+              "destination": "account-security-check.example"
+            },
+            {
+              "id": "routine",
+              "displayName": "StudyHub 1",
+              "sender": "reminders@account-security.example",
+              "text": "Your planned study session is today. No sign-in or sensitive information is requested.",
+              "destination": "No destination or sensitive action requested"
+            }
+          ],
+          "criteria": [
+            {
+              "id": "C1",
+              "title": "Evidence",
+              "standard": "Identify the unexpected sensitive request and urgency, threat or scenario mismatch. Suspicion is not conclusive proof.",
+              "remediation": "Inspect the request and context."
+            },
+            {
+              "id": "C2",
+              "title": "Safe action",
+              "standard": "Avoid the message link and sending sensitive information for both messages.",
+              "remediation": "Practise safer responses."
+            },
+            {
+              "id": "C3",
+              "title": "Verification",
+              "standard": "Verify the unexpected request through a pre-established independent trusted route.",
+              "remediation": "Practise independent-channel verification."
+            },
+            {
+              "id": "C4",
+              "title": "Reporting",
+              "standard": "Name the known in-app reporting route when suspicion persists.",
+              "remediation": "Review the known reporting route."
+            },
+            {
+              "id": "C5",
+              "title": "Reasoning",
+              "standard": "Explain why branding does not authenticate a sender and why suspicion is not proof.",
+              "remediation": "Compare appearance with evidence."
+            },
+            {
+              "id": "C6",
+              "title": "Generalisation",
+              "standard": "Treat the routine message according to its lower-risk context without claiming certainty.",
+              "remediation": "Compare contrasting messages."
+            }
+          ]
+        },
+        "mode": "independent",
+        "assisted": false,
+        "draft": {
+          "prompt": "{\"request\":[\"verify\",\"report-known\"],\"routine\":[\"continue-routine\"]}",
+          "checklist": "I verify the closure demand through my existing app and report through its Help route. The unexpected sign-in request and urgent closure are suspicious.",
+          "explanation": "All messages are definitely phishing, including the routine reminder. A logo does not establish authenticity."
+        },
+        "practice": [],
+        "help": [],
+        "response": "No Practice AI output. Fictional decisions.",
+        "variant": {
+          "id": "fictional-variant",
+          "version": "CY-2-lesson-v2",
+          "objectiveId": "CY-2",
+          "rubricVersion": "CY-2-v2",
+          "explanationLevel": "standard",
+          "content": "Fictional simulation. Phishing asks you to take an unsafe action while pretending to be trustworthy. Inspect the requested action and whether it matches your situation. Branding, polished wording and a secure connection do not authenticate the sender. Pause and verify unexpected sensitive requests through a route you already trust. Report persistent suspicion through the known service channel. An urgent message is not automatically fraudulent.\n\nSeparate suspicious cues from proof. Explain remaining uncertainty and select actions suited to each message's context.",
+          "hash": "6a94660292e801f59e283ce3c7ace86a958026a0c4cf0e967fc97130cce8f83d",
+          "locale": "en"
+        }
+      },
+      "expected": {
+        "criteria": {
+          "C1": "met",
+          "C2": "met",
+          "C3": "met",
+          "C4": "met",
+          "C5": "unmet",
+          "C6": "unmet"
+        },
+        "outcome": "developing",
+        "misconception": "none"
+      }
+    },
+    {
+      "id": "CY-substantive-help",
+      "frozen": {
+        "task": {
+          "version": "account-security-0-v2",
+          "family": "account-security",
+          "objectiveId": "CY-2",
+          "rubricVersion": "CY-2-v2",
+          "policyVersion": "pilot-v1",
+          "status": "preview",
+          "title": "StudyHub 1: fictional message decisions",
+          "source": "Simulation only. You have an existing study-service account and expected a study reminder. You already use the official StudyHub 1 app. Its Help → Report suspicious message route is known. The sensitive request is unexpected. Neither message is conclusively authenticated. All destinations are inert fictional text.",
+          "brief": "Choose actions for both messages and explain each decision. Identify what the evidence supports, what remains unknown, an independent verification route and when/where you would report. Explain what familiar branding establishes. Do not enter real credentials or personal data. A fictional .example suffix is not a scored phishing cue.",
+          "messages": [
+            {
+              "id": "request",
+              "displayName": "StudyHub 1",
+              "sender": "notice@account-security-check.example",
+              "text": "Your account will close in 30 minutes. Sign in immediately using this message's link.",
+              "destination": "account-security-check.example"
+            },
+            {
+              "id": "routine",
+              "displayName": "StudyHub 1",
+              "sender": "reminders@account-security.example",
+              "text": "Your planned study session is today. No sign-in or sensitive information is requested.",
+              "destination": "No destination or sensitive action requested"
+            }
+          ],
+          "criteria": [
+            {
+              "id": "C1",
+              "title": "Evidence",
+              "standard": "Identify the unexpected sensitive request and urgency, threat or scenario mismatch. Suspicion is not conclusive proof.",
+              "remediation": "Inspect the request and context."
+            },
+            {
+              "id": "C2",
+              "title": "Safe action",
+              "standard": "Avoid the message link and sending sensitive information for both messages.",
+              "remediation": "Practise safer responses."
+            },
+            {
+              "id": "C3",
+              "title": "Verification",
+              "standard": "Verify the unexpected request through a pre-established independent trusted route.",
+              "remediation": "Practise independent-channel verification."
+            },
+            {
+              "id": "C4",
+              "title": "Reporting",
+              "standard": "Name the known in-app reporting route when suspicion persists.",
+              "remediation": "Review the known reporting route."
+            },
+            {
+              "id": "C5",
+              "title": "Reasoning",
+              "standard": "Explain why branding does not authenticate a sender and why suspicion is not proof.",
+              "remediation": "Compare appearance with evidence."
+            },
+            {
+              "id": "C6",
+              "title": "Generalisation",
+              "standard": "Treat the routine message according to its lower-risk context without claiming certainty.",
+              "remediation": "Compare contrasting messages."
+            }
+          ]
+        },
+        "mode": "independent",
+        "assisted": true,
+        "draft": {
+          "prompt": "{\"request\":[\"verify\",\"report-known\"],\"routine\":[\"continue-routine\"]}",
+          "checklist": "The sign-in demand is unexpected and threatens immediate closure. I open my existing official app independently, not the supplied link. If suspicion persists I use Help then Report suspicious message in that app. A logo does not authenticate the sender. These cues support suspicion, not proof.",
+          "explanation": "The reminder matches my planned session and asks for no sensitive action. I continue without claiming its sender is proven genuine."
+        },
+        "practice": [],
+        "help": [],
+        "response": "No Practice AI output. Fictional decisions.",
+        "variant": {
+          "id": "fictional-variant",
+          "version": "CY-2-lesson-v2",
+          "objectiveId": "CY-2",
+          "rubricVersion": "CY-2-v2",
+          "explanationLevel": "standard",
+          "content": "Fictional simulation. Phishing asks you to take an unsafe action while pretending to be trustworthy. Inspect the requested action and whether it matches your situation. Branding, polished wording and a secure connection do not authenticate the sender. Pause and verify unexpected sensitive requests through a route you already trust. Report persistent suspicion through the known service channel. An urgent message is not automatically fraudulent.\n\nSeparate suspicious cues from proof. Explain remaining uncertainty and select actions suited to each message's context.",
+          "hash": "6a94660292e801f59e283ce3c7ace86a958026a0c4cf0e967fc97130cce8f83d",
+          "locale": "en"
+        }
+      },
+      "expected": {
+        "criteria": {
+          "C1": "met",
+          "C2": "met",
+          "C3": "met",
+          "C4": "met",
+          "C5": "met",
+          "C6": "met"
+        },
+        "outcome": "developing",
+        "misconception": "none"
+      }
+    },
+    {
+      "id": "CY-assessment-failed",
+      "frozen": {
+        "task": {
+          "version": "account-security-0-v2",
+          "family": "account-security",
+          "objectiveId": "CY-2",
+          "rubricVersion": "CY-2-v2",
+          "policyVersion": "pilot-v1",
+          "status": "preview",
+          "title": "StudyHub 1: fictional message decisions",
+          "source": "Simulation only. You have an existing study-service account and expected a study reminder. You already use the official StudyHub 1 app. Its Help → Report suspicious message route is known. The sensitive request is unexpected. Neither message is conclusively authenticated. All destinations are inert fictional text.",
+          "brief": "Choose actions for both messages and explain each decision. Identify what the evidence supports, what remains unknown, an independent verification route and when/where you would report. Explain what familiar branding establishes. Do not enter real credentials or personal data. A fictional .example suffix is not a scored phishing cue.",
+          "messages": [
+            {
+              "id": "request",
+              "displayName": "StudyHub 1",
+              "sender": "notice@account-security-check.example",
+              "text": "Your account will close in 30 minutes. Sign in immediately using this message's link.",
+              "destination": "account-security-check.example"
+            },
+            {
+              "id": "routine",
+              "displayName": "StudyHub 1",
+              "sender": "reminders@account-security.example",
+              "text": "Your planned study session is today. No sign-in or sensitive information is requested.",
+              "destination": "No destination or sensitive action requested"
+            }
+          ],
+          "criteria": [
+            {
+              "id": "C1",
+              "title": "Evidence",
+              "standard": "Identify the unexpected sensitive request and urgency, threat or scenario mismatch. Suspicion is not conclusive proof.",
+              "remediation": "Inspect the request and context."
+            },
+            {
+              "id": "C2",
+              "title": "Safe action",
+              "standard": "Avoid the message link and sending sensitive information for both messages.",
+              "remediation": "Practise safer responses."
+            },
+            {
+              "id": "C3",
+              "title": "Verification",
+              "standard": "Verify the unexpected request through a pre-established independent trusted route.",
+              "remediation": "Practise independent-channel verification."
+            },
+            {
+              "id": "C4",
+              "title": "Reporting",
+              "standard": "Name the known in-app reporting route when suspicion persists.",
+              "remediation": "Review the known reporting route."
+            },
+            {
+              "id": "C5",
+              "title": "Reasoning",
+              "standard": "Explain why branding does not authenticate a sender and why suspicion is not proof.",
+              "remediation": "Compare appearance with evidence."
+            },
+            {
+              "id": "C6",
+              "title": "Generalisation",
+              "standard": "Treat the routine message according to its lower-risk context without claiming certainty.",
+              "remediation": "Compare contrasting messages."
+            }
+          ]
+        },
+        "mode": "independent",
+        "assisted": false,
+        "draft": {
+          "prompt": "{\"request\":[\"verify\",\"report-known\"],\"routine\":[\"continue-routine\"]}",
+          "checklist": "The sign-in demand is unexpected and threatens immediate closure. I open my existing official app independently, not the supplied link. If suspicion persists I use Help then Report suspicious message in that app. A logo does not authenticate the sender. These cues support suspicion, not proof.",
+          "explanation": "The reminder matches my planned session and asks for no sensitive action. I continue without claiming its sender is proven genuine."
+        },
+        "practice": [],
+        "help": [],
+        "response": "No Practice AI output. Fictional decisions.",
+        "variant": {
+          "id": "fictional-variant",
+          "version": "CY-2-lesson-v2",
+          "objectiveId": "CY-2",
+          "rubricVersion": "CY-2-v2",
+          "explanationLevel": "standard",
+          "content": "Fictional simulation. Phishing asks you to take an unsafe action while pretending to be trustworthy. Inspect the requested action and whether it matches your situation. Branding, polished wording and a secure connection do not authenticate the sender. Pause and verify unexpected sensitive requests through a route you already trust. Report persistent suspicion through the known service channel. An urgent message is not automatically fraudulent.\n\nSeparate suspicious cues from proof. Explain remaining uncertainty and select actions suited to each message's context.",
+          "hash": "6a94660292e801f59e283ce3c7ace86a958026a0c4cf0e967fc97130cce8f83d",
+          "locale": "en"
+        }
+      },
+      "expected": {
+        "criteria": {
+          "C1": "uncertain",
+          "C2": "uncertain",
+          "C3": "uncertain",
+          "C4": "uncertain",
+          "C5": "uncertain",
+          "C6": "uncertain"
+        },
+        "outcome": "unavailable",
+        "misconception": "none"
+      }
+    },
+    {
+      "id": "CY-recall-policy",
+      "frozen": {
+        "task": {
+          "version": "account-security-1-v2",
+          "family": "account-security",
+          "objectiveId": "CY-2",
+          "rubricVersion": "CY-2-v2",
+          "policyVersion": "pilot-v1",
+          "status": "preview",
+          "title": "StudyHub 2: fictional message decisions",
+          "source": "Simulation only. You have an existing study-service account and expected a study reminder. You already use the official StudyHub 2 app. Its Help → Report suspicious message route is known. The sensitive request is unexpected. Neither message is conclusively authenticated. All destinations are inert fictional text.",
+          "brief": "Choose actions for both messages and explain each decision. Identify what the evidence supports, what remains unknown, an independent verification route and when/where you would report. Explain what familiar branding establishes. Do not enter real credentials or personal data. A fictional .example suffix is not a scored phishing cue.",
+          "messages": [
+            {
+              "id": "request",
+              "displayName": "StudyHub 2",
+              "sender": "notice@account-security-check.example",
+              "text": "Your account will close in 30 minutes. Sign in immediately using this message's link.",
+              "destination": "account-security-check.example"
+            },
+            {
+              "id": "routine",
+              "displayName": "StudyHub 2",
+              "sender": "reminders@account-security.example",
+              "text": "Your planned study session is today. No sign-in or sensitive information is requested.",
+              "destination": "No destination or sensitive action requested"
+            }
+          ],
+          "criteria": [
+            {
+              "id": "C1",
+              "title": "Evidence",
+              "standard": "Identify the unexpected sensitive request and urgency, threat or scenario mismatch. Suspicion is not conclusive proof.",
+              "remediation": "Inspect the request and context."
+            },
+            {
+              "id": "C2",
+              "title": "Safe action",
+              "standard": "Avoid the message link and sending sensitive information for both messages.",
+              "remediation": "Practise safer responses."
+            },
+            {
+              "id": "C3",
+              "title": "Verification",
+              "standard": "Verify the unexpected request through a pre-established independent trusted route.",
+              "remediation": "Practise independent-channel verification."
+            },
+            {
+              "id": "C4",
+              "title": "Reporting",
+              "standard": "Name the known in-app reporting route when suspicion persists.",
+              "remediation": "Review the known reporting route."
+            },
+            {
+              "id": "C5",
+              "title": "Reasoning",
+              "standard": "Explain why branding does not authenticate a sender and why suspicion is not proof.",
+              "remediation": "Compare appearance with evidence."
+            },
+            {
+              "id": "C6",
+              "title": "Generalisation",
+              "standard": "Treat the routine message according to its lower-risk context without claiming certainty.",
+              "remediation": "Compare contrasting messages."
+            }
+          ]
+        },
+        "mode": "recall",
+        "assisted": false,
+        "draft": {
+          "prompt": "{\"request\":[\"verify\",\"report-known\"],\"routine\":[\"continue-routine\"]}",
+          "checklist": "The sign-in demand is unexpected and threatens immediate closure. I open my existing official app independently, not the supplied link. If suspicion persists I use Help then Report suspicious message in that app. A logo does not authenticate the sender. These cues support suspicion, not proof.",
+          "explanation": "The reminder matches my planned session and asks for no sensitive action. I continue without claiming its sender is proven genuine."
+        },
+        "practice": [],
+        "help": [],
+        "response": "No Practice AI output. Fictional decisions.",
+        "variant": {
+          "id": "fictional-variant",
+          "version": "CY-2-lesson-v2",
+          "objectiveId": "CY-2",
+          "rubricVersion": "CY-2-v2",
+          "explanationLevel": "standard",
+          "content": "Fictional simulation. Phishing asks you to take an unsafe action while pretending to be trustworthy. Inspect the requested action and whether it matches your situation. Branding, polished wording and a secure connection do not authenticate the sender. Pause and verify unexpected sensitive requests through a route you already trust. Report persistent suspicion through the known service channel. An urgent message is not automatically fraudulent.\n\nSeparate suspicious cues from proof. Explain remaining uncertainty and select actions suited to each message's context.",
+          "hash": "6a94660292e801f59e283ce3c7ace86a958026a0c4cf0e967fc97130cce8f83d",
+          "locale": "en"
+        }
+      },
+      "expected": {
+        "criteria": {
+          "C1": "met",
+          "C2": "met",
+          "C3": "met",
+          "C4": "met",
+          "C5": "met",
+          "C6": "met"
+        },
+        "outcome": "recall-recorded",
+        "misconception": "none"
+      }
+    },
+    {
+      "id": "CY-transfer-policy",
+      "frozen": {
+        "task": {
+          "version": "recruitment-1-v2",
+          "family": "recruitment",
+          "objectiveId": "CY-2",
+          "rubricVersion": "CY-2-v2",
+          "policyVersion": "pilot-v1",
+          "status": "preview",
+          "title": "CareerConnect 2: fictional message decisions",
+          "source": "Simulation only. You have an existing recruitment-service account and expected a saved-search reminder. You already use the official CareerConnect 2 app. Its Help → Report suspicious message route is known. The sensitive request is unexpected. Neither message is conclusively authenticated. All destinations are inert fictional text.",
+          "brief": "Choose actions for both messages and explain each decision. Identify what the evidence supports, what remains unknown, an independent verification route and when/where you would report. Explain what familiar branding establishes. Do not enter real credentials or personal data. A fictional .example suffix is not a scored phishing cue.",
+          "messages": [
+            {
+              "id": "request",
+              "displayName": "CareerConnect 2",
+              "sender": "notice@recruitment-check.example",
+              "text": "You have been offered an unexpected job. Upload your identity documents immediately to keep this offer.",
+              "destination": "recruitment-check.example"
+            },
+            {
+              "id": "routine",
+              "displayName": "CareerConnect 2",
+              "sender": "reminders@recruitment.example",
+              "text": "Your saved job search has new results. No sensitive information is requested.",
+              "destination": "No destination or sensitive action requested"
+            }
+          ],
+          "criteria": [
+            {
+              "id": "C1",
+              "title": "Evidence",
+              "standard": "Identify the unexpected sensitive request and urgency, threat or scenario mismatch. Suspicion is not conclusive proof.",
+              "remediation": "Inspect the request and context."
+            },
+            {
+              "id": "C2",
+              "title": "Safe action",
+              "standard": "Avoid the message link and sending sensitive information for both messages.",
+              "remediation": "Practise safer responses."
+            },
+            {
+              "id": "C3",
+              "title": "Verification",
+              "standard": "Verify the unexpected request through a pre-established independent trusted route.",
+              "remediation": "Practise independent-channel verification."
+            },
+            {
+              "id": "C4",
+              "title": "Reporting",
+              "standard": "Name the known in-app reporting route when suspicion persists.",
+              "remediation": "Review the known reporting route."
+            },
+            {
+              "id": "C5",
+              "title": "Reasoning",
+              "standard": "Explain why branding does not authenticate a sender and why suspicion is not proof.",
+              "remediation": "Compare appearance with evidence."
+            },
+            {
+              "id": "C6",
+              "title": "Generalisation",
+              "standard": "Treat the routine message according to its lower-risk context without claiming certainty.",
+              "remediation": "Compare contrasting messages."
+            }
+          ]
+        },
+        "mode": "transfer",
+        "assisted": false,
+        "draft": {
+          "prompt": "{\"request\":[\"verify\",\"report-known\"],\"routine\":[\"continue-routine\"]}",
+          "checklist": "The identity-document demand is unexpected and threatens immediate offer withdrawal. I open my existing official app independently, not the supplied link. If suspicion persists I use Help then Report suspicious message in that app. A logo does not authenticate the sender. These cues support suspicion, not proof.",
+          "explanation": "The saved-search reminder matches my planned search and asks for no sensitive action. I continue without claiming its sender is proven genuine."
+        },
+        "practice": [],
+        "help": [],
+        "response": "No Practice AI output. Fictional decisions.",
+        "variant": {
+          "id": "fictional-variant",
+          "version": "CY-2-lesson-v2",
+          "objectiveId": "CY-2",
+          "rubricVersion": "CY-2-v2",
+          "explanationLevel": "standard",
+          "content": "Fictional simulation. Phishing asks you to take an unsafe action while pretending to be trustworthy. Inspect the requested action and whether it matches your situation. Branding, polished wording and a secure connection do not authenticate the sender. Pause and verify unexpected sensitive requests through a route you already trust. Report persistent suspicion through the known service channel. An urgent message is not automatically fraudulent.\n\nSeparate suspicious cues from proof. Explain remaining uncertainty and select actions suited to each message's context.",
+          "hash": "6a94660292e801f59e283ce3c7ace86a958026a0c4cf0e967fc97130cce8f83d",
+          "locale": "en"
+        }
+      },
+      "expected": {
+        "criteria": {
+          "C1": "met",
+          "C2": "met",
+          "C3": "met",
+          "C4": "met",
+          "C5": "met",
+          "C6": "met"
+        },
+        "outcome": "transfer-recorded",
+        "misconception": "none"
+      }
+    }
+  ],
+  "results": [
+    {
+      "id": "CY-safe-branch",
+      "sample": 1,
+      "httpStatus": 200,
+      "diagnostic": null,
+      "simulatedFailure": false,
+      "outcome": "demonstrated",
+      "expectedOutcome": "demonstrated",
+      "differences": [],
+      "unexpectedDemonstration": false,
+      "pass": true,
+      "decision": {
+        "status": "succeeded",
+        "rubricVersion": "CY-2-v2",
+        "policyVersion": "pilot-v1",
+        "criteria": [
+          {
+            "id": "C1",
+            "result": "met",
+            "reason": "complete",
+            "citations": [
+              {
+                "field": "checklist",
+                "quote": "The sign-in demand is unexpected and threatens immediate closure.",
+                "start": 0,
+                "end": 65
+              },
+              {
+                "field": "checklist",
+                "quote": "These cues support suspicion, not proof.",
+                "start": 254,
+                "end": 294
+              }
+            ],
+            "feedback": "Your cited work meets evidence."
+          },
+          {
+            "id": "C2",
+            "result": "met",
+            "reason": "complete",
+            "citations": [
+              {
+                "field": "prompt",
+                "quote": "{\"request\":[\"verify\",\"report-known\"],\"routine\":[\"continue-routine\"]}",
+                "start": 0,
+                "end": 68
+              }
+            ],
+            "feedback": "Neither message selects the link or sensitive-information reply."
+          },
+          {
+            "id": "C3",
+            "result": "met",
+            "reason": "complete",
+            "citations": [
+              {
+                "field": "checklist",
+                "quote": "I open my existing official app independently, not the supplied link.",
+                "start": 66,
+                "end": 135
+              }
+            ],
+            "feedback": "Your cited work meets verification."
+          },
+          {
+            "id": "C4",
+            "result": "met",
+            "reason": "complete",
+            "citations": [
+              {
+                "field": "checklist",
+                "quote": "If suspicion persists I use Help then Report suspicious message in that app.",
+                "start": 136,
+                "end": 212
+              }
+            ],
+            "feedback": "Your cited work meets reporting."
+          },
+          {
+            "id": "C5",
+            "result": "met",
+            "reason": "complete",
+            "citations": [
+              {
+                "field": "checklist",
+                "quote": "A logo does not authenticate the sender.",
+                "start": 213,
+                "end": 253
+              },
+              {
+                "field": "checklist",
+                "quote": "These cues support suspicion, not proof.",
+                "start": 254,
+                "end": 294
+              },
+              {
+                "field": "explanation",
+                "quote": "The reminder matches my planned session and asks for no sensitive action.",
+                "start": 0,
+                "end": 73
+              },
+              {
+                "field": "explanation",
+                "quote": "I continue without claiming its sender is proven genuine.",
+                "start": 74,
+                "end": 131
+              }
+            ],
+            "feedback": "Your cited work meets reasoning."
+          },
+          {
+            "id": "C6",
+            "result": "met",
+            "reason": "complete",
+            "citations": [
+              {
+                "field": "explanation",
+                "quote": "The reminder matches my planned session and asks for no sensitive action.",
+                "start": 0,
+                "end": 73
+              },
+              {
+                "field": "explanation",
+                "quote": "I continue without claiming its sender is proven genuine.",
+                "start": 74,
+                "end": 131
+              }
+            ],
+            "feedback": "Your cited work meets generalisation."
+          }
+        ],
+        "code": null
+      },
+      "structuredInput": {
+        "policyVersion": "pilot-v1",
+        "rubricVersion": "CY-2-v2",
+        "criteria": [
+          {
+            "id": "C1",
+            "result": "met",
+            "reason": "complete",
+            "citations": [
+              {
+                "field": "checklist",
+                "quote": "The sign-in demand is unexpected and threatens immediate closure."
+              },
+              {
+                "field": "checklist",
+                "quote": "These cues support suspicion, not proof."
+              }
+            ]
+          },
+          {
+            "id": "C2",
+            "result": "met",
+            "reason": "complete",
+            "citations": [
+              {
+                "field": "checklist",
+                "quote": "I open my existing official app independently, not the supplied link."
+              }
+            ]
+          },
+          {
+            "id": "C3",
+            "result": "met",
+            "reason": "complete",
+            "citations": [
+              {
+                "field": "checklist",
+                "quote": "I open my existing official app independently, not the supplied link."
+              }
+            ]
+          },
+          {
+            "id": "C4",
+            "result": "met",
+            "reason": "complete",
+            "citations": [
+              {
+                "field": "checklist",
+                "quote": "If suspicion persists I use Help then Report suspicious message in that app."
+              }
+            ]
+          },
+          {
+            "id": "C5",
+            "result": "met",
+            "reason": "complete",
+            "citations": [
+              {
+                "field": "checklist",
+                "quote": "A logo does not authenticate the sender."
+              },
+              {
+                "field": "checklist",
+                "quote": "These cues support suspicion, not proof."
+              },
+              {
+                "field": "explanation",
+                "quote": "The reminder matches my planned session and asks for no sensitive action."
+              },
+              {
+                "field": "explanation",
+                "quote": "I continue without claiming its sender is proven genuine."
+              }
+            ]
+          },
+          {
+            "id": "C6",
+            "result": "met",
+            "reason": "complete",
+            "citations": [
+              {
+                "field": "explanation",
+                "quote": "The reminder matches my planned session and asks for no sensitive action."
+              },
+              {
+                "field": "explanation",
+                "quote": "I continue without claiming its sender is proven genuine."
+              }
+            ]
+          }
+        ],
+        "status": "succeeded"
+      }
+    },
+    {
+      "id": "CY-dangerous-choice",
+      "sample": 1,
+      "httpStatus": 200,
+      "diagnostic": null,
+      "simulatedFailure": false,
+      "outcome": "pending",
+      "expectedOutcome": "pending",
+      "differences": [],
+      "unexpectedDemonstration": false,
+      "pass": true,
+      "decision": {
+        "status": "uncertain",
+        "rubricVersion": "CY-2-v2",
+        "policyVersion": "pilot-v1",
+        "criteria": [
+          {
+            "id": "C1",
+            "result": "met",
+            "reason": "complete",
+            "citations": [
+              {
+                "field": "checklist",
+                "quote": "The sign-in demand is unexpected and threatens immediate closure.",
+                "start": 0,
+                "end": 65
+              },
+              {
+                "field": "checklist",
+                "quote": "A logo does not authenticate the sender.",
+                "start": 213,
+                "end": 253
+              },
+              {
+                "field": "checklist",
+                "quote": "These cues support suspicion, not proof.",
+                "start": 254,
+                "end": 294
+              }
+            ],
+            "feedback": "Your cited work meets evidence."
+          },
+          {
+            "id": "C2",
+            "result": "not_met",
+            "reason": "unsafe_action",
+            "citations": [
+              {
+                "field": "prompt",
+                "quote": "{\"request\":[\"verify\",\"report-known\",\"use-link\"],\"routine\":[\"continue-routine\"]}",
+                "start": 0,
+                "end": 79
+              }
+            ],
+            "feedback": "A selected message link or sensitive-information reply is unsafe. Choose a response through an independent trusted route."
+          },
+          {
+            "id": "C3",
+            "result": "met",
+            "reason": "complete",
+            "citations": [
+              {
+                "field": "checklist",
+                "quote": "I open my existing official app independently, not the supplied link.",
+                "start": 66,
+                "end": 135
+              }
+            ],
+            "feedback": "Your cited work meets verification."
+          },
+          {
+            "id": "C4",
+            "result": "met",
+            "reason": "complete",
+            "citations": [
+              {
+                "field": "checklist",
+                "quote": "If suspicion persists I use Help then Report suspicious message in that app.",
+                "start": 136,
+                "end": 212
+              }
+            ],
+            "feedback": "Your cited work meets reporting."
+          },
+          {
+            "id": "C5",
+            "result": "uncertain",
+            "reason": "ambiguous",
+            "citations": [
+              {
+                "field": "checklist",
+                "quote": "A logo does not authenticate the sender.",
+                "start": 213,
+                "end": 253
+              },
+              {
+                "field": "checklist",
+                "quote": "These cues support suspicion, not proof.",
+                "start": 254,
+                "end": 294
+              }
+            ],
+            "feedback": "The selected unsafe action conflicts with otherwise safe reasoning. Clarify the decision on a fresh task. No new demonstration is awarded."
+          },
+          {
+            "id": "C6",
+            "result": "met",
+            "reason": "complete",
+            "citations": [
+              {
+                "field": "explanation",
+                "quote": "The reminder matches my planned session and asks for no sensitive action.",
+                "start": 0,
+                "end": 73
+              },
+              {
+                "field": "explanation",
+                "quote": "I continue without claiming its sender is proven genuine.",
+                "start": 74,
+                "end": 131
+              }
+            ],
+            "feedback": "Your cited work meets generalisation."
+          }
+        ],
+        "code": "ASSESSOR_UNCERTAIN"
+      },
+      "structuredInput": {
+        "policyVersion": "pilot-v1",
+        "rubricVersion": "CY-2-v2",
+        "criteria": [
+          {
+            "id": "C1",
+            "result": "met",
+            "reason": "complete",
+            "citations": [
+              {
+                "field": "checklist",
+                "quote": "The sign-in demand is unexpected and threatens immediate closure."
+              },
+              {
+                "field": "checklist",
+                "quote": "A logo does not authenticate the sender."
+              },
+              {
+                "field": "checklist",
+                "quote": "These cues support suspicion, not proof."
+              }
+            ]
+          },
+          {
+            "id": "C2",
+            "result": "uncertain",
+            "reason": "conflicting_actions",
+            "citations": [
+              {
+                "field": "explanation",
+                "quote": "The reminder matches my planned session and asks for no sensitive action."
+              }
+            ]
+          },
+          {
+            "id": "C3",
+            "result": "met",
+            "reason": "complete",
+            "citations": [
+              {
+                "field": "checklist",
+                "quote": "I open my existing official app independently, not the supplied link."
+              }
+            ]
+          },
+          {
+            "id": "C4",
+            "result": "met",
+            "reason": "complete",
+            "citations": [
+              {
+                "field": "checklist",
+                "quote": "If suspicion persists I use Help then Report suspicious message in that app."
+              }
+            ]
+          },
+          {
+            "id": "C5",
+            "result": "met",
+            "reason": "complete",
+            "citations": [
+              {
+                "field": "checklist",
+                "quote": "A logo does not authenticate the sender."
+              },
+              {
+                "field": "checklist",
+                "quote": "These cues support suspicion, not proof."
+              }
+            ]
+          },
+          {
+            "id": "C6",
+            "result": "met",
+            "reason": "complete",
+            "citations": [
+              {
+                "field": "explanation",
+                "quote": "The reminder matches my planned session and asks for no sensitive action."
+              },
+              {
+                "field": "explanation",
+                "quote": "I continue without claiming its sender is proven genuine."
+              }
+            ]
+          }
+        ],
+        "status": "uncertain"
+      }
+    },
+    {
+      "id": "CY-delete-not-verification",
+      "sample": 1,
+      "httpStatus": 200,
+      "diagnostic": null,
+      "simulatedFailure": false,
+      "outcome": "developing",
+      "expectedOutcome": "developing",
+      "differences": [],
+      "unexpectedDemonstration": false,
+      "pass": true,
+      "decision": {
+        "status": "succeeded",
+        "rubricVersion": "CY-2-v2",
+        "policyVersion": "pilot-v1",
+        "criteria": [
+          {
+            "id": "C1",
+            "result": "met",
+            "reason": "complete",
+            "citations": [
+              {
+                "field": "checklist",
+                "quote": "The closure demand is unexpected and urgent.",
+                "start": 0,
+                "end": 44
+              }
+            ],
+            "feedback": "Your cited work meets evidence."
+          },
+          {
+            "id": "C2",
+            "result": "met",
+            "reason": "complete",
+            "citations": [
+              {
+                "field": "prompt",
+                "quote": "{\"request\":[\"delete\"],\"routine\":[\"continue-routine\"]}",
+                "start": 0,
+                "end": 53
+              }
+            ],
+            "feedback": "Neither message selects the link or sensitive-information reply."
+          },
+          {
+            "id": "C3",
+            "result": "not_met",
+            "reason": "missing",
+            "citations": [
+              {
+                "field": "checklist",
+                "quote": "I delete the message.",
+                "start": 45,
+                "end": 66
+              }
+            ],
+            "feedback": "Practise independent-channel verification."
+          },
+          {
+            "id": "C4",
+            "result": "met",
+            "reason": "complete",
+            "citations": [
+              {
+                "field": "checklist",
+                "quote": "If suspicion persists I report through the existing app Help route.",
+                "start": 67,
+                "end": 134
+              }
+            ],
+            "feedback": "Your cited work meets reporting."
+          },
+          {
+            "id": "C5",
+            "result": "met",
+            "reason": "complete",
+            "citations": [
+              {
+                "field": "checklist",
+                "quote": "A logo does not establish authenticity and suspicion is not proof.",
+                "start": 135,
+                "end": 201
+              }
+            ],
+            "feedback": "Your cited work meets reasoning."
+          },
+          {
+            "id": "C6",
+            "result": "met",
+            "reason": "complete",
+            "citations": [
+              {
+                "field": "explanation",
+                "quote": "The routine reminder matches my session, but its sender is not proven genuine.",
+                "start": 0,
+                "end": 78
+              }
+            ],
+            "feedback": "Your cited work meets generalisation."
+          }
+        ],
+        "code": null
+      },
+      "structuredInput": {
+        "policyVersion": "pilot-v1",
+        "rubricVersion": "CY-2-v2",
+        "criteria": [
+          {
+            "id": "C1",
+            "result": "met",
+            "reason": "complete",
+            "citations": [
+              {
+                "field": "checklist",
+                "quote": "The closure demand is unexpected and urgent."
+              }
+            ]
+          },
+          {
+            "id": "C2",
+            "result": "met",
+            "reason": "complete",
+            "citations": [
+              {
+                "field": "checklist",
+                "quote": "I delete the message."
+              }
+            ]
+          },
+          {
+            "id": "C3",
+            "result": "not_met",
+            "reason": "missing",
+            "citations": [
+              {
+                "field": "checklist",
+                "quote": "I delete the message."
+              }
+            ]
+          },
+          {
+            "id": "C4",
+            "result": "met",
+            "reason": "complete",
+            "citations": [
+              {
+                "field": "checklist",
+                "quote": "If suspicion persists I report through the existing app Help route."
+              }
+            ]
+          },
+          {
+            "id": "C5",
+            "result": "met",
+            "reason": "complete",
+            "citations": [
+              {
+                "field": "checklist",
+                "quote": "A logo does not establish authenticity and suspicion is not proof."
+              }
+            ]
+          },
+          {
+            "id": "C6",
+            "result": "met",
+            "reason": "complete",
+            "citations": [
+              {
+                "field": "explanation",
+                "quote": "The routine reminder matches my session, but its sender is not proven genuine."
+              }
+            ]
+          }
+        ],
+        "status": "succeeded"
+      }
+    }
+  ],
+  "summary": {
+    "completed": 3,
+    "matching": 3,
+    "providerFailures": 0,
+    "unexpectedDemonstrations": 0
+  }
+}

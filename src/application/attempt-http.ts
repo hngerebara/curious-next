@@ -29,8 +29,8 @@ export function attemptHttp(auth:Pick<AuthPort,"session">,store:AttemptStore,ser
       const data=await body(request);const fields=Object.keys(data).sort().join();
       const revision=()=>{if(fields !== "revision" || !Number.isSafeInteger(data.revision) || Number(data.revision)<0)throw new Error("INVALID_BODY");return Number(data.revision);};
       if(!id && request.method === "POST") {
-        if(fields !== "enrollmentId,mode" || typeof data.enrollmentId !== "string" || data.enrollmentId.length>80 || !["practice","independent"].includes(String(data.mode)))throw new Error("INVALID_BODY");
-        return reply(200,await service.create(learner.id,data.enrollmentId,data.mode as "practice"|"independent",key(request)));
+        if(fields !== "enrollmentId,mode" || typeof data.enrollmentId !== "string" || data.enrollmentId.length>80 || !["practice","independent","recall","transfer"].includes(String(data.mode)))throw new Error("INVALID_BODY");
+        return reply(200,await service.create(learner.id,data.enrollmentId,data.mode as "practice"|"independent"|"recall"|"transfer",key(request)));
       }
       if(!id)throw new Error("INVALID_BODY");
       if(request.method === "PATCH") {
@@ -54,7 +54,7 @@ export function attemptHttp(auth:Pick<AuthPort,"session">,store:AttemptStore,ser
     }catch(error){
       const code=error instanceof Error?error.message:"UNAVAILABLE";
       if(code === "NOT_FOUND")return reply(404,code,true);
-      if(["REQUEST_CONFLICT","DRAFT_CONFLICT","ATTEMPT_FROZEN","GENERATION_PENDING","CONFIGURATION_CHANGED","PLACEMENT_REQUIRED","SUBMISSION_REQUIRED","ASSESSMENT_REQUIRED"].includes(code))return reply(409,code,true);
+      if(["REQUEST_CONFLICT","DRAFT_CONFLICT","ATTEMPT_FROZEN","GENERATION_PENDING","CONFIGURATION_CHANGED","PLACEMENT_REQUIRED","SUBMISSION_REQUIRED","ASSESSMENT_REQUIRED","ACTIVITY_NOT_AVAILABLE","ACTIVITY_ALREADY_STARTED"].includes(code))return reply(409,code,true);
       if(["PRACTICE_LIMIT","FRESH_TASKS_EXHAUSTED"].includes(code))return reply(429,code,true);
       if(code === "BODY_TOO_LARGE")return reply(413,code,true);
       if(["INVALID_BODY","INCOMPLETE_SUBMISSION"].includes(code) || error instanceof SyntaxError)return reply(400,code === "INCOMPLETE_SUBMISSION"?code:"INVALID_BODY",true);

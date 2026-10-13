@@ -519,6 +519,23 @@
         "## Feedback integrity and recovery",
         "## Reproduction and remaining release gates"
       ]
+    },
+    "docs/exec-plans/active/adaptive-loop.md": {
+      "required_headings": [
+        "# CN-ADAPT-001: Cybersecurity and retention preview",
+        "## Plan lifecycle",
+        "## Deliverables",
+        "## Validation and remaining gates"
+      ]
+    },
+    "docs/design-docs/adaptive-loop-acceptance.md": {
+      "required_headings": [
+        "# M4 adaptive-loop acceptance",
+        "## Scope and status",
+        "## Evidence and recovery",
+        "## Configured study and review",
+        "## Remaining acceptance"
+      ]
     }
   },
   "layers": {

@@ -1,4 +1,4 @@
-import type { CriterionId, Frozen } from "../contracts/attempt";
+import type { AiCriterionId, Frozen } from "../contracts/attempt";
 import { responseInspection } from "./response-inspection";
 
 // Versioned adapter configuration pins this wording. Historical feedback is never rebuilt.
@@ -12,8 +12,8 @@ const reasons = {
 };
 export const feedbackVersion = "criterion-reasons-v1";
 export const feedbackConfiguration = JSON.stringify({version:feedbackVersion,reasons,inspectionVersion:"complete-explicit-qa-v2"});
-export function assessmentReasons(id: CriterionId) { return [...Object.keys(reasons[id]), "ambiguous"]; }
-export function assessmentFeedback(id: CriterionId, result: unknown, reason: unknown, frozen: Frozen): string | null {
+export function assessmentReasons(id: AiCriterionId) { return [...Object.keys(reasons[id]), "ambiguous"]; }
+export function assessmentFeedback(id: AiCriterionId, result: unknown, reason: unknown, frozen: Frozen): string | null {
   if (typeof reason !== "string" || !assessmentReasons(id).includes(reason)) return null;
   if (result === "met" ? reason !== "complete" : result === "uncertain" ? reason !== "ambiguous" : result === "not_met" ? ["complete", "ambiguous"].includes(reason) : true) return null;
   let text = reason === "ambiguous" ? "The saved evidence is ambiguous for this criterion. No new demonstration is awarded. Review the cited work or request optional review." : (reasons[id] as Record<string,string>)[reason];
