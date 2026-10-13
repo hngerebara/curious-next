@@ -12,6 +12,7 @@ export function decision(frozen:Frozen,result="met") {
 }
 export async function attemptHarness(assess:Assessor["assess"] = async frozen=>decision(frozen),respond:PracticeModel["respond"] = async()=>response) {
   const h=await courseHarness();await h.sql.exec(await readFile(new URL("../migrations/0004-attempt-loop.sql",import.meta.url),"utf8"));
+  await h.sql.exec(await readFile(new URL("../migrations/0005-retention-modes.sql",import.meta.url),"utf8"));
   const goal=await h.goal();const plan=await h.service.generate("learner-a",goal.id,h.key());const enrollment=await h.service.accept("learner-a",plan.id,h.key());await h.service.place("learner-a",enrollment.id,"skip");
   const store=attemptStore(h.db);let modelCalls=0,assessorCalls=0;
   const service=attemptService(store,h.store,{configuration:"practice-test-v1",async respond(...args){modelCalls++;return respond(...args);}},{configuration:"assessor-test-v1",async assess(frozen){assessorCalls++;return assess(frozen);}},{allow:async()=>true},{emit:()=>{}});

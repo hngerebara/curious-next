@@ -32,3 +32,5 @@ The user authorised the bounded M2 course-plan preview on 2026-10-09 while M1/M1
 Per [ADR-004](docs/design-docs/decisions/004-local-email-preview.md), the user defers actual inbox delivery until deployment. Local M2 uses captured test mail with real Better Auth and Neon persistence/isolation, plus actual screen-reader validation. This does not establish ownership of real email addresses.
 
 On 2026-10-09 the user explicitly authorised M3 preview implementation while M2's actual screen-reader walkthrough remains pending. This sequencing exception does not complete M2 or approve learner release. [CN-ATTEMPT-001](docs/exec-plans/completed/attempt-loop.md) starts with the AI-2 reference loop and includes lesson-variant V9 alongside M3 scenarios.
+
+On 2026-10-13 the user authorised M4 preview implementation while M2 actual screen-reader acceptance remains open. This sequencing exception permits fictional implementation/validation, not learner release. [CN-ADAPT-001](docs/exec-plans/active/adaptive-loop.md).

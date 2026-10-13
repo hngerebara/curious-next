@@ -12,7 +12,7 @@ describe("durable AI-2 loop",{timeout:20000},()=>{
     await h.attempts.submit("learner-a",practice.id,practice.revision,h.key());await h.loop.assess("learner-a",practice.id);
     const developing=await h.loop.learning("learner-a",h.enrollment.id);expect(developing.capability.state).toBe("developing");expect(developing.recallDueAt).toBeNull();expect(developing.evidence[0].type).toBe("assisted_application");
     const proof=await h.submitted();expect(proof.submission!.frozen.help).toHaveLength(0);await h.loop.assess("learner-a",proof.id);
-    const demonstrated=await h.loop.learning("learner-a",h.enrollment.id);expect(demonstrated.capability.state).toBe("demonstrated");expect(demonstrated.recommendation.objectiveId).toBe("AI-3");expect(demonstrated.evidence).toHaveLength(2);expect(demonstrated.recallDueAt).not.toBeNull();expect(demonstrated.capability.retention).toBe("not_checked");
+    const demonstrated=await h.loop.learning("learner-a",h.enrollment.id);expect(demonstrated.capability.state).toBe("demonstrated");expect(demonstrated.recommendation).toMatchObject({objectiveId:"AI-2",kind:"transfer"});expect(demonstrated.evidence).toHaveLength(2);expect(demonstrated.recallDueAt).not.toBeNull();expect(demonstrated.capability.retention).toBe("not_checked");
     const freshPractice=await h.prepared("practice");await h.attempts.submit("learner-a",freshPractice.id,freshPractice.revision,h.key());await h.loop.assess("learner-a",freshPractice.id);
     const later=await h.loop.learning("learner-a",h.enrollment.id);expect(later.capability.firstIndependentEvidenceId).toBe(demonstrated.capability.firstIndependentEvidenceId);expect(later.recallDueAt).toBe(demonstrated.recallDueAt);
   });

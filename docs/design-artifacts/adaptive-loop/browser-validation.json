@@ -1,0 +1,74 @@
+{
+  "date": "2026-10-14",
+  "scope": "Fictional implementing-agent preview check. Historical v9 assessor, not final-profile acceptance. No actual delayed learner study.",
+  "assessorConfiguration": "groq:openai/gpt-oss-20b:assessor:ba8b56f09ef08d3c609a81776c3a4c650e813f34dd00359f530efe952cbaadc6",
+  "finalConfigurationAccepted": false,
+  "services": {
+    "localBetterAuth": true,
+    "neon": true,
+    "configuredGroq": true
+  },
+  "branding": {
+    "confirmedWithExactQuote": true,
+    "targetedPractice": true,
+    "freshTaskContentDifferent": true,
+    "independentCorrectionAllSixMet": true,
+    "resolvedHistoryPreserved": true
+  },
+  "recovery": {
+    "simulatedProviderStatus": 400,
+    "failedState": true,
+    "noEvidenceOnFailure": true,
+    "realProviderSuccess": true,
+    "claims": 2,
+    "assessmentRecords": 2,
+    "frozenHashPreserved": true,
+    "newEvidence": 1,
+    "replayNoProvider": true,
+    "replayNoDuplicate": true,
+    "replayRecallAnchorPreserved": true
+  },
+  "transfer": {
+    "newFamily": "recruitment",
+    "allSixMet": true,
+    "routineAlternative": "delete",
+    "initialProofPreserved": true,
+    "retentionReviewPreserved": true
+  },
+  "retention": {
+    "controlledClock": true,
+    "priorEvidenceRewritten": false,
+    "actualDelayedLearnerStudy": false,
+    "failedCriterion": "C3",
+    "initialProofPreserved": true,
+    "needsReview": true,
+    "failedCheckDelayDays": 1,
+    "freshRecheckAllSixMet": true,
+    "successDelayDays": 3,
+    "transferPreserved": true
+  },
+  "restoration": {
+    "browserReload": true,
+    "misconceptionHistory": true,
+    "frozenTransfer": true,
+    "separateDimensions": true,
+    "processRestart": true
+  },
+  "accessibility": {
+    "mobileViewport": 320,
+    "mobileScrollWidth": 320,
+    "desktopViewport": 1440,
+    "desktopScrollWidth": 1440,
+    "choiceLabelCount": 12,
+    "minMobileLabelHeight": 57.59,
+    "externalWorkspaceLinks": 0,
+    "keyboardTabToCourseLink": true,
+    "focusOutline": "solid",
+    "actualScreenReader": false,
+    "liveDoubledText": false
+  },
+  "captures": {
+    "docs/design-artifacts/adaptive-loop/preview-320.jpg": "44bde60e6165157b2d6dba0c6e5842b35ac00515228328996eaafe4e4cb8a7d0",
+    "docs/design-artifacts/adaptive-loop/preview-1440.jpg": "f3fd35ba64c669fb2c3534e2be1da2df501c86256150571780c6b3956b5e03bd"
+  }
+}

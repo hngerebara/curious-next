@@ -16,13 +16,15 @@ export function promptTask(mode: Attempt["mode"], scenario = 0): Task {
     ["Elm Study Club", "Mondays", "19:30", "online", "30", "no fee"],
     ["Pine Study Club", "Wednesdays", "16:30", "at the fictional Pine Hall", "60", "no fee"],
   ];
-  const pack = packs[scenario];
+  const original = packs[scenario];
+  const pack = original && mode === "transfer" ? [`${original[0].split(" ")[0]} Community Workshop`, ...original.slice(1)] : original;
   if (!practice && !pack) throw new Error("FRESH_TASKS_EXHAUSTED");
   return {
-    version: practice ? "river-cafe-practice-v2" : `${pack[0].split(" ")[0].toLowerCase()}-proof-v2`, objectiveId: "AI-2", rubricVersion: "AI-2-v2", policyVersion: "pilot-v1", status: "preview",
+    family: mode === "transfer" ? "community-event" : "study-club",
+    version: mode === "transfer" ? `${pack[0].split(" ")[0].toLowerCase()}-workshop-transfer-v3` : practice ? "river-cafe-practice-v2" : `${pack[0].split(" ")[0].toLowerCase()}-proof-v2`, objectiveId: "AI-2", rubricVersion: "AI-2-v2", policyVersion: "pilot-v1", status: "preview",
     title: practice ? "River Cafe FAQ practice" : `${pack[0]} proof`,
     source: practice ? "Fictional River Cafe opens Monday to Saturday, 08:00 to 17:00, serves vegetarian lunch and accepts walk-ins. Delivery policy is unspecified." : `Fictional ${pack[0]} meets ${pack[1]} at ${pack[2]} ${pack[3]}, welcomes adult beginners, runs ${pack[4]}-minute sessions and charges ${pack[5]}. Recording policy is unspecified.`,
-    brief: `Create exactly three FAQ entries for prospective ${practice ? "customers, covering opening times, lunch/walk-ins and whether delivery is available" : "members, covering meeting time/location, duration/fee and whether sessions are recorded"}. Each answer must have fewer than 30 words. Use only the supplied source. State that the source does not provide the ${practice ? "delivery" : "recording"} policy. Run your prompt in Practice AI, inspect the actual output, and explain your choices. Your checklist must check count, answer length, source fidelity and the missing policy. Model mistakes do not automatically fail your work when you accurately identify them.`,
+    brief: `Create exactly three FAQ entries for prospective ${practice ? "customers, covering opening times, lunch/walk-ins and whether delivery is available" : mode === "transfer" ? "workshop attendees, covering meeting time/location, duration/fee and whether sessions are recorded" : "members, covering meeting time/location, duration/fee and whether sessions are recorded"}. Each answer must have fewer than 30 words. Use only the supplied source. State that the source does not provide the ${practice ? "delivery" : "recording"} policy. Run your prompt in Practice AI, inspect the actual output, and explain your choices. Your checklist must check count, answer length, source fidelity and the missing policy. Model mistakes do not automatically fail your work when you accurately identify them.`,
     criteria: [
       { id: "A1", title: "Task", standard: "Requests three FAQ entries for the specified audience covering all three brief topics.", remediation: "Practise stating the task and audience." },
       { id: "A2", title: "Context", standard: "Includes or explicitly references the supplied task source pack.", remediation: "Practise supplying source context." },

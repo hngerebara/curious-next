@@ -1,11 +1,11 @@
 import { pgTable, text, integer, boolean, timestamp, jsonb, uniqueIndex, primaryKey } from "drizzle-orm/pg-core";
 import { user } from "./auth-schema";
 import { previewEnrollment } from "./course-schema";
-import type { Task, Draft, Variant, Frozen, Decision, Evidence, Capability, LearningRecommendation } from "../contracts/attempt";
+import type { AttemptMode, Task, Draft, Variant, Frozen, Decision, Evidence, Capability, LearningRecommendation } from "../contracts/attempt";
 
 export const learningAttempt = pgTable("learning_attempt", {
   id: text("id").primaryKey(), learnerId: text("learner_id").notNull().references(()=>user.id,{onDelete:"cascade"}), enrollmentId: text("enrollment_id").notNull().references(()=>previewEnrollment.id,{onDelete:"cascade"}),
-  requestKey: text("request_key").notNull(), mode: text("mode").$type<"practice" | "independent">().notNull(), task: jsonb("task").$type<Task>().notNull(), draft: jsonb("draft").$type<Draft>().notNull(), revision: integer("revision").notNull().default(0), assisted: boolean("assisted").notNull().default(false), variant: jsonb("variant").$type<Variant>().notNull(), createdAt: timestamp("created_at",{withTimezone:true}).defaultNow().notNull(),
+  requestKey: text("request_key").notNull(), mode: text("mode").$type<AttemptMode>().notNull(), task: jsonb("task").$type<Task>().notNull(), draft: jsonb("draft").$type<Draft>().notNull(), revision: integer("revision").notNull().default(0), assisted: boolean("assisted").notNull().default(false), variant: jsonb("variant").$type<Variant>().notNull(), createdAt: timestamp("created_at",{withTimezone:true}).defaultNow().notNull(),
 },t=>[uniqueIndex("attempt_owner_key").on(t.learnerId,t.requestKey)]);
 export const draftRevision = pgTable("attempt_draft_revision", {
   attemptId: text("attempt_id").notNull().references(()=>learningAttempt.id,{onDelete:"cascade"}), revision: integer("revision").notNull(), draft: jsonb("draft").$type<Draft>().notNull(), createdAt: timestamp("created_at",{withTimezone:true}).defaultNow().notNull(),

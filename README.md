@@ -44,13 +44,14 @@ npm run dev
 
 Open http://127.0.0.1:3000/access for the email shell. Without service configuration it displays honest unavailable feedback. To test real delivery, configure a synthetic-data Neon database, a verified Resend sender, a random server secret of at least 32 characters and an exact BETTER_AUTH_URL origin matching your browser URL. Use HTTPS and TLS database connections on hosted environments. Keep secrets outside Git and screenshots.
 
-Apply [authentication](migrations/0001-access.sql), [course-plan](migrations/0002-course-plans.sql), [enrollment preferences](migrations/0003-enrollment-preferences.sql), and [attempt loop](migrations/0004-attempt-loop.sql) migrations in order, once each to a new isolated test database before enabling access. Use a schema-owner migration role and a separate application role. Application startup never migrates the database.
+Apply [authentication](migrations/0001-access.sql), [course-plan](migrations/0002-course-plans.sql), [enrollment preferences](migrations/0003-enrollment-preferences.sql), [attempt loop](migrations/0004-attempt-loop.sql), and [retention modes](migrations/0005-retention-modes.sql) migrations in order, once each to a new isolated test database before enabling access. Use a schema-owner migration role and a separate application role. Application startup never migrates the database.
 
 ```sh
 psql "$DATABASE_URL_UNPOOLED" --single-transaction --set ON_ERROR_STOP=1 --file migrations/0001-access.sql
 psql "$DATABASE_URL_UNPOOLED" --single-transaction --set ON_ERROR_STOP=1 --file migrations/0002-course-plans.sql
 psql "$DATABASE_URL_UNPOOLED" --single-transaction --set ON_ERROR_STOP=1 --file migrations/0003-enrollment-preferences.sql
 psql "$DATABASE_URL_UNPOOLED" --single-transaction --set ON_ERROR_STOP=1 --file migrations/0004-attempt-loop.sql
+psql "$DATABASE_URL_UNPOOLED" --single-transaction --set ON_ERROR_STOP=1 --file migrations/0005-retention-modes.sql
 ```
 
 The integration suite uses real Better Auth with a disposable PGlite PostgreSQL engine and captured test-only mail. It does not contact Neon or Resend. The [API specification](docs/design-docs/api-spec.md) documents implemented authentication/course-preview/AI-2 routes and later learning contracts. The [mobile review](docs/design-docs/authentication-review.md) records the checks and their limits.
@@ -98,3 +99,5 @@ node /tmp/cn-attempt-calibration.mjs --live --output=docs/design-artifacts/attem
 This makes sixteen Groq calls, one minute apart, plus two explicitly simulated infrastructure failures. It checks six AI-2 fixtures and two adversarial cases twice. CY-2 fixtures are reported as unrun until its assessor exists. It refuses to overwrite a prior study, saves each result immediately and keeps expected labels out of model input. A nonzero exit reports a disagreement or unavailable assessment, with results retained. Agreement with agent-assigned labels is not independent calibration approval.
 
 Assessor feedback uses criterion-specific reason codes and server-owned wording. Numeric A5 feedback comes from complete explicit Q:/A: pairs, alternative formats remain eligible and are reviewed without automatic counts. Unknown or contradictory reasons are unavailable assessments. Previous frozen results retain their original feedback and profile.
+
+M4 preview shares `/learning` and the attempt endpoints across AI-2 and CY-2. Cybersecurity enrollments expose inert fictional action choices, without Practice AI. `recall` is available only when due after independent evidence, `transfer` applies the skill in a new scenario family. Accepting instructional help keeps checks assisted. Run the operator-only CY study by bundling `scripts/evaluate-cyber-calibration.mts`, then passing `--live` and a new `--output=docs/design-artifacts/adaptive-loop/<name>.json`. Expected fixture labels stay outside the assessor payload. Subject review and independent calibration remain release gates.

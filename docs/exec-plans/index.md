@@ -2,6 +2,8 @@
 
 ## Active
 
+- [CN-ADAPT-001](active/adaptive-loop.md): authorised M4 cybersecurity, misconception correction and distinct recall/transfer preview.
+
 - [CN-ENTRY-001](active/course-entry.md): complete M2 entry and acceptance checks.
 
 - [CN-CURRICULUM-001](active/curriculum-review.md): M1 source mappings and reference rubric calibration.
