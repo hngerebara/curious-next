@@ -51,7 +51,7 @@ export function attemptStore(db: AccessDatabase, now:()=>Date = ()=>new Date()):
     async learning(owner,enrollmentId,budget) {
       const [enrollment] = await db.select().from(previewEnrollment).where(and(eq(previewEnrollment.id,enrollmentId),eq(previewEnrollment.learnerId,owner)));
       if (!enrollment) throw new Error("NOT_FOUND");
-      const rows = await db.select({id:learningAttempt.id,mode:learningAttempt.mode,assisted:learningAttempt.assisted,createdAt:learningAttempt.createdAt,submissionId:attemptSubmission.id}).from(learningAttempt).leftJoin(attemptSubmission,eq(attemptSubmission.attemptId,learningAttempt.id)).where(and(eq(learningAttempt.enrollmentId,enrollmentId),eq(learningAttempt.learnerId,owner))).orderBy(desc(learningAttempt.createdAt),desc(learningAttempt.id));
+      const rows = await db.select({id:learningAttempt.id,task:learningAttempt.task,mode:learningAttempt.mode,assisted:learningAttempt.assisted,createdAt:learningAttempt.createdAt,submissionId:attemptSubmission.id}).from(learningAttempt).leftJoin(attemptSubmission,eq(attemptSubmission.attemptId,learningAttempt.id)).where(and(eq(learningAttempt.enrollmentId,enrollmentId),eq(learningAttempt.learnerId,owner))).orderBy(desc(learningAttempt.createdAt),desc(learningAttempt.id));
       const evidence = await db.select().from(learningEvidence).where(eq(learningEvidence.learnerId,owner));
       const [next] = await db.select().from(learningNext).where(and(eq(learningNext.enrollmentId,enrollmentId),eq(learningNext.learnerId,owner)));
       const [plan] = await db.select().from(coursePlan).where(and(eq(coursePlan.id,enrollment.planId),eq(coursePlan.learnerId,owner)));
@@ -62,7 +62,7 @@ export function attemptStore(db: AccessDatabase, now:()=>Date = ()=>new Date()):
       const latest = payloads.at(-1);
       const gap = latest?.criteria.find(c=>c.result !== "met");
       const reason = gap ? `${gap.id}: ${gap.feedback}` : next?.payload.evidenceId === capability.latestEvidenceId ? next.payload.reason : undefined;
-      const attempts = rows.map(row=>({id:row.id,mode:row.mode,submitted:!!row.submissionId,assisted:row.assisted,createdAt:row.createdAt.toISOString()}));
+      const attempts = rows.map(row=>({id:row.id,title:row.task.title,mode:row.mode,submitted:!!row.submissionId,assisted:row.assisted,createdAt:row.createdAt.toISOString()}));
       return {enrollmentId,attempts,capability,evidence:payloads,recommendation:retentionRecommendation(projection,objectiveId,budget,reason),recallDueAt,recallAvailable,transferAvailable,misconceptions,objectiveId};
     },
     async save(owner,id,revision,draft) {

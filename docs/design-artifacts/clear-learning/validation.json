@@ -1,0 +1,196 @@
+{
+  "date": "2026-10-14",
+  "scope": "Implementing-agent checks on fictional local accounts, Better Auth, Neon and configured OpenAI. No real email delivery, independent calibration, actual screen-reader or hosted-worker acceptance. Numeric diagnostics exclude credentials and learner identifiers.",
+  "browser": {
+    "magicLinkExplicitConfirmation": true,
+    "openaiScamGoalPathSaved": true,
+    "beginningPlacement": true,
+    "draftReloadRestored": true,
+    "unsavedWarningCancelRetainedInput": true,
+    "crossAccountOldAttemptWriteRejected": true,
+    "brandingErrorCited": true,
+    "freshCorrectionResolved": true,
+    "feedbackHeadingFocus": true,
+    "todayPathWorkNavigation": true,
+    "mobile320NoOverflow": true,
+    "text200TodayPathWorkTaskNoOverflow": true,
+    "textResizeFindingsFixed": [
+      "brand wrapping",
+      "skip-link hiding",
+      "saved-work row wrapping"
+    ],
+    "openaiAiGoalPathSaved": true,
+    "practiceAiResponseSaved": true,
+    "aiIncorrectCountsCaught": true,
+    "aiFreshAccurateTaskAllCriteriaMet": true,
+    "earlierEnrollmentRestoredAfterGoalChange": true,
+    "helpCancelEscapeReturnedFocus": true,
+    "home320Text200NoOverflow": true,
+    "namedOwnedAttemptList": true,
+    "processRestartFeedbackRestored": true,
+    "processRestartSessionRetained": true,
+    "processRestartBothCoursePreferencesRestored": true,
+    "sharedLogoutRedirected": true,
+    "logoutProtectedLearningDenied": true,
+    "desktopBrandTargetHeight": 44,
+    "mobileBrandTargetHeight": 44,
+    "mobileFinalWidth": 320,
+    "mobileFinalContentWidth": 320
+  },
+  "recovery": {
+    "injectedHttpStatus": 400,
+    "syntheticFailure": true,
+    "failedNoNewEvidence": true,
+    "frozenHashPreserved": true,
+    "liveRetrySucceeded": true,
+    "newEvidence": 1,
+    "replayNoProvider": true,
+    "replayNoDuplicate": true,
+    "recallAnchorPreserved": true,
+    "claims": 2,
+    "assessmentRecords": 2
+  },
+  "provider": {
+    "model": "gpt-6.1-sol",
+    "cyConfiguration": "openai:gpt-6.1-sol:assessor:2fc447cd731a7855f0fd1931f53e361c9e939f96d615bbafe6713aef2747e6b9",
+    "courseCasesPassed": 9,
+    "liveAssessorCriterionMatches": 27,
+    "liveAssessorSamples": 30,
+    "outcomeMatches": 34,
+    "totalIncludingSimulatedFailures": 34,
+    "unexpectedDemonstrations": 0,
+    "supplementalCyAlternativesMatched": 6,
+    "acceptance": "open, preserved CY criterion disagreements need fixture/rubric review"
+  },
+  "pending": [
+    "actual screen-reader walkthrough",
+    "provider final acceptance and independent review"
+  ],
+  "currentProfiles": [
+    {
+      "objective": "CY-2",
+      "mode": "independent",
+      "state": "succeeded",
+      "currentConfigurationMatches": true,
+      "configuration": "openai:gpt-6.1-sol:assessor:2fc447cd731a7855f0fd1931f53e361c9e939f96d615bbafe6713aef2747e6b9",
+      "criteria": [
+        {
+          "id": "C1",
+          "result": "met"
+        },
+        {
+          "id": "C3",
+          "result": "met"
+        },
+        {
+          "id": "C4",
+          "result": "met"
+        },
+        {
+          "id": "C5",
+          "result": "met"
+        },
+        {
+          "id": "C6",
+          "result": "met"
+        },
+        {
+          "id": "C2",
+          "result": "met"
+        }
+      ],
+      "helpRecorded": false
+    },
+    {
+      "objective": "AI-2",
+      "mode": "independent",
+      "state": "succeeded",
+      "currentConfigurationMatches": true,
+      "configuration": "openai:gpt-6.1-sol:assessor:0c5bfc0315eceb04367e3ae0ce46ccb3250535a4e0498a5d69a7770d77654091",
+      "criteria": [
+        {
+          "id": "A1",
+          "result": "met"
+        },
+        {
+          "id": "A2",
+          "result": "met"
+        },
+        {
+          "id": "A3",
+          "result": "met"
+        },
+        {
+          "id": "A4",
+          "result": "met"
+        },
+        {
+          "id": "A5",
+          "result": "met"
+        },
+        {
+          "id": "A6",
+          "result": "met"
+        }
+      ],
+      "helpRecorded": false
+    },
+    {
+      "objective": "AI-2",
+      "mode": "independent",
+      "state": "succeeded",
+      "currentConfigurationMatches": true,
+      "configuration": "openai:gpt-6.1-sol:assessor:0c5bfc0315eceb04367e3ae0ce46ccb3250535a4e0498a5d69a7770d77654091",
+      "criteria": [
+        {
+          "id": "A1",
+          "result": "met"
+        },
+        {
+          "id": "A2",
+          "result": "met"
+        },
+        {
+          "id": "A3",
+          "result": "met"
+        },
+        {
+          "id": "A4",
+          "result": "met"
+        },
+        {
+          "id": "A5",
+          "result": "not_met"
+        },
+        {
+          "id": "A6",
+          "result": "met"
+        }
+      ],
+      "helpRecorded": false
+    }
+  ],
+  "checks": {
+    "applicationTests": 124,
+    "pythonTests": 31,
+    "dependencyVulnerabilities": 0,
+    "productionBuild": "passed",
+    "deploymentTracePrivacy": "passed"
+  },
+  "demo": {
+    "label": "Captured-screen walkthrough",
+    "voice": "Daniel temporary preview, user voice recording pending",
+    "seconds": 164.25,
+    "source": "verified fictional local screenshots, saved-work replay, not continuous live recording",
+    "width": 1280,
+    "height": 720,
+    "verification": {
+      "videoTracks": 1,
+      "audioTracks": 1,
+      "decodedAudioNonzeroBytes": 6268892,
+      "decodedAudioBytes": 7176026,
+      "sampledFramesVisuallyInspected": 4,
+      "continuousLiveRecording": false
+    }
+  }
+}

@@ -1,0 +1,57 @@
+{
+  "source": "openai-study-v1.json",
+  "sourceSha256": "67c3bfcce6ceace6bbbfa253b8de4cc591b2dc1d5b803347bbc7b11c04f2b966",
+  "scope": "Offline analysis of preserved validated outputs. No provider rerun, runtime regrading or expected criterion changes. AI candidate misconception was erroneously compared with the CY branding-only detector in the v1 operator. Corrected operator scopes that comparison to CY-2.",
+  "total": 34,
+  "live": 30,
+  "simulatedFailures": 4,
+  "outcomeMatches": 34,
+  "liveCriterionMatches": 27,
+  "unexpectedDemonstrations": 0,
+  "disagreements": [
+    {
+      "id": "CY-delete-not-verification",
+      "sample": 1,
+      "differences": [
+        {
+          "id": "C1",
+          "expected": "met",
+          "actual": "not_met"
+        },
+        {
+          "id": "C4",
+          "expected": "met",
+          "actual": "not_met"
+        }
+      ]
+    },
+    {
+      "id": "CY-delete-not-verification",
+      "sample": 2,
+      "differences": [
+        {
+          "id": "C1",
+          "expected": "met",
+          "actual": "not_met"
+        },
+        {
+          "id": "C4",
+          "expected": "met",
+          "actual": "not_met"
+        }
+      ]
+    },
+    {
+      "id": "CY-overgeneralisation",
+      "sample": 2,
+      "differences": [
+        {
+          "id": "C4",
+          "expected": "met",
+          "actual": "not_met"
+        }
+      ]
+    }
+  ],
+  "review": "CY delete-only rationale omits the sensitive sign-in request and abbreviates the supplied reporting route. CY overgeneralisation has one reporting-route disagreement. These are preserved for independent fixture/rubric review, not changed to make the study pass. Final provider acceptance remains open."
+}

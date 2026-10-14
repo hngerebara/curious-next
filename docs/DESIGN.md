@@ -2,7 +2,7 @@
 
 ## Status and reference provenance
 
-Version 0.2, 2026-10-07. Proposed implementation specification, not a rendered or usability-validated interface. This document owns visual tokens, component appearance and presentation intent. [Frontend guidance](FRONTEND.md) owns implementation behavior, [pilot design](product-specs/pilot-design.md) owns learning policy.
+Version 0.3, 2026-10-14. Implemented English preview with a user-approved rendered homepage direction. Usability and actual screen-reader acceptance remain open. This document owns visual tokens, component appearance and presentation intent. [Frontend guidance](FRONTEND.md) owns implementation behavior, [pilot design](product-specs/pilot-design.md) owns learning policy.
 
 The Curious Tech Girl source is the user-supplied `curious-tech-girl-posts` package at `/Users/hopengerebara/Documents/ChatGPT/thecurioustechgirl/skill-packages`. Read on 2026-10-07: SKILL.md, brand foundation, visual system, token JSON, asset provenance and quality checklist. The bundled context-window example was visually inspected. Its factual claims were not used as curriculum authority.
 
@@ -21,7 +21,7 @@ Light theme is the pilot default. Do not advertise a dark theme until it is spec
 | Token | Value | Purpose |
 |---|---|---|
 | canvas | #F5F0E5 | Brand paper canvas |
-| surface | #FFFFFF | Navigation, inputs and secondary cards |
+| surface | #FFFDF8 | Editable work and inputs |
 | ink | #171717 | Headings and primary text |
 | ink-muted | #59564F | Supporting text and metadata |
 | action | #C8EF45 | Brand lime action with ink text |
@@ -29,7 +29,7 @@ Light theme is the pilot default. Do not advertise a dark theme until it is spec
 | link | #285F85 | Links, selected navigation text, focus |
 | learning-surface | #F0E8FA | Light lavender next-action and example cards |
 | highlight | #C9ACEE | Reviewed lavender annotation or selected emphasis |
-| border-subtle | #D6DFE3 | Decorative separators only |
+| border-subtle | #D3CFC5 | Decorative separators only |
 | border-control | #71828D | Input and interactive control boundaries |
 | success-ink | #226347 | Demonstrated state text/icon |
 | success-surface | #EAF5EE | Demonstrated state background |
@@ -46,32 +46,32 @@ Use Fredoka at weight 600 for hero and h1 page titles, matching the user-supplie
 
 | Role | Desktop | Mobile | Weight / line height |
 |---|---|---|---|
-| Page title (Fredoka) | 36px | 28px | 600 / 1.2 |
+| Page title (Fredoka) | 32–52px | 32px | 600 / 1.2 |
 | Section heading | 24px | 22px | 650 / 1.3 |
 | Card heading | 20px | 20px | 650 / 1.35 |
 | Lesson body | 18px | 18px | 400 / 1.65 |
-| UI body | 16px | 16px | 400 / 1.5 |
+| UI body | 17px | 17px | 400 / 1.5 |
 | Metadata | 14px | 14px | 500 / 1.5 |
 
 Use rem units, user scaling and flexible heights. Lesson measure is 60-70 characters. Uppercase labels are short navigational metadata only. Translated headings use natural case unless language review approves otherwise. No justified paragraphs or long passages in capitals. Inline technical text uses a readable monospace fallback and wraps safely.
 
 ## Layout and spacing
 
-Spacing scale: 4, 8, 12, 16, 24, 32, 48, 64px. Default card padding is 24px desktop and 16px mobile. Control gap is at least 8px. Use 12px input/button radius and 20px prominent learning-card radius. Borders establish surfaces, with shadows limited to overlays and optional subtle navigation separation.
+Spacing scale: 4, 8, 12, 16, 24, 32, 48, 64px. Default card padding is 24px desktop and 16px mobile. Control gap is at least 8px. Use 6px input/button radius and 8px contained example radius. Prefer open sections and dividers. Reserve contained surfaces for editable work, messages and important feedback. Borders establish surfaces, with shadows limited to overlays and optional subtle navigation separation.
 
-Desktop shell at 1024px and above: 240px sidebar, 64px header, flexible main area capped at 1120px. Lessons cap at 760px. Practice optionally pairs the brief and work area when space permits. At narrower widths the sidebar becomes an accessible drawer and content stacks. Main padding is 24px at tablet and 16px on small screens.
+Use one horizontal learner navigation with Today, Your path and Your work. Keep account/preferences separate. Main content uses a centred grid capped at 1120px. Pair the task brief and workspace on desktop, stack them on mobile. Main padding is 20px on small screens. Homepage headlines are larger than learner-page titles.
 
 Core flows reflow at 320 CSS pixels and remain usable at 200% text resize and 400% zoom. Do not use fixed content heights. Long labels wrap, and translations have no line-count cap. Dialogs scroll within the viewport while keeping dismiss controls reachable. Touch controls target at least 44 by 44 CSS pixels.
 
 ## Navigation and screen composition
 
-Navigation contains Learn, My courses and Evidence. Course detail exposes modules and relevant review/misconceptions contextually. Preferences and language are labelled in the account area. Keep study tools contextual rather than adding separate destinations for every feature.
+Navigation contains Today, Your path and Your work. Course detail exposes modules and relevant review/misconceptions contextually. Preferences and language are labelled in the account area. Keep study tools contextual rather than adding separate destinations for every feature.
 
-Public homepage: explain the learning loop, introduce Practical AI and Cybersecurity Essentials, and lead to goal setup. Offer a separate Log in entry. Show course cards with titles, short outcomes and course links. Keep module and syllabus lists on course detail screens. Label the section Explore our courses, without implying the initial courses are permanent core tracks. Do not fabricate pilot usage, testimonials, pricing or certification.
+Public homepage: explain the learning loop, introduce Practical AI and Cybersecurity Essentials, and lead to goal setup. Offer a separate Log in entry. Show two open course rows with titles, short outcomes and course links. Keep module and syllabus lists on course detail screens. Label the section Explore our courses, without implying the initial courses are permanent core tracks. Do not fabricate pilot usage, testimonials, pricing or certification.
 
 Authentication: one email magic-link flow for sign-up and login. No password, social-provider or code-entry controls. Show email entry, submitting, check-email, change-email, rate-limited resend, expired/used link and network recovery. New accounts enter goal setup only after verification. Returning learners resume their authorised destination.
 
-Learning home: goal context → one next-action card → evidence-based reason → Start action → time choices (10/20/40 minutes) → up to two alternatives. Estimates are labelled and do not become countdowns. Keep due review visible without turning home into a dashboard of scores.
+Learning home: goal context → one recommended activity → evidence-based reason → Start action → up to two alternatives. Time preferences remain in the separate course/preferences menu. Estimates are labelled and do not become countdowns. Keep due review visible without turning home into a dashboard of scores.
 
 Onboarding: one question group at a time, with progress through setup steps and Back. Language and explanation level are distinct controls. Course suggestions show outcome, relevance and prerequisites. Diagnostic and Start from the beginning are both visible, with no implied penalty for skipping.
 
@@ -83,13 +83,13 @@ Practice: labelled brief, editable workspace, response history and contextual as
 
 Independent task: visible objective and expected output, neutral allowed-tools guidance, submission and teach-back fields. Practical AI remains available where the task expects it. Substantive learning-assistant help creates an explicit assisted status, following pilot policy. Accessibility support does not.
 
-Feedback: assessment status → criterion results with evidence → specific gap or misconception → recommended next action. Use plain labels such as Met, Needs work and Unable to assess, not a celebratory percentage alone.
+Feedback: status → what went well → what needs attention → recommended next action. Detailed criteria and technical history live in labelled disclosures. Use plain labels such as Met, Needs work and Unable to assess, not a celebratory percentage alone.
 
 Evidence: objective, original demonstration, later recall, transfer, assistance, criteria, date and artifact. Display these as readable rows/sections with a chronological detail view. Export has the same honest assessment labels.
 
 ## Component vocabulary
 
-Next-action card: pale learning-surface, small action-type label, task heading, objective, estimate, short reason, one primary button. Alternatives are quieter surface rows.
+Next-action section: open canvas with a divider, small action-type label, task heading, objective, estimate, short reason, one primary button. Alternatives are quieter surface rows.
 
 Primary button: lime with dark text, verb-based label, optional trailing icon. One dominant action per screen region. Secondary button: surface with border-control. Text links are underlined in prose. Disabled controls explain unmet conditions where relevant.
 
@@ -139,8 +139,8 @@ Copy is direct, respectful and specific. Prefer “Your answer explains the goal
 
 Before release, render onboarding, home, lesson, practice, independent task, feedback and evidence at desktop and narrow/mobile widths. Validate long translated labels, accents and fallback fonts. Check keyboard-only operation, screen-reader reading order, focus visibility, zoom/reflow, contrast and reduced motion.
 
-Test with blind and low-vision learners. Verify diagram/text equivalence and assessment parity. Screenshots and automated scans alone are insufficient. No interface has yet been built or validated against this specification.
+Test with blind and low-vision learners. Verify diagram/text equivalence and assessment parity. Screenshots and automated scans alone are insufficient. Rendered homepage and learner screens exist. Record scoped acceptance evidence in Documentation.md. Automated checks and screenshots do not establish screen-reader or learner usability acceptance.
 
-Brand references were inspected, but final CuriousNext identity approval and rendered readability remain pending. Preserve the source distinction: verified brand tokens and proposed app adaptations. Do not import social-post density or image-only typography into lessons.
+Brand references were inspected and the user approved the bold homepage direction on 2026-10-14. Readability and accessibility need their own evidence. Preserve the source distinction: verified brand tokens and proposed app adaptations. Do not import social-post density or image-only typography into lessons.
 
 Related documents: [product contract](../Prompt.md), [curriculum](curriculum/index.md), [frontend](FRONTEND.md), [document ownership](design-docs/document-ownership.md).
