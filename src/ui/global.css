@@ -45,3 +45,5 @@ dd { margin-left:0; overflow-wrap:anywhere; }
 @media(max-width:700px) { .site-header { padding:20px; gap:16px; flex-wrap:wrap; } .site-header nav { gap:18px; flex-wrap:wrap; font-size:0.8125rem; } .header-note { display:none; } footer { padding:28px 20px; align-items:flex-start; flex-direction:column; gap:12px; } .onboarding-shell { padding:0 20px; margin-top:32px; } .access-shell { margin:40px auto 64px; padding:0 20px; } }
 @media(max-width:380px) { .site-header nav { width:100%; justify-content:space-between; gap:8px; } }
 @media(prefers-reduced-motion:reduce) { html { scroll-behavior:auto; } *,*::before,*::after { animation:none!important; transition:none!important; } }
+
+.tutor-path-list { list-style:none; padding:0; margin:32px 0; } .tutor-path-list li { display:flex; gap:24px; padding:24px 0; border-top:1px solid var(--line); } .tutor-number { font-family:Fredoka,system-ui,sans-serif; font-size:1.8rem; color:var(--muted); flex:0 0 48px; } .tutor-path-list h3 { margin-bottom:10px; }

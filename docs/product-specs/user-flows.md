@@ -71,3 +71,9 @@ All journeys support keyboard and screen-reader operation and equivalent text fo
 ## Public entry and email verification
 
 Before UF1, the public homepage explains the learning loop and the two pilot courses. Set your goal begins new-learner setup. Log in opens the shared magic-link sign-up/login entry. Enter email → submit → neutral accepted-request/check-email screen → open link → explicit verification confirmation → verified session. A new verified account proceeds to UF1. A returning learner resumes a validated authorised learning destination. Expired/used links offer a new request. Network failure and resend limits preserve entered email without revealing whether an account exists. Session expiry returns to confirmed work after verification. Authentication is specified, not implemented.
+
+## Goal-first generated tutor expansion
+
+CN-TUTOR-001 follows the user's 2026-10-14 approved product realignment. Goal-first onboarding replaces fixed-course choices for new setup, while historical enrollments remain readable. The generated engine is isolated from AI-2/CY-2 evidence and does not reinterpret old assessments. Adults select simple/beginner/standard/technical explanation, balanced/visual presentation and 10/20/40-minute sessions independently. English only, no age inference or fixed learning-style claims.
+
+Owned path snapshots pin configuration, ordered objectives, diagnostic questions and immutable goal/preferences. Migration 0006 is additive and explicit. Row locking serialises revisions, request keys bind payloads, unpredictable leases bound generation and stale results cannot overwrite recovered requests. Public projections remove diagnostic answer keys. Placement never creates mastery evidence. Generated content remains a preview with independent reference/rubric review required before learner release.

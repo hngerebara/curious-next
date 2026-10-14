@@ -31,33 +31,15 @@ Preserve useful existing functionality and learner data when extending the proje
 
 ## 3. Strict pilot scope
 
-Audience: adult beginners. Support two introductory subject areas, with general discovery courses and goal-specific generated course plans:
+The user authorised CN-TUTOR-001 on 2026-10-14, replacing fixed-course onboarding with generated goal-first learning across common educational topics. Adults choose explanation depth, visual preference and 10/20/40-minute sessions independently. English is the only supported teaching language. Specialised or consequential goals receive explicit educational boundaries rather than invented expertise or qualification claims.
 
-- **Practical AI:** use AI for a small work or study task, verify its output, and explain decisions.
-- **Cybersecurity Essentials:** recognise common digital threats, choose protective actions, and explain reasoning in simulations.
-
-Each subject catalogue contains five modules defined in [curriculum](docs/curriculum/index.md). Use versioned subject objective catalogues to generate goal-specific course plans with personalised pathways and explanations. Course plans select relevant objectives and prerequisite closure, rather than always presenting five modules. Do not generate unrestricted syllabuses or new assessment standards. Personalisation changes context and support, not objectives or assessment standards.
-
-The pilot must provide complete learning loops for writing clear prompts and recognising phishing, with the remaining modules following the same requirements. Practical AI uses an integrated text-based practice environment with one configured model. Cybersecurity uses fictional messages and simulated settings. Never request real passwords or recovery codes.
-
-Exclude children's accounts, guardian onboarding, job marketplaces, unrestricted course generation, uploads, voice interactions, video production, separate weekly-review dashboards, extensive analytics, offline synchronisation, and large-scale crawling. Do not include spreadsheet or website-development courses in this pilot.
-
-Deliverables include maintained product/curriculum specifications and a validated working pilot. Content and rubrics require reference-based review before learner release.
+Practical AI and Cybersecurity remain historical pilot catalogues with unchanged evidence and deep links. Their unfinished modules and M4 scoring review remain separate gates. New generated objectives and criteria are versioned learner-owned previews, requiring independent content and assessment review before learner release. No generated result publishes a course or establishes universal topic reliability.
 
 ## 4. Goal-first onboarding
 
-Ask what the learner wants to be able to do, rather than which course they want to consume. Clarify vague goals into a measurable supported destination. For goals beyond the pilot, explain the boundary and offer the supported goal rather than inventing a complete pathway.
+Signup leads to a personal goal, optional clarification, explanation and visual preferences, generated path approval, then optional diagnostic placement. Generate four to eight ordered modules with measurable outcomes and prerequisite reasons. Offer four to six neutral diagnostic questions, including uncertainty, or start from the beginning. Placement suggests a starting point without awarding capability, and learners may select an earlier module.
 
-After goal and explanation preference capture, generate one goal-specific course proposal within Practical AI or Cybersecurity, explaining fit and prerequisites. Vague or mixed goals receive one clarification. Unsupported goals receive supported alternatives. Let the learner choose. Offer an optional course-specific diagnostic or Start from the beginning. Never require a diagnostic to unlock learning. Capture relevant background, self-reported experience, available study time, and an explanation preference. Allow updates later. Avoid a lengthy entrance exam.
-
-Offer clear explanation choices:
-
-- Very simple: everyday language, concrete examples, terminology introduced gently.
-- Beginner-friendly: explain terms as they appear.
-- Standard: balanced explanation and technical detail.
-- Technical: concise, precise terminology with deeper detail available.
-
-Simple explanations must remain accurate and respectful. Never infantilize an adult or infer ability from age.
+Teaching uses guided explanation, worked examples, accessible native visuals, interactive practice and teach-back before criterion-linked feedback. Simple wording changes scaffolding rather than assessment standards. Each lesson is saved before use, with immutable content/criteria/provider fingerprints. Failed or uncertain assessment never advances achievement. Targeted remediation and fresh practice address gaps before progression.
 
 ## 5. Short diagnostic and capability map
 
@@ -91,7 +73,7 @@ Persist outcomes, update the capability model, and recompute the next action. A 
 
 ## 7. Learning and support
 
-Use an approved curriculum and reference set with a prerequisite graph, measurable objectives, worked examples, practice tasks and assessment rubrics. AI generation must stay within those objectives and references. Do not build an unrestricted internet-content aggregator.
+Historical pilot activities use their approved reference boundaries. Generated tutor previews use explicit objectives, reference packs and pinned criteria, with independent curriculum review still required for learner release. Do not build an unrestricted internet-content aggregator.
 
 Gradually remove support:
 
