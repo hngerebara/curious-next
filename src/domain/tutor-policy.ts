@@ -1,5 +1,6 @@
 import type { TutorGoal, TutorPath, TutorProposal, TutorPublicPath, TutorPlacement } from "../contracts/tutor";
 export const tutorRecord = (value: unknown): value is Record<string, unknown> => !!value && typeof value === "object" && !Array.isArray(value);
+export const tutorKeys=(value:Record<string,unknown>,keys:string[])=>Object.keys(value).sort().join()===[...keys].sort().join();
 export const tutorText = (value: unknown, min = 1, max = 1200): value is string => typeof value === "string" && value.trim().length >= min && value.length <= max;
 export function tutorGoal(value: unknown): TutorGoal {
   if (!tutorRecord(value) || Object.keys(value).sort().join() !== "clarification,preferences,text" || !tutorText(value.text, 8, 1000) || !tutorText(value.clarification, 0, 500) || !tutorRecord(value.preferences)) throw Error("INVALID_GOAL");
@@ -8,7 +9,7 @@ export function tutorGoal(value: unknown): TutorGoal {
   return { text: value.text.trim(), clarification: value.clarification.trim(), preferences: p as TutorGoal["preferences"] };
 }
 export function tutorProposal(value: unknown): TutorProposal {
-  if (!tutorRecord(value) || !["ready","clarification","limited"].includes(String(value.state)) || !["title","outcome","reason","question"].every(key => tutorText(value[key], key === "question" ? 0 : 1)) || !Array.isArray(value.modules) || !Array.isArray(value.diagnostic)) throw Error("MODEL_INVALID");
+  if (!tutorRecord(value) || !tutorKeys(value,["state","title","outcome","reason","question","modules","diagnostic"]) || !["ready","clarification","limited"].includes(String(value.state)) || !["title","outcome","reason","question"].every(key => tutorText(value[key], key === "question" ? 0 : 1)) || !Array.isArray(value.modules) || !Array.isArray(value.diagnostic)) throw Error("MODEL_INVALID");
   if (value.state !== "ready") {
     if (!tutorText(value.question) || value.modules.length || value.diagnostic.length) throw Error("MODEL_INVALID");
     return value as TutorProposal;
@@ -16,12 +17,12 @@ export function tutorProposal(value: unknown): TutorProposal {
   if (value.modules.length < 4 || value.modules.length > 8 || value.diagnostic.length < 4 || value.diagnostic.length > 6) throw Error("MODEL_INVALID");
   const seen = new Set<string>();
   for (const module of value.modules) {
-    if (!tutorRecord(module) || !tutorText(module.id,1,40) || !/^[a-z0-9-]+$/.test(module.id) || seen.has(module.id) || !["title","outcome","reason"].every(key => tutorText(module[key])) || !Array.isArray(module.prerequisites) || module.prerequisites.some(id => typeof id !== "string" || !seen.has(id))) throw Error("MODEL_INVALID");
+    if (!tutorRecord(module) || !tutorKeys(module,["id","title","outcome","reason","prerequisites"]) || !tutorText(module.id,1,40) || !/^[a-z0-9-]+$/.test(module.id) || seen.has(module.id) || !["title","outcome","reason"].every(key => tutorText(module[key])) || !Array.isArray(module.prerequisites) || module.prerequisites.some(id => typeof id !== "string" || !seen.has(id))) throw Error("MODEL_INVALID");
     seen.add(module.id);
   }
   const questions = new Set<string>();
   for (const item of value.diagnostic) {
-    if (!tutorRecord(item) || !tutorText(item.id,1,40) || questions.has(item.id) || !seen.has(String(item.moduleId)) || !tutorText(item.prompt) || !Array.isArray(item.options) || item.options.length !== 3 || item.options.some(x => !tutorText(x,1,400)) || new Set(item.options).size !== 3 || !Number.isInteger(item.correct) || Number(item.correct)<0 || Number(item.correct)>2) throw Error("MODEL_INVALID");
+    if (!tutorRecord(item) || !tutorKeys(item,["id","moduleId","prompt","options","correct"]) || !tutorText(item.id,1,40) || questions.has(item.id) || !seen.has(String(item.moduleId)) || !tutorText(item.prompt) || !Array.isArray(item.options) || item.options.length !== 3 || item.options.some(x => !tutorText(x,1,400)) || new Set(item.options).size !== 3 || !Number.isInteger(item.correct) || Number(item.correct)<0 || Number(item.correct)>2) throw Error("MODEL_INVALID");
     questions.add(item.id);
   }
   return value as TutorProposal;

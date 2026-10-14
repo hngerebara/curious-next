@@ -112,6 +112,8 @@ Define mastery rules per competency before implementing state changes, including
 
 ## 9. Recall integrated into guidance
 
+These are retained legacy and roadmap requirements, while generated tutor practice does not yet establish retention or schedule its own recall.
+
 Schedule short retrieval activities after evidence of learning and use performance to adjust future review. Feed due recall into next-action recommendations instead of requiring learners to remember a separate Recall page.
 
 Use configurable pilot intervals of 1, 3, 7, 14 and 30 days. Schedule from actual learning evidence, not page visits. Treat these as operational defaults, not an optimal forgetting prediction. Keep delayed recall distinct from transfer to a new context.
@@ -119,6 +121,8 @@ Use configurable pilot intervals of 1, 3, 7, 14 and 30 days. Schedule from actua
 A weak recall result should produce review or uncertainty, not erase all historical evidence. Preserve the distinction between demonstrated performance at a point in time and confidence in current retention.
 
 ## 10. Projects and the opportunity bridge
+
+These broader M5 deliverables remain outside the current generated-tutor preview, which provides saved work inspection without claiming a finished portfolio or export.
 
 Use the Practical AI final workflow briefs and a Cybersecurity incident simulation. Clearly label all fictional briefs as simulations.
 
@@ -152,16 +156,15 @@ Keep recommendation logic separable from presentation generation so the AI canno
 
 ## 13. Demonstration
 
-Provide clearly labelled demo learners pursuing the same Practical AI destination:
+Demonstrate fictional goals for fractions, public speaking, introductory programming and phishing awareness. Lead the current walkthrough through goal setup, visual teaching, mistaken reasoning, useful feedback, fresh corrective practice, an updated recommendation and saved work. Show explanation changes without changing the frozen lesson criteria, and keep historical pilot demonstration evidence distinct.
 
-- **Amaka:** evidence shows vague prompts that omit constraints. Recommend targeted prompt practice.
-- **David:** demonstrates clear prompting but has insufficient verification evidence. Recommend a source-checking task.
-
-Also demonstrate the Cybersecurity reference module from diagnostic skip through independent assessment, misconception correction, and transfer. Submit real new demo attempts and recompute recommendations. Show explanation changes without changing the rubric. Demo data must never appear as real learner achievement.
+Label captured-screen walkthroughs clearly, because replayed verified screenshots do not establish continuous live operation. The user's replacement narration remains pending their recording. Demo data must never appear as real learner achievement.
 
 ## 14. Acceptance criteria
 
-1. An adult learner sets a goal and explanation preference, receives justified course suggestions, chooses a course, and selects a 10-, 20-, or 40-minute session.
+For CN-TUTOR-001, verify the generated goal-to-teaching-to-supported-feedback journey and recovery across the four fictional topics. The retained recall, independent demonstration, project and export requirements below remain separate roadmap gates.
+
+1. An adult learner sets a personal goal, explanation depth and visual preference, approves a generated path, and selects a 10-, 20-, or 40-minute session.
 2. An optional diagnostic affects placement without awarding mastery. Skipping it starts at the beginning without blocking access.
 3. Capability states are linked to inspectable evidence and explicit criteria.
 4. Two learners with different evidence receive different justified actions for the same goal.
@@ -177,7 +180,7 @@ Also demonstrate the Cybersecurity reference module from diagnostic skip through
 14. Misconceptions cite specific attempts and require fresh corrective evidence before resolution.
 15. Delayed recall, transfer, and initial demonstration remain separate in progress and exports.
 16. Practice-AI use is expected in AI tasks and is stored separately from learning-assistant help.
-17. Saved lesson variants preserve continuity and cannot alter the syllabus or rubric.
+17. Saved lesson variants preserve continuity and cannot alter the pinned objective or assessment criteria.
 
 Verify meaningful domain rules with appropriate automated tests: placement versus mastery, prerequisites, evidence updates, assistance handling, recall timing, recommendation changes, duplicate submissions and authorization. Run an end-to-end pilot flow and inspect the rendered experience. Do not create tests that merely repeat implementation details.
 

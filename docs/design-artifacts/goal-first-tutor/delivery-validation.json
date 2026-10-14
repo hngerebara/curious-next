@@ -1,0 +1,72 @@
+{
+  "schemaVersion": 1,
+  "scope": "CN-TUTOR-001 generated tutor preview",
+  "fictionalOnly": true,
+  "checks": {
+    "applicationTests": 155,
+    "pythonTests": 31,
+    "productionBuild": "passed",
+    "typecheck": "passed",
+    "repositoryGovernance": "passed",
+    "buildPrivacy": "passed",
+    "syntheticCalibrationFixtures": 15,
+    "dependencyVulnerabilities": 0
+  },
+  "browser": {
+    "fractions": "goal, approval, diagnostic, visual teaching, matching, mistaken reasoning, feedback, targeted fresh task, assistance, corrected practice, recommendation and saved work",
+    "viewport320": "inspected, content width 320",
+    "doubledText": "actual 32px root, content width 320",
+    "keyboard": "native controls and Tab between answer fields",
+    "screenReader": "structure inspected, actual performed acceptance remains open",
+    "restart": "authentication, preferences, frozen answers and feedback preserved"
+  },
+  "liveStudy": {
+    "topics": [
+      "fractions",
+      "public speaking",
+      "Python",
+      "phishing"
+    ],
+    "acceptedLessons": 4,
+    "supportedCriteriaMet": 18,
+    "independentCalibration": false,
+    "failedSamplesPreserved": true
+  },
+  "walkthrough": {
+    "file": "demo-captioned.mp4",
+    "label": "Captured-screen walkthrough",
+    "seconds": 85,
+    "width": 1920,
+    "height": 1080,
+    "audioTracks": 0,
+    "framesInspectedSeconds": [
+      0,
+      42,
+      83
+    ],
+    "narration": "User recording pending"
+  },
+  "selfReview": {
+    "independentApproval": false,
+    "fixed": [
+      "JSONB key-order comparisons",
+      "private answer key redaction in public frozen snapshots",
+      "unsupported required artifact formats",
+      "cache request binding",
+      "late assistance and assessment lease races",
+      "remediation context on retry",
+      "reference relevance",
+      "legacy work navigation",
+      "preference discard reset",
+      "duplicate confirmation on approved link navigation"
+    ],
+    "deferred": [
+      "independent curriculum and provider acceptance",
+      "M4 scoring disagreements",
+      "actual screen-reader acceptance",
+      "independent demonstration and retention for generated topics",
+      "M5/M6 and deployment"
+    ]
+  },
+  "limits": "Fictional integration evidence does not establish general factual accuracy, geographic scalability or measured learning gains."
+}

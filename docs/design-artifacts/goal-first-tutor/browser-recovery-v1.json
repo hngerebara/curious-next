@@ -1,0 +1,30 @@
+{
+  "version": 1,
+  "fictional": true,
+  "syntheticFailure": "Injected assessor rejection through the configured service port, without a remote provider call",
+  "before": {
+    "state": "failed",
+    "noEvidence": true,
+    "frozen": true,
+    "helpCount": 1,
+    "providerCalls": 0
+  },
+  "after": {
+    "state": "succeeded",
+    "evidenceType": "supported-practice",
+    "sameFrozenHash": true,
+    "sameContentHash": true,
+    "assessmentRuns": 2,
+    "replayProviderCalls": 0,
+    "replayPreservesEvidence": true
+  },
+  "restart": {
+    "sameFrozenHash": true,
+    "sameEvidence": true,
+    "sameAssistanceCount": true,
+    "preferencesRestored": true,
+    "preferenceMinutes": 10,
+    "originalGoalMinutes": 20,
+    "state": "succeeded"
+  }
+}

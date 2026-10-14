@@ -1,0 +1,501 @@
+{
+  "version": 1,
+  "fictional": true,
+  "phase": "lessons",
+  "model": "gpt-6.1-sol",
+  "configurations": [
+    "openai:gpt-6.1-sol:tutor-path-v1:426c44d56783c7a56418bd756a264f33656e6181caa9de9ed9335f3fbf4a098c",
+    "openai:gpt-6.1-sol:tutor-lesson-v1:921cc109cebd2abb95224f76d4a59f1c041b37d6f989196a5a7482cc2b9a51fa",
+    "openai:gpt-6.1-sol:tutor-assessor-v1:988b7fd9ec9e0e037839bc157f28b8ca3a4e391df197a49e4c3c405545444542"
+  ],
+  "scope": "Bounded fictional service-level checks, not independent calibration or browser acceptance",
+  "cases": [
+    {
+      "id": "fractions",
+      "state": "ready",
+      "code": null,
+      "contentHash": "46a45331cc6294f96d4e2c31fa4699f5be0f06c994397aa5ba23ac36b3bd6e9a",
+      "lesson": {
+        "title": "Recognise a whole and its equal shares",
+        "purpose": "Spend about 20 minutes recognising wholes, checking equal shares, and describing simple fractions in everyday situations.",
+        "blocks": [
+          {
+            "kind": "explanation",
+            "title": "Start with the whole",
+            "text": "The whole is the complete thing you are sharing, such as one sandwich or one chocolate bar. Equal shares contain the same amount, even when their positions look different. Before naming a fraction, identify the whole and check that all its shares are equal. Spend about three minutes reading this explanation and considering the examples.",
+            "nodes": []
+          },
+          {
+            "kind": "fractions",
+            "title": "See equal shares in matching wholes",
+            "text": "These strips represent chocolate bars with the same total size. Each strip is divided into equal shares, with shading showing the selected amount. The bottom number counts all equal shares, while the top number counts the selected shares. One of two equal shares is one half, and two of four equal shares covers the same amount. Spend about three minutes comparing the shading and reading the labels.",
+            "nodes": [
+              {
+                "label": "One whole bar",
+                "detail": "The entire bar is selected, representing one complete whole.",
+                "parts": 1,
+                "total": 1
+              },
+              {
+                "label": "One half: 1/2",
+                "detail": "One of two equal shares of the bar is selected.",
+                "parts": 1,
+                "total": 2
+              },
+              {
+                "label": "One quarter: 1/4",
+                "detail": "One of four equal shares of the bar is selected.",
+                "parts": 1,
+                "total": 4
+              },
+              {
+                "label": "Two quarters: 2/4",
+                "detail": "Two of four equal shares cover half of this bar.",
+                "parts": 2,
+                "total": 4
+              }
+            ]
+          },
+          {
+            "kind": "example",
+            "title": "Worked example: sharing a sandwich",
+            "text": "Imagine one rectangular sandwich cut into four pieces of equal size. First, identify the whole as the entire sandwich before cutting. Next, check that each piece contains the same amount of sandwich. Finally, selecting one piece gives one of four equal shares, written as 1/4. If the sandwich instead has one large piece and three smaller pieces, counting four pieces does not make each piece one quarter. Spend about three minutes following these steps in order.",
+            "nodes": []
+          },
+          {
+            "kind": "diagram",
+            "title": "A check before naming a fraction",
+            "text": "Use these three checks whenever you examine a divided whole. Equal shares must contain equal amounts, not merely have the same number of pieces. When comparing selected amounts from different objects, also check the size of each whole. Half of a small loaf and half of a large loaf need not contain the same amount of bread.",
+            "nodes": [
+              {
+                "label": "Identify the whole",
+                "detail": "Name the complete object being divided, such as one loaf.",
+                "parts": 0,
+                "total": 0
+              },
+              {
+                "label": "Check equal amounts",
+                "detail": "Decide whether every piece contains the same amount of that whole.",
+                "parts": 0,
+                "total": 0
+              },
+              {
+                "label": "Count the shares",
+                "detail": "Only after checking equality, count total shares and selected shares.",
+                "parts": 0,
+                "total": 0
+              }
+            ]
+          }
+        ],
+        "activity": {
+          "kind": "choice",
+          "prompt": "Spend about two minutes choosing the situation where one selected piece is definitely one third of the whole.",
+          "labels": [],
+          "options": [
+            "One ribbon is cut into three equal lengths, and one length is selected.",
+            "One ribbon is cut into three unequal lengths, and the shortest length is selected.",
+            "One ribbon is cut into four equal lengths, and one length is selected."
+          ],
+          "correctIndices": [
+            0
+          ],
+          "explanation": "One third means one selected share from three equal shares of a whole. Three unequal pieces cannot each be called one third simply because there are three pieces."
+        },
+        "applicationPrompt": "Spend about six minutes checking these five text pictures. For each letter, name the whole, write whether the division is equal or unequal, and explain your decision using the sizes given. If the shares are equal, also write the fraction represented by one selected piece.\nA: One 12-centimetre ribbon is cut into lengths of 6 and 6 centimetres.\nB: One 12-centimetre ribbon is cut into lengths of 3 and 9 centimetres.\nC: One rectangular tray is divided into four sections, each covering exactly the same area.\nD: One rectangular tray is divided into three sections covering half, one quarter, and one quarter of its area.\nE: One 15-centimetre ribbon is cut into lengths of 5, 5, and 5 centimetres.\nFinally, compare A and E in words: which selected piece is longer, and why must you consider the whole as well as the fraction?",
+        "teachBackPrompt": "Spend about three minutes explaining in your own words how you identify a whole and decide whether its shares are equal. Then respond to this claim: 'There are four pieces, so every piece must be one quarter.' Explain what you would need to check before agreeing.",
+        "criteria": [
+          {
+            "id": "identify-wholes",
+            "field": "application",
+            "description": "Names the complete ribbon or tray as the whole in at least four of the five cases."
+          },
+          {
+            "id": "recognise-equality",
+            "field": "application",
+            "description": "Correctly classifies at least four of five divisions, using the stated lengths or areas as evidence: A, C, and E are equal; B and D are unequal."
+          },
+          {
+            "id": "name-equal-shares",
+            "field": "application",
+            "description": "Identifies one selected share as 1/2 in A, 1/4 in C, and 1/3 in E, without treating the unequal pieces in B or D as equal shares."
+          },
+          {
+            "id": "compare-actual-amounts",
+            "field": "application",
+            "description": "States that A's selected piece is longer because it measures 6 centimetres rather than 5, and explains that the two ribbons have different whole lengths."
+          },
+          {
+            "id": "explain-equal-shares",
+            "field": "teachBack",
+            "description": "Explains that the whole is the complete object, equal shares contain the same amount, and four pieces represent quarters only when all four shares are equal."
+          }
+        ],
+        "referenceIds": [
+          "fractions-openstax"
+        ]
+      },
+      "references": [
+        {
+          "id": "fractions-openstax",
+          "url": "https://openstax.org/books/prealgebra-2e/pages/4-1-visualize-fractions",
+          "title": "Visualize Fractions, OpenStax",
+          "review": "agent-reviewed",
+          "summary": "A fraction describes selected equal parts of a whole, with the denominator counting all equal parts and the numerator counting selected parts. Comparisons require attention to the whole being represented.",
+          "accessedAt": "2026-10-14",
+          "snapshotHash": "eab687abc147c48c9919f15e4cbe5c5922cfd60a29edfec440daa2fc5369066f"
+        }
+      ]
+    },
+    {
+      "id": "speaking",
+      "state": "ready",
+      "code": null,
+      "contentHash": "b177dbeae3462e36b30914a141c3b3e2485033608147dd0f96b49c964dd2f639",
+      "lesson": {
+        "title": "Choose one idea for a three-minute talk",
+        "blocks": [
+          {
+            "kind": "explanation",
+            "text": "This lesson uses unreviewed introductory educational examples, not externally reviewed guidance. Your task is to choose the purpose of a three-minute talk, rather than write the entire talk today. A topic names the subject, while a takeaway states what beginners should understand afterward. For example, “packing a bag” names a topic, but “packing essentials first helps you avoid leaving necessary items behind” expresses one idea. Complete this sentence to make your purpose explicit: “After my talk, beginners should understand that…”",
+            "nodes": [],
+            "title": "Start with the audience takeaway — 4 minutes"
+          },
+          {
+            "kind": "explanation",
+            "text": "Choose a familiar subject that you can explain using an everyday example. Then narrow it to one relationship, distinction, or practical principle. “Everything about cooking” leaves many possible directions, whereas “preparing ingredients before cooking keeps them ready when needed” gives the talk a clear focus. Avoid joining several independent lessons with “and” in your takeaway. Keep details that explain your chosen idea, and save unrelated details for another talk.",
+            "nodes": [],
+            "title": "Make the idea small enough — 3 minutes"
+          },
+          {
+            "kind": "example",
+            "text": "Suppose your audience consists of beginners who sometimes forget household tasks. The broad subject is “making lists,” which could include shopping, planning, and reminders. Narrow the talk to making a task easy to recognise later. The takeaway becomes: “After my talk, beginners should understand that a reminder naming a specific action makes the intended task clearer.” Compare the vague reminder “kitchen” with the specific reminder “wipe the kitchen counter.” This comparison explains the selected idea without introducing a second lesson about planning a whole week.",
+            "nodes": [],
+            "title": "Worked example: from subject to takeaway — 3 minutes"
+          },
+          {
+            "kind": "diagram",
+            "text": "Read this route from left to right as a narrowing process. Each step removes uncertainty about what your talk will explain.",
+            "nodes": [
+              {
+                "label": "Familiar subject",
+                "parts": 0,
+                "total": 0,
+                "detail": "Choose an everyday subject, such as making household reminders."
+              },
+              {
+                "label": "Beginner audience",
+                "parts": 0,
+                "total": 0,
+                "detail": "Identify listeners who have not yet considered what makes reminders clear."
+              },
+              {
+                "label": "One idea",
+                "parts": 0,
+                "total": 0,
+                "detail": "Focus on naming a specific action rather than a vague category."
+              },
+              {
+                "label": "Audience takeaway",
+                "parts": 0,
+                "total": 0,
+                "detail": "State that naming a specific action makes the intended task clearer."
+              }
+            ],
+            "title": "A visual route to one clear purpose — 2 minutes"
+          }
+        ],
+        "purpose": "In this 20-minute lesson, choose one familiar idea and write a single sentence stating what beginners should understand afterward.",
+        "activity": {
+          "kind": "choice",
+          "labels": [],
+          "prompt": "Spend two minutes choosing the clearest single takeaway for a three-minute beginner talk.",
+          "options": [
+            "After my talk, beginners should understand everything about organising a home.",
+            "After my talk, beginners should understand that returning keys to one designated place gives them a predictable place to look.",
+            "After my talk, beginners should understand how to organise keys, plan meals, and clean windows."
+          ],
+          "explanation": "The designated-place option states one concrete principle that an everyday example can explain. The other options cover either an unlimited subject or several separate lessons.",
+          "correctIndices": [
+            1
+          ]
+        },
+        "criteria": [
+          {
+            "id": "audience-and-subject",
+            "field": "application",
+            "description": "Names a beginner audience and a familiar subject different from the lesson's reminders and keys examples."
+          },
+          {
+            "id": "single-takeaway",
+            "field": "application",
+            "description": "Writes one takeaway sentence expressing a specific idea rather than a broad topic or several independent lessons."
+          },
+          {
+            "id": "example-and-boundary",
+            "field": "application",
+            "description": "Provides one concrete example supporting the takeaway and names one related detail to exclude."
+          },
+          {
+            "id": "own-words-distinction",
+            "field": "teachBack",
+            "description": "Explains in original wording that a topic names a subject while a takeaway states the intended audience understanding."
+          },
+          {
+            "id": "focus-reasoning",
+            "field": "teachBack",
+            "description": "Connects the included example to the takeaway and explains why the excluded detail would move beyond that focus."
+          }
+        ],
+        "referenceIds": [],
+        "teachBackPrompt": "Spend two minutes explaining in your own words how a topic differs from an audience takeaway. Then explain why your chosen example belongs in your talk while the detail you excluded does not.",
+        "applicationPrompt": "Spend four minutes planning a fresh talk about an everyday subject other than reminders or storing keys. In plain text, write four labelled lines: Audience, Familiar subject, Takeaway, and Example. Describe a beginner audience, name your subject, and complete “After my talk, beginners should understand that…” with one focused idea. Give one concrete example you would use, then name one related detail you would leave out to keep the talk focused."
+      },
+      "references": []
+    },
+    {
+      "id": "programming",
+      "state": "ready",
+      "code": null,
+      "contentHash": "1bf0953c1af0b73ed757d61a1a0906621c3509ea5ae0bda23a9f723775a95905",
+      "lesson": {
+        "title": "Store values in clearly named Python variables",
+        "blocks": [
+          {
+            "kind": "explanation",
+            "text": "A Python variable gives a name to a value. An assignment uses = to connect that name with its value.\n\nname = \"Maya\"\ntickets = 2\n\nThe first line assigns the text \"Maya\" to name. The second line assigns the whole number 2 to tickets. Text values need quotation marks, while these numbers do not. Choose meaningful names such as tickets rather than unclear names such as x.\n\nYou can read a variable by using its name. For example, print(name) displays the value currently assigned to name. The displayed text does not include its surrounding quotation marks.\n\nThese introductory practice examples have not been independently reviewed.",
+            "nodes": [],
+            "title": "Understand an assignment · 5 minutes"
+          },
+          {
+            "kind": "example",
+            "text": "Read these lines in order without running any code.\n\nname = \"Maya\"\ntickets = 2\nprint(name)\nprint(tickets)\n\nThe first two lines assign values without printing anything. The third line prints Maya because name holds that text. The fourth line prints 2 because tickets holds that number.\n\nPredicted output:\nMaya\n2\n\nNotice that print(name) reads a variable, while print(\"name\") prints the literal text name.",
+            "nodes": [],
+            "title": "Follow a worked example · 4 minutes"
+          },
+          {
+            "kind": "diagram",
+            "text": "Follow this labelled path from assignment to displayed output. Each step explains a different part of the same example.",
+            "nodes": [
+              {
+                "label": "1 · Assign",
+                "parts": 0,
+                "total": 0,
+                "detail": "name = \"Maya\" associates the variable name with a text value."
+              },
+              {
+                "label": "2 · Read",
+                "parts": 0,
+                "total": 0,
+                "detail": "print(name) reads the value associated with that variable name."
+              },
+              {
+                "label": "3 · Display",
+                "parts": 0,
+                "total": 0,
+                "detail": "The output is Maya, with no quotation marks around it."
+              }
+            ],
+            "title": "Trace the name to its output · 3 minutes"
+          },
+          {
+            "kind": "explanation",
+            "text": "Assigning another value to the same name replaces its previous value.\n\nsnack = \"apple\"\nsnack = \"pear\"\nprint(snack)\n\nThe output is pear because the later assignment replaces apple. When predicting output, follow the lines from top to bottom. Use the latest assigned value when you reach print.",
+            "nodes": [],
+            "title": "A later assignment changes the value · 2 minutes"
+          }
+        ],
+        "purpose": "Use this 20-minute lesson to connect variable names, stored values, and printed output before moving on to arithmetic and conditions.",
+        "activity": {
+          "kind": "choice",
+          "labels": [],
+          "prompt": "Spend about two minutes predicting the output without executing this code.\n\ncolour = \"blue\"\ncolour = \"green\"\nprint(colour)\n\nWhich option matches the output produced by the final line?",
+          "options": [
+            "blue",
+            "green",
+            "colour",
+            "blue followed by green"
+          ],
+          "explanation": "The second assignment replaces blue with green before printing happens. Therefore, the final line displays green rather than the variable name.",
+          "correctIndices": [
+            1
+          ]
+        },
+        "criteria": [
+          {
+            "id": "two-assignments",
+            "field": "application",
+            "description": "Includes name = \"Alex\" and tickets = 3 as two separate assignment lines, allowing equivalent single quotation marks."
+          },
+          {
+            "id": "predict-output",
+            "field": "application",
+            "description": "Includes print(name) after the assignments and identifies Alex without quotation marks as its displayed output."
+          },
+          {
+            "id": "name-and-value",
+            "field": "teachBack",
+            "description": "Explains in the learner's own words that name identifies a variable while Alex is its stored text value."
+          },
+          {
+            "id": "quotes-and-reading",
+            "field": "teachBack",
+            "description": "Explains that quotation marks mark a text value in the assignment, and print(name) reads the variable's value rather than printing its identifier."
+          }
+        ],
+        "referenceIds": [
+          "python-introduction"
+        ],
+        "teachBackPrompt": "Spend the final two minutes explaining assignments in your own words. Explain how a variable name differs from its stored value, why Alex needs quotation marks in an assignment, and why print(name) displays Alex rather than name.",
+        "applicationPrompt": "Spend about two minutes writing your answer as plain text. Write exactly two assignment lines: assign the text Alex to name, and assign the number 3 to tickets. Then write print(name) on a third line and state its predicted output separately. Do not run the code or submit any external files."
+      },
+      "references": [
+        {
+          "id": "fractions-openstax",
+          "url": "https://openstax.org/books/prealgebra-2e/pages/4-1-visualize-fractions",
+          "title": "Visualize Fractions, OpenStax",
+          "review": "agent-reviewed",
+          "summary": "A fraction describes selected equal parts of a whole, with the denominator counting all equal parts and the numerator counting selected parts. Comparisons require attention to the whole being represented.",
+          "accessedAt": "2026-10-14",
+          "snapshotHash": "eab687abc147c48c9919f15e4cbe5c5922cfd60a29edfec440daa2fc5369066f"
+        },
+        {
+          "id": "python-introduction",
+          "url": "https://docs.python.org/3/tutorial/introduction.html",
+          "title": "An Informal Introduction to Python",
+          "review": "agent-reviewed",
+          "summary": "Python supports arithmetic expressions, named values and text strings, while comments explain code without being executed. Division and integer division produce different results, and string indexing selects individual characters.",
+          "accessedAt": "2026-10-14",
+          "snapshotHash": "310d0ecdfafc36e6c787c03b39a6fa246cc31dae1136367c44d1f7827b53a862"
+        }
+      ]
+    },
+    {
+      "id": "phishing",
+      "state": "ready",
+      "code": null,
+      "contentHash": "bf0d3d591106018e7f4bcc5df052ae63145a0ad4846db5ecba35a5d5793c5780",
+      "lesson": {
+        "title": "Phishing: focus on what the sender wants",
+        "blocks": [
+          {
+            "kind": "explanation",
+            "text": "Phishing messages try to persuade you to take a deceptive action, such as giving personal information through a supplied link. Start by asking what the sender wants you to do, rather than deciding from the message’s appearance alone. Urgency and requests for personal information deserve caution, although neither proves deception by itself. Every message in this lesson is fictional and is used only for practice.",
+            "nodes": [],
+            "title": "Look beyond the message’s appearance"
+          },
+          {
+            "kind": "diagram",
+            "text": "Follow these three steps before reacting to a message that pressures you to act. The diagram moves from identifying the request to selecting a safer response.",
+            "nodes": [
+              {
+                "label": "1. Identify the requested action",
+                "parts": 0,
+                "total": 0,
+                "detail": "Ask whether the sender wants information, a link click, an attachment opened, or simply your attention."
+              },
+              {
+                "label": "2. Notice reasons for caution",
+                "parts": 0,
+                "total": 0,
+                "detail": "Look for pressure to act urgently or requests to provide personal information."
+              },
+              {
+                "label": "3. Choose an independent route",
+                "parts": 0,
+                "total": 0,
+                "detail": "Avoid suspicious supplied links and attachments, contact the organisation independently when necessary, and report suspicious messages before deleting them."
+              }
+            ],
+            "title": "A three-step way to assess a message"
+          },
+          {
+            "kind": "example",
+            "text": "Fictional message: “Your Meadow Club account closes in thirty minutes unless you follow this link and enter your personal details.” The sender wants you to follow a supplied link and give personal information. The deadline adds pressure, while the information request gives you another reason for caution. Treat this as suspicious rather than following its instructions immediately. If you need to check your account, contact Meadow Club using contact details obtained independently of this message. Report the suspicious message before deleting it, using an available reporting route.",
+            "nodes": [],
+            "title": "Worked example: an urgent account warning"
+          },
+          {
+            "kind": "comparison",
+            "text": "Compare what these fictional senders request, rather than relying on friendly wording or familiar names. A message without a risky request can look routine, but that does not establish who actually sent it.",
+            "nodes": [
+              {
+                "label": "Routine-looking announcement",
+                "parts": 0,
+                "total": 0,
+                "detail": "“The reading group meets at six tomorrow evening in our usual room.” The sender wants readers to know the meeting time, without requesting personal information or a link click."
+              },
+              {
+                "label": "Suspicious information request",
+                "parts": 0,
+                "total": 0,
+                "detail": "“Keep your reading-group place by sending your personal details through this link within ten minutes.” The sender wants personal information through a supplied link and adds urgent pressure."
+              }
+            ],
+            "title": "Routine information versus a suspicious request"
+          }
+        ],
+        "purpose": "Use a 20-minute lesson to identify requested actions in fictional messages, distinguish suspicious requests from routine communication, and explain safer responses. Spend five minutes on the teaching blocks, five on the activity, and ten on the written tasks.",
+        "activity": {
+          "kind": "matching",
+          "labels": [
+            "“Your parcel cannot be released until you enter your home address through this link within fifteen minutes.”",
+            "“Tomorrow’s book discussion starts at seven in the usual room; no reply is needed.”",
+            "“Open the attached form and return your personal details immediately to keep your membership.”"
+          ],
+          "prompt": "Match each fictional message to the description of its requested action and the appropriate level of caution.",
+          "options": [
+            "The sender wants you to note an event time, and the message contains no information request or urgent action demand.",
+            "The sender wants you to open an attachment and return personal information urgently, so avoid the attachment and verify independently if necessary.",
+            "The sender wants your home address through a supplied link under time pressure, so avoid the link and verify independently if necessary."
+          ],
+          "explanation": "The parcel message requests information through a link, while the membership message requests an attachment action and personal details. Both combine information requests with urgent pressure and deserve caution. The book discussion message only communicates a time, although its wording alone cannot confirm the sender’s identity.",
+          "correctIndices": [
+            2,
+            0,
+            1
+          ]
+        },
+        "criteria": [
+          {
+            "id": "application-request",
+            "field": "application",
+            "description": "Identifies all three requested actions: entering personal details through a link, noting a changed meeting time, and opening an attachment and sending personal information."
+          },
+          {
+            "id": "application-classification",
+            "field": "application",
+            "description": "Classifies A and C as suspicious and B as routine-looking, supporting each classification with features present in the message rather than claiming certainty about sender identity."
+          },
+          {
+            "id": "application-response",
+            "field": "application",
+            "description": "For A and C, avoids the supplied link or attachment, describes independent contact if verification is needed, and includes reporting before deletion; for B, proposes noting the changed time without supplying information."
+          },
+          {
+            "id": "teachback-reasoning",
+            "field": "teachBack",
+            "description": "Explains in original wording how requested actions reveal what the sender wants, names urgency and personal-information requests as reasons for caution, states that urgency alone is not proof, and describes avoiding supplied links or attachments and checking independently when necessary."
+          }
+        ],
+        "referenceIds": [
+          "phishing-cisa"
+        ],
+        "teachBackPrompt": "In your own words, explain why identifying the sender’s requested action helps you assess a message. Include two reasons for caution, explain why urgency alone does not prove deception, and describe a safer response to a suspicious message.",
+        "applicationPrompt": "Write a short assessment of each fictional message below. For each one, state what the sender wants, classify it as suspicious or routine-looking based on its content, and give a proportionate next action with a reason.\n\nA: “Your Northfield library access ends tonight unless you open this link and enter your personal details.”\nB: “The neighbourhood gardening meeting has moved to Saturday morning; no response is required.”\nC: “Open the attached document and send your personal information immediately to preserve your volunteer place.”\n\nFor suspicious messages, explain how you would check independently if necessary and what you would do before deleting them. Keep all answers in plain text without opening anything."
+      },
+      "references": [
+        {
+          "id": "phishing-cisa",
+          "url": "https://www.cisa.gov/secure-our-world/recognize-and-report-phishing",
+          "title": "Recognize and Report Phishing, CISA",
+          "review": "agent-reviewed",
+          "summary": "Suspicious messages deserve caution when they request urgent action or personal information. Avoid supplied links and attachments, contact the organisation independently when necessary, and report suspicious messages before deleting them.",
+          "accessedAt": "2026-10-14",
+          "snapshotHash": "ab3f82b1b46f096bd60bad45b61d83d60303a2b2b75a798e1cb89cc29426793e"
+        }
+      ]
+    }
+  ],
+  "stopReason": null
+}

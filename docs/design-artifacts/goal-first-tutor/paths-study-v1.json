@@ -1,0 +1,321 @@
+{
+  "version": 1,
+  "fictional": true,
+  "phase": "paths",
+  "model": "gpt-6.1-sol",
+  "configurations": [
+    "openai:gpt-6.1-sol:tutor-path-v1:426c44d56783c7a56418bd756a264f33656e6181caa9de9ed9335f3fbf4a098c",
+    "openai:gpt-6.1-sol:tutor-lesson-v1:921cc109cebd2abb95224f76d4a59f1c041b37d6f989196a5a7482cc2b9a51fa",
+    "openai:gpt-6.1-sol:tutor-assessor-v1:988b7fd9ec9e0e037839bc157f28b8ca3a4e391df197a49e4c3c405545444542"
+  ],
+  "scope": "Bounded fictional service-level checks, not independent calibration or browser acceptance",
+  "cases": [
+    {
+      "id": "fractions",
+      "state": "failed",
+      "code": "MODEL_UNAVAILABLE",
+      "proposal": null,
+      "placementIsNotEvidence": true
+    },
+    {
+      "id": "speaking",
+      "state": "accepted",
+      "code": null,
+      "proposal": {
+        "state": "ready",
+        "title": "Explain one idea clearly in a three-minute public talk",
+        "reason": "This twenty-minute path prioritises audience understanding, simple organisation, and timed practice. It uses standard explanations and an optional visual without assuming your speaking experience. This learning path is an unreviewed generated preview.",
+        "modules": [
+          {
+            "id": "choose-one-idea",
+            "title": "Choose one idea and audience takeaway — 3 minutes",
+            "reason": "A narrow purpose helps you avoid overwhelming beginners with unnecessary information.",
+            "outcome": "You will select one familiar idea and write a single sentence stating what beginners should understand afterward.",
+            "prerequisites": []
+          },
+          {
+            "id": "explain-in-plain-language",
+            "title": "Explain the idea in everyday language — 4 minutes",
+            "reason": "Plain language and concrete examples help beginners connect unfamiliar ideas with everyday experience.",
+            "outcome": "You will write a two-sentence explanation, replace or define unfamiliar terms, and add one concrete example.",
+            "prerequisites": [
+              "choose-one-idea"
+            ]
+          },
+          {
+            "id": "build-talk-outline",
+            "title": "Build a beginning, middle, and ending — 4 minutes",
+            "reason": "A clear sequence makes your explanation easier to follow within the available time.",
+            "outcome": "You will create an outline with a thirty-second opening, a two-minute explanation and example, and a thirty-second closing takeaway.",
+            "prerequisites": [
+              "explain-in-plain-language"
+            ]
+          },
+          {
+            "id": "prepare-speaking-cues",
+            "title": "Prepare speaking cues and an optional visual — 3 minutes",
+            "reason": "Brief prompts support natural delivery, while a purposeful visual can reinforce your explanation.",
+            "outcome": "You will produce a cue card with five or fewer prompts and decide whether one simple visual clarifies your example.",
+            "prerequisites": [
+              "build-talk-outline"
+            ]
+          },
+          {
+            "id": "rehearse-and-refine",
+            "title": "Rehearse, revise, and check timing — 6 minutes",
+            "reason": "Speaking aloud reveals timing problems and unclear wording that silent preparation can miss.",
+            "outcome": "You will deliver one timed rehearsal, identify one clarity improvement, and revise your notes to target a three-minute delivery.",
+            "prerequisites": [
+              "prepare-speaking-cues"
+            ]
+          }
+        ],
+        "outcome": "You will prepare and rehearse a three-minute talk that introduces one idea, illustrates it with an example, and leaves beginners with a clear takeaway.",
+        "question": "",
+        "diagnostic": [
+          {
+            "id": "check-talk-focus",
+            "prompt": "Which goal best fits a three-minute talk for beginners?",
+            "correct": 0,
+            "options": [
+              "Explain one idea using an example and clear takeaway.",
+              "Introduce several ideas using a separate example for each.",
+              "Survey the whole subject using a list of terms."
+            ],
+            "moduleId": "choose-one-idea"
+          },
+          {
+            "id": "check-audience-takeaway",
+            "prompt": "Which sentence most clearly states an audience learning takeaway?",
+            "correct": 1,
+            "options": [
+              "I will speak confidently and maintain a steady pace.",
+              "Listeners will explain how a budget compares income with spending.",
+              "My slides will include headings and several attractive images."
+            ],
+            "moduleId": "choose-one-idea"
+          },
+          {
+            "id": "check-unfamiliar-language",
+            "prompt": "What should you do when beginners need an unfamiliar term?",
+            "correct": 2,
+            "options": [
+              "Repeat the term several times before explaining its meaning.",
+              "Display the term prominently and continue with your explanation.",
+              "Define the term simply and give a familiar example."
+            ],
+            "moduleId": "explain-in-plain-language"
+          },
+          {
+            "id": "check-concrete-example",
+            "prompt": "Which example most concretely illustrates comparing income with spending?",
+            "correct": 1,
+            "options": [
+              "Budgeting involves comparing financial resources with various financial commitments.",
+              "You receive fifty pounds and spend thirty on groceries.",
+              "People can approach budgeting differently depending on their circumstances."
+            ],
+            "moduleId": "explain-in-plain-language"
+          }
+        ]
+      },
+      "placementIsNotEvidence": true
+    },
+    {
+      "id": "programming",
+      "state": "accepted",
+      "code": null,
+      "proposal": {
+        "state": "ready",
+        "title": "Python basics through small, clearly labelled text examples",
+        "reason": "This beginner path uses simple explanations and visually organised text examples, with roughly five minutes available for each module. The diagnostic checks starting knowledge rather than claiming mastery. This learning path is an unreviewed generated preview.",
+        "modules": [
+          {
+            "id": "assign-variables",
+            "title": "Store values in clearly named Python variables",
+            "reason": "Variables let you reuse values throughout small Python programs. Follow a labelled code-to-output example before changing its values.",
+            "outcome": "Write two variable assignments, then predict the output of print(name) after assigning name = \"Alex\".",
+            "prerequisites": []
+          },
+          {
+            "id": "calculate-values",
+            "title": "Calculate results using variables and arithmetic operators",
+            "reason": "Arithmetic connects stored values to useful results in programs. Compare each short expression with its clearly labelled output.",
+            "outcome": "Use +, -, *, and / in four short expressions, then calculate total = price * quantity with two assigned variables.",
+            "prerequisites": [
+              "assign-variables"
+            ]
+          },
+          {
+            "id": "compare-values",
+            "title": "Compare values and predict True or False",
+            "reason": "Comparisons produce the True or False values that conditions use. Place each comparison beside its result to reveal the relationship.",
+            "outcome": "Predict four comparison results using ==, !=, >, and <, including the result of total > 10.",
+            "prerequisites": [
+              "assign-variables",
+              "calculate-values"
+            ]
+          },
+          {
+            "id": "choose-with-conditions",
+            "title": "Choose printed messages using if and else",
+            "reason": "Conditions combine variables, calculations, and comparisons into useful program choices. Trace two input cases through a clearly labelled text example.",
+            "outcome": "Write an indented if/else example that prints \"Over budget\" when total > 10 and \"Within budget\" otherwise, then test both branches.",
+            "prerequisites": [
+              "assign-variables",
+              "calculate-values",
+              "compare-values"
+            ]
+          }
+        ],
+        "outcome": "In about twenty minutes, you will practise assigning variables, calculating values, and writing simple conditions using four small Python examples.",
+        "question": "",
+        "diagnostic": [
+          {
+            "id": "check-assignment",
+            "prompt": "Which line assigns the number three to a Python variable named count?",
+            "correct": 0,
+            "options": [
+              "count = 3",
+              "count == 3",
+              "3 = count"
+            ],
+            "moduleId": "assign-variables"
+          },
+          {
+            "id": "check-output",
+            "prompt": "After score = 4 followed by score = 7, what does print(score) display?",
+            "correct": 1,
+            "options": [
+              "4",
+              "7",
+              "11"
+            ],
+            "moduleId": "assign-variables"
+          },
+          {
+            "id": "check-arithmetic",
+            "prompt": "If price = 3 and quantity = 2, what value does price * quantity produce?",
+            "correct": 2,
+            "options": [
+              "5",
+              "1",
+              "6"
+            ],
+            "moduleId": "calculate-values"
+          },
+          {
+            "id": "check-comparison",
+            "prompt": "If total = 8, what value does the comparison total > 10 produce?",
+            "correct": 1,
+            "options": [
+              "True",
+              "False",
+              "None"
+            ],
+            "moduleId": "compare-values"
+          }
+        ]
+      },
+      "placementIsNotEvidence": true
+    },
+    {
+      "id": "phishing",
+      "state": "accepted",
+      "code": null,
+      "proposal": {
+        "state": "ready",
+        "title": "Recognise phishing messages and choose safer next steps",
+        "reason": "This unreviewed generated preview uses four five-minute modules with plain-English explanations and balanced visual comparisons, while keeping practice difficulty separate from presentation preferences.",
+        "modules": [
+          {
+            "id": "understand-phishing",
+            "title": "Understand what phishing messages try to achieve",
+            "reason": "Understanding the sender’s requested action helps you assess messages before reacting to their appearance or emotional pressure.",
+            "outcome": "After five minutes, distinguish deceptive requests from routine communication in three fictional examples and identify what each sender wants.",
+            "prerequisites": []
+          },
+          {
+            "id": "spot-warning-signs",
+            "title": "Notice warning signs without relying on appearances",
+            "reason": "Urgency, unexpected requests, and mismatched sender details deserve attention, while polished writing and familiar logos do not establish legitimacy.",
+            "outcome": "After five minutes, identify at least two warning signs in each of three fictional messages using side-by-side annotated examples.",
+            "prerequisites": [
+              "understand-phishing"
+            ]
+          },
+          {
+            "id": "verify-through-trusted-routes",
+            "title": "Verify requests through a separate trusted route",
+            "reason": "Opening a known app or using independently obtained contact details reduces reliance on information supplied by a potentially deceptive sender.",
+            "outcome": "After five minutes, choose a safer verification route for three fictional requests and explain why message-provided contact details are insufficient.",
+            "prerequisites": [
+              "understand-phishing",
+              "spot-warning-signs"
+            ]
+          },
+          {
+            "id": "respond-and-report",
+            "title": "Explain safer actions and initial recovery steps",
+            "reason": "Practising pausing, reporting through appropriate channels, and changing exposed credentials through trusted services supports calm responses without promising complete protection.",
+            "outcome": "After five minutes, explain a safer response to three fictional scenarios, including one where someone already shared a password.",
+            "prerequisites": [
+              "spot-warning-signs",
+              "verify-through-trusted-routes"
+            ]
+          }
+        ],
+        "outcome": "In approximately twenty minutes, identify warning signs in fictional messages and explain safer responses without opening links or sharing sensitive information.",
+        "question": "",
+        "diagnostic": [
+          {
+            "id": "identify-sensitive-request",
+            "prompt": "A fictional message asks for your password to prevent account closure; which requested action creates the clearest risk?",
+            "correct": 0,
+            "options": [
+              "Sharing your password with the message sender",
+              "Reading the message without responding to it",
+              "Checking your account through its known app"
+            ],
+            "moduleId": "understand-phishing"
+          },
+          {
+            "id": "assess-polished-message",
+            "prompt": "A fictional message contains a familiar logo and flawless spelling; what can those features establish about its legitimacy?",
+            "correct": 1,
+            "options": [
+              "They establish that the sender is the organisation",
+              "They do not establish that the sender is genuine",
+              "They establish that the requested action is safe"
+            ],
+            "moduleId": "spot-warning-signs"
+          },
+          {
+            "id": "recognise-pressure",
+            "prompt": "A fictional delivery message demands immediate payment for an unexpected parcel; which feature most clearly warrants closer checking?",
+            "correct": 2,
+            "options": [
+              "The message uses a short subject line",
+              "The message describes a parcel delivery service",
+              "The message pressures payment for an unexpected delivery"
+            ],
+            "moduleId": "spot-warning-signs"
+          },
+          {
+            "id": "choose-independent-check",
+            "prompt": "A fictional bank message asks you to confirm account details; which route best supports checking the request independently?",
+            "correct": 0,
+            "options": [
+              "Open the bank app you already use",
+              "Follow the account link inside the message",
+              "Call the unfamiliar number inside the message"
+            ],
+            "moduleId": "verify-through-trusted-routes"
+          }
+        ]
+      },
+      "placementIsNotEvidence": true
+    }
+  ],
+  "stopReason": null
+}
