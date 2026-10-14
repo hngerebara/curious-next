@@ -1,0 +1,55 @@
+{
+  "date": "2026-10-14",
+  "scope": "Implementing-agent offline review of preserved fictional fixtures and outputs, without provider calls, regrading, expected-label edits or independent approval.",
+  "source": "openai-study-v1.json",
+  "sourceSha256": "67c3bfcce6ceace6bbbfa253b8de4cc591b2dc1d5b803347bbc7b11c04f2b966",
+  "rubric": "docs/curriculum/cybersecurity-essentials/reference-module.md",
+  "instruction": "src/adapters/phishing-instruction.ts",
+  "findings": [
+    {
+      "case": "CY-delete-not-verification",
+      "samples": [
+        1,
+        2
+      ],
+      "criterion": "C1",
+      "fixtureQuote": "The closure demand is unexpected and urgent.",
+      "rubricRequirement": "Identifies the unexpected sign-in demand plus urgency, closure threat or scenario mismatch.",
+      "finding": "The fixture does not name the sign-in or other sensitive request, while its expected C1 label is met. Both provider samples return not_met. This points to a fixture expectation conflict rather than evidence that the provider should award C1.",
+      "recommendedReview": "An independent rubric reviewer should confirm the original expected label. Preserve it until review and add a separately named explicit-request counterpart if targeted provider comparison is authorised."
+    },
+    {
+      "case": "CY-delete-not-verification",
+      "samples": [
+        1,
+        2
+      ],
+      "criterion": "C4",
+      "fixtureQuote": "If suspicion persists I report through the existing app Help route.",
+      "finding": "The rubric requires the known in-app reporting route, while the instruction explicitly requires Help then Report suspicious message. The fixture names Help but omits Report suspicious message, so the expected met label and protocol specificity need review.",
+      "recommendedReview": "Decide whether the abbreviated route satisfies the rubric, using a reviewed interpretation applied consistently across original and alternate answers. Do not weaken instructions or relabel old results solely to improve agreement."
+    },
+    {
+      "case": "CY-overgeneralisation",
+      "samples": [
+        1,
+        2
+      ],
+      "criterion": "C4",
+      "fixtureQuote": "I verify the closure demand through my existing app and report through its Help route.",
+      "finding": "The same abbreviated reporting route passed once and failed once. It also does not state when suspicion persists, so this is a repeated boundary to review rather than established provider acceptance.",
+      "recommendedReview": "Review timing and route specificity separately from the determinate C5/C6 overgeneralisation errors, then compare new separately named counterparts."
+    }
+  ],
+  "changesToLabels": false,
+  "changesToRubric": false,
+  "changesToAssessor": false,
+  "providerAcceptance": "open",
+  "remaining": [
+    "independent fixture/rubric interpretation",
+    "fresh targeted comparison after interpretation",
+    "current-profile recall and transfer browser acceptance",
+    "actual screen-reader acceptance",
+    "hosted deployment gates"
+  ]
+}
