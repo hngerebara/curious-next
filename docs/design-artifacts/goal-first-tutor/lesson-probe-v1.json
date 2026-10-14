@@ -1,0 +1,11 @@
+{
+  "version": 1,
+  "fictional": true,
+  "profile": "tutor-lesson-v1",
+  "valid": false,
+  "http": null,
+  "transportError": "TimeoutError",
+  "code": "MODEL_UNAVAILABLE",
+  "elapsedMs": 25020,
+  "output": null
+}

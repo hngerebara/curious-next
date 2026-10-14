@@ -1,0 +1,22 @@
+import type { TutorGoal, TutorModule, TutorPreferences } from "./tutor";
+export type TutorReference = { id:string; title:string; url:string; summary:string; accessedAt:string; snapshotHash:string; review:"agent-reviewed" };
+export type LessonNode = { label:string; detail:string; parts:number; total:number };
+export type LessonBlock = { kind:"explanation"|"example"|"diagram"|"comparison"|"timeline"|"fractions"; title:string; text:string; nodes:LessonNode[] };
+export type TutorActivity = { kind:"choice"|"matching"|"ordering"; prompt:string; labels:string[]; options:string[]; correctIndices:number[]; explanation:string };
+export type TutorCriterion = { id:string; field:"application"|"teachBack"; description:string };
+export type TutorLesson = { title:string; purpose:string; blocks:LessonBlock[]; activity:TutorActivity; applicationPrompt:string; teachBackPrompt:string; criteria:TutorCriterion[]; referenceIds:string[] };
+export type TutorDraft = { position:number; activity:number[]; application:string; teachBack:string };
+export type TutorHelp = { key:string; style:TutorPreferences["explanation"]; state:"generating"|"ready"|"failed"; lease:string|null; until:number; count:number; blocks:LessonBlock[]; code:string|null; configuration:string; createdAt:string };
+export type TutorSession = { id:string; pathId:string; module:TutorModule; requestKey:string; revision:number; state:"generating"|"failed"|"ready"; preferences:TutorPreferences; configuration:string; lesson:TutorLesson|null; contentHash:string|null; references:TutorReference[]; draft:TutorDraft; help:TutorHelp[]; generation:{count:number;lease:string|null;until:number;code:string|null}; createdAt:string };
+export type TutorPublicSession = Omit<TutorSession,"lesson"> & { lesson:(Omit<TutorLesson,"activity"> & {activity:Omit<TutorActivity,"correctIndices"|"explanation">})|null };
+export interface TutorLessonStore {
+  list(owner:string,pathId:string):Promise<TutorSession[]>;
+  read(owner:string,id:string):Promise<TutorSession|null>;
+  create(owner:string,session:TutorSession):Promise<TutorSession>;
+  change(owner:string,id:string,update:(session:TutorSession)=>TutorSession):Promise<TutorSession>;
+}
+export interface TutorLessonModel {
+  configuration:string;
+  lesson(goal:TutorGoal,module:TutorModule,references:TutorReference[],previous?:string):Promise<unknown>;
+  explain(lesson:TutorLesson,style:TutorPreferences["explanation"],references:TutorReference[]):Promise<unknown>;
+}
