@@ -1,0 +1,14 @@
+{
+  "date": "2026-10-14",
+  "scope": "Implementing-agent presentation and offline fixture review only, with no provider calls or learner evidence writes.",
+  "desktop": {"width": 1280, "height": 900, "visuallyInspected": true},
+  "mobile": {"width": 320, "contentWidth": 320, "visuallyInspected": true},
+  "text200": {"width": 320, "contentWidth": 320, "rootFontSize": "200%"},
+  "textSizeRestored": "100%",
+  "applicationTests": 124,
+  "pythonTests": 31,
+  "productionBuild": "passed",
+  "privacy": "passed",
+  "providerAcceptance": "open",
+  "screenReaderAcceptance": "open"
+}

@@ -144,3 +144,5 @@ Test with blind and low-vision learners. Verify diagram/text equivalence and ass
 Brand references were inspected and the user approved the bold homepage direction on 2026-10-14. Readability and accessibility need their own evidence. Preserve the source distinction: verified brand tokens and proposed app adaptations. Do not import social-post density or image-only typography into lessons.
 
 Related documents: [product contract](../Prompt.md), [curriculum](curriculum/index.md), [frontend](FRONTEND.md), [document ownership](design-docs/document-ownership.md).
+
+Use connected sentences in explanatory copy, with at least eight words before a full stop. Keep navigation labels, status headings and buttons concise without terminal full stops, and use conjunctions to connect related ideas naturally. Preserve immutable task, rubric and evidence wording when editing presentation copy.

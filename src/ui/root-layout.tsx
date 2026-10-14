@@ -13,6 +13,6 @@ export function RootView({ children }: { children: ReactNode }) {
     <a href="#main" className="skip">Skip to main content</a>
     <SiteHeader />
     {children}
-    <footer><a href="/" className="brand">CuriousNext</a><span>Small steps. Skills you can use.</span><span className="preview">English learning preview</span></footer>
+    <footer><a href="/" className="brand">CuriousNext</a><span>Take small steps towards skills you can use</span><span className="preview">English learning preview</span></footer>
   </DisplayPreferences></body></html>;
 }
