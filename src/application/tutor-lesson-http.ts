@@ -1,6 +1,6 @@
 import type { AuthPort } from "../contracts/access";
 import type { TutorStore, TutorPreferences } from "../contracts/tutor";
-import type { TutorLessonStore } from "../contracts/tutor-lesson";
+import type { TutorApproach, TutorLessonStore } from "../contracts/tutor-lesson";
 import type { tutorAssessmentService } from "./tutor-assessment-service";
 import { tutorRecommendation } from "../domain/tutor-assessment-policy";
 import type { tutorLessonService } from "./tutor-lesson-service";
@@ -26,10 +26,11 @@ export function tutorLessonHttp(auth:Pick<AuthPort,"session">,paths:TutorStore,s
       if(!id)throw Error("INVALID_BODY");
       if(action==="retry" && !Object.keys(data).length){const s=await store.read(owner,id);if(!s)throw Error("NOT_FOUND");return reply(200,publicTutorSession(await service.generate(owner,s.pathId,s.module.id,s.requestKey,id)));}
       if(!Number.isSafeInteger(data.revision) || Number(data.revision)<0)throw Error("INVALID_BODY");
+      if(action==="freeze" && assessment && Object.keys(data).join()==="revision")return reply(200,publicTutorSession(await assessment.freeze(owner,id,Number(data.revision),key(request))));
       if(action==="submit" && assessment && Object.keys(data).join()==="revision")return reply(200,publicTutorSession(await assessment.submit(owner,id,Number(data.revision),key(request))));
       if(action==="assess" && assessment && Object.keys(data).join()==="revision")return reply(200,publicTutorSession(await assessment.assess(owner,id)));
       if(action==="save" && Object.keys(data).sort().join()==="draft,revision")return reply(200,publicTutorSession(await service.save(owner,id,Number(data.revision),data.draft)));
-      if(action==="explain" && Object.keys(data).sort().join()==="revision,style" && ["simple","beginner","standard","technical"].includes(String(data.style)))return reply(200,publicTutorSession(await service.explain(owner,id,Number(data.revision),data.style as TutorPreferences["explanation"],key(request))));
+      if(action==="explain" && ["revision,style","approach,revision,style"].includes(Object.keys(data).sort().join()) && (!("approach" in data) || ["balanced","story","flowchart","infographic","brain-sketch","everyday"].includes(String(data.approach))) && ["simple","beginner","standard","technical"].includes(String(data.style)))return reply(200,publicTutorSession(await service.explain(owner,id,Number(data.revision),data.style as TutorPreferences["explanation"],key(request),data.approach as TutorApproach|undefined)));
       if(action==="check" && Object.keys(data).join()==="revision"){
         const s=await store.read(owner,id);if(!s)throw Error("NOT_FOUND");if(s.revision!==data.revision)throw Error("REVISION_CONFLICT");if(!s.lesson)throw Error("PATH_NOT_READY");const correct=s.draft.activity.length===s.lesson.activity.correctIndices.length && s.draft.activity.every((a,i)=>a===s.lesson!.activity.correctIndices[i]);return reply(200,{correct,explanation:s.lesson.activity.explanation});
       }

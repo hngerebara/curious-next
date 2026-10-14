@@ -158,7 +158,7 @@ Keep recommendation logic separable from presentation generation so the AI canno
 
 Demonstrate fictional goals for fractions, public speaking, introductory programming and phishing awareness. Lead the current walkthrough through goal setup, visual teaching, mistaken reasoning, useful feedback, fresh corrective practice, an updated recommendation and saved work. Show explanation changes without changing the frozen lesson criteria, and keep historical pilot demonstration evidence distinct.
 
-Label captured-screen walkthroughs clearly, because replayed verified screenshots do not establish continuous live operation. The user's replacement narration remains pending their recording. Demo data must never appear as real learner achievement.
+Label captured-screen walkthroughs clearly, because replayed verified screenshots do not establish continuous live operation. The user's replacement demonstration narration remains pending their recording. Browser slide read-aloud and learner dictation are separately authorised in CN-TUTOR-002, with editable transcripts and no audio storage. Demo data must never appear as real learner achievement.
 
 ## 14. Acceptance criteria
 
