@@ -1,0 +1,105 @@
+{
+  "version": 1,
+  "fictional": true,
+  "profile": "tutor-lesson-45-second-v1",
+  "valid": false,
+  "http": 200,
+  "transportError": null,
+  "code": "MODEL_INVALID",
+  "elapsedMs": 31387,
+  "output": {
+    "title": "Recognise Equal Shares of a Whole",
+    "purpose": "Spend about 20 minutes learning how equal shares make fractions meaningful, then practise distinguishing equal shares from unequal parts.",
+    "blocks": [
+      {
+        "kind": "explanation",
+        "title": "Start with the whole — 4 minutes",
+        "text": "A whole is the complete thing you are sharing. It might be one sandwich, one ribbon, or one cake. Equal shares are parts that contain the same amount. Simply counting the pieces does not show whether shares are equal. For pieces of a ribbon, compare their lengths carefully. For pieces of a flat sandwich, compare their areas instead. A fraction describes selected equal parts of a whole.",
+        "nodes": []
+      },
+      {
+        "kind": "example",
+        "title": "Worked example: sharing a cake — 4 minutes",
+        "text": "Imagine one rectangular cake divided into four equal-sized pieces. You select one piece and leave the other three. Your selected piece is one quarter of the cake. We write this fraction as 1/4, with four counting all equal pieces and one counting the selected piece. Now imagine four pieces with one much larger than the others. Selecting that larger piece does not give you one quarter merely because there are four pieces.",
+        "nodes": []
+      },
+      {
+        "kind": "fractions",
+        "title": "See the selected shares — 3 minutes",
+        "text": "Each strip below represents one whole divided into four equal shares. Shading shows which shares are selected in each strip. In 1/4, one of the four equal shares is selected. In 3/4, three of the four equal shares are selected.",
+        "nodes": [
+          {
+            "label": "One quarter: 1/4",
+            "detail": "One selected share out of four equal shares",
+            "parts": 1,
+            "total": 4
+          },
+          {
+            "label": "Three quarters: 3/4",
+            "detail": "Three selected shares out of four equal shares",
+            "parts": 3,
+            "total": 4
+          }
+        ]
+      },
+      {
+        "kind": "diagram",
+        "title": "Compare equal and unequal cuts — 3 minutes",
+        "text": "Both examples below begin with a ribbon nine centimetres long. The first ribbon has three pieces of equal length. Each piece is therefore one third of that ribbon. The second ribbon also has three pieces, but their lengths differ. Those pieces are not equal thirds of the ribbon.",
+        "nodes": [
+          {
+            "label": "Equal shares",
+            "detail": "Whole ribbon: 9 cm → pieces: 3 cm | 3 cm | 3 cm; each piece has the same length",
+            "parts": 0,
+            "total": 0
+          },
+          {
+            "label": "Unequal parts",
+            "detail": "Whole ribbon: 9 cm → pieces: 2 cm | 3 cm | 4 cm; the pieces have different lengths",
+            "parts": 0,
+            "total": 0
+          }
+        ]
+      }
+    ],
+    "activity": {
+      "kind": "choice",
+      "prompt": "Take about two minutes to choose one cutting plan. Which plan divides a twelve-centimetre ribbon into three equal shares?",
+      "labels": [],
+      "options": [
+        "Pieces measuring 2 cm, 4 cm, and 6 cm",
+        "Pieces measuring 4 cm, 4 cm, and 4 cm",
+        "Pieces measuring 3 cm, 4 cm, and 5 cm"
+      ],
+      "correctIndices": [],
+      "explanation": "Compare all three piece lengths within each cutting plan. Equal shares must contain the same amount of ribbon."
+    },
+    "applicationPrompt": "Take about two minutes to draw one rectangular sandwich. Divide it into four equal shares and shade two shares. Write the fraction represented by your shading and explain both numbers. Then sketch a second sandwich divided into four unequal parts. Explain why counting four parts alone does not establish equal quarters.",
+    "teachBackPrompt": "Use the final two minutes to explain equal shares in your own words. Tell someone how to check whether pieces are equal, and explain why the number of pieces alone is not enough.",
+    "criteria": [
+      {
+        "id": "application-equal-shares",
+        "field": "application",
+        "description": "The first drawing shows one rectangular whole divided into four parts of equal area, with exactly two parts shaded."
+      },
+      {
+        "id": "application-fraction",
+        "field": "application",
+        "description": "The response identifies the shading as 2/4 and explains that two counts selected shares while four counts all equal shares."
+      },
+      {
+        "id": "application-unequal",
+        "field": "application",
+        "description": "The second drawing shows four unequal parts, and the explanation states that four parts need equal areas to be quarters."
+      },
+      {
+        "id": "teachback-check",
+        "field": "teachBack",
+        "description": "The own-words explanation defines equal shares as the same amount, names a relevant check such as length or area, and explains why counting alone is insufficient."
+      }
+    ],
+    "referenceIds": [
+      "fractions-openstax"
+    ]
+  }
+}

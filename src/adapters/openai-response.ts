@@ -12,9 +12,10 @@ async function boundedJson(response:Response):Promise<unknown> {
   const bytes=new Uint8Array(length);let offset=0;for(const chunk of chunks){bytes.set(chunk,offset);offset+=chunk.length;}
   try{return JSON.parse(new TextDecoder().decode(bytes));}catch{throw Error("MODEL_INVALID");}
 }
-export async function openaiResponse(key:string|undefined,model:string|undefined,instruction:string,input:unknown,schema:unknown,maxTokens:number,transport:typeof fetch=fetch) {
+export async function openaiResponse(key:string|undefined,model:string|undefined,instruction:string,input:unknown,schema:unknown,maxTokens:number,transport:typeof fetch=fetch,timeoutMs=25000) {
   if(!key || !model)throw Error("MODEL_NOT_CONFIGURED");
-  const response=await transport(openaiDefaults.endpoint,{method:"POST",signal:AbortSignal.timeout(25000),headers:{Authorization:"Bearer "+key,"Content-Type":"application/json"},body:JSON.stringify({model,instructions:instruction,input:[{role:"user",content:typeof input === "string" ? input : JSON.stringify(input)}],reasoning:{effort:openaiDefaults.reasoning},max_output_tokens:maxTokens,store:false,...(schema ? {text:{format:{type:"json_schema",name:"curiousnext_output",strict:true,schema}}} : {})})});
+  if(!Number.isInteger(timeoutMs) || timeoutMs<1000 || timeoutMs>60000)throw Error("MODEL_INVALID");
+  const response=await transport(openaiDefaults.endpoint,{method:"POST",signal:AbortSignal.timeout(timeoutMs),headers:{Authorization:"Bearer "+key,"Content-Type":"application/json"},body:JSON.stringify({model,instructions:instruction,input:[{role:"user",content:typeof input === "string" ? input : JSON.stringify(input)}],reasoning:{effort:openaiDefaults.reasoning},max_output_tokens:maxTokens,store:false,...(schema ? {text:{format:{type:"json_schema",name:"curiousnext_output",strict:true,schema}}} : {})})});
   if(!response.ok)throw Error(response.status === 429 ? "MODEL_LIMITED" : response.status === 400 ? "MODEL_INVALID" : "MODEL_UNAVAILABLE");
   const raw=await boundedJson(response);
   if(!raw || typeof raw !== "object" || Array.isArray(raw))throw Error("MODEL_INVALID");
