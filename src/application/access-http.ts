@@ -3,7 +3,7 @@ import { accessPolicy, emailAddress, isToken } from "../domain/access-policy";
 import type { accessService } from "./access-service";
 
 type Service = ReturnType<typeof accessService>;
-type Dependencies = { auth: AuthPort; confirmation: ConfirmationPort; service: Service; records: OwnedRecordPort; origin: string; trustedProxy: boolean };
+type Dependencies = { auth: AuthPort; confirmation: ConfirmationPort; service: Service; records: OwnedRecordPort; origin: string; trustedProxy: boolean; demo?: (password: unknown, client: string) => Promise<{ cookies: string[] } | null> };
 
 export function accessHttp(deps: Dependencies) {
   const cookieName = deps.origin.startsWith("https:") ? "__Host-cn-confirm" : "cn-confirm";
@@ -42,7 +42,7 @@ export function accessHttp(deps: Dependencies) {
         const record = await deps.records.read(id, learner.id);
         return record ? json(200, { data: record, requestId: crypto.randomUUID() }) : responseError(404, "NOT_FOUND");
       }
-      if (request.method !== "POST" || !["request", "confirm", "logout"].includes(operation)) return responseError(404, "NOT_FOUND");
+      if (request.method !== "POST" || !["request", "confirm", "logout", "demo"].includes(operation)) return responseError(404, "NOT_FOUND");
       if (request.headers.get("origin") !== deps.origin) return responseError(403, "ORIGIN_REJECTED");
       const contentType = request.headers.get("content-type")?.split(";")[0];
       if (!["application/json", "application/x-www-form-urlencoded"].includes(contentType ?? "")) return responseError(400, "INVALID_BODY");
@@ -69,7 +69,13 @@ export function accessHttp(deps: Dependencies) {
       } catch {
         return responseError(400, "INVALID_BODY");
       }
+      if (operation === "demo") {
+        if (!deps.demo) return responseError(404, "NOT_FOUND");
+        const result = await deps.demo(body.password, client(request));
+        return result ? redirect("/onboarding", result.cookies) : responseError(401, "DEMO_LOGIN_REJECTED");
+      }
       if (operation === "request") {
+        if (deps.demo) return responseError(404, "NOT_FOUND");
         const email = emailAddress(body.email);
         if (!email || body.destination !== undefined) return responseError(400, "INVALID_EMAIL_OR_DESTINATION");
         const result = await deps.service.request(email, client(request));
@@ -78,6 +84,7 @@ export function accessHttp(deps: Dependencies) {
         return json(202, { data: { message: "Check your inbox for a sign-in link." }, requestId: crypto.randomUUID() });
       }
       if (operation === "confirm") {
+        if (deps.demo) return responseError(404, "NOT_FOUND");
         const saved = context(request);
         if (!saved || typeof body.csrf !== "string" || body.csrf !== saved.csrf) return redirect("/access?state=invalid", [contextCookie("", 0)]);
         const result = await deps.service.confirm(saved.token, client(request));

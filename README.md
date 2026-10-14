@@ -132,3 +132,7 @@ After reviewing documentation changes, run `python3 scripts/validate_repo.py --r
 - [Architecture](Architecture.md), [API](docs/design-docs/api-spec.md), [data model](docs/design-docs/data-model.md) and [security](docs/design-docs/security.md) describe implementation boundaries.
 - [Design system](docs/DESIGN.md), [screen behaviour](docs/FRONTEND.md) and [learner journeys](docs/product-specs/user-flows.md) provide design context, including preserved pilot history.
 - [Roadmap](Plans.md), [implementation entry](Implement.md), [repository map](AGENTS.md), [plans](docs/exec-plans/index.md) and [decisions](docs/design-docs/decisions/index.md) guide contributors.
+
+### Temporary shared demo login
+
+Set `DEMO_LOGIN_ENABLED=true` and a private `DEMO_LOGIN_PASSWORD` of at least 16 characters to replace email sign-in with a shared demo password. The account is created automatically on first sign-in, while normal secure sessions and logout remain active. Resend configuration is unnecessary in this mode. Everyone shares the demo account and saved work, so use fictional information only. Existing personal accounts remain stored but cannot sign in through email until demo mode is disabled. Remove the flag to restore email login, which requires real email delivery on hosted deployments. Never publish the password in source control.
