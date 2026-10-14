@@ -36,3 +36,7 @@ On 2026-10-09 the user explicitly authorised M3 preview implementation while M2'
 On 2026-10-13 the user authorised M4 preview implementation while M2 actual screen-reader acceptance remains open. This sequencing exception permits fictional implementation/validation, not learner release. [CN-ADAPT-001](docs/exec-plans/active/adaptive-loop.md).
 
 On 2026-10-14 the user authorised [CN-CLARITY-001](docs/exec-plans/active/clear-learning.md), a brand-preserving experience redesign and server-only OpenAI migration. The homepage direction was approved before extending it across learner screens. This slice prepares a recorded hackathon demonstration within 48 hours, without completing M5/M6 or approving release. Historical Groq acceptance remains historical. Fresh OpenAI acceptance is required.
+
+## Goal-first tutor expansion
+
+[CN-TUTOR-001](docs/exec-plans/active/goal-first-tutor.md) supersedes fixed-course entry under explicit user authorisation. Three stacked, reviewed slices cover foundation, visual teaching and adaptive feedback. Each receives a verified ticket and open PR. Completion requires fictional multi-topic journeys, persistence/recovery, inspected desktop/mobile rendering and latest-head checks. M4 scoring disagreements, independent curriculum/provider review, actual screen-reader acceptance, M5/M6 and deployment remain separate gates.

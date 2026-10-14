@@ -559,6 +559,14 @@
         "## Three-minute story",
         "## Hackathon submission points"
       ]
+    },
+    "docs/exec-plans/active/goal-first-tutor.md": {
+      "required_headings": [
+        "# CN-TUTOR-001: Goal-first creative tutor",
+        "## Plan lifecycle",
+        "## Deliverables",
+        "## Validation and delivery"
+      ]
     }
   },
   "layers": {

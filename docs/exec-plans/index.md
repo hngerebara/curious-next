@@ -2,6 +2,8 @@
 
 ## Active
 
+- [CN-TUTOR-001: Goal-first creative tutor](active/goal-first-tutor.md)
+
 - [CN-CLARITY-001](active/clear-learning.md): authorised navigation/brand redesign and OpenAI migration.
 
 - [CN-ADAPT-001](active/adaptive-loop.md): authorised M4 cybersecurity, misconception correction and distinct recall/transfer preview.

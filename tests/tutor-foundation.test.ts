@@ -1,0 +1,27 @@
+import { afterEach, describe, expect, it } from "vitest";
+import { courseHarness, request } from "./course-harness";
+import { readFile } from "node:fs/promises";
+import { tutorStore } from "../src/adapters/tutor-store";
+import { tutorService } from "../src/application/tutor-service";
+import { tutorHttp } from "../src/application/tutor-http";
+import { tutorPlace, tutorProposal } from "../src/domain/tutor-policy";
+import type { TutorGoal, TutorProposal } from "../src/contracts/tutor";
+export const tutorInput:TutorGoal={text:"Understand fractions in everyday situations",clarification:"",preferences:{explanation:"simple",visuals:"visual",minutes:20,language:"en"}};
+export function generatedPath():TutorProposal {return {state:"ready",title:"Understand everyday fractions",outcome:"Explain fractions and compare equal shares in everyday situations.",reason:"Your goal connects numbers to everyday sharing and practical decisions.",question:"",modules:Array.from({length:4},(_,i)=>({id:"module-"+i,title:"Fraction step "+i,outcome:"Explain a useful idea with a practical everyday example.",reason:"This step supports your next useful activity through guided practice.",prerequisites:i?["module-"+(i-1)]:[]})),diagnostic:Array.from({length:4},(_,i)=>({id:"question-"+i,moduleId:"module-"+i,prompt:"Choose the explanation that describes the same equal shares.",options:["Two equal shares","Three equal shares","Four equal shares"],correct:0}))};}
+const closers:(()=>Promise<void>)[]=[];
+afterEach(async()=>{for(const close of closers.splice(0))await close();});
+export async function tutorHarness(generate=async()=>generatedPath()) {
+  const h=await courseHarness();closers.push(h.close);await h.sql.exec(await readFile(new URL("../migrations/0006-generated-tutor.sql",import.meta.url),"utf8"));
+  const store=tutorStore(h.db);let calls=0;
+  const service=tutorService(store,{configuration:"fictional-tutor-v1",async path(){calls++;return generate();}},{async allow(){return true;}},{emit(){}});
+  const handler=tutorHttp({async session(headers){const id=headers.get("x-test-owner");return id?{id,email:"fictional@example.test"}:null;}},store,service,"https://curiousnext.test");
+  return {...h,store,service,handler,count:()=>calls};
+}
+describe("generated tutor foundation",()=>{
+  it("persists paths by owner, redacts diagnostic answers and replays without another model call",async()=>{const h=await tutorHarness();const path=await h.service.generate("learner-a",tutorInput,"fictional-tutor-key-001");expect(path.state).toBe("proposed");expect((await h.service.generate("learner-a",tutorInput,"fictional-tutor-key-001")).id).toBe(path.id);expect(h.count()).toBe(1);expect(await h.store.read("learner-b",path.id)).toBeNull();const response=await h.handler(request("/api/tutor/paths/"+path.id),path.id);const data=(await response.json()).data;expect(data.proposal.diagnostic[0]).not.toHaveProperty("correct");expect((await h.handler(request("/api/tutor/paths/"+path.id,"GET",undefined,undefined,"learner-b"),path.id)).status).toBe(404);});
+  it("keeps diagnostic placement provisional and permits earlier starts",async()=>{const h=await tutorHarness();let path=await h.service.generate("learner-a",tutorInput,"fictional-tutor-key-002");path=await h.service.accept("learner-a",path.id,path.revision);path=await h.service.place("learner-a",path.id,path.revision,[0,0,-1,-1]);expect(path.placement?.suggested).toBe("module-2");path=await h.service.place("learner-a",path.id,path.revision,[0,0,-1,-1],"module-0");expect(path.placement?.selected).toBe("module-0");expect(path).not.toHaveProperty("evidence");expect(()=>tutorPlace(path,[0,0,-1,-1],"module-3")).toThrow("INVALID_PLACEMENT");});
+  it("rejects conflicting request payloads and stale acceptance revisions",async()=>{const h=await tutorHarness();const path=await h.service.generate("learner-a",tutorInput,"fictional-tutor-key-003");await expect(h.service.generate("learner-a",{...tutorInput,text:"Learn public speaking with practical exercises"},path.requestKey)).rejects.toThrow("REQUEST_CONFLICT");await expect(h.service.accept("learner-a",path.id,0)).rejects.toThrow("REVISION_CONFLICT");});
+  it("preserves generation failures and bounds explicit retries",async()=>{const h=await tutorHarness(async()=>{throw Error("MODEL_LIMITED");});let path=await h.service.generate("learner-a",tutorInput,"fictional-tutor-key-004");expect(path.generation.code).toBe("MODEL_LIMITED");path=await h.service.generate("learner-a",tutorInput,path.requestKey,path.id);expect(path.generation.count).toBe(2);await expect(h.service.generate("learner-a",tutorInput,path.requestKey,path.id)).rejects.toThrow("ATTEMPTS_EXHAUSTED");});
+  it("rejects forward prerequisites, missing questions and malformed options",()=>{let output=generatedPath();output.modules[0].prerequisites=["module-1"];expect(()=>tutorProposal(output)).toThrow();output=generatedPath();output.diagnostic=[];expect(()=>tutorProposal(output)).toThrow();output=generatedPath();output.diagnostic[0].options=["same","same","other"];expect(()=>tutorProposal(output)).toThrow();});
+  it("enforces origin, authentication and strict input boundaries",async()=>{const h=await tutorHarness();expect((await h.handler(request("/api/tutor/paths","POST",tutorInput,undefined,"learner-a","https://evil.test"))).status).toBe(403);expect((await h.handler(new Request("https://curiousnext.test/api/tutor/paths"))).status).toBe(401);expect((await h.handler(request("/api/tutor/paths","POST",{...tutorInput,owner:"learner-b"}))).status).toBe(400);});
+});

@@ -74,3 +74,9 @@ Accessibility is a baseline, not a separate learner track. Target WCAG 2.2 AA, w
 Teaching language (English, Nigerian Pidgin, Igbo, Yoruba, Hausa) is separate from explanation level and presentation. Persist language per learner and lesson variant. Localise instructions, hints, feedback and assessment. Preserve technical terms with reviewed bilingual glossaries and accept code-switching. Assess concepts rather than unrelated grammar. Missing approved content shows availability honestly and offers an explicit language switch. No silent fallback.
 
 Language releases require reviewed glossary, lesson variants, rubric parity examples, fluent-speaker approval and learner usability checks. Correct language metadata supports assistive pronunciation. Optional read-aloud remains deferred until voice/pronunciation review. No completed translation or voice capability is claimed.
+
+## Goal-first generated tutor expansion
+
+CN-TUTOR-001 follows the user's 2026-10-14 approved product realignment. Goal-first onboarding replaces fixed-course choices for new setup, while historical enrollments remain readable. The generated engine is isolated from AI-2/CY-2 evidence and does not reinterpret old assessments. Adults select simple/beginner/standard/technical explanation, balanced/visual presentation and 10/20/40-minute sessions independently. English only, no age inference or fixed learning-style claims.
+
+Owned path snapshots pin configuration, ordered objectives, diagnostic questions and immutable goal/preferences. Migration 0006 is additive and explicit. Row locking serialises revisions, request keys bind payloads, unpredictable leases bound generation and stale results cannot overwrite recovered requests. Public projections remove diagnostic answer keys. Placement never creates mastery evidence. Generated content remains a preview with independent reference/rubric review required before learner release.

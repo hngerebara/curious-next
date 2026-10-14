@@ -39,3 +39,9 @@ Validate V1-V12 and accessible keyboard/screen-reader navigation on actual rende
 ## Public entry and authentication
 
 Public homepage introduces the pilot courses and leads to goal setup, with a separate Log in action. Sign-up and login both use a single labelled email field and Send me a magic link. Do not offer password entry, password reset, social providers or numeric code entry. Submission, neutral request acceptance, check-email, change-email, rate-limited resend, expired/used links, network failure and session-expiry return require accessible states. Responses must not reveal account existence. Verification success sends new learners to goal setup and returning learners to a validated saved destination. Design previews never send email or create an account.
+
+## Goal-first generated tutor expansion
+
+CN-TUTOR-001 follows the user's 2026-10-14 approved product realignment. Goal-first onboarding replaces fixed-course choices for new setup, while historical enrollments remain readable. The generated engine is isolated from AI-2/CY-2 evidence and does not reinterpret old assessments. Adults select simple/beginner/standard/technical explanation, balanced/visual presentation and 10/20/40-minute sessions independently. English only, no age inference or fixed learning-style claims.
+
+Owned path snapshots pin configuration, ordered objectives, diagnostic questions and immutable goal/preferences. Migration 0006 is additive and explicit. Row locking serialises revisions, request keys bind payloads, unpredictable leases bound generation and stale results cannot overwrite recovered requests. Public projections remove diagnostic answer keys. Placement never creates mastery evidence. Generated content remains a preview with independent reference/rubric review required before learner release.
