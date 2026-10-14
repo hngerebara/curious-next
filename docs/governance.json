@@ -583,6 +583,14 @@
         "## Captured-screen walkthrough",
         "## Presentation claims and limits"
       ]
+    },
+    "docs/exec-plans/active/interactive-teaching.md": {
+      "required_headings": [
+        "# CN-TUTOR-002: Interactive teaching and spoken learning",
+        "## Scope",
+        "## Delivery",
+        "## Verification and boundaries"
+      ]
     }
   },
   "layers": {

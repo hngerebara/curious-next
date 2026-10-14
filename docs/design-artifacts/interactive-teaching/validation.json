@@ -1,0 +1,45 @@
+{
+  "version": 1,
+  "scope": "CN-TUTOR-002 / THE-26",
+  "fictionalOnly": true,
+  "applicationTests": 164,
+  "pythonTests": 31,
+  "productionBuild": "passed",
+  "dependencyVulnerabilities": 0,
+  "browser": {
+    "visualSelection": "Clicked two-quarters and inspected changed selected state and explanation",
+    "alternateTeaching": "Technical flowchart and simple everyday analogy both became active saved slide decks",
+    "readAloud": "Start, pause and stop controls exercised in browser; audible output not independently confirmed",
+    "dictation": "Control available with disclosure and text fallback; actual microphone transcription not performed",
+    "submission": "Save/freeze/assessment returned visible feedback; three criteria met, one remained not_met, no successful evidence",
+    "mobile": "320px layout inspected, actual 32px root text with 320px content width",
+    "screenReader": "Structure only, actual performed acceptance remains open"
+  },
+  "preservedIssues": [
+    "Initial browser generation response was interrupted during development reload; saved path recovered without regenerating it",
+    "Earlier full test run had two database-test timeouts with 160 passes; unchanged time limits passed in final full rerun",
+    "One live criterion gap remains in the preserved feedback, without relabeling or claiming independent calibration"
+  ],
+  "review": {
+    "type": "implementing-agent semantic self-review",
+    "fixed": [
+      "Inert-looking visual controls",
+      "Alternate output hidden below original teaching",
+      "Missing visible request stages",
+      "Unbounded browser fetch wait",
+      "Incomplete submission error specificity",
+      "Private audio not persisted",
+      "Duplicate dictation draft replacement prevented",
+      "Saved explanation reuse and inspection",
+      "Path outcomes requiring unsupported drawings",
+      "Slide navigation keyboard focus"
+    ],
+    "open": [
+      "Actual microphone transcription",
+      "Independent content/provider acceptance",
+      "M4 scoring disagreements",
+      "Actual screen-reader acceptance",
+      "M5/M6 and deployment"
+    ]
+  }
+}

@@ -35,3 +35,5 @@ See [milestones](../../Plans.md) and [status](../../Documentation.md).
 - [CN-COURSE-001](active/course-generation.md): authorised M2 course-plan preview.
 
 - [CN-LOCAL-AUTH-001](active/local-auth.md): local magic-link inbox and Neon validation.
+
+[CN-TUTOR-002: Interactive teaching and spoken learning](active/interactive-teaching.md) repairs learner interaction and adds browser speech controls under explicit user authorisation.
