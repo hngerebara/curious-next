@@ -1,3 +1,4 @@
+import { demoLogin } from "../adapters/demo-login";
 import { postgres } from "../adapters/postgres";
 import { makeAuth } from "../adapters/better-auth";
 import { repositories } from "../adapters/access-repositories";
@@ -20,10 +21,14 @@ export function runtime() {
   const databaseUrl = new URL(database);
   if (!["postgres:", "postgresql:"].includes(databaseUrl.protocol)) throw new Error("INVALID_DATABASE_URL");
   if (url.protocol === "https:" && !["require", "verify-ca", "verify-full"].includes(databaseUrl.searchParams.get("sslmode") ?? "")) throw new Error("DATABASE_TLS_REQUIRED");
-  const send = emailDelivery();
+  const demoPassword = process.env.DEMO_LOGIN_PASSWORD;
+  const demoEnabled = process.env.DEMO_LOGIN_ENABLED === "true";
+  if (demoEnabled && (!demoPassword || demoPassword.length < 16)) throw new Error("DEMO_PASSWORD_REQUIRED");
+  const send = demoEnabled ? async () => { throw new Error("EMAIL_LOGIN_DISABLED"); } : emailDelivery();
   const { db } = postgres(database);
   const auth = makeAuth(db, origin, secret, send);
   const { abuse, records } = repositories(db, secret);
-  current = accessHttp({ auth, confirmation: confirmationPort(secret), service: accessService(auth, abuse, events), records, origin, trustedProxy: process.env.TRUST_VERCEL_PROXY === "true" && process.env.VERCEL === "1" });
+  const demo = demoEnabled ? demoLogin(db, origin, secret, demoPassword!, abuse) : undefined;
+  current = accessHttp({ demo, auth, confirmation: confirmationPort(secret), service: accessService(auth, abuse, events), records, origin, trustedProxy: process.env.TRUST_VERCEL_PROXY === "true" && process.env.VERCEL === "1" });
   return current;
 }
