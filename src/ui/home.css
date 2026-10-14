@@ -1,0 +1,43 @@
+.home-shell { max-width:1280px; padding:0 48px; margin:auto; }
+.home-hero { display:grid; grid-template-columns:1.1fr 1fr; gap:64px; align-items:center; padding:70px 0 90px; }
+.home-hero h1 { font-size:clamp(2.625rem,5.5vw,4.75rem); line-height:1.06; letter-spacing:-.045em; margin:0 0 30px; }
+.hero-intro { max-width:430px; font-size:1.188rem; line-height:1.65; }
+.tiny-spark { display:inline-grid; place-items:center; font-size:1.312rem; margin-right:8px; color:var(--ink); }
+.hero-actions { display:flex; align-items:center; gap:24px; flex-wrap:wrap; margin:32px 0 16px; } .hero-note { font-size:0.8125rem; color:var(--muted); }
+.hero-visual { min-width:0; position:relative; margin:0; padding:36px 28px 0; isolation:isolate; }
+.visual-orbit { position:absolute; background:var(--lavender); border-radius:50%; width:95%; aspect-ratio:1; top:25px; left:0; z-index:-1; }
+.example-label { position:relative; display:inline-block; font-size:0.8125rem; background:var(--ink); color:var(--paper); padding:9px 16px; transform:rotate(-4deg); margin-left:10px; margin-bottom:-10px; z-index:1; }
+.message-example { background:var(--surface); padding:28px; border:1px solid var(--ink); border-radius:8px; transform:rotate(2deg); }
+.example-topline { display:flex; flex-wrap:wrap; align-items:center; gap:10px; font-size:0.625rem; letter-spacing:.06em; font-weight:600; margin-bottom:28px; }
+.message-stamp { display:grid; place-items:center; width:28px; height:28px; background:var(--lime); border-radius:50%; font-size:1.25rem; }
+.example-time { margin-left:auto; font-weight:400; font-size:0.75rem; white-space:nowrap; }
+.message-example h2 { font-size:2rem; margin-bottom:24px; line-height:1.15; }
+.example-message { padding:20px; background:#f2eee5; border-left:3px solid var(--ink); }
+.example-sender { font-size:0.75rem; font-weight:600; } .example-message p { font-size:1rem; line-height:1.5; margin:10px 0 12px; } .message-tag { font-size:0.6875rem; color:var(--muted); }
+.example-prompt { display:flex; align-items:center; gap:15px; margin-top:22px; }
+.example-prompt>span { width:34px; height:34px; display:grid; place-items:center; border-radius:50%; background:var(--lime); font-size:1.375rem; flex-shrink:0; } .example-prompt p { font-size:0.875rem; margin:0; }
+.visual-note { position:relative; display:flex; gap:12px; align-items:center; margin:20px 0 0 40px; font-size:1rem; transform:rotate(-3deg); } .visual-note span { font-size:1.562rem; }
+.hero-visual figcaption { font-size:0.6875rem; line-height:1.5; color:var(--muted); max-width:340px; margin:22px 0 0 25px; }
+.home-section { border-top:1px solid var(--ink); padding:64px 0; scroll-margin-top:30px; }
+.home-section h2 { font-size:clamp(2rem,3.5vw,3rem); line-height:1.08; letter-spacing:-.04em; }
+.home-section:not(.courses-section) { display:grid; grid-template-columns:1fr 2fr; gap:70px; }
+.section-intro>p:last-child { max-width:270px; color:var(--muted); font-size:0.9375rem; }
+.learning-loop { list-style:none; margin:0; padding:0; display:grid; grid-template-columns:repeat(3,1fr); gap:32px; }
+.step-number { display:inline-block; border-bottom:2px solid var(--ink); padding:0 0 10px; margin-bottom:22px; font-size:0.875rem; font-weight:600; }
+.learning-loop h3 { font-size:1.25rem; } .learning-loop p { color:var(--muted); font-size:0.875rem; line-height:1.7; }
+.section-heading { display:flex; justify-content:space-between; align-items:flex-end; gap:40px; margin-bottom:40px; } .section-heading>p { max-width:330px; color:var(--muted); font-size:0.9375rem; }
+.course-rows { display:grid; grid-template-columns:1fr 1fr; border-top:1px solid var(--line); }
+.course-row { display:grid; grid-template-columns:64px 1fr 30px; gap:24px; padding:35px 30px 25px 0; color:var(--ink); text-decoration:none; align-items:start; }
+.course-row+.course-row { border-left:1px solid var(--line); padding-left:35px; padding-right:0; }
+.course-icon { width:64px; height:64px; display:grid; place-items:center; font-size:2.125rem; border-radius:50%; }
+.lime-icon { background:var(--lime); } .lavender-icon { background:var(--lavender); } .course-category { font-size:0.75rem; color:var(--muted); font-weight:600; }
+.course-row h3 { margin:14px 0; font-size:1.688rem; line-height:1.15; } .course-row p { color:var(--muted); font-size:0.875rem; max-width:290px; }
+.course-arrow { font-size:1.688rem; } .course-row:hover h3 { text-decoration:underline; text-underline-offset:6px; }
+.home-closing { padding:70px 40px; margin-bottom:64px; background:var(--lime); text-align:center; }
+.home-closing h2 { font-size:clamp(1.75rem,3.3vw,2.625rem); line-height:1.2; } .home-closing .primary-button { background:var(--ink); color:var(--paper); margin:8px 0 24px; }
+.home-closing .primary-button:hover { background:#333; } .home-closing .preview { margin:0; }
+@media(max-width:1000px) { .home-hero { gap:32px; } .hero-visual { padding:26px 5px 0; } .hero-actions { gap:18px; } .home-section:not(.courses-section) { grid-template-columns:1fr; gap:24px; } }
+@media(max-width:700px) { .home-shell { padding:0 20px; } .home-hero { grid-template-columns:1fr; gap:30px; padding:38px 0 60px; } .home-hero h1 { font-size:2.875rem; } .hero-intro { font-size:1.062rem; } .hero-visual { max-width:440px; margin:auto; padding:20px 12px 0; } .message-example { padding:24px; } .home-section { padding:44px 0; } .learning-loop { grid-template-columns:1fr; gap:16px; } .learning-loop li { display:grid; grid-template-columns:38px 1fr; column-gap:18px; } .learning-loop .step-number { grid-row:span 2; padding:0; border:0; margin-top:3px; } .learning-loop p { grid-column:2; } .section-heading { display:block; margin-bottom:24px; } .course-rows { grid-template-columns:1fr; } .course-row,.course-row+.course-row { grid-template-columns:48px 1fr 22px; gap:16px; padding:28px 0; border-left:0; border-bottom:1px solid var(--line); } .course-icon { width:48px; height:48px; font-size:1.688rem; } .course-row h3 { font-size:1.562rem; } .home-closing { padding:42px 20px; margin-bottom:40px; } }
+@media(max-width:380px) { .home-hero h1 { font-size:2.438rem; } .hero-visual { padding-left:6px; padding-right:6px; } .message-example { padding:18px; } .message-example h2 { font-size:1.75rem; } .visual-note { margin-left:15px; font-size:0.875rem; } .hero-visual figcaption { margin-left:8px; } }
+
+html[data-large-text] .message-example,html[data-large-text] .example-label,html[data-large-text] .visual-note { transform:none; }

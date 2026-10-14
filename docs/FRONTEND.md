@@ -2,7 +2,7 @@
 
 ## Boundaries
 
-UI imports application and contracts, never provider/storage adapters. Bootstrap composes implementations. Next.js/React is accepted in ADR-002. Do not treat this document as evidence of an implemented UI.
+UI imports application and contracts, never provider/storage adapters. Bootstrap composes implementations. Next.js/React is accepted in ADR-002. The English preview implements staged setup, Today/Your path/Your work, contextual tasks and saved feedback. Acceptance claims belong to Documentation.md.
 
 ## Required behavior
 
@@ -26,7 +26,7 @@ Validate rendered journeys and accessibility alongside behavior tests. [Architec
 
 ## Interaction and continuity
 
-Browser state cannot award capabilities or decide ownership. Fetch validated results through application interfaces. Submitted content is immutable. Concurrent draft revisions expose a conflict and permit recovery instead of silently overwriting newer work. Session expiry retains recoverable confirmed work and returns through accessible authentication.
+Browser state cannot award capabilities or decide ownership. Fetch validated results through application interfaces. Submitted content is immutable. Submit for feedback performs save, freeze and assessment as one learner action. A failed assessment retains the frozen snapshot and exposes retry. Unsaved edits trigger a navigation warning. Account preferences include standard, 150% and 200% text sizing, stored locally as presentation only. It never changes learning evidence or assistance. Existing enrollment and attempt links remain recoverable. Concurrent draft revisions expose a conflict and permit recovery instead of silently overwriting newer work. Session expiry retains recoverable confirmed work and returns through accessible authentication.
 
 Focus moves to the new screen heading after intentional navigation, to actionable errors on failed submit when appropriate, and back to the initiating control after dialogs. Announce save/generation/assessment status without stealing focus or reading every token. Maintain visible labels and error relationships.
 
@@ -34,7 +34,7 @@ Language switches preserve drafts and original-language evidence. Unavailable va
 
 ## Acceptance and interfaces
 
-Validate V1-V12 and accessible keyboard/screen-reader navigation on actual rendered screens. Use reviewed language examples for long labels, accents and code-switching. Current logical operations live in the [data model](design-docs/data-model.md). M1 produces transport-specific API schemas and errors before frontend/backend integration. A limited authentication shell exists. Course and learning APIs remain specifications, not implemented journeys.
+Validate V1-V12 and accessible keyboard/screen-reader navigation on actual rendered screens. Use reviewed language examples for long labels, accents and code-switching. Current logical operations live in the [data model](design-docs/data-model.md). M1 produces transport-specific API schemas and errors before frontend/backend integration. Local authentication, course and learning APIs are implemented. M5 export/final-work and M6 reviewed localisation remain outside this redesign.
 
 ## Public entry and authentication
 

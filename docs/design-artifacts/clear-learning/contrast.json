@@ -1,0 +1,53 @@
+{
+  "scope": "Source-token WCAG contrast calculation for implemented core opaque colour pairs. Text pairs exceed 4.5:1 and input boundary exceeds 3:1. This is not a complete accessibility conformance audit.",
+  "pairs": [
+    {
+      "name": "Body",
+      "foreground": "#171717",
+      "background": "#F5F0E5",
+      "ratio": 15.77
+    },
+    {
+      "name": "Muted text",
+      "foreground": "#59564F",
+      "background": "#F5F0E5",
+      "ratio": 6.44
+    },
+    {
+      "name": "Links and focus",
+      "foreground": "#285F85",
+      "background": "#F5F0E5",
+      "ratio": 6.03
+    },
+    {
+      "name": "Primary action",
+      "foreground": "#171717",
+      "background": "#C8EF45",
+      "ratio": 13.56
+    },
+    {
+      "name": "Primary hover",
+      "foreground": "#171717",
+      "background": "#B5DB32",
+      "ratio": 11.22
+    },
+    {
+      "name": "Demonstrated",
+      "foreground": "#226347",
+      "background": "#EAF5EE",
+      "ratio": 6.38
+    },
+    {
+      "name": "Review",
+      "foreground": "#81530B",
+      "background": "#FFF4D6",
+      "ratio": 6.03
+    },
+    {
+      "name": "Input boundary",
+      "foreground": "#71828D",
+      "background": "#FFFDF8",
+      "ratio": 3.91
+    }
+  ]
+}

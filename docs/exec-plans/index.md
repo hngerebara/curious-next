@@ -2,6 +2,8 @@
 
 ## Active
 
+- [CN-CLARITY-001](active/clear-learning.md): authorised navigation/brand redesign and OpenAI migration.
+
 - [CN-ADAPT-001](active/adaptive-loop.md): authorised M4 cybersecurity, misconception correction and distinct recall/transfer preview.
 
 - [CN-ENTRY-001](active/course-entry.md): complete M2 entry and acceptance checks.

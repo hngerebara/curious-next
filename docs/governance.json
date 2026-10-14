@@ -536,6 +536,29 @@
         "## Configured study and review",
         "## Remaining acceptance"
       ]
+    },
+    "docs/exec-plans/active/clear-learning.md": {
+      "required_headings": [
+        "# CN-CLARITY-001: Clear learning and OpenAI",
+        "## Plan lifecycle",
+        "## Deliverables",
+        "## Validation and delivery"
+      ]
+    },
+    "docs/design-docs/decisions/005-openai-preview.md": {
+      "required_headings": [
+        "# ADR-005: OpenAI preview provider",
+        "## Decision",
+        "## Compatibility and validation",
+        "## References"
+      ]
+    },
+    "docs/design-artifacts/clear-learning/demo-script.md": {
+      "required_headings": [
+        "# CuriousNext recorded demo",
+        "## Three-minute story",
+        "## Hackathon submission points"
+      ]
     }
   },
   "layers": {

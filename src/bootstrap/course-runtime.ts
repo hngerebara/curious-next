@@ -1,7 +1,8 @@
 import { runtime } from "./runtime";
 import { postgres } from "../adapters/postgres";
 import { courseStore } from "../adapters/course-store";
-import { groqCourseGenerator } from "../adapters/groq-course-generator";
+import { openaiCourseGenerator } from "../adapters/openai-course-generator";
+import { openaiDefaults } from "../adapters/openai-response";
 import { repositories } from "../adapters/access-repositories";
 import { events } from "../adapters/events";
 import { courseService } from "../application/course-service";
@@ -14,7 +15,7 @@ export function courseRuntime() {
   const { db } = postgres(process.env.DATABASE_URL!);
   const store = courseStore(db);
   const { abuse } = repositories(db, process.env.BETTER_AUTH_SECRET!);
-  const generator = groqCourseGenerator(process.env.AI_PROVIDER === "groq" ? process.env.GROQ_API_KEY : undefined, process.env.GROQ_MODEL);
+  const generator = openaiCourseGenerator(process.env.AI_PROVIDER === "openai" ? process.env.OPENAI_API_KEY : undefined, process.env.OPENAI_MODEL ?? openaiDefaults.model);
   current = courseHttp({ session: access.learner }, store, courseService(store, generator, abuse, events), process.env.BETTER_AUTH_URL!);
   return current;
 }

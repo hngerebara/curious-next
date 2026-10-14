@@ -56,7 +56,7 @@ psql "$DATABASE_URL_UNPOOLED" --single-transaction --set ON_ERROR_STOP=1 --file 
 
 The integration suite uses real Better Auth with a disposable PGlite PostgreSQL engine and captured test-only mail. It does not contact Neon or Resend. The [API specification](docs/design-docs/api-spec.md) documents implemented authentication/course-preview/AI-2 routes and later learning contracts. The [mobile review](docs/design-docs/authentication-review.md) records the checks and their limits.
 
-After magic-link verification, open /onboarding. Set AI_PROVIDER=groq, server-only GROQ_API_KEY and an explicit GROQ_MODEL to enable live generation. Groq access, quotas and billing are managed separately from a ChatGPT subscription. No model fallback is used. Without these values, your goal remains saved and generation reports unavailable. [Generation contract](docs/design-docs/course-generation.md) records synthetic checks and live evaluation gates.
+After magic-link verification, open /onboarding. Set AI_PROVIDER=openai, server-only OPENAI_API_KEY and OPENAI_MODEL=gpt-6.1-sol to enable live generation. OpenAI API access, quotas and billing are managed separately from a ChatGPT subscription. No model fallback is used. Without these values, your goal remains saved and generation reports unavailable. [Generation contract](docs/design-docs/course-generation.md) records synthetic checks and live evaluation gates.
 
 ## Local magic-link inbox
 
@@ -76,11 +76,13 @@ Accept a Practical AI preview containing AI-2, choose your starting point, then 
 
 Save your prompt, run Practice AI, inspect its actual response, then write the checklist and explanation. The separate Learning assistant records accepted substantive help before delivery. It prevents independent demonstration for that attempt. Explanation variants preserve the draft and rubric, without changing your course default.
 
-Freeze the submission, then choose Assess saved submission. Assessment processing is an awaited authenticated request backed by a durable job. Return/retry after an interruption, using the same snapshot and bounded lease. Failed/uncertain feedback adds no evidence. Earlier evidence remains inspectable. Optional review is recorded without a promise of a reviewer. Production worker scheduling, reviewed content, real email delivery and assistive-technology acceptance remain gates. M4 recall/transfer execution and M5 export are not implemented.
+Choose Submit for feedback. The server sequence saves work, freezes it, then assesses the saved submission. Assessment processing is an awaited authenticated request backed by a durable job. Return/retry after an interruption, using the same snapshot and bounded lease. Failed/uncertain feedback adds no evidence. Earlier evidence remains inspectable. Optional review is recorded without a promise of a reviewer. Production worker scheduling, reviewed content, real email delivery and assistive-technology acceptance remain gates. M4 recall/transfer preview is implemented. Final provider acceptance and M5 export remain open.
 
-The configured GROQ_MODEL serves separate practice/assessment roles using the same server key. No provider fallback or autonomous background process runs. Database setup explicitly applies 0004 and retains the checksum ledger. Synthetic integration tests use PGlite, live-service evidence is recorded separately in Documentation.md.
+The configured OPENAI_MODEL serves separate practice/assessment roles using the same private server key. No provider fallback or autonomous background process runs. Database setup explicitly applies 0004 and retains the checksum ledger. Synthetic integration tests use PGlite, live-service evidence is recorded separately in Documentation.md.
 
-Run the explicit fictional assessor evaluation separately from CI:
+The following Groq commands are historical operators. Keep their results for comparison. Use the OpenAI operators below for current-profile validation.
+
+Run the historical fictional assessor evaluation separately from CI:
 
 ```sh
 node_modules/.bin/esbuild scripts/evaluate-attempt-assessment.mts --bundle --platform=node --format=esm --outfile=/tmp/cn-attempt-evaluation.mjs
@@ -101,3 +103,9 @@ This makes sixteen Groq calls, one minute apart, plus two explicitly simulated i
 Assessor feedback uses criterion-specific reason codes and server-owned wording. Numeric A5 feedback comes from complete explicit Q:/A: pairs, alternative formats remain eligible and are reviewed without automatic counts. Unknown or contradictory reasons are unavailable assessments. Previous frozen results retain their original feedback and profile.
 
 M4 preview shares `/learning` and the attempt endpoints across AI-2 and CY-2. Cybersecurity enrollments expose inert fictional action choices, without Practice AI. `recall` is available only when due after independent evidence, `transfer` applies the skill in a new scenario family. Accepting instructional help keeps checks assisted. Run the operator-only CY study by bundling `scripts/evaluate-cyber-calibration.mts`, then passing `--live` and a new `--output=docs/design-artifacts/adaptive-loop/<name>.json`. Expected fixture labels stay outside the assessor payload. Subject review and independent calibration remain release gates.
+
+## Clear learning and OpenAI preview
+
+Tell CuriousNext what you want to learn. Practise a small task. Get feedback. Know what to try next. Today presents one recommended activity, Your path shows demonstrated/current/preparation states, and Your work restores saved attempts. English preview only.
+
+The active provider is OpenAI Responses with strict structured output, low reasoning and store:false. Keys remain in ignored server configuration. Historical Groq scripts/results remain historical and do not establish current acceptance. Bundle `scripts/evaluate-openai-preview.mts` with esbuild and run with `--live --output=docs/design-artifacts/clear-learning/<new-name>.json`. Use `scripts/evaluate-openai-course.mts` for the nine course-generation cases. It refuses an existing filename, paces calls and records failures without learner data. Model agreement with agent-authored labels is not independent calibration.

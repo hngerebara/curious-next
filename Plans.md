@@ -34,3 +34,5 @@ Per [ADR-004](docs/design-docs/decisions/004-local-email-preview.md), the user d
 On 2026-10-09 the user explicitly authorised M3 preview implementation while M2's actual screen-reader walkthrough remains pending. This sequencing exception does not complete M2 or approve learner release. [CN-ATTEMPT-001](docs/exec-plans/completed/attempt-loop.md) starts with the AI-2 reference loop and includes lesson-variant V9 alongside M3 scenarios.
 
 On 2026-10-13 the user authorised M4 preview implementation while M2 actual screen-reader acceptance remains open. This sequencing exception permits fictional implementation/validation, not learner release. [CN-ADAPT-001](docs/exec-plans/active/adaptive-loop.md).
+
+On 2026-10-14 the user authorised [CN-CLARITY-001](docs/exec-plans/active/clear-learning.md), a brand-preserving experience redesign and server-only OpenAI migration. The homepage direction was approved before extending it across learner screens. This slice prepares a recorded hackathon demonstration within 48 hours, without completing M5/M6 or approving release. Historical Groq acceptance remains historical. Fresh OpenAI acceptance is required.

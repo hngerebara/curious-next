@@ -1,0 +1,27 @@
+1. Tell us your goal. Practise. Get feedback.
+
+Tell CuriousNext what you want to learn. Practise a small task. Get feedback. Know what to try next. This captured-screen walkthrough uses saved fictional work from the local English preview. It shows real rendered screens, rather than a continuous live recording.
+
+2. A focused path for spotting scam messages
+
+Our learner wants to spot scam messages and verify suspicious requests safely. The path makes the current skill clear and labels content still in preparation. A suggested starting point is guidance. It does not prove that the learner has mastered the skill.
+
+3. Saved reasoning: a familiar logo proves authenticity
+
+In the first fictional message task, the learner chooses protective actions, but explains a mistaken belief: a familiar logo proves the sender is authentic. CuriousNext saves the decisions and the reasoning together. That lets feedback address the actual mistake, rather than guessing from an unanswered question.
+
+4. Useful feedback explains the gap
+
+The feedback recognises the safe choices and identifies the branding error. A logo does not establish who sent a message. The learner needs to explain independent verification and compare the two messages. This original attempt remains saved. The next-step button shown here reflects the current recommendation after later correction, because this is saved work viewed again.
+
+5. Fresh task: independent verification and reporting
+
+On a different fictional task, the learner explains the unexpected request, avoids its links, opens the established official app independently, and reports if suspicion persists. Familiar branding is no longer treated as proof. All six required criteria pass on this saved independent task. One passing task does not establish later recall or transfer.
+
+6. Today: try the skill in a new context
+
+Today now recommends applying the skill in a new context. Independent work is demonstrated. Remembering later and using a new context are still unchecked. The fresh correction is recorded, and the earlier mistaken reasoning remains available. This distinction keeps progress useful without overstating what the evidence shows.
+
+7. Your work: both attempts remain available
+
+Your work keeps the original attempt and the fresh correction together, with readable task titles and saved feedback. The app also restores saved work and preferences after restart. OpenAI is configured privately on the server. This preview still needs rubric review, actual screen-reader acceptance, further curriculum work and hosted deployment. CuriousNext helps you practise a useful skill and understand what to try next.
