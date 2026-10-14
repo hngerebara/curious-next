@@ -567,6 +567,22 @@
         "## Deliverables",
         "## Validation and delivery"
       ]
+    },
+    "docs/design-docs/decisions/006-goal-first-tutor.md": {
+      "required_headings": [
+        "# ADR-006: Goal-first generated tutor preview",
+        "## Status",
+        "## Decision",
+        "## Consequences"
+      ]
+    },
+    "docs/design-artifacts/goal-first-tutor/demo-script.md": {
+      "required_headings": [
+        "# CuriousNext goal-first walkthrough",
+        "## Simple explanation",
+        "## Captured-screen walkthrough",
+        "## Presentation claims and limits"
+      ]
     }
   },
   "layers": {

@@ -41,3 +41,5 @@
 @media(max-width:380px) { .home-hero h1 { font-size:2.438rem; } .hero-visual { padding-left:6px; padding-right:6px; } .message-example { padding:18px; } .message-example h2 { font-size:1.75rem; } .visual-note { margin-left:15px; font-size:0.875rem; } .hero-visual figcaption { margin-left:8px; } }
 
 html[data-large-text] .message-example,html[data-large-text] .example-label,html[data-large-text] .visual-note { transform:none; }
+
+.home-fraction { display:flex; height:48px; border:2px solid var(--ink); margin:20px 0; } .home-fraction span { flex:1; background:var(--surface); } .home-fraction span:first-child { background:var(--lime); border-right:2px solid var(--ink); }

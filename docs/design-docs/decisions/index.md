@@ -13,3 +13,5 @@ AI provider, retention and operational choices remain pending in [M1](../../../P
 - [ADR-004: local email preview](004-local-email-preview.md): local capture now, actual email delivery before deployment.
 
 - [ADR-005: OpenAI preview provider](005-openai-preview.md): authorised server-side migration, historical integrity and fresh validation.
+
+- [ADR-006: Goal-first generated tutor preview](006-goal-first-tutor.md)

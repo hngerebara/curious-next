@@ -1,0 +1,245 @@
+{
+  "version": 1,
+  "fictional": true,
+  "phase": "assess",
+  "model": "gpt-6.1-sol",
+  "configurations": [
+    "openai:gpt-6.1-sol:tutor-path-v1:426c44d56783c7a56418bd756a264f33656e6181caa9de9ed9335f3fbf4a098c",
+    "openai:gpt-6.1-sol:tutor-lesson-v1:921cc109cebd2abb95224f76d4a59f1c041b37d6f989196a5a7482cc2b9a51fa",
+    "openai:gpt-6.1-sol:tutor-assessor-v1:988b7fd9ec9e0e037839bc157f28b8ca3a4e391df197a49e4c3c405545444542"
+  ],
+  "scope": "Bounded fictional service-level checks, not independent calibration or browser acceptance",
+  "cases": [
+    {
+      "id": "fractions",
+      "answers": {
+        "application": "A: The whole is the complete 12-centimetre ribbon, and 6 and 6 are equal lengths, so one selected piece is 1/2. B: The whole is the complete 12-centimetre ribbon, and 3 and 9 are unequal lengths, so the pieces are not equal shares. C: The whole is the complete rectangular tray, and its four sections have equal areas, so one selected section is 1/4. D: The whole is the complete rectangular tray, and half, one quarter and one quarter are unequal amounts, so these three pieces are not equal thirds. E: The whole is the complete 15-centimetre ribbon, and 5, 5 and 5 are equal lengths, so one selected piece is 1/3. The selected piece in A is longer because it is 6 centimetres, while the selected piece in E is 5 centimetres. The whole ribbons have different lengths, so fraction labels alone are not enough to compare their actual selected lengths.",
+        "teachBack": "I first identify the complete object or amount being shared, such as the entire ribbon or the entire tray. Equal shares must contain the same amount, which means comparing lengths for a ribbon or areas for a flat tray. I would not agree that four pieces automatically make quarters, because I must check that all four pieces contain the same amount of that whole. Counting pieces without checking their sizes is insufficient.",
+        "activity": [
+          0
+        ]
+      },
+      "job": "succeeded",
+      "code": null,
+      "feedback": {
+        "criteria": [
+          {
+            "criterionId": "identify-wholes",
+            "result": "met",
+            "quote": "A: The whole is the complete 12-centimetre ribbon, and 6 and 6 are equal lengths, so one selected piece is 1/2. B: The whole is the complete 12-centimetre ribbon, and 3 and 9 are unequal lengths, so the pieces are not equal shares. C: The whole is the complete rectangular tray, and its four sections have equal areas, so one selected section is 1/4. D: The whole is the complete rectangular tray, and half, one quarter and one quarter are unequal amounts, so these three pieces are not equal thirds. E: The whole is the complete 15-centimetre ribbon, and 5, 5 and 5 are equal lengths, so one selected piece is 1/3.",
+            "feedback": "You correctly name the complete ribbon or tray as the whole in all five cases."
+          },
+          {
+            "criterionId": "recognise-equality",
+            "result": "met",
+            "quote": "A: The whole is the complete 12-centimetre ribbon, and 6 and 6 are equal lengths, so one selected piece is 1/2. B: The whole is the complete 12-centimetre ribbon, and 3 and 9 are unequal lengths, so the pieces are not equal shares. C: The whole is the complete rectangular tray, and its four sections have equal areas, so one selected section is 1/4. D: The whole is the complete rectangular tray, and half, one quarter and one quarter are unequal amounts, so these three pieces are not equal thirds. E: The whole is the complete 15-centimetre ribbon, and 5, 5 and 5 are equal lengths, so one selected piece is 1/3.",
+            "feedback": "You correctly classify all five divisions using their stated lengths or areas as evidence."
+          },
+          {
+            "criterionId": "name-equal-shares",
+            "result": "met",
+            "quote": "A: The whole is the complete 12-centimetre ribbon, and 6 and 6 are equal lengths, so one selected piece is 1/2. B: The whole is the complete 12-centimetre ribbon, and 3 and 9 are unequal lengths, so the pieces are not equal shares. C: The whole is the complete rectangular tray, and its four sections have equal areas, so one selected section is 1/4. D: The whole is the complete rectangular tray, and half, one quarter and one quarter are unequal amounts, so these three pieces are not equal thirds. E: The whole is the complete 15-centimetre ribbon, and 5, 5 and 5 are equal lengths, so one selected piece is 1/3.",
+            "feedback": "You correctly identify halves, quarters, and thirds while rejecting equal-share labels for B and D."
+          },
+          {
+            "criterionId": "compare-actual-amounts",
+            "result": "met",
+            "quote": "The selected piece in A is longer because it is 6 centimetres, while the selected piece in E is 5 centimetres. The whole ribbons have different lengths, so fraction labels alone are not enough to compare their actual selected lengths.",
+            "feedback": "You compare the actual selected lengths correctly and explain why the different whole lengths matter."
+          },
+          {
+            "criterionId": "explain-equal-shares",
+            "result": "met",
+            "quote": "I first identify the complete object or amount being shared, such as the entire ribbon or the entire tray. Equal shares must contain the same amount, which means comparing lengths for a ribbon or areas for a flat tray. I would not agree that four pieces automatically make quarters, because I must check that all four pieces contain the same amount of that whole.",
+            "feedback": "You explain the whole and equal amounts clearly, correctly rejecting the claim that counting four pieces alone establishes quarters."
+          }
+        ],
+        "wentWell": "Your answers consistently connect fraction names to equal amounts within an identified whole, and your comparison uses actual measurements rather than fraction labels alone.",
+        "needsAttention": "No specific gaps are evident against the five pinned criteria in these supported practice answers.",
+        "nextAction": "Try comparing one half of a 10-centimetre ribbon with one third of an 18-centimetre ribbon, explaining which selected piece is longer using both whole lengths."
+      },
+      "evidenceType": "supported-practice",
+      "independentDemonstration": false,
+      "replayPerformed": true,
+      "replayPreservesHash": true,
+      "replayPreservesEvidence": true,
+      "recommendation": {
+        "moduleId": "read-and-show-fractions",
+        "kind": "learn",
+        "reason": "This module is your next learning step, and guided practice will help check your understanding.",
+        "complete": false
+      }
+    },
+    {
+      "id": "speaking",
+      "answers": {
+        "application": "Audience: first-time visitors who are beginners at following directions around a community centre.\nFamiliar subject: giving directions to a room.\nTakeaway: After my talk, beginners should understand that an ordered route connects a clear starting landmark to a destination.\nExample: Start at the library door, turn left towards the clock, and stop at the green meeting-room door.\nLeave out: the history of the community centre, because it does not help explain the route.",
+        "teachBack": "A topic names the area I am talking about, such as giving directions. A takeaway says what I want the audience to understand after the talk, which here is using a clear starting point and an ordered route. The library-to-meeting-room example shows that route concretely, while the building history would introduce another idea instead of helping people follow the route.",
+        "activity": [
+          1
+        ]
+      },
+      "job": "succeeded",
+      "code": null,
+      "feedback": {
+        "criteria": [
+          {
+            "criterionId": "audience-and-subject",
+            "result": "met",
+            "quote": "Audience: first-time visitors who are beginners at following directions around a community centre.\nFamiliar subject: giving directions to a room.",
+            "feedback": "You identify beginner visitors and choose a familiar subject distinct from reminders and keys."
+          },
+          {
+            "criterionId": "single-takeaway",
+            "result": "met",
+            "quote": "Takeaway: After my talk, beginners should understand that an ordered route connects a clear starting landmark to a destination.",
+            "feedback": "Your sentence expresses one specific relationship between a starting landmark, an ordered route, and a destination."
+          },
+          {
+            "criterionId": "example-and-boundary",
+            "result": "met",
+            "quote": "Example: Start at the library door, turn left towards the clock, and stop at the green meeting-room door.\nLeave out: the history of the community centre, because it does not help explain the route.",
+            "feedback": "Your concrete route supports the takeaway, and the excluded history establishes a relevant boundary."
+          },
+          {
+            "criterionId": "own-words-distinction",
+            "result": "met",
+            "quote": "A topic names the area I am talking about, such as giving directions. A takeaway says what I want the audience to understand after the talk, which here is using a clear starting point and an ordered route.",
+            "feedback": "You clearly distinguish the subject from the intended audience understanding using your own example."
+          },
+          {
+            "criterionId": "focus-reasoning",
+            "result": "met",
+            "quote": "The library-to-meeting-room example shows that route concretely, while the building history would introduce another idea instead of helping people follow the route.",
+            "feedback": "You explain how the example illustrates the route and why building history would shift the focus."
+          }
+        ],
+        "wentWell": "Your plan consistently connects the beginner audience, focused takeaway, concrete route, and reasoned exclusion.",
+        "needsAttention": "No specific gaps are evident against the five pinned criteria in this supported practice.",
+        "nextAction": "Use this plan to rehearse a short explanation, keeping each detail connected to the starting landmark, ordered route, or destination."
+      },
+      "evidenceType": "supported-practice",
+      "independentDemonstration": false,
+      "replayPerformed": true,
+      "replayPreservesHash": true,
+      "replayPreservesEvidence": true,
+      "recommendation": {
+        "moduleId": "explain-in-plain-language",
+        "kind": "learn",
+        "reason": "This module is your next learning step, and guided practice will help check your understanding.",
+        "complete": false
+      }
+    },
+    {
+      "id": "programming",
+      "answers": {
+        "application": "name = \"Alex\"\ntickets = 3\nprint(name)\n\nPredicted output:\nAlex",
+        "teachBack": "A variable name is the identifier used to find a stored value, so name identifies the variable while Alex is the text value it currently holds. Quotation marks tell Python that Alex is literal text, rather than another variable identifier. print(name) reads the value stored under name, so it displays Alex without quotation marks rather than displaying the letters name.",
+        "activity": [
+          1
+        ]
+      },
+      "job": "succeeded",
+      "code": null,
+      "feedback": {
+        "criteria": [
+          {
+            "criterionId": "two-assignments",
+            "result": "met",
+            "quote": "name = \"Alex\"\ntickets = 3",
+            "feedback": "You correctly assign the text and number on separate lines."
+          },
+          {
+            "criterionId": "predict-output",
+            "result": "met",
+            "quote": "name = \"Alex\"\ntickets = 3\nprint(name)\n\nPredicted output:\nAlex",
+            "feedback": "Your print statement follows both assignments, and your predicted output correctly omits quotation marks."
+          },
+          {
+            "criterionId": "name-and-value",
+            "result": "met",
+            "quote": "name identifies the variable while Alex is the text value it currently holds.",
+            "feedback": "You clearly distinguish the variable identifier from its stored text value."
+          },
+          {
+            "criterionId": "quotes-and-reading",
+            "result": "met",
+            "quote": "Quotation marks tell Python that Alex is literal text, rather than another variable identifier. print(name) reads the value stored under name, so it displays Alex without quotation marks rather than displaying the letters name.",
+            "feedback": "You correctly explain both text quotation marks and reading a variable's value."
+          }
+        ],
+        "wentWell": "Your code and explanation consistently connect assignments, stored values, and displayed output.",
+        "needsAttention": "No specific gaps are evident against these four pinned criteria.",
+        "nextAction": "For further practice, compare print(name) with print(\"name\") and explain why their outputs differ."
+      },
+      "evidenceType": "supported-practice",
+      "independentDemonstration": false,
+      "replayPerformed": true,
+      "replayPreservesHash": true,
+      "replayPreservesEvidence": true,
+      "recommendation": {
+        "moduleId": "calculate-values",
+        "kind": "learn",
+        "reason": "This module is your next learning step, and guided practice will help check your understanding.",
+        "complete": false
+      }
+    },
+    {
+      "id": "phishing",
+      "answers": {
+        "application": "A asks me to enter personal details through a supplied link under a deadline. That combination is suspicious, but the wording alone cannot prove who sent it. I would not open the link or provide details, and if checking is necessary I would contact the library using a known website or independently found phone number. I would use the email phishing-report control before deleting it.\nB asks me to note a changed gardening-meeting time, with no reply or personal information required. It looks routine from its content, so I would note Saturday morning without sending information, while recognising that the text alone does not verify sender identity.\nC asks me to open an attachment and send personal information immediately. Those requested actions and urgency are suspicious. I would not open the attachment or send details, and I would contact the volunteer organisation independently through a known contact if verification is needed. I would report it through the email phishing-report control before deleting it.",
+        "teachBack": "Identifying the requested action helps me see what the sender wants me to do and what I might expose. Urgent pressure and requests for personal information are reasons to pause, but urgency alone does not prove deception because a genuine notice might also be urgent. I would avoid supplied links and attachments, verify through a separate known contact when necessary, and report a suspicious message before deletion. I reject the idea that familiar branding proves safety, because anyone might copy a logo.",
+        "activity": [
+          2,
+          0,
+          1
+        ]
+      },
+      "job": "succeeded",
+      "code": null,
+      "feedback": {
+        "criteria": [
+          {
+            "criterionId": "application-request",
+            "result": "met",
+            "quote": "C asks me to open an attachment and send personal information immediately.",
+            "feedback": "You correctly identify all three requests, including A’s linked personal-details request, B’s changed meeting time, and C’s attachment and information request."
+          },
+          {
+            "criterionId": "application-classification",
+            "result": "met",
+            "quote": "It looks routine from its content, so I would note Saturday morning without sending information, while recognising that the text alone does not verify sender identity.",
+            "feedback": "You justify treating A and C as suspicious using their requested actions and urgency, while treating B as routine-looking without claiming verified identity."
+          },
+          {
+            "criterionId": "application-response",
+            "result": "met",
+            "quote": "I would not open the attachment or send details, and I would contact the volunteer organisation independently through a known contact if verification is needed. I would report it through the email phishing-report control before deleting it.",
+            "feedback": "Your responses avoid A’s link and C’s attachment, include independent verification when needed and reporting before deletion, and appropriately note B’s time without supplying information."
+          },
+          {
+            "criterionId": "teachback-reasoning",
+            "result": "met",
+            "quote": "Identifying the requested action helps me see what the sender wants me to do and what I might expose. Urgent pressure and requests for personal information are reasons to pause, but urgency alone does not prove deception because a genuine notice might also be urgent. I would avoid supplied links and attachments, verify through a separate known contact when necessary, and report a suspicious message before deletion.",
+            "feedback": "Your explanation connects requested actions with possible exposure, identifies both caution signals, distinguishes urgency from proof, and describes an independently verified safer response."
+          }
+        ],
+        "wentWell": "You consistently assess requested actions rather than appearances, and your proposed responses match the risks described in each message.",
+        "needsAttention": "No specific gaps are evident against these pinned criteria, although these answers demonstrate supported practice rather than independent mastery.",
+        "nextAction": "Practise assessing a new message that requests personal information without urgency, explaining the concern and choosing an independent verification route."
+      },
+      "evidenceType": "supported-practice",
+      "independentDemonstration": false,
+      "replayPerformed": true,
+      "replayPreservesHash": true,
+      "replayPreservesEvidence": true,
+      "recommendation": {
+        "moduleId": "spot-warning-signs",
+        "kind": "learn",
+        "reason": "This module is your next learning step, and guided practice will help check your understanding.",
+        "complete": false
+      }
+    }
+  ],
+  "stopReason": null
+}

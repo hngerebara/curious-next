@@ -1,5 +1,5 @@
 import type { AbusePort, EventPort } from "../contracts/access";
-import type { TutorGenerator, TutorGoal, TutorPath, TutorStore } from "../contracts/tutor";
+import type { TutorGenerator, TutorGoal, TutorPreferences, TutorPath, TutorStore } from "../contracts/tutor";
 import { tutorPlace, tutorProposal, tutorCanonical } from "../domain/tutor-policy";
 export function tutorService(store: TutorStore, generator: TutorGenerator, abuse: AbusePort, events: EventPort) {
   async function generate(owner: string, goal: TutorGoal, key: string, id?: string) {
@@ -24,6 +24,7 @@ export function tutorService(store: TutorStore, generator: TutorGenerator, abuse
     return store.change(owner,saved.id,path => path.generation.lease !== lease ? path : {...path,state:proposal ? "proposed" : "failed",proposal,generation:{...path.generation,lease:null,until:0,code}});
   }
   return {generate,
+    preferences(owner:string,id:string,revision:number,preferences:TutorPreferences){return store.change(owner,id,path=>{if(tutorCanonical(path.preferences ?? path.goal.preferences)===tutorCanonical(preferences))return path;if(path.revision!==revision)throw Error("REVISION_CONFLICT");return {...path,preferences,preferenceVersion:(path.preferenceVersion ?? 0)+1};});},
     accept(owner:string,id:string,revision:number) { return store.change(owner,id,path => {
       if (path.state === "accepted") return path;
       if (path.revision !== revision) throw Error("REVISION_CONFLICT");

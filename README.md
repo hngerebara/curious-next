@@ -1,10 +1,12 @@
 # CuriousNext
 
-CuriousNext helps adult beginners choose a useful learning pathway and demonstrate what they understand. The pilot covers Practical AI and Cybersecurity Essentials through explanatory text, purposeful visuals, supported practice, independent tasks and teach-back.
+CuriousNext helps adult learners turn a personal goal into a learning path, explore ideas through visual teaching and practice, and use feedback to choose their next step. Historical Practical AI and Cybersecurity pilots retain their original evidence and assessment rules.
 
 ## Current state
 
-This repository contains product, curriculum and design specifications plus an M1 authentication proof of concept and an authorised M2 course-plan preview. Email-only access, explicit link confirmation and session checks are implemented locally. Goal setting, bounded plan generation, saved acceptance and objective-based provisional placement are implemented locally. The authorised M3 AI-2 preview now has saved lessons/drafts, separate practice AI and instructional help, frozen submissions, durable assessment retries and evidence-based guidance. No application is deployed. Live Neon validation is recorded in the milestone ledger. Real email delivery is deferred until deployment. Curriculum, language and user design review remain pending. See [milestone status](Documentation.md) for evidence.
+CuriousNext is being expanded into a goal-first tutor for adult English learners across common topics. New setup asks for a personal goal, separate explanation and visual preferences, and session duration. Generated paths lead through optional placement, actual visual teaching, practice, teach-back and feedback. Historical Practical AI and Cybersecurity work remains accessible through owned links.
+
+Generated content and assessment are previews rather than approved general curriculum. Independent content/provider review, actual screen-reader acceptance, M4 scoring questions and deployment remain separate gates. See [status](Documentation.md) for measured acceptance and [the active tutor plan](docs/exec-plans/active/goal-first-tutor.md) for delivery.
 
 ## Start here
 
@@ -30,7 +32,7 @@ After reviewing documentation changes, run `python3 scripts/validate_repo.py --r
 
 ## Product boundaries
 
-Accessibility is required from the first screen. Teaching-language release targets are English, Nigerian Pidgin, Igbo, Yoruba and Hausa, subject to reviewed content and assessment parity. Neither those languages nor accessibility conformance are implemented claims. Uploaded files, unrestricted course generation, voice and offline synchronisation are deferred.
+Accessibility is required from the first screen. Teaching-language release targets are English, Nigerian Pidgin, Igbo, Yoruba and Hausa, subject to reviewed content and assessment parity. Neither those languages nor accessibility conformance are implemented claims. Generated paths across common educational topics are previews, while public course publication, uploaded files, voice and offline synchronisation remain deferred.
 
 ## Application setup and deployment
 
@@ -44,7 +46,7 @@ npm run dev
 
 Open http://127.0.0.1:3000/access for the email shell. Without service configuration it displays honest unavailable feedback. To test real delivery, configure a synthetic-data Neon database, a verified Resend sender, a random server secret of at least 32 characters and an exact BETTER_AUTH_URL origin matching your browser URL. Use HTTPS and TLS database connections on hosted environments. Keep secrets outside Git and screenshots.
 
-Apply [authentication](migrations/0001-access.sql), [course-plan](migrations/0002-course-plans.sql), [enrollment preferences](migrations/0003-enrollment-preferences.sql), [attempt loop](migrations/0004-attempt-loop.sql), and [retention modes](migrations/0005-retention-modes.sql) migrations in order, once each to a new isolated test database before enabling access. Use a schema-owner migration role and a separate application role. Application startup never migrates the database.
+Apply [authentication](migrations/0001-access.sql), [course-plan](migrations/0002-course-plans.sql), [enrollment preferences](migrations/0003-enrollment-preferences.sql), [attempt loop](migrations/0004-attempt-loop.sql), [retention modes](migrations/0005-retention-modes.sql), [generated paths](migrations/0006-generated-tutor.sql), [lessons](migrations/0007-tutor-lessons.sql), [request binding](migrations/0008-tutor-lesson-requests.sql), and [submission uniqueness](migrations/0009-tutor-submissions.sql) migrations in order, once each to a new isolated test database before enabling access. Use a schema-owner migration role and a separate application role. Application startup never migrates the database.
 
 ```sh
 psql "$DATABASE_URL_UNPOOLED" --single-transaction --set ON_ERROR_STOP=1 --file migrations/0001-access.sql
@@ -52,6 +54,10 @@ psql "$DATABASE_URL_UNPOOLED" --single-transaction --set ON_ERROR_STOP=1 --file 
 psql "$DATABASE_URL_UNPOOLED" --single-transaction --set ON_ERROR_STOP=1 --file migrations/0003-enrollment-preferences.sql
 psql "$DATABASE_URL_UNPOOLED" --single-transaction --set ON_ERROR_STOP=1 --file migrations/0004-attempt-loop.sql
 psql "$DATABASE_URL_UNPOOLED" --single-transaction --set ON_ERROR_STOP=1 --file migrations/0005-retention-modes.sql
+psql "$DATABASE_URL_UNPOOLED" --single-transaction --set ON_ERROR_STOP=1 --file migrations/0006-generated-tutor.sql
+psql "$DATABASE_URL_UNPOOLED" --single-transaction --set ON_ERROR_STOP=1 --file migrations/0007-tutor-lessons.sql
+psql "$DATABASE_URL_UNPOOLED" --single-transaction --set ON_ERROR_STOP=1 --file migrations/0008-tutor-lesson-requests.sql
+psql "$DATABASE_URL_UNPOOLED" --single-transaction --set ON_ERROR_STOP=1 --file migrations/0009-tutor-submissions.sql
 ```
 
 The integration suite uses real Better Auth with a disposable PGlite PostgreSQL engine and captured test-only mail. It does not contact Neon or Resend. The [API specification](docs/design-docs/api-spec.md) documents implemented authentication/course-preview/AI-2 routes and later learning contracts. The [mobile review](docs/design-docs/authentication-review.md) records the checks and their limits.
@@ -72,7 +78,7 @@ Before deployment, choose/configure actual email delivery, test inbox receipt, i
 
 ## Clear-prompts reference preview
 
-Accept a Practical AI preview containing AI-2, choose your starting point, then open the clear-prompts link in /onboarding. The reference preview is available separately from the provisional pathway. AI-1 readiness is not treated as achievement. English draft curriculum and assessor calibration remain unapproved. Practice uses fictional River Cafe, fresh independent tasks use distinct pinned study-club packs with the same rubric. Twelve proof contexts per learner are available. Repeating a context is not transfer.
+Existing Practical AI enrollments containing AI-2 retain their owned /onboarding?enrollment=... and /learning?enrollment=... links, and earlier work is accessible through /learning?legacy=1. The reference preview is available separately from the provisional pathway. AI-1 readiness is not treated as achievement. English draft curriculum and assessor calibration remain unapproved. Practice uses fictional River Cafe, fresh independent tasks use distinct pinned study-club packs with the same rubric. Twelve proof contexts per learner are available. Repeating a context is not transfer.
 
 Save your prompt, run Practice AI, inspect its actual response, then write the checklist and explanation. The separate Learning assistant records accepted substantive help before delivery. It prevents independent demonstration for that attempt. Explanation variants preserve the draft and rubric, without changing your course default.
 

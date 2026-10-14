@@ -1,0 +1,130 @@
+{
+  "version": 1,
+  "fictional": true,
+  "phase": "retry-paths",
+  "model": "gpt-6.1-sol",
+  "configurations": [
+    "openai:gpt-6.1-sol:tutor-path-v1:426c44d56783c7a56418bd756a264f33656e6181caa9de9ed9335f3fbf4a098c",
+    "openai:gpt-6.1-sol:tutor-lesson-v1:921cc109cebd2abb95224f76d4a59f1c041b37d6f989196a5a7482cc2b9a51fa",
+    "openai:gpt-6.1-sol:tutor-assessor-v1:988b7fd9ec9e0e037839bc157f28b8ca3a4e391df197a49e4c3c405545444542"
+  ],
+  "scope": "Bounded fictional service-level checks, not independent calibration or browser acceptance",
+  "cases": [
+    {
+      "id": "fractions",
+      "state": "accepted",
+      "code": null,
+      "proposal": {
+        "state": "ready",
+        "title": "Understand fractions and compare equal shares in everyday situations",
+        "reason": "This unreviewed generated preview uses five approximately twenty-minute modules with visual examples and simple English explanations, without assuming your starting skill level.",
+        "modules": [
+          {
+            "id": "identify-equal-shares",
+            "title": "Recognise wholes and equal shares in everyday pictures",
+            "reason": "A fraction describes equal parts of a whole, so recognising fair divisions supports every later comparison.",
+            "outcome": "You will correctly identify the whole and distinguish equal from unequal divisions in four out of five pictured examples.",
+            "prerequisites": []
+          },
+          {
+            "id": "read-and-show-fractions",
+            "title": "Connect fraction symbols with shaded parts of pictures",
+            "reason": "Connecting symbols with pictures helps you describe how many equal parts exist and how many are selected.",
+            "outcome": "You will match halves, thirds, quarters, and eighths to pictures and explain both numbers correctly in four out of five examples.",
+            "prerequisites": [
+              "identify-equal-shares"
+            ]
+          },
+          {
+            "id": "compare-matching-fractions",
+            "title": "Compare shares with matching denominators or matching numerators",
+            "reason": "These comparisons show why more same-sized parts give a larger share, while dividing a whole into more parts makes each part smaller.",
+            "outcome": "You will use shaded strips to compare fractions sharing a denominator or numerator, correctly answering four out of five comparisons involving equal-sized wholes.",
+            "prerequisites": [
+              "read-and-show-fractions"
+            ]
+          },
+          {
+            "id": "recognise-equivalent-shares",
+            "title": "Recognise equivalent fractions by dividing matching visual strips",
+            "reason": "Equivalent fractions explain how different numbers can describe the same amount and make unlike fractions easier to compare.",
+            "outcome": "You will show that one half equals two quarters and four eighths, then correctly match three additional pictured equivalent pairs.",
+            "prerequisites": [
+              "compare-matching-fractions"
+            ]
+          },
+          {
+            "id": "compare-everyday-shares",
+            "title": "Apply fraction comparisons to everyday sharing and choices",
+            "reason": "Comparing food portions, shared materials, and filled containers connects fraction reasoning with practical decisions about equal shares.",
+            "outcome": "You will correctly solve four out of five everyday comparisons, using equivalent fractions or pictures and explaining when different whole sizes prevent a direct comparison.",
+            "prerequisites": [
+              "recognise-equivalent-shares"
+            ]
+          }
+        ],
+        "outcome": "You will compare everyday shares using pictures, fraction symbols, and simple explanations, while checking that the wholes are the same size.",
+        "question": "",
+        "diagnostic": [
+          {
+            "id": "check-equal-parts",
+            "prompt": "Which division makes four equal shares of one sandwich?",
+            "correct": 0,
+            "options": [
+              "Four pieces that each contain the same amount",
+              "Four pieces with one larger than the others",
+              "Four pieces with two larger than the others"
+            ],
+            "moduleId": "identify-equal-shares"
+          },
+          {
+            "id": "check-part-count",
+            "prompt": "A strip has four equal sections, with one shaded; which fraction describes the shaded amount?",
+            "correct": 2,
+            "options": [
+              "Three quarters",
+              "One half",
+              "One quarter"
+            ],
+            "moduleId": "read-and-show-fractions"
+          },
+          {
+            "id": "check-denominator-meaning",
+            "prompt": "In the fraction two fifths, what does the five tell you?",
+            "correct": 1,
+            "options": [
+              "The number of equal parts that are selected",
+              "The number of equal parts in the whole",
+              "The number of separate wholes that are selected"
+            ],
+            "moduleId": "read-and-show-fractions"
+          },
+          {
+            "id": "check-same-sized-parts",
+            "prompt": "Two equal-sized pizzas are cut into quarters; which share contains more pizza?",
+            "correct": 1,
+            "options": [
+              "One quarter of one pizza",
+              "Three quarters of one pizza",
+              "Both shares contain the same amount"
+            ],
+            "moduleId": "compare-matching-fractions"
+          },
+          {
+            "id": "check-whole-size",
+            "prompt": "Two people each receive half a cake; what information lets you decide whether they receive equal amounts?",
+            "correct": 0,
+            "options": [
+              "Whether the cakes have the same whole size",
+              "Whether the cakes have the same icing colour",
+              "Whether the cakes are served on matching plates"
+            ],
+            "moduleId": "identify-equal-shares"
+          }
+        ]
+      },
+      "placementIsNotEvidence": true
+    }
+  ],
+  "stopReason": null
+}

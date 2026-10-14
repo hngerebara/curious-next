@@ -2,12 +2,12 @@
 import { useState } from "react";
 import type { FormEvent } from "react";
 
-export function LogoutButton({confirmLeave=()=>true}:{confirmLeave?:()=>boolean}) {
+export function LogoutButton({confirmLeave=()=>true}:{confirmLeave?:()=>boolean|Promise<boolean>}) {
   const [error,setError]=useState("");
   const [leaving,setLeaving]=useState(false);
   async function logout(event:FormEvent<HTMLFormElement>) {
     event.preventDefault();
-    if(leaving || !confirmLeave())return;
+    if(leaving || !await confirmLeave())return;
     setLeaving(true);setError("");
     try {
       const response=await fetch("/api/access/logout",{method:"POST",headers:{"Content-Type":"application/json"},body:"{}"});

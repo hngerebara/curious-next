@@ -1,0 +1,62 @@
+[
+  {
+    "image": "goal-desktop.jpg",
+    "caption": "Start with something you want to understand or achieve",
+    "narration": "",
+    "seconds": 7
+  },
+  {
+    "image": "preferences-desktop.jpg",
+    "caption": "Choose your explanations, visual preference and available learning time",
+    "narration": "",
+    "seconds": 7
+  },
+  {
+    "image": "lesson-desktop.jpg",
+    "caption": "Learn the idea through explanations and a visual example",
+    "narration": "",
+    "seconds": 7
+  },
+  {
+    "image": "matching-feedback-desktop.jpg",
+    "caption": "Practise the idea and check your choices with feedback",
+    "narration": "",
+    "seconds": 7
+  },
+  {
+    "image": "mistaken-reasoning-desktop.jpg",
+    "caption": "Explain your reasoning, including the mistakes you currently believe",
+    "narration": "",
+    "seconds": 7
+  },
+  {
+    "image": "feedback-desktop.jpg",
+    "caption": "Discover specific gaps and receive a useful next step",
+    "narration": "",
+    "seconds": 7
+  },
+  {
+    "image": "targeted-lesson-desktop.jpg",
+    "caption": "Revisit the difficult idea before trying a fresh task",
+    "narration": "",
+    "seconds": 7
+  },
+  {
+    "image": "demo-correction.jpg",
+    "caption": "Explain the corrected idea and apply it with guidance",
+    "narration": "",
+    "seconds": 7
+  },
+  {
+    "image": "demo-recommendation.jpg",
+    "caption": "Continue with a recommendation shaped by your supported practice",
+    "narration": "",
+    "seconds": 7
+  },
+  {
+    "image": "saved-work-desktop.jpg",
+    "caption": "Reopen your saved answers, feedback and earlier learning work",
+    "narration": "",
+    "seconds": 7
+  }
+]

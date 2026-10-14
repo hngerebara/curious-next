@@ -38,5 +38,5 @@ export const tutorReferences:TutorReference[]=[
   }
 ];
 export function tutorReferencePack(goal:string):TutorReference[] {
-  const text=goal.toLowerCase();return tutorReferences.filter(r=>r.id.startsWith("fractions")?/fraction|math|arithmetic|numerator|denominator/.test(text):r.id.startsWith("python")?/python|programming|code|coding/.test(text):r.id.startsWith("speaking")?/speaking|presentation|speech|communication/.test(text):r.id.startsWith("phishing")?/phish|scam|cyber|digital safety/.test(text):false);
+  const text=goal.toLowerCase();return tutorReferences.filter(r=>r.id.startsWith("fractions")?/fraction|numerator|denominator|equal shares/.test(text):r.id.startsWith("python")?/python/.test(text):r.id.startsWith("speaking")?/public speaking|public talk|presentation|speech/.test(text):r.id.startsWith("phishing")?/phish|scam message|suspicious message/.test(text):false);
 }

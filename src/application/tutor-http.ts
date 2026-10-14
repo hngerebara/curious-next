@@ -10,7 +10,7 @@ async function body(request:Request) {
   const data:unknown=JSON.parse(text+decoder.decode()); if(!tutorRecord(data))throw Error("INVALID_BODY"); return data;
 }
 export function tutorHttp(auth:Pick<AuthPort,"session">,store:TutorStore,service:ReturnType<typeof tutorService>,origin:string) {
-  const reply=(status:number,data:unknown,error=false)=>Response.json(error?{error:{code:data}}:{data},{status,headers:{"Cache-Control":"no-store","Referrer-Policy":"no-referrer"}});
+  const reply=(status:number,data:unknown,error=false)=>Response.json(error?{error:{code:data},requestId:crypto.randomUUID()}:{data,requestId:crypto.randomUUID()},{status,headers:{"Cache-Control":"no-store","Referrer-Policy":"no-referrer"}});
   return async(request:Request,id?:string,action?:string)=>{
     try {
       const learner=await auth.session(request.headers);if(!learner)return reply(401,"SESSION_REQUIRED",true);
@@ -31,6 +31,7 @@ export function tutorHttp(auth:Pick<AuthPort,"session">,store:TutorStore,service
         return reply(200,publicTutorPath(await service.generate(learner.id,path.goal,path.requestKey,id)));
       }
       if(!Number.isSafeInteger(data.revision) || Number(data.revision)<0)throw Error("INVALID_BODY");
+      if(action === "preferences" && Object.keys(data).sort().join()==="preferences,revision"){const input=tutorGoal({text:"Teaching preference update",clarification:"",preferences:data.preferences});return reply(200,publicTutorPath(await service.preferences(learner.id,id,Number(data.revision),input.preferences)));}
       if(action === "accept" && Object.keys(data).join() === "revision")return reply(200,publicTutorPath(await service.accept(learner.id,id,Number(data.revision))));
       if(action === "placement" && Object.keys(data).every(key=>["revision","answers","selected"].includes(key)))return reply(200,publicTutorPath(await service.place(learner.id,id,Number(data.revision),data.answers,data.selected)));
       return reply(400,"INVALID_BODY",true);
