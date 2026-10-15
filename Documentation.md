@@ -331,3 +331,9 @@ Lesson generation, alternative explanations and contextual help now share explic
 Publication validation passed 176 application tests, 31 Python tests, type checking, production build, governance, static artifacts, calibration fingerprints and a zero-vulnerability dependency audit. Build privacy also passed. Implementing-agent self-review checked owned companion context, idempotency, assistance freezing and late-response exclusion, historical lesson-position compatibility and the durable submission sequence. This is self-review rather than independent approval, and live generation quality remains unverified for the revised writing profile.
 
 Initial CI passed the PR validation job but the push job exceeded the default five-second timeout during a PGlite-backed scene test (5.4 seconds). The two scene integration tests now allow fifteen seconds for database startup and migrations, retaining all assertions. Latest-head CI must pass before merge.
+
+## README refresh, THE-32
+
+CN-CLARITY-001 follow-up / [THE-32](https://linear.app/the-curious-tech-girl/issue/THE-32/update-curiousnext-readme-for-current-demo) aligns the README with the merged Today, My Path and My Progress navigation, contextual companion, interactive/readable lesson views and saved applications. It adds the hosted preview entry and a fictional click-through guide, distinguishes shared demo access from personal magic links, and explains the Codex, Google Stitch MCP and Linear development roles. Documentation only, with no application changes or additional milestone/release acceptance claimed.
+
+Validation passed repository governance, all 31 Python regression tests, 31 static artifacts and 16 recovery states, synthetic calibration checks, and whitespace review. README claims were checked against the merged UI and configuration, with the hosted preview entry observed in the browser. This documentation pass did not rerun live generation, assessment or a complete learner journey.
