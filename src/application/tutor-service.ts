@@ -12,7 +12,7 @@ export function tutorService(store: TutorStore, generator: TutorGenerator, abuse
     const claimed = await store.change(owner,saved.id,path => {
       if (path.generation.until > Date.now() || ["proposed","accepted"].includes(path.state)) return path;
       if (path.generation.count >= 2) throw Error("ATTEMPTS_EXHAUSTED");
-      return {...path,state:"generating",generation:{count:path.generation.count+1,lease,until:Date.now()+45000,code:null}};
+      return {...path,state:"generating",generation:{count:path.generation.count+1,lease,until:Date.now()+75000,code:null}};
     });
     if (claimed.generation.lease !== lease) return claimed;
     let proposal = null, code = null;
