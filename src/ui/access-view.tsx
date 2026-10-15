@@ -2,13 +2,14 @@ import { DemoLoginForm } from "./demo-login-form";
 import { LogoutButton } from "./logout-button";
 import { AccessForm } from "./access-form";
 
-export function AccessView({ state, local = false, demo = false }: { state?: string; local?: boolean; demo?: boolean }) {
+export function AccessView({ state, local = false, demo = false, demoPassword }: { state?: string; local?: boolean; demo?: boolean; demoPassword?: string }) {
   return <main id="main" tabIndex={-1} className="access-shell">
     <p className="eyebrow">A useful next step</p>
     <h1>Your learning goal starts with a useful next step</h1>
     <p>{demo ? "Use the shared demo password to explore learning with fictional examples." : "Sign in with your email to save your learning goal, work and feedback without remembering a password."}</p>
     {state === "invalid" && <p className="notice" role="status">This link has expired, was already used, or could not be confirmed. Request a new sign-in link using the form below.</p>}
     {state === "unavailable" && <p className="notice" role="status">Sign-in is unavailable right now, so please try again later.</p>}
+    {demo && demoPassword && <p className="notice">Use this displayed password to try the shared demo: <strong>DEMO_LOGIN_PASSWORD</strong>: <code style={{ overflowWrap: "anywhere" }}>{demoPassword}</code></p>}
     <section className="workspace-panel" aria-label="Sign up or log in">{demo ? <DemoLoginForm /> : <AccessForm local={local} />}</section>
     {local && <p className="notice">This local preview captures test links without sending email. <a href="/dev/mail">Open the test email inbox</a> and use fictional addresses for this preview.</p>}
     <p className="muted">Explore Practical AI and Cybersecurity Essentials through these English learning previews.</p>

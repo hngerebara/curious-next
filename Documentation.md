@@ -287,3 +287,7 @@ The browser exercised visual selection, slide navigation, transcript display, re
 ## Temporary shared demo entry
 
 [THE-27](https://linear.app/the-curious-tech-girl/issue/THE-27/add-temporary-shared-demo-login) adds an opt-in shared password entry for fictional hosted previews without email delivery. The server keeps normal Better Auth sessions, origin and request size checks, persistent rate limiting and logout. Existing personal accounts remain stored, while email entry and confirmation are disabled during demo mode. Regression checks cover real session creation and revocation, shared account reuse, rejected passwords and limits, origin rejection and disabled email operations. Hosted deployment, personal email delivery and separate release gates remain open.
+
+## Public shared demo entry
+
+The user explicitly authorised displaying the configured DEMO_LOGIN_PASSWORD on the login page for anyone with the link. [THE-27](https://linear.app/the-curious-tech-girl/issue/THE-27/add-temporary-shared-demo-login) now exposes only that demo value when demo mode is enabled, retaining the shared-work and fictional-information notice. Normal email mode omits the value, while existing accounts and session controls remain unchanged. This is intentional public demo access, not personal-account or release acceptance.

@@ -7,7 +7,7 @@ import { runtime } from "./runtime";
 
 export async function AccessPage({ searchParams }: { searchParams: Promise<{ state?: string }> }) {
   const { state } = await searchParams;
-  return <AccessView state={state} demo={process.env.DEMO_LOGIN_ENABLED === "true"} local={process.env.DEMO_LOGIN_ENABLED !== "true" && localEmailMode()} />;
+  return <AccessView state={state} demo={process.env.DEMO_LOGIN_ENABLED === "true"} demoPassword={process.env.DEMO_LOGIN_ENABLED === "true" ? process.env.DEMO_LOGIN_PASSWORD : undefined} local={process.env.DEMO_LOGIN_ENABLED !== "true" && localEmailMode()} />;
 }
 export function HomePage() {
   return <HomeView />;
