@@ -1,0 +1,50 @@
+{
+  "source": "topics-live-v3.json",
+  "configuration": "openai:gpt-6.1-sol:tutor-lesson-v3:1c50c11b165cb306094c32cca87f0a49430ba94287caecb98a0692ca1545b296",
+  "method": "Revalidated preserved fictional provider output after correcting role-independent scene acceptance, without additional provider calls.",
+  "rows": [
+    {
+      "topic": "fractions",
+      "originalState": "validated",
+      "state": "validated",
+      "sceneKinds": [
+        "quantity",
+        "connections",
+        "quantity",
+        "comparison"
+      ],
+      "providerMilliseconds": 25665
+    },
+    {
+      "topic": "speaking",
+      "originalState": "failed",
+      "state": "validated",
+      "sceneKinds": [
+        "connections",
+        "sequence"
+      ],
+      "providerMilliseconds": 29581
+    },
+    {
+      "topic": "python",
+      "originalState": "validated",
+      "state": "validated",
+      "sceneKinds": [
+        "connections",
+        "comparison",
+        "sequence"
+      ],
+      "providerMilliseconds": 27293
+    },
+    {
+      "topic": "phishing",
+      "originalState": "validated",
+      "state": "validated",
+      "sceneKinds": [
+        "comparison",
+        "sequence"
+      ],
+      "providerMilliseconds": 26897
+    }
+  ]
+}
