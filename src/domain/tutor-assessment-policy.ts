@@ -6,7 +6,7 @@ export function tutorComplete(session:TutorSession){
   if(!session.lesson || session.state!=="ready" || session.draft.position<session.lesson.blocks.length+2 || !tutorText(session.draft.application,20,6000) || !tutorText(session.draft.teachBack,20,6000))throw Error("INCOMPLETE_SUBMISSION");
   const activity=session.lesson.activity,answers=session.draft.activity;
   if(answers.length!==activity.correctIndices.length || answers.some(a=>!Number.isInteger(a) || a<0 || a>=activity.options.length) || (activity.kind!=="choice" && new Set(answers).size!==answers.length))throw Error("INCOMPLETE_SUBMISSION");
-  if(session.help.some(h=>h.state==="generating" && h.until>Date.now()))throw Error("HELP_PENDING");
+  if(session.help.some(h=>h.state==="generating" && h.until>Date.now()) || session.companion?.some(t=>t.state==="generating" && t.until>Date.now()))throw Error("HELP_PENDING");
 }
 export function tutorAssessment(value:unknown,submission:TutorSubmission):TutorAssessmentResult {
   if(!tutorRecord(value) || !tutorKeys(value,["criteria","wentWell","needsAttention","nextAction"]) || !Array.isArray(value.criteria) || value.criteria.length!==submission.lesson.criteria.length || !["wentWell","needsAttention","nextAction"].every(key=>tutorText(value[key],8,1200)))throw Error("MODEL_INVALID");

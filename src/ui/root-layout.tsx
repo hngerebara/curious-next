@@ -5,6 +5,9 @@ import "@fontsource/inter/latin-600.css";
 import "./global.css";
 import "./home.css";
 import "./learning.css";
+import "./journey.css";
+import "./showcase.css";
+import "./compact-journey.css";
 import { SiteHeader } from "./site-header";
 import { DisplayPreferences } from "./display-preferences";
 
