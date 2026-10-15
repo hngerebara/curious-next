@@ -1,0 +1,159 @@
+{
+  "configuration": "openai:gpt-6.1-sol:tutor-lesson-v3:5cc595ebb8e9193b04fffce198d31a2deac529d14070a2eb555834d75a45556f",
+  "fictional": true,
+  "rows": [
+    {
+      "topic": "fractions",
+      "state": "failed",
+      "code": "MODEL_INVALID",
+      "milliseconds": 26524,
+      "raw": {
+        "title": "Fractions: Equal Shares of the Same Whole",
+        "purpose": "In about ten minutes, explore equal shares, read fractions, and compare selected amounts while keeping the whole fixed.",
+        "blocks": [
+          {
+            "kind": "explanation",
+            "title": "Start with one whole",
+            "text": "A whole is the complete thing you are sharing. Imagine one sandwich cut into four pieces of equal size. Each piece is one equal share of that sandwich. A fraction describes how many equal shares are selected.",
+            "nodes": [
+              {
+                "label": "One of four shares",
+                "detail": "One selected piece represents one quarter of the sandwich.",
+                "parts": 1,
+                "total": 4
+              },
+              {
+                "label": "All four shares",
+                "detail": "Selecting all four pieces gives the complete sandwich.",
+                "parts": 4,
+                "total": 4
+              }
+            ],
+            "scene": {
+              "version": 1,
+              "kind": "quantity",
+              "prompt": "Keep each sandwich divided into four equal shares. Change the selected shares and notice when a whole sandwich is selected.",
+              "connections": []
+            }
+          },
+          {
+            "kind": "explanation",
+            "title": "Read the two numbers",
+            "text": "In 2/4, the bottom number, called the denominator, counts all four equal shares. The top number, called the numerator, counts the two selected shares. Read 2/4 as two quarters, meaning two of four equal shares.",
+            "nodes": [],
+            "scene": null
+          },
+          {
+            "kind": "example",
+            "title": "Worked example: compare selected quarters",
+            "text": "Two matching sandwiches are each cut into four equal pieces. First, check that both sandwiches have the same size. Next, check that both use four equal shares. Selecting three pieces gives 3/4, while selecting one gives 1/4. Because the pieces have equal size, three selected pieces give more sandwich than one selected piece. So 3/4 is greater than 1/4.",
+            "nodes": [
+              {
+                "label": "Three quarters: 3/4",
+                "detail": "Three of four equal shares are selected from one sandwich.",
+                "parts": 3,
+                "total": 4
+              },
+              {
+                "label": "One quarter: 1/4",
+                "detail": "One of four equal shares is selected from a matching sandwich.",
+                "parts": 1,
+                "total": 4
+              }
+            ],
+            "scene": {
+              "version": 1,
+              "kind": "quantity",
+              "prompt": "Keep both wholes the same size and divided into quarters. Change the selected shares to make the amounts equal, then make the first amount smaller.",
+              "connections": []
+            }
+          },
+          {
+            "kind": "flowchart",
+            "title": "A safe way to compare matching shares",
+            "text": "Use these steps when both fractions have the same denominator. If the wholes differ in size, counting selected pieces alone does not tell you which actual amount is larger.",
+            "nodes": [
+              {
+                "label": "Check the wholes",
+                "detail": "Confirm that both complete items have the same size.",
+                "parts": 0,
+                "total": 0
+              },
+              {
+                "label": "Check the equal shares",
+                "detail": "Confirm that each whole has the same number of equal pieces.",
+                "parts": 0,
+                "total": 0
+              },
+              {
+                "label": "Compare selected counts",
+                "detail": "More selected pieces means a larger amount when those pieces have equal size.",
+                "parts": 0,
+                "total": 0
+              }
+            ],
+            "scene": {
+              "version": 1,
+              "kind": "sequence",
+              "prompt": "Imagine comparing two selected pieces with five selected pieces. Describe why you must check the wholes and share sizes before comparing the counts.",
+              "connections": [
+                {
+                  "source": 0,
+                  "target": 1,
+                  "label": "Once whole sizes match, check how each is divided"
+                },
+                {
+                  "source": 1,
+                  "target": 2,
+                  "label": "Once share sizes match, compare the selected counts"
+                }
+              ]
+            }
+          }
+        ],
+        "activity": {
+          "kind": "choice",
+          "prompt": "Two equal-sized bread rolls are each divided into six equal pieces. Maya selects 2/6 of one roll, and Ben selects 5/6 of the other. Which statement explains who has more bread?",
+          "labels": [],
+          "options": [
+            "Ben has more because five equal-sized pieces give more bread than two.",
+            "Maya has more because selecting fewer pieces makes each piece larger.",
+            "Both have the same amount because their denominators are both six."
+          ],
+          "correctIndices": [
+            0
+          ],
+          "explanation": "Ben has more bread because the wholes and share sizes match. Five selected sixths give more bread than two selected sixths."
+        },
+        "applicationPrompt": "Two matching chocolate bars are each divided into eight equal pieces. You select three pieces from one bar, and a friend selects six from the other. Write both fractions, say who has more chocolate, and explain how you know.",
+        "teachBackPrompt": "In your own words, explain what the top and bottom numbers in 4/6 mean. Then explain why equal-sized wholes matter when comparing selected shares.",
+        "criteria": [
+          {
+            "id": "application-fractions",
+            "field": "application",
+            "description": "Writes 3/8 for the learner's selection and 6/8 for the friend's selection."
+          },
+          {
+            "id": "application-comparison",
+            "field": "application",
+            "description": "Identifies the friend as having more chocolate and explains that six equal-sized pieces exceed three."
+          },
+          {
+            "id": "teachback-numbers",
+            "field": "teachBack",
+            "description": "Explains that four counts selected shares and six counts all equal shares in the whole."
+          },
+          {
+            "id": "teachback-whole",
+            "field": "teachBack",
+            "description": "Explains that different-sized wholes can produce different-sized pieces, so selected counts alone may not compare actual amounts."
+          }
+        ],
+        "referenceIds": [
+          "fractions-openstax"
+        ]
+      }
+    }
+  ],
+  "stopReason": null
+}

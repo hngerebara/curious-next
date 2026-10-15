@@ -1,0 +1,633 @@
+{
+  "configuration": "openai:gpt-6.1-sol:tutor-lesson-v3:1c50c11b165cb306094c32cca87f0a49430ba94287caecb98a0692ca1545b296",
+  "fictional": true,
+  "rows": [
+    {
+      "topic": "fractions",
+      "state": "validated",
+      "milliseconds": 25665,
+      "lesson": {
+        "title": "Fractions: Equal Shares of One Whole",
+        "purpose": "Use about ten minutes to explore equal shares, read fractions, and compare amounts from the same whole.",
+        "blocks": [
+          {
+            "kind": "explanation",
+            "title": "Start with one whole",
+            "text": "A whole is the complete object or amount you choose. Imagine one bread loaf cut into four equal pieces. Equal means that every piece has the same size. A fraction describes how many equal pieces you select from that whole.",
+            "nodes": [
+              {
+                "label": "One complete loaf",
+                "detail": "All four equal pieces together make the whole loaf.",
+                "parts": 4,
+                "total": 4
+              },
+              {
+                "label": "One selected piece",
+                "detail": "One of the four equal pieces is one quarter, written 1/4.",
+                "parts": 1,
+                "total": 4
+              }
+            ],
+            "scene": {
+              "version": 1,
+              "kind": "quantity",
+              "prompt": "Select the second model and change its selected shares from one to four. Notice how four selected quarters fill the whole.",
+              "connections": []
+            }
+          },
+          {
+            "kind": "explanation",
+            "title": "Read the two numbers",
+            "text": "In the fraction 2/4, the bottom number is called the denominator. It counts all the equal pieces in the whole. The top number is called the numerator, and it counts the selected pieces. Read 2/4 as “two quarters,” meaning two of four equal pieces.",
+            "nodes": [
+              {
+                "label": "Bottom number: 4",
+                "detail": "The denominator counts four equal pieces in the whole.",
+                "parts": 0,
+                "total": 0
+              },
+              {
+                "label": "Top number: 2",
+                "detail": "The numerator counts two selected pieces from that whole.",
+                "parts": 0,
+                "total": 0
+              }
+            ],
+            "scene": {
+              "version": 1,
+              "kind": "connections",
+              "prompt": "Select each numbered item and explain whether it counts all pieces or selected pieces.",
+              "connections": [
+                {
+                  "source": 0,
+                  "target": 1,
+                  "label": "The denominator sets the equal pieces that the numerator counts."
+                }
+              ]
+            }
+          },
+          {
+            "kind": "example",
+            "title": "Worked example: compare two portions",
+            "text": "Sam and Lee each have a loaf of exactly the same size. Both loaves are cut into four equal pieces each. Sam selects one piece, so his portion is 1/4. Lee selects three pieces, so her portion is 3/4. Each piece has the same size across both loaves. Three such pieces give more bread than one piece, so 3/4 is greater than 1/4.",
+            "nodes": [
+              {
+                "label": "Sam: 1/4",
+                "detail": "Sam selects one of four equal pieces from his loaf.",
+                "parts": 1,
+                "total": 4
+              },
+              {
+                "label": "Lee: 3/4",
+                "detail": "Lee selects three of four equal pieces from an identical loaf.",
+                "parts": 3,
+                "total": 4
+              }
+            ],
+            "scene": {
+              "version": 1,
+              "kind": "quantity",
+              "prompt": "Select Sam’s model and increase his selected shares to three. Compare his new portion with Lee’s unchanged portion.",
+              "connections": []
+            }
+          },
+          {
+            "kind": "comparison",
+            "title": "Check the whole before comparing",
+            "text": "The whole matters because equal fractions can describe different amounts. Half of a small loaf and half of a large loaf are both written 1/2. However, those portions do not contain the same amount of bread. For our comparisons, always use wholes of the same size.",
+            "nodes": [
+              {
+                "label": "Half a small loaf",
+                "detail": "One of two equal pieces gives half of the smaller whole.",
+                "parts": 0,
+                "total": 0
+              },
+              {
+                "label": "Half a large loaf",
+                "detail": "One of two equal pieces gives half of the larger whole, which contains more bread.",
+                "parts": 0,
+                "total": 0
+              }
+            ],
+            "scene": {
+              "version": 1,
+              "kind": "comparison",
+              "prompt": "Select each portion and identify what stays the same and what changes between these two descriptions.",
+              "connections": [
+                {
+                  "source": 0,
+                  "target": 1,
+                  "label": "Both fractions are 1/2, but the larger whole gives a larger portion."
+                }
+              ]
+            }
+          }
+        ],
+        "activity": {
+          "kind": "choice",
+          "prompt": "Two identical chocolate bars each have six equal pieces. Ava selects two pieces, and Ben selects five pieces. Which statement correctly compares their selected amounts?",
+          "labels": [],
+          "options": [
+            "Ava has more chocolate because 2/6 is greater than 5/6.",
+            "Ben has more chocolate because 5/6 is greater than 2/6.",
+            "They have equal amounts because both bars have six pieces."
+          ],
+          "correctIndices": [
+            1
+          ],
+          "explanation": "The bars are identical, and their pieces have equal sizes. Five selected pieces contain more chocolate than two selected pieces."
+        },
+        "applicationPrompt": "Two identical trays of bread each contain eight equal pieces. You select three pieces from the first tray and six from the second. Write the fraction selected from each tray, identify the larger portion, and explain your comparison using the piece sizes.",
+        "teachBackPrompt": "In your own words, explain what the top and bottom numbers in 2/5 count. Then explain why checking the size of the whole matters when comparing fractions.",
+        "criteria": [
+          {
+            "id": "application-fractions",
+            "field": "application",
+            "description": "Writes 3/8 for the first tray and 6/8 for the second tray."
+          },
+          {
+            "id": "application-comparison",
+            "field": "application",
+            "description": "Identifies 6/8 as larger and explains that six equal-sized pieces give more than three from identical wholes."
+          },
+          {
+            "id": "teachback-counts",
+            "field": "teachBack",
+            "description": "Explains that 2 counts selected pieces and 5 counts all equal pieces in the whole."
+          },
+          {
+            "id": "teachback-whole",
+            "field": "teachBack",
+            "description": "Explains that the same fraction of different-sized wholes can represent different amounts."
+          }
+        ],
+        "referenceIds": [
+          "fractions-openstax"
+        ]
+      }
+    },
+    {
+      "topic": "speaking",
+      "state": "failed",
+      "code": "MODEL_INVALID",
+      "milliseconds": 29581,
+      "raw": {
+        "title": "Build a Clear Community Meeting Introduction",
+        "purpose": "In this ten-minute lesson, prepare a fictional meeting introduction that connects your audience, purpose, and opening.",
+        "blocks": [
+          {
+            "kind": "explanation",
+            "title": "Start with the people and the purpose",
+            "text": "An audience means the people who will hear your introduction. A purpose means what you want those people to understand or do. Choose one small outcome instead of covering the whole topic. The reference speaking-purpose explains that a useful purpose connects your topic, audience, and intended outcome.",
+            "nodes": [
+              {
+                "label": "Audience: local residents",
+                "detail": "These people share a small park near their homes.",
+                "parts": 0,
+                "total": 0
+              },
+              {
+                "label": "Topic: a park cleanup",
+                "detail": "The meeting concerns collecting litter from the shared park.",
+                "parts": 0,
+                "total": 0
+              },
+              {
+                "label": "Purpose: choose one cleanup area",
+                "detail": "Residents should understand the choice before discussing their preferences.",
+                "parts": 0,
+                "total": 0
+              }
+            ],
+            "scene": {
+              "version": 1,
+              "kind": "connections",
+              "prompt": "Select each numbered idea and explain how the purpose fits both the residents and their shared park.",
+              "connections": [
+                {
+                  "source": 0,
+                  "target": 2,
+                  "label": "The listeners' shared needs shape the intended outcome"
+                },
+                {
+                  "source": 1,
+                  "target": 2,
+                  "label": "The broad topic narrows to one meeting decision"
+                }
+              ]
+            }
+          },
+          {
+            "kind": "example",
+            "title": "Worked example: introduce a park cleanup discussion",
+            "text": "This fictional example uses a simple three-part opening plan. An opening means the first words that help listeners enter your topic. First, name something the audience shares; next, state the focused purpose; finally, preview what comes next. A preview is a brief statement of the next steps.\n\n“Good evening, everyone, and thank you for coming to our community meeting. My name is Maya, and I live near Willow Park. Many of us use the park for walks, play, or a quiet break. Tonight, I want to help us choose one area for our first cleanup. We are not planning every park improvement this evening. We will compare the playground and the walking path, then hear your views before making our choice. To begin, think about which area you use most and where you would most like to see a cleaner space.”\n\nThis draft is about one hundred words, but your speaking pace will affect its length. It is a starting point for a roughly one-minute introduction, not a guaranteed timing.",
+            "nodes": [
+              {
+                "label": "Connect with residents",
+                "detail": "Maya names shared uses of the park before asking for a decision.",
+                "parts": 0,
+                "total": 0
+              },
+              {
+                "label": "State one purpose",
+                "detail": "The introduction focuses on choosing one area for the first cleanup.",
+                "parts": 0,
+                "total": 0
+              },
+              {
+                "label": "Preview the discussion",
+                "detail": "Residents will compare two areas and share their views.",
+                "parts": 0,
+                "total": 0
+              }
+            ],
+            "scene": {
+              "version": 1,
+              "kind": "sequence",
+              "prompt": "Select each numbered step and find the words in Maya's introduction that carry out that step.",
+              "connections": [
+                {
+                  "source": 0,
+                  "target": 1,
+                  "label": "Move from shared experience to the meeting's purpose"
+                },
+                {
+                  "source": 1,
+                  "target": 2,
+                  "label": "Follow the purpose with what listeners can expect"
+                }
+              ]
+            }
+          },
+          {
+            "kind": "explanation",
+            "title": "Build your own draft in small steps",
+            "text": "Use about two minutes to review the lesson and example. Then spend about two minutes choosing your audience and purpose. Write a private planning sentence using this simple frame: “For these listeners, my purpose is to help them understand or choose ___.” Next, spend about four minutes drafting your opening and introduction. Use the remaining two minutes to check your focus and explain your choices. For this exercise, aim for roughly ninety to one hundred twenty words, without treating that range as an exact timer.",
+            "nodes": [],
+            "scene": null
+          }
+        ],
+        "activity": {
+          "kind": "choice",
+          "prompt": "A fictional meeting brings together residents who use a shared garden. They need to choose a weekly watering day. Which purpose best fits this audience and meeting?",
+          "labels": [],
+          "options": [
+            "Explain everything that people might want to know about gardens.",
+            "Help garden users choose one weekly watering day that suits their availability.",
+            "Persuade residents to discuss every possible change to the neighborhood."
+          ],
+          "correctIndices": [
+            1
+          ],
+          "explanation": "The focused purpose names the listeners and one useful meeting outcome. The other purposes expand beyond the decision this meeting needs."
+        },
+        "applicationPrompt": "Write a roughly one-minute introduction for a fictional meeting of residents who share a community room. The meeting needs to choose one activity for next month: a book exchange or a board-game evening. First, write a planning sentence naming your audience and one intended outcome. Then write a draft of roughly ninety to one hundred twenty words that connects with these residents, states the purpose, and previews the discussion. Invent ordinary details if helpful, and submit everything as plain text.",
+        "teachBackPrompt": "In your own words, explain how an audience, a purpose, and an opening fit together. Then quote one phrase from your draft and explain why it suits these particular listeners.",
+        "criteria": [
+          {
+            "id": "audience-purpose",
+            "field": "application",
+            "description": "The planning sentence identifies community-room residents and one intended outcome: choosing an activity for next month."
+          },
+          {
+            "id": "focused-introduction",
+            "field": "application",
+            "description": "The draft connects with the residents, clearly states the activity-choice purpose, and previews what the discussion will cover."
+          },
+          {
+            "id": "usable-length",
+            "field": "application",
+            "description": "The introduction contains roughly ninety to one hundred twenty words and stays focused on the single meeting decision."
+          },
+          {
+            "id": "explain-connections",
+            "field": "teachBack",
+            "description": "The explanation describes how the listeners shape the purpose and how the opening introduces that purpose, using one quoted phrase from the draft as evidence."
+          }
+        ],
+        "referenceIds": [
+          "speaking-purpose"
+        ]
+      }
+    },
+    {
+      "topic": "python",
+      "state": "validated",
+      "milliseconds": 27293,
+      "lesson": {
+        "title": "Trace Python names, values and types",
+        "purpose": "Use about ten minutes to read assignments and predict final values without running any code.",
+        "blocks": [
+          {
+            "kind": "explanation",
+            "title": "Names refer to values",
+            "text": "A value is a piece of data, such as 4 or \"pear\". A variable name lets you refer to a value later. An assignment uses = to make a name refer to a value. Read count = 4 as “assign the value 4 to the name count,” rather than as a question about equality.",
+            "nodes": [
+              {
+                "label": "Name: count",
+                "detail": "The name lets later lines refer to its assigned value.",
+                "parts": 0,
+                "total": 0
+              },
+              {
+                "label": "Value: 4",
+                "detail": "This is the value assigned by the line count = 4.",
+                "parts": 0,
+                "total": 0
+              }
+            ],
+            "scene": {
+              "version": 1,
+              "kind": "connections",
+              "prompt": "Select either node and explain which is the name and which is the value.",
+              "connections": [
+                {
+                  "source": 0,
+                  "target": 1,
+                  "label": "refers to after count = 4"
+                }
+              ]
+            }
+          },
+          {
+            "kind": "comparison",
+            "title": "Types describe kinds of values",
+            "text": "A type describes the kind of value you have. An integer, called int in Python, is a whole number such as 4. A string, called str in Python, is text such as \"4\" or \"pear\". Quotes mark text in these examples, so 4 and \"4\" have different types. The type belongs to the value that a name currently refers to.",
+            "nodes": [
+              {
+                "label": "4 has type int",
+                "detail": "Without quotes, this example represents a whole number.",
+                "parts": 0,
+                "total": 0
+              },
+              {
+                "label": "\"4\" has type str",
+                "detail": "With quotes, this example represents text containing one digit.",
+                "parts": 0,
+                "total": 0
+              }
+            ],
+            "scene": {
+              "version": 1,
+              "kind": "comparison",
+              "prompt": "Select each value and describe how the quotes change its meaning.",
+              "connections": [
+                {
+                  "source": 0,
+                  "target": 1,
+                  "label": "same visible digit, but number versus text"
+                }
+              ]
+            }
+          },
+          {
+            "kind": "example",
+            "title": "Worked trace: follow each line in order",
+            "text": "A trace means following the lines and recording their effects.\n\napples = 3\nsaved = apples\napples = 5\n\nFirst, apples refers to the integer value 3. Next, saved receives the current value of apples, which is 3. Finally, apples is assigned 5, while saved still refers to 3. Assigning saved = apples does not make saved track later changes to apples.",
+            "nodes": [
+              {
+                "label": "After apples = 3",
+                "detail": "apples refers to 3; saved has not been assigned here.",
+                "parts": 0,
+                "total": 0
+              },
+              {
+                "label": "After saved = apples",
+                "detail": "apples refers to 3, and saved also refers to 3.",
+                "parts": 0,
+                "total": 0
+              },
+              {
+                "label": "After apples = 5",
+                "detail": "apples refers to 5, while saved still refers to 3.",
+                "parts": 0,
+                "total": 0
+              }
+            ],
+            "scene": {
+              "version": 1,
+              "kind": "sequence",
+              "prompt": "Select the steps in order and explain why saved finishes with 3.",
+              "connections": [
+                {
+                  "source": 0,
+                  "target": 1,
+                  "label": "assign the current value of apples to saved"
+                },
+                {
+                  "source": 1,
+                  "target": 2,
+                  "label": "change apples without assigning saved again"
+                }
+              ]
+            }
+          },
+          {
+            "kind": "explanation",
+            "title": "Use the current value on the right",
+            "text": "For each assignment, work out the right-hand value first. Then assign that value to the name on the left.\n\nscore = 6\nscore = score + 2\n\nThe second line uses the current score, so 6 + 2 gives 8. It then assigns 8 to score, replacing its earlier value. A later assignment can also change the kind of value a name refers to, such as score = \"done\".",
+            "nodes": [],
+            "scene": null
+          }
+        ],
+        "activity": {
+          "kind": "choice",
+          "prompt": "Read these lines without running them:\n\ncoins = 2\nkept = coins\ncoins = coins + 4\n\nWhich option gives the final values and their types?",
+          "labels": [],
+          "options": [
+            "coins is 6 and kept is 2; both values have type int",
+            "coins is 6 and kept is 6; both values have type int",
+            "coins is \"6\" and kept is \"2\"; both values have type str"
+          ],
+          "correctIndices": [
+            0
+          ],
+          "explanation": "The last line assigns 6 to coins after calculating 2 + 4. Nothing assigns kept again, so its value remains the integer 2."
+        },
+        "applicationPrompt": "Trace this fresh example in plain text without running it:\n\nseats = 4\nstart = seats\nseats = seats + 3\nstart = \"four\"\n\nWrite the values of seats and start after each line. After the final line, also give each value's type: int or str.",
+        "teachBackPrompt": "In your own words, explain the difference between a name, a value and a type. Then explain why assigning one name from another does not make it follow later assignments, using a short text-only example of your own.",
+        "criteria": [
+          {
+            "id": "trace-values",
+            "field": "application",
+            "description": "Records seats as 4, 4, 7, 7 across the four lines, and start as not yet assigned, 4, 4, then \"four\"."
+          },
+          {
+            "id": "final-types",
+            "field": "application",
+            "description": "Identifies the final seats value as type int and the final start value as type str."
+          },
+          {
+            "id": "explain-terms",
+            "field": "teachBack",
+            "description": "Distinguishes a name used to refer to data, the value itself, and the type describing the kind of value."
+          },
+          {
+            "id": "explain-reassignment",
+            "field": "teachBack",
+            "description": "Provides a text-only example showing that assigning one name a new value leaves the other name's earlier assigned value unchanged."
+          }
+        ],
+        "referenceIds": [
+          "python-introduction"
+        ]
+      }
+    },
+    {
+      "topic": "phishing",
+      "state": "validated",
+      "milliseconds": 26897,
+      "lesson": {
+        "title": "Check a delivery text without using its link",
+        "purpose": "In this ten-minute beginner lesson, practise spotting warning signs and checking a fictional delivery message through an independent route.",
+        "blocks": [
+          {
+            "kind": "explanation",
+            "title": "A message is a claim, not proof",
+            "text": "Phishing means a deceptive message that tries to make you share information or take an unsafe action. A delivery text might claim that your parcel needs urgent attention. Urgency and requests for personal information are warning signs, but they do not prove by themselves that a message is a scam. Pause before acting, and avoid the message’s links and attachments.",
+            "nodes": [],
+            "scene": null
+          },
+          {
+            "kind": "diagram",
+            "title": "Separate the claim from the safe check",
+            "text": "An independent check means contacting the organisation without using contact details supplied in the suspicious message. For example, use a delivery company’s app you already use, or contact details from your original order confirmation. The important difference is where your checking route comes from.",
+            "nodes": [
+              {
+                "label": "Incoming delivery text",
+                "detail": "This message makes a claim that still needs checking.",
+                "parts": 0,
+                "total": 0
+              },
+              {
+                "label": "Link inside that text",
+                "detail": "Avoid this supplied route when the message seems suspicious.",
+                "parts": 0,
+                "total": 0
+              },
+              {
+                "label": "Independent contact route",
+                "detail": "Check through an app you already use or original order details instead.",
+                "parts": 0,
+                "total": 0
+              }
+            ],
+            "scene": {
+              "version": 1,
+              "kind": "comparison",
+              "prompt": "Select each numbered route and compare where its contact details came from.",
+              "connections": [
+                {
+                  "source": 0,
+                  "target": 1,
+                  "label": "Supplies its own route, which you should avoid"
+                },
+                {
+                  "source": 0,
+                  "target": 2,
+                  "label": "Can be checked through a separately obtained route"
+                }
+              ]
+            }
+          },
+          {
+            "kind": "example",
+            "title": "Worked example: an urgent address request",
+            "text": "Consider this fictional text: “Your parcel is held today; confirm your home address immediately using the link below.” First, notice the pressure created by “immediately” and the request for personal information. Next, leave the link untouched and open the delivery app you already use. Finally, check the delivery there or use independently obtained contact details to ask about it. You have checked the claim without trusting the text’s route.",
+            "nodes": [
+              {
+                "label": "Notice the warning signs",
+                "detail": "The fictional message combines urgent language with an address request.",
+                "parts": 0,
+                "total": 0
+              },
+              {
+                "label": "Leave the link untouched",
+                "detail": "Do not use the suspicious message to reach the company.",
+                "parts": 0,
+                "total": 0
+              },
+              {
+                "label": "Open your existing delivery app",
+                "detail": "Check the claim through a route obtained separately from this text.",
+                "parts": 0,
+                "total": 0
+              }
+            ],
+            "scene": {
+              "version": 1,
+              "kind": "sequence",
+              "prompt": "Select each numbered step and explain how the final step avoids trusting the incoming text.",
+              "connections": [
+                {
+                  "source": 0,
+                  "target": 1,
+                  "label": "Respond to warning signs by avoiding the supplied link"
+                },
+                {
+                  "source": 1,
+                  "target": 2,
+                  "label": "Replace the supplied route with an independent check"
+                }
+              ]
+            }
+          },
+          {
+            "kind": "explanation",
+            "title": "Report before deleting a suspicious message",
+            "text": "Reporting means flagging a message as suspicious through an available reporting feature or official reporting route. Report a suspicious message before deleting it, and avoid its supplied links and attachments throughout. You do not need to reply to the sender to check the delivery independently.",
+            "nodes": [],
+            "scene": null
+          }
+        ],
+        "activity": {
+          "kind": "choice",
+          "prompt": "A fictional text says your delivery will be cancelled unless you send personal details through its link within twenty minutes. Which response follows the safe checking method?",
+          "labels": [],
+          "options": [
+            "Open the supplied link because the deadline is short.",
+            "Reply to the text and ask the sender whether it is genuine.",
+            "Leave the link untouched and check through contact details from your original order confirmation."
+          ],
+          "correctIndices": [
+            2
+          ],
+          "explanation": "The original order confirmation provides a route separate from the suspicious text. The deadline and personal-information request are reasons to pause, not reasons to follow its link."
+        },
+        "applicationPrompt": "Imagine you receive this fictional text: “Delivery failed; send your full address through this link within thirty minutes to keep your parcel.” You have an original order confirmation containing the delivery company’s contact details. In three or four sentences, identify two warning signs, explain what you will avoid, describe exactly how you will check independently, and say what you will do with the suspicious message before deleting it.",
+        "teachBackPrompt": "In your own words, explain what an independent check means and why replying to a suspicious delivery text is not an independent check. Also explain whether urgent wording alone proves that a message is a scam.",
+        "criteria": [
+          {
+            "id": "application-warning-signs",
+            "field": "application",
+            "description": "Identifies both the thirty-minute pressure and the request for a full address as warning signs."
+          },
+          {
+            "id": "application-safe-route",
+            "field": "application",
+            "description": "States that the supplied link will be avoided and describes checking through the delivery contact details in the original order confirmation."
+          },
+          {
+            "id": "application-report",
+            "field": "application",
+            "description": "States that the suspicious message will be reported before it is deleted."
+          },
+          {
+            "id": "teachback-independent",
+            "field": "teachBack",
+            "description": "Explains that an independent check uses a route obtained separately from the suspicious message, whereas replying still uses its sender."
+          },
+          {
+            "id": "teachback-caution",
+            "field": "teachBack",
+            "description": "Explains that urgency is a warning sign requiring caution, rather than proof by itself that the message is a scam."
+          }
+        ],
+        "referenceIds": [
+          "phishing-cisa"
+        ]
+      }
+    }
+  ],
+  "stopReason": null
+}

@@ -1,0 +1,124 @@
+{
+  "configuration": "openai:gpt-6.1-sol:tutor-lesson-v3:8d7209482aec44867d76cf7e9190af8fa3ba0061f023aa542dfa89d110f2a7c1",
+  "fictional": true,
+  "rows": [
+    {
+      "topic": "fractions",
+      "state": "failed",
+      "code": "MODEL_INVALID",
+      "milliseconds": 22111,
+      "raw": {
+        "title": "Fractions: equal shares of the same whole",
+        "purpose": "In about ten minutes, explore equal shares, read fractions, and compare selected amounts while keeping the whole unchanged.",
+        "blocks": [
+          {
+            "kind": "explanation",
+            "title": "Start with one whole",
+            "text": "A whole is the complete thing you are sharing. Imagine one bread loaf cut into four equal pieces. Equal pieces each contain the same amount of bread. A fraction tells us how many equal pieces are selected.",
+            "nodes": [],
+            "scene": null
+          },
+          {
+            "kind": "fractions",
+            "title": "Read the two numbers in a fraction",
+            "text": "In 1/4, the bottom number, called the denominator, counts all four equal shares. The top number, called the numerator, counts the one selected share. Read this fraction as “one quarter” or “one fourth.” Both strips below represent a whole of the same size.",
+            "nodes": [
+              {
+                "label": "1/4: one quarter",
+                "detail": "One of four equal shares is selected from this whole.",
+                "parts": 1,
+                "total": 4
+              },
+              {
+                "label": "2/4: two quarters",
+                "detail": "Two of four equal shares are selected from this whole.",
+                "parts": 2,
+                "total": 4
+              }
+            ],
+            "scene": {
+              "version": 1,
+              "kind": "quantity",
+              "prompt": "Keep each whole divided into four equal shares, and change only the selected count. Notice which number in the fraction changes as you select more shares.",
+              "connections": []
+            }
+          },
+          {
+            "kind": "fractions",
+            "title": "Worked example: compare one quarter and three quarters",
+            "text": "First, check that both strips represent the same-sized whole. Next, check that both wholes have four equal shares. Each share therefore has the same size in both strips. Finally, compare the selected counts: three shares cover more than one. So 3/4 is greater than 1/4 of this same whole.",
+            "nodes": [
+              {
+                "label": "1/4 selected",
+                "detail": "One equal share is selected, leaving three shares unselected.",
+                "parts": 1,
+                "total": 4
+              },
+              {
+                "label": "3/4 selected",
+                "detail": "Three equal shares are selected, leaving one share unselected.",
+                "parts": 3,
+                "total": 4
+              }
+            ],
+            "scene": {
+              "version": 1,
+              "kind": "quantity",
+              "prompt": "Keep four equal shares in each same-sized whole. Change the first selected count from one to three, and notice when the two selected amounts become equal.",
+              "connections": []
+            }
+          },
+          {
+            "kind": "explanation",
+            "title": "Check the whole before comparing",
+            "text": "One half means one of two equal shares selected. Half of a small loaf need not equal half of a large loaf. For our comparisons, always use wholes of the same size. When those wholes also have the same number of equal shares, more selected shares means a greater selected amount.",
+            "nodes": [],
+            "scene": null
+          }
+        ],
+        "activity": {
+          "kind": "choice",
+          "prompt": "Two same-sized bread loaves are each cut into six equal pieces. Ana selects 2/6 of one loaf, and Ben selects 5/6 of the other. Which statement correctly compares their selected amounts?",
+          "labels": [],
+          "options": [
+            "Ben selects more bread because five equal pieces exceed two equal pieces.",
+            "Ana selects more bread because two equal pieces exceed five equal pieces.",
+            "They select equal amounts because both loaves have six equal pieces."
+          ],
+          "correctIndices": [
+            0
+          ],
+          "explanation": "Both wholes have the same size and six equal shares. Each piece therefore has the same size, so selecting five pieces gives more bread than selecting two pieces."
+        },
+        "applicationPrompt": "Two same-sized flatbreads are each cut into eight equal pieces. You select three pieces from the first and six from the second. Write a fraction for each selected amount, identify the greater amount, and explain why the comparison is fair.",
+        "teachBackPrompt": "In your own words, explain what the top and bottom numbers in 2/5 tell us. Then explain why checking the size of the whole matters when comparing selected shares.",
+        "criteria": [
+          {
+            "id": "application-fractions",
+            "field": "application",
+            "description": "Writes 3/8 for the first selected amount and 6/8 for the second."
+          },
+          {
+            "id": "application-comparison",
+            "field": "application",
+            "description": "Identifies 6/8 as greater and explains that the wholes are the same size, each has eight equal pieces, and six selected pieces exceed three."
+          },
+          {
+            "id": "teachback-numbers",
+            "field": "teachBack",
+            "description": "Explains that 2 counts selected shares and 5 counts all equal shares in the whole."
+          },
+          {
+            "id": "teachback-whole",
+            "field": "teachBack",
+            "description": "Explains that the same fraction of different-sized wholes can represent different amounts."
+          }
+        ],
+        "referenceIds": [
+          "fractions-openstax"
+        ]
+      }
+    }
+  ],
+  "stopReason": null
+}
