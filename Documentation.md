@@ -288,6 +288,10 @@ The browser exercised visual selection, slide navigation, transcript display, re
 
 [THE-27](https://linear.app/the-curious-tech-girl/issue/THE-27/add-temporary-shared-demo-login) adds an opt-in shared password entry for fictional hosted previews without email delivery. The server keeps normal Better Auth sessions, origin and request size checks, persistent rate limiting and logout. Existing personal accounts remain stored, while email entry and confirmation are disabled during demo mode. Regression checks cover real session creation and revocation, shared account reuse, rejected passwords and limits, origin rejection and disabled email operations. Hosted deployment, personal email delivery and separate release gates remain open.
 
+## Public shared demo entry
+
+The user explicitly authorised displaying the configured DEMO_LOGIN_PASSWORD on the login page for anyone with the link. [THE-27](https://linear.app/the-curious-tech-girl/issue/THE-27/add-temporary-shared-demo-login) now exposes only that demo value when demo mode is enabled, retaining the shared-work and fictional-information notice. Normal email mode omits the value, while existing accounts and session controls remain unchanged. This is intentional public demo access, not personal-account or release acceptance.
+
 ## Hosted path generation deadline repair
 
 [THE-28](https://linear.app/the-curious-tech-girl/issue/THE-28/allow-bounded-headroom-for-path-generation) follows repeated hosted MODEL_UNAVAILABLE events. One inspected request executed for 25.54 seconds and finished in 26.1 seconds, matching the adapter’s 25-second timeout while the host allowed five minutes. Path generation now permits 60 seconds with a 75-second lease and a new configuration fingerprint. Model, credentials, explicit retry limits and historical evidence remain unchanged. Existing failed paths need Build an updated path after deployment because their original configuration stays pinned. Delayed-response and lease regression tests establish bounded behavior, without claiming live provider acceptance or a completed deployment.
