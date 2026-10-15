@@ -1,0 +1,3 @@
+export type TutorCompanionTurn = {key:string;question:string;answer:string;followUp:string;referenceIds:string[];state:"generating"|"ready"|"failed";configuration:string;count:number;lease:string|null;until:number;code:string|null;createdAt:string};
+export type TutorCompanionContext = {goal:string;objective:string;purpose:string;teaching:unknown;preferences:unknown;references:unknown;recentConversation:{question:string;answer:string}[];learnerWork:{application:string;teachBack:string;notes:string}};
+export interface TutorCompanionModel {configuration:string;answer(context:TutorCompanionContext,question:string):Promise<unknown>}

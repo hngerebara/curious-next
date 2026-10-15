@@ -1,0 +1,18 @@
+import { useState } from "react";
+import type { TutorDraft, TutorPublicSession } from "../contracts/tutor-lesson";
+import { TutorDictation } from "./tutor-dictation";
+import { TutorProse } from "./tutor-prose";
+export function TutorApplication({session,draft,setDraft,busy}:{session:TutorPublicSession;draft:TutorDraft;setDraft:(draft:TutorDraft)=>void;busy:boolean}){
+ const [voiceOpen,setVoiceOpen]=useState(false);
+ const lesson=session.lesson;if(!lesson)return null;
+ const code=/\b(write|create|implement|complete|debug|edit)\s+(?:(?:a|an|the|your|small|simple|short|following|working|python|javascript|typescript|corrected)\s+){0,5}(?:code|function|program|script)\b/i.test(lesson.applicationPrompt);
+ return <section className="showcase-application"><div className="showcase-task-brief"><span className="journey-icon coral" aria-hidden="true">✎</span><div><h2>Try it yourself</h2><TutorProse text={lesson.applicationPrompt}/></div></div>
+ <div className="showcase-editor"><div className="showcase-editor-heading"><label htmlFor="application">{code?"Your code and working":"Your answer and working"}</label><span>{code?"Code is saved as text, without execution":"Use your own approach"}</span></div><textarea id="application" className={code?"showcase-code-editor":""} spellCheck={!code} rows={8} maxLength={6000} disabled={busy} value={draft.application} onChange={event=>setDraft({...draft,application:event.target.value})} placeholder={code?"Write your code here, then describe what you expect it to do…":"Write your answer, show your steps or describe your decision…"}/><p className="showcase-character-count">{draft.application.length}/6000 characters</p></div>
+ <section className="showcase-reflection"><div className="showcase-section-title"><span className="journey-icon lilac" aria-hidden="true">↗</span><div><h2>Explain your thinking</h2></div></div><label htmlFor="teach-back">{lesson.teachBackPrompt}</label><textarea id="teach-back" rows={5} maxLength={6000} disabled={busy} value={draft.teachBack} onChange={event=>setDraft({...draft,teachBack:event.target.value})} placeholder="Explain how you approached the task and why your approach makes sense…"/><p className="showcase-character-count">{draft.teachBack.length}/6000 characters</p><details className="compact-dictation" open={voiceOpen} onToggle={event=>setVoiceOpen(event.currentTarget.open)}><summary>Use my voice</summary>{voiceOpen && <TutorDictation value={draft.teachBack} onInsert={teachBack=>setDraft({...draft,teachBack})} disabled={busy}/>}</details></section>
+</section>;
+}
+export function TutorSubmissionReview({session,draft,busy,incomplete,submit,edit}:{session:TutorPublicSession;draft:TutorDraft;busy:boolean;incomplete:boolean;submit:()=>void;edit:(position:number)=>void}){
+ const lesson=session.lesson;if(!lesson)return null;
+ return <section className="compact-submit-panel"><details><summary>Review answers before submitting</summary><h3>Practice choices</h3><ul>{draft.activity.map((answer,i)=><li key={i}>{lesson.activity.labels[i]?lesson.activity.labels[i]+": ":""}{lesson.activity.options[answer] ?? "Choose a response"}</li>)}</ul><button className="text-button" disabled={busy} onClick={()=>edit(lesson.blocks.length)}>Change practice choices</button><h3>Your answer</h3><TutorProse text={draft.application || "No answer yet"}/><h3>Your explanation</h3><TutorProse text={draft.teachBack || "No explanation yet"}/></details>
+ {incomplete && <p className="compact-submit-hint">Complete the practice choices and write at least twenty characters in each answer.</p>}<button disabled={busy || incomplete} onClick={submit}>{busy && <span className="tutor-spinner" aria-hidden="true"/>}{busy?"Preparing feedback…":"Submit for feedback →"}</button></section>;
+}

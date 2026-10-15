@@ -7,9 +7,10 @@ export function tutorAssessmentService(store:TutorLessonStore,assessor:TutorAsse
     if(s.submission){if(s.submission.key!==key)throw Error("REQUEST_CONFLICT");return s;}
     if(s.revision!==revision)throw Error("REVISION_CONFLICT");tutorComplete(s);
     const help=s.help.map(h=>h.state==="generating"?{...h,state:"failed" as const,lease:null,until:0,code:"MODEL_UNAVAILABLE"}:h);
-    const snapshot={contentHash:s.contentHash!,lesson:s.lesson!,references:s.references,draft:s.draft,help,configuration:assessor.configuration,policy:"generated-practice-v1" as const};
+    const companion=s.companion?.map(t=>t.state==="generating"?{...t,state:"failed" as const,lease:null,until:0,code:"MODEL_UNAVAILABLE"}:t);
+    const snapshot={...(companion?{companion}:{}),contentHash:s.contentHash!,lesson:s.lesson!,references:s.references,draft:s.draft,help,configuration:assessor.configuration,policy:"generated-practice-v1" as const};
     const submission:TutorSubmission={...snapshot,id:crypto.randomUUID(),key,hash:hash(snapshot),submittedAt:new Date().toISOString()};
-    return {...s,help,submission,assessments:[],assessmentJob:{state:"queued",lease:null,until:0,count:0,code:null}};
+    return {...s,...(companion?{companion}:{}),help,submission,assessments:[],assessmentJob:{state:"queued",lease:null,until:0,count:0,code:null}};
   });}
   async function assess(owner:string,id:string){
     const lease=crypto.randomUUID();const claimed=await store.change(owner,id,s=>{

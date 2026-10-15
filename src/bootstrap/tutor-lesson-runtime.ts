@@ -1,3 +1,5 @@
+import { tutorCompanionService } from "../application/tutor-companion-service";
+import { tutorCompanionModel } from "../adapters/tutor-companion-model";
 import { createHash } from "node:crypto";
 import { runtime } from "./runtime";
 import { postgres } from "../adapters/postgres";
@@ -19,5 +21,5 @@ export function tutorLessonRuntime(){
   const model=tutorLessonModel(process.env.AI_PROVIDER==="openai"?process.env.OPENAI_API_KEY:undefined,process.env.OPENAI_MODEL ?? openaiDefaults.model);
   const hash=(value:unknown)=>createHash("sha256").update(tutorCanonical(value)).digest("hex");
   const assessor=tutorAssessor(process.env.AI_PROVIDER==="openai"?process.env.OPENAI_API_KEY:undefined,process.env.OPENAI_MODEL ?? openaiDefaults.model);
-  current=tutorLessonHttp({session:auth.learner},paths,store,tutorLessonService(paths,store,model,abuse,events,tutorReferencePack,hash),process.env.BETTER_AUTH_URL!,tutorAssessmentService(store,assessor,abuse,events,hash));return current;
+  current=tutorLessonHttp({session:auth.learner},paths,store,tutorLessonService(paths,store,model,abuse,events,tutorReferencePack,hash),process.env.BETTER_AUTH_URL!,tutorAssessmentService(store,assessor,abuse,events,hash),tutorCompanionService(paths,store,tutorCompanionModel(process.env.AI_PROVIDER==="openai"?process.env.OPENAI_API_KEY:undefined,process.env.OPENAI_MODEL ?? openaiDefaults.model),abuse,events));return current;
 }

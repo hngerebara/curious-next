@@ -1,3 +1,4 @@
+import type { tutorCompanionService } from "./tutor-companion-service";
 import type { AuthPort } from "../contracts/access";
 import type { TutorStore, TutorPreferences } from "../contracts/tutor";
 import type { TutorApproach, TutorLessonStore } from "../contracts/tutor-lesson";
@@ -11,7 +12,7 @@ export async function tutorBody(request:Request){
   const decoder=new TextDecoder();let size=0,text="";while(true){const {done,value}=await reader.read();if(done)break;size+=value.length;if(size>65536){await reader.cancel();throw Error("BODY_TOO_LARGE");}text+=decoder.decode(value,{stream:true});}
   const data:unknown=JSON.parse(text+decoder.decode());if(!tutorRecord(data))throw Error("INVALID_BODY");return data;
 }
-export function tutorLessonHttp(auth:Pick<AuthPort,"session">,paths:TutorStore,store:TutorLessonStore,service:ReturnType<typeof tutorLessonService>,origin:string,assessment?:ReturnType<typeof tutorAssessmentService>){
+export function tutorLessonHttp(auth:Pick<AuthPort,"session">,paths:TutorStore,store:TutorLessonStore,service:ReturnType<typeof tutorLessonService>,origin:string,assessment?:ReturnType<typeof tutorAssessmentService>,companion?:ReturnType<typeof tutorCompanionService>){
   const reply=(status:number,data:unknown,error=false)=>Response.json(error?{error:{code:data},requestId:crypto.randomUUID()}:{data,requestId:crypto.randomUUID()},{status,headers:{"Cache-Control":"no-store","Referrer-Policy":"no-referrer"}});
   const key=(request:Request)=>{const value=request.headers.get("idempotency-key");if(!value || !/^[a-zA-Z0-9_-]{16,80}$/.test(value))throw Error("INVALID_BODY");return value;};
   return async(request:Request,id?:string,action?:string)=>{
@@ -26,6 +27,7 @@ export function tutorLessonHttp(auth:Pick<AuthPort,"session">,paths:TutorStore,s
       if(!id)throw Error("INVALID_BODY");
       if(action==="retry" && !Object.keys(data).length){const s=await store.read(owner,id);if(!s)throw Error("NOT_FOUND");return reply(200,publicTutorSession(await service.generate(owner,s.pathId,s.module.id,s.requestKey,id)));}
       if(!Number.isSafeInteger(data.revision) || Number(data.revision)<0)throw Error("INVALID_BODY");
+      if(action==="ask" && companion && Object.keys(data).sort().join() === "question,revision" && tutorText(data.question,4,1500))return reply(200,publicTutorSession(await companion.ask(owner,id,Number(data.revision),key(request),data.question)));
       if(action==="freeze" && assessment && Object.keys(data).join()==="revision")return reply(200,publicTutorSession(await assessment.freeze(owner,id,Number(data.revision),key(request))));
       if(action==="submit" && assessment && Object.keys(data).join()==="revision")return reply(200,publicTutorSession(await assessment.submit(owner,id,Number(data.revision),key(request))));
       if(action==="assess" && assessment && Object.keys(data).join()==="revision")return reply(200,publicTutorSession(await assessment.assess(owner,id)));

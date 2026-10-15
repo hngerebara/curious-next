@@ -14,6 +14,6 @@ export async function LearningPage({searchParams}:{searchParams:Promise<{path?:s
   const params=await searchParams;
   const pathId=params.path;
   if(pathId)return <TutorLearning pathId={pathId}/>;
-  if(!params.enrollment && !params.legacy){const connection=postgres(process.env.DATABASE_URL!);let latest;try{latest=(await tutorStore(connection.db).list(learner.id)).find(p=>p.state==="accepted");}finally{await connection.close();}if(latest)redirect("/learning?path="+encodeURIComponent(latest.id));}
+  if(!params.enrollment && !params.legacy){const connection=postgres(process.env.DATABASE_URL!);let latest;try{latest=(await tutorStore(connection.db).list(learner.id)).find(p=>p.state==="accepted");}finally{await connection.close();}if(latest)redirect("/learning?path="+encodeURIComponent(latest.id));redirect("/onboarding");}
   return <LearningView />;
 }
