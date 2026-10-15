@@ -291,3 +291,7 @@ The browser exercised visual selection, slide navigation, transcript display, re
 ## Hosted path generation deadline repair
 
 [THE-28](https://linear.app/the-curious-tech-girl/issue/THE-28/allow-bounded-headroom-for-path-generation) follows repeated hosted MODEL_UNAVAILABLE events. One inspected request executed for 25.54 seconds and finished in 26.1 seconds, matching the adapter’s 25-second timeout while the host allowed five minutes. Path generation now permits 60 seconds with a 75-second lease and a new configuration fingerprint. Model, credentials, explicit retry limits and historical evidence remain unchanged. Existing failed paths need Build an updated path after deployment because their original configuration stays pinned. Delayed-response and lease regression tests establish bounded behavior, without claiming live provider acceptance or a completed deployment.
+
+## Visual learning world
+
+CN-WORLD-001 / [THE-29](https://linear.app/the-curious-tech-girl/issue/THE-29/build-visual-learning-world-and-scene-components) begins the approved map-and-scenes experience across common topics. Visually led paths receive an original native world map with current and supported-practice states, while reusable quantity, connected-system, sequence, scenario and comparison scene components supply graphics and accessible controls. Map exploration does not award evidence. Scene generation, persistent interactions and complete journeys follow in stacked slices, with independent curriculum/provider, performed screen-reader and release gates still open.

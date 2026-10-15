@@ -40,3 +40,7 @@ On 2026-10-14 the user authorised [CN-CLARITY-001](docs/exec-plans/active/clear-
 ## Goal-first tutor expansion
 
 [CN-TUTOR-001](docs/exec-plans/active/goal-first-tutor.md) supersedes fixed-course entry under explicit user authorisation. Three stacked, reviewed slices cover foundation, visual teaching and adaptive feedback. Each receives a verified ticket and open PR. Completion requires fictional multi-topic journeys, persistence/recovery, inspected desktop/mobile rendering and latest-head checks. M4 scoring disagreements, independent curriculum/provider review, actual screen-reader acceptance, M5/M6 and deployment remain separate gates.
+
+## Visual learning world
+
+The user approved CN-WORLD-001: an original CuriousNext world map and interactive scenes across common learning goals. Three reviewed slices cover world/scene components, versioned generation and saved interactions, then adaptive checkpoints and multi-topic acceptance. Preserve adult English teaching depth, legacy work, assessment integrity, private provider configuration and separate release gates. Mistakes receive useful retries without lives, timers or lost progress.
