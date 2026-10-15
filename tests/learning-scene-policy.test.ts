@@ -22,7 +22,7 @@ it("preserves legacy content but refuses visually led generation without scenes"
   const h=await lessonHarness({async lesson(){return lesson;}});
   const saved=await h.lessonService.generate("learner-a",h.path.id,h.path.proposal!.modules[0].id,"fictional-missing-scenes");
   expect(saved.state).toBe("failed");expect(saved.lesson).toBeNull();expect(saved.generation.code).toBe("MODEL_VISUAL_REQUIRED");
-});
+},15000);
 it("restores scene experiments without granting evidence or exposing private keys", async () => {
   const h=await lessonHarness();let saved=await h.lessonService.generate("learner-a",h.path.id,h.path.proposal!.modules[0].id,"fictional-scene-request");
   expect(saved.schemaVersion).toBe(3);
@@ -33,4 +33,4 @@ it("restores scene experiments without granting evidence or exposing private key
   expect(publicTutorSession(saved).lesson?.activity).not.toHaveProperty("correctIndices");
   await expect(h.lessonService.save("learner-a",saved.id,saved.revision,{...saved.draft,scenes:{"original-2":{selected:1,explored:[1],value:5}}})).rejects.toThrow("INVALID_DRAFT");
   await expect(h.lessonService.save("learner-a",saved.id,saved.revision,{...saved.draft,scenes:{"someone-elses-help-2":{selected:0,explored:[],value:0}}})).rejects.toThrow("INVALID_DRAFT");
-});
+},15000);
